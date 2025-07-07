@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ultimate Rust Client.cfg Editor</title>
+    <style>
+        :root {
+            --bg-color: #1a1b1e;
+            --surface-color: #242529;
+            --primary-color: #8A4DFF;
+            --primary-hover: #7b44e6;
+            --text-color: #e4e6eb;
+            --text-muted-color: #b0b3b8;
+            --border-color: #3a3f44;
+            --success-color: #4CAF50;
+            --danger-color: #f44336;
+            --font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            --border-radius: 8px;
+        }
+
+        *, *::before, *::after { box-sizing: border-box; }
+
+        body {
+            font-family: var(--font-family);
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 2rem 1rem;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        #app { max-width: 800px; margin: 0 auto; }
+        
+        #upload-container {
+            padding: 40px;
+            text-align: center;
+            background-color: var(--surface-color);
+            border-radius: var(--border-radius);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+        }
+
+        #drop-zone {
+            border: 2px dashed var(--border-color);
+            border-radius: var(--border-radius);
+            padding: 60px 20px;
+            transition: background-color 0.2s, border-color 0.2s;
+            cursor: pointer;
+        }
+        #drop-zone.drag-over {
+            border-color: var(--primary-color);
+            background-color: rgba(138, 77, 255, 0.1);
+        }
+        #drop-zone p { margin: 0; font-size: 1.2em; color: var(--text-muted-color); }
+        #drop-zone span { color: var(--primary-color); font-weight: 500; }
+        #file-input { display: none; }
+
+        #editor-wrapper { display: none; }
+
+        .sticky-header {
+            position: sticky;
+            top: 0;
+            background-color: rgba(26, 27, 30, 0.85);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            z-index: 100;
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 2rem;
+        }
+        .header-content { max-width: 800px; margin: 0 auto; }
+        .header-title { font-size: 1.5em; font-weight: 600; margin: 0 0 1rem 0; text-align: center;}
+        .header-controls {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+        }
+        #search-input {
+            padding: 10px 15px; background-color: var(--surface-color); border: 1px solid var(--border-color);
+            color: var(--text-color); border-radius: 5px; font-size: 1em; flex: 1 1 200px;
+        }
+        .header-buttons { display: flex; gap: 10px; flex-wrap: wrap; }
+        .btn { padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; font-weight: 500; font-size: 0.9em; transition: background-color 0.2s, transform 0.1s; }
+        .btn:active { transform: scale(0.98); }
+        .btn-primary { background-color: var(--primary-color); color: #fff; }
+        .btn-primary:hover { background-color: var(--primary-hover); }
+        .btn-secondary { background-color: #4e4f50; color: var(--text-color); }
+        .btn-secondary:hover { background-color: #5d5e5f; }
+        .btn.active { background-color: var(--primary-color); color: #fff; }
+
+
+        .category-group {
+            background-color: var(--surface-color); border-radius: var(--border-radius);
+            margin-bottom: 2rem; box-shadow: 0 2px 8px rgba(0,0,0,0.15); overflow: hidden;
+        }
+        .category-header {
+            font-size: 1.5em; font-weight: 600; text-transform: capitalize; padding: 1.25rem 1.5rem;
+            background-color: rgba(0,0,0,0.15); border-bottom: 1px solid var(--border-color); color: var(--text-color);
+        }
+
+        .setting-item {
+            display: flex; justify-content: space-between; align-items: center; padding: 1.25rem 1.5rem;
+            border-bottom: 1px solid var(--border-color); min-height: 74px;
+        }
+        .category-group .setting-item:last-child { border-bottom: none; }
+
+        .setting-details { flex-basis: 55%; padding-right: 1rem; }
+        .setting-key { font-weight: 500; display: flex; align-items: center; gap: 8px; color: var(--text-color); margin-bottom: 4px; }
+        .setting-key-name { word-break: break-all; }
+        .original-value { font-size: 0.8em; color: var(--text-muted-color); font-style: italic; }
+
+        .info-icon { cursor: help; position: relative; display: inline-flex; width: 16px; height: 16px; color: var(--text-muted-color); }
+        .info-icon svg { width: 100%; height: 100%; }
+        .tooltip-text { visibility: hidden; width: 250px; background-color: #2e2f34; color: #fff; text-align: center; border-radius: 6px; padding: 10px; position: absolute; z-index: 1; bottom: 135%; left: 50%; margin-left: -125px; opacity: 0; transition: opacity 0.3s; font-size: 0.9em; font-weight: 400; box-shadow: 0 4px 15px rgba(0,0,0,0.4); pointer-events: none; }
+        .info-icon:hover .tooltip-text { visibility: visible; opacity: 1; }
+
+        .setting-input-container { flex-basis: 40%; display: flex; justify-content: flex-end; align-items: center; gap: 15px; }
+        select.setting-input { width: 100%; max-width: 220px; padding: 8px 10px; background-color: var(--bg-color); border: 1px solid var(--border-color); color: var(--text-color); border-radius: 5px; font-size: 1em; cursor: pointer; }
+        
+        .btn-toggle { padding: 8px 18px; border-radius: 5px; cursor: pointer; font-weight: 500; font-size: 0.9em; border: 1px solid transparent; min-width: 110px; text-align: center; transition: all 0.2s ease; }
+        .btn-toggle.disabled { background-color: #4a4a52; color: var(--text-muted-color); }
+        .btn-toggle.enabled { background-color: var(--success-color); color: white; }
+
+        .slider-container { display: flex; align-items: center; justify-content: flex-end; gap: 15px; width: 100%; max-width: 220px; }
+        .slider-value { font-weight: 500; min-width: 40px; text-align: right; color: var(--primary-color); }
+        input[type="range"] { flex-grow: 1; accent-color: var(--primary-color); cursor: pointer; }
+
+        #no-results-message { display: none; text-align: center; margin-top: 3rem; color: var(--text-muted-color); font-size: 1.1rem; }
+    </style>
+</head>
+<body>
+
+<div id="app">
+    <div id="upload-container">
+        <div id="drop-zone">
+            <p><span>Upload</span> or Drag & Drop your <span>client.cfg</span></p>
+            <p style="font-size: 0.9em; margin-top: 10px;">Your file is processed locally and never leaves your computer.</p>
+        </div>
+        <input type="file" id="file-input" accept=".cfg,.txt">
+    </div>
+
+    <div id="editor-wrapper">
+        <div class="sticky-header">
+            <div class="header-content">
+                <h2 class="header-title">Rust Settings Editor</h2>
+                <div class="header-controls">
+                    <input type="search" id="search-input" placeholder="Search by name or description...">
+                    <div class="header-buttons">
+                        <button id="smart-snap-btn" class="btn btn-secondary">Smart Snap</button>
+                        <button id="reset-btn" class="btn btn-secondary">Reset Changes</button>
+                        <button id="download-btn" class="btn btn-primary">Download client.cfg</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="settings-container"></div>
+        <p id="no-results-message">No settings found matching your search.</p>
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    // --- Element References ---
+    const uploadContainer = document.getElementById('upload-container');
+    const editorWrapper = document.getElementById('editor-wrapper');
+    const dropZone = document.getElementById('drop-zone');
+    const fileInput = document.getElementById('file-input');
+    const searchInput = document.getElementById('search-input');
+    const settingsContainer = document.getElementById('settings-container');
+    const downloadBtn = document.getElementById('download-btn');
+    const resetBtn = document.getElementById('reset-btn');
+    const smartSnapBtn = document.getElementById('smart-snap-btn');
+    const noResultsMessage = document.getElementById('no-results-message');
+
+    let originalSettings = {};
+    let currentSettings = {};
+    let isSmartSnapEnabled = false;
+
+    const settingDescriptions = {
+        'audio.master': 'Main game volume.',
+        'audio.game': 'Volume of in-game sound effects.',
+        'audio.voiceprops': 'Volume of items like the Megaphone.',
+        'audio.instruments': 'Volume of player-played instruments.',
+        'audio.musicvolume': 'Volume of in-game music.',
+        'audio.musicvolumemenu': 'Volume of music in the main menu.',
+        'audio.ui': 'Volume of user interface sounds and clicks.',
+        'client.camdist': 'Default distance for the debug/3rd person camera.',
+        'client.lookatradius': 'How close your crosshair needs to be to an object to interact with it.',
+        'client.camfov': 'Field of View for the 3rd person debug/admin camera.',
+        'culling.entitymaxdist': 'Maximum distance at which entities (players, barrels, etc.) are rendered.',
+        'decor.quality': 'Level of detail for small decorative items like bushes and rocks.',
+        'effects.maxgibs': 'Maximum number of gibs (body parts, debris) that can be on screen.',
+        'fps.limit': 'Limits your maximum frames per second (FPS). Set to 0 for unlimited.',
+        'graphics.fov': 'Main Field of View. Higher values let you see more.',
+        'graphics.drawdistance': 'Maximum distance at which objects are rendered. Lower values improve performance.',
+        'graphics.renderscale': 'Render resolution scale. Lower than 1 improves performance but makes the game blurrier.',
+        'graphics.lodbias': 'Global bias for Level of Detail. Higher values mean lower quality models at a distance.',
+        'grass.quality': 'Level of detail and density of grass.',
+        'input.sensitivity': 'Controls your mouse sensitivity for looking around.',
+        'mesh.quality': 'Level of detail for object models.',
+        'particle.quality': 'Level of detail for particle effects like smoke, fire, and explosions.',
+        'player.noclipspeed': 'Movement speed while in noclip/debug camera mode.',
+        'player.noclipspeedfast': 'Movement speed in noclip when holding SHIFT.',
+        'player.noclipspeedslow': 'Movement speed in noclip when holding CTRL.',
+        'terrain.quality': 'Level of detail for the ground and terrain.',
+        'tree.quality': 'Level of detail for trees.',
+        'gc.buffer': 'Memory allocated to garbage collection in megabytes. Higher values can reduce stuttering.',
+    };
+    
+    // THE ULTIMATE HAND-TUNED CONTROL LIST
+    const settingControlConfig = {
+        'audio.eventaudio': { type: 'slider', min: 0, max: 1, step: 0.1 },
+        'audio.game': { type: 'slider', min: 0, max: 1, step: 0.05 },
+        'audio.instruments': { type: 'slider', min: 0, max: 1, step: 0.05 },
+        'audio.master': { type: 'slider', min: 0, max: 1, step: 0.05 },
+        'audio.musicvolume': { type: 'slider', min: 0, max: 1, step: 0.05 },
+        'audio.musicvolumemenu': { type: 'slider', min: 0, max: 1, step: 0.05 },
+        'audio.ui': { type: 'slider', min: 0, max: 1, step: 0.05 },
+        'audio.voiceprops': { type: 'slider', min: 0, max: 1, step: 0.05 },
+        'audio.voices': { type: 'slider', min: 0, max: 1, step: 0.05 },
+        'client.camdist': { type: 'slider', min: 1, max: 5, step: 0.1 },
+        'client.camfov': { type: 'slider', min: 60, max: 100, step: 1 },
+        'client.lookatradius': { type: 'slider', min: 0, max: 1, step: 0.05 },
+        'console.consolescale': { type: 'slider', min: 8, max: 24, step: 1 },
+        'culling.entitymaxdist': { type: 'slider', min: 1000, max: 10000, step: 250 },
+        'culling.entityminculldist': { type: 'slider', min: 0, max: 100, step: 1 },
+        'culling.entityminshadowculldist': { type: 'slider', min: 0, max: 50, step: 1 },
+        'decor.quality': { type: 'slider', min: 0, max: 100, step: 5 },
+        'effects.maxgibs': { type: 'slider', min: 0, max: 2000, step: 100 },
+        'effects.maxgibdist': { type: 'slider', min: 25, max: 300, step: 5 },
+        'effects.mingiblife': { type: 'slider', min: 1, max: 20, step: 1 },
+        'effects.maxgiblife': { type: 'slider', min: 5, max: 30, step: 1 },
+        'effects.motionblur': { type: 'slider', min: 0, max: 1, step: 0.1 },
+        'effects.lensdirt': { type: 'slider', min: 0, max: 1, step: 0.1 },
+        'effects.vignet': { type: 'slider', min: 0, max: 1, step: 0.1 },
+        'fps.limit': { type: 'slider', min: 0, max: 300, step: 10 },
+        'graphics.fov': { type: 'slider', min: 70, max: 90, step: 1 },
+        'graphics.af': { type: 'slider', min: 1, max: 16, step: 1 },
+        'graphics.drawdistance': { type: 'slider', min: 500, max: 2500, step: 50 },
+        'graphics.shaderlod': { type: 'slider', min: 100, max: 600, step: 10 },
+        'graphics.lodbias': { type: 'slider', min: 0.3, max: 1.0, step: 0.05 },
+        'graphics.renderscale': { type: 'slider', min: 0.5, max: 1.0, step: 0.05 },
+        'graphics.maxqueuedframes': { type: 'slider', min: 1, max: 3, step: 1 },
+        'graphics.parallax': { type: 'slider', min: 0, max: 2, step: 1 },
+        'graphics.shadowlights': { type: 'slider', min: 0, max: 4, step: 1 },
+        'graphics.uiscale': { type: 'slider', min: 0.5, max: 1.5, step: 0.05 },
+        'graphicssettings.anisotropicfiltering': { type: 'slider', min: 1, max: 16, step: 1 },
+        'graphicssettings.globaltexturemipmaplimit': { type: 'slider', min: 0, max: 2, step: 1 },
+        'graphicssettings.particleraycastbudget': { type: 'slider', min: 64, max: 1024, step: 64 },
+        'graphicssettings.pixellightcount': { type: 'slider', min: 2, max: 8, step: 1 },
+        'graphicssettings.shadowdistancepercent': { type: 'slider', min: 0, max: 100, step: 5 },
+        'grass.quality': { type: 'slider', min: 0, max: 100, step: 5 },
+        'grass.distance': { type: 'slider', min: 50, max: 200, step: 10 },
+        'input.sensitivity': { type: 'slider', min: 0.1, max: 2.0, step: 0.05 },
+        'input.ads_sensitivity': { type: 'slider', min: 0.1, max: 2.0, step: 0.05 },
+        'input.vehicle_sensitivity': { type: 'slider', min: 0.1, max: 2.0, step: 0.05 },
+        'input.holdtime': { type: 'slider', min: 0.1, max: 1.0, step: 0.05 },
+        'mesh.quality': { type: 'slider', min: 0, max: 100, step: 5 },
+        'particle.quality': { type: 'slider', min: 0, max: 100, step: 5 },
+        'player.noclipspeed': { type: 'slider', min: 5, max: 50, step: 1 },
+        'player.noclipspeedfast': { type: 'slider', min: 10, max: 100, step: 5 },
+        'player.noclipspeedslow': { type: 'slider', min: 1, max: 10, step: 0.5 },
+        'playercull.maxplayerdist': { type: 'slider', min: 1000, max: 10000, step: 250 },
+        'playercull.minculldist': { type: 'slider', min: 0, max: 100, step: 1 },
+        'reflection.planarcount': { type: 'slider', min: 0, max: 5, step: 1 },
+        'reflection.planarresolution': { type: 'slider', min: 256, max: 2048, step: 256 },
+        'sss.quality': { type: 'slider', min: 0, max: 2, step: 1 },
+        'sss.scale': { type: 'slider', min: 0, max: 1, step: 0.1 },
+        'terrain.quality': { type: 'slider', min: 0, max: 100, step: 5 },
+        'tree.quality': { type: 'slider', min: 0, max: 100, step: 5 },
+        'tree.meshes': { type: 'slider', min: 10, max: 100, step: 1 },
+        'effects.antialiasing': { type: 'select', options: { '0': 'Off', '1': 'FXAA', '2': 'SMAA', '3': 'TSSAA' } },
+        'gc.buffer': { type: 'select', options: { '256': '256 MB', '512': '512 MB', '1024': '1024 MB', '2048': '2048 MB' } },
+        'global.censornudity': { type: 'select', options: { '0': 'Off', '1': 'Pixelated', '2': 'Underwear' } },
+        'graphics.dlss': { type: 'select', options: { '-2': 'Ultra Performance', '-1': 'Performance', '0': 'Off', '1': 'Quality' } },
+        'graphics.screenmode': { type: 'select', options: { '0': 'Exclusive', '1': 'Borderless', '2': 'Windowed' } },
+        'graphics.shadowquality': { type: 'select', options: { '0': 'Off', '1': 'Low', '2': 'High' } },
+        'graphics.shadowcascades': { type: 'select', options: { '0': 'No Cascades', '2': 'Two Cascades', '4': 'Four Cascades' } },
+        'water.quality': { type: 'select', options: { '0': 'Low', '1': 'Medium', '2': 'High' } },
+        'water.reflections': { type: 'select', options: { '0': 'Off', '1': 'Low', '2': 'Medium', '3': 'High' } },
+        'audio.speakers': { type: 'select', options: { '2': 'Stereo', '5': '5.1 Surround', '7': '7.1 Surround' } },
+    };
+
+    const infoIconSVG = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>`;
+
+    function handleFile(file) {
+        if (!file) return;
+        const reader = new FileReader();
+        reader.onload = e => parseAndRender(e.target.result);
+        reader.readAsText(file);
+    }
+
+    function parseAndRender(content) {
+        try {
+            originalSettings = parseConfig(content);
+            currentSettings = JSON.parse(JSON.stringify(originalSettings));
+            renderEditor();
+            uploadContainer.style.display = 'none';
+            editorWrapper.style.display = 'block';
+        } catch (error) {
+            alert('Error: Could not parse file. Please ensure it is a valid client.cfg.');
+            console.error(error);
+        }
+    }
+
+    function parseConfig(text) {
+        const settings = {};
+        const regex = /^([a-zA-Z0-9\._\-]+)\s+"([^"]*)"$/;
+        text.split(/[\r\n]+/).forEach(line => {
+            const match = line.trim().match(regex);
+            if (match) settings[match[1]] = match[2];
+        });
+        return settings;
+    }
+
+    function groupSettings(settings) {
+        const grouped = {};
+        for (const key in settings) {
+            const parts = key.split('.');
+            const groupName = parts.length > 1 ? parts[0] : 'general';
+            if (!grouped[groupName]) grouped[groupName] = {};
+            grouped[groupName][key] = settings[key];
+        }
+        return Object.keys(grouped).sort().reduce((obj, key) => { obj[key] = grouped[key]; return obj; }, {});
+    }
+
+    function renderEditor() {
+        settingsContainer.innerHTML = '';
+        const grouped = groupSettings(currentSettings);
+        for (const categoryName in grouped) {
+            const groupDiv = document.createElement('div');
+            groupDiv.className = 'category-group';
+            groupDiv.dataset.category = categoryName;
+            const header = document.createElement('h2');
+            header.className = 'category-header';
+            header.textContent = categoryName;
+            groupDiv.appendChild(header);
+            const sortedKeys = Object.keys(grouped[categoryName]).sort();
+            for (const key of sortedKeys) {
+                groupDiv.appendChild(createSettingControl(key, currentSettings[key]));
+            }
+            settingsContainer.appendChild(groupDiv);
+        }
+    }
+
+    function createSettingControl(key, value) {
+        const item = document.createElement('div');
+        item.className = 'setting-item';
+        item.dataset.key = key;
+
+        const details = document.createElement('div');
+        details.className = 'setting-details';
+        const keyEl = document.createElement('div');
+        keyEl.className = 'setting-key';
+        keyEl.innerHTML = `<span class="setting-key-name">${key}</span>`;
+        if (settingDescriptions[key]) {
+            keyEl.innerHTML += `<span class="info-icon">${infoIconSVG}<span class="tooltip-text">${settingDescriptions[key]}</span></span>`;
+        }
+        details.appendChild(keyEl);
+        const originalValueEl = document.createElement('div');
+        originalValueEl.className = 'original-value';
+        details.appendChild(originalValueEl);
+        
+        const inputContainer = document.createElement('div');
+        inputContainer.className = 'setting-input-container';
+
+        const customConfig = settingControlConfig[key];
+        
+        const onValueChange = () => {
+            if (originalSettings[key] !== currentSettings[key]) {
+                originalValueEl.textContent = `(was: ${originalSettings[key]})`;
+            } else {
+                originalValueEl.textContent = '';
+            }
+        };
+
+        if (customConfig?.type === 'slider') {
+            createSlider(inputContainer, customConfig, value, key, onValueChange);
+        } else if (customConfig?.type === 'select') {
+            createSelect(inputContainer, customConfig, value, key, onValueChange);
+        } else if (['true', 'false', '1', '0'].includes(String(value).toLowerCase())) {
+            inputContainer.appendChild(createToggleButton(key, value, onValueChange));
+        } else if (!isNaN(parseFloat(value)) && isFinite(value)) {
+            // True fallback for unknown numeric cvars
+            const baseValue = parseFloat(value);
+            const genConfig = { min: 0, max: Math.max(100, Math.ceil(Math.abs(baseValue) * 2)), step: 1 };
+            if (baseValue < 0) genConfig.min = Math.floor(baseValue * 2);
+            createSlider(inputContainer, genConfig, value, key, onValueChange);
+        } else {
+            createTextInput(inputContainer, value, key, onValueChange);
+        }
+        
+        item.append(details, inputContainer);
+        onValueChange();
+        return item;
+    }
+    
+    function createSlider(container, config, value, key, onChangeCallback) {
+        const sliderContainer = document.createElement('div');
+        sliderContainer.className = 'slider-container';
+        const slider = document.createElement('input');
+        slider.type = 'range';
+        slider.dataset.originalStep = config.step;
+        Object.assign(slider, config, { value });
+
+        const valueDisplay = sliderContainer.appendChild(document.createElement('span'));
+        valueDisplay.className = 'slider-value';
+        
+        const updateDisplay = (val) => {
+            valueDisplay.textContent = Number(slider.step) < 1 ? parseFloat(val).toFixed(2) : Math.round(val);
+        };
+        
+        slider.addEventListener('input', e => {
+            updateDisplay(e.target.value);
+            updateSetting(key, e.target.value, onChangeCallback);
+        });
+
+        sliderContainer.append(slider, valueDisplay);
+        container.appendChild(sliderContainer);
+        updateDisplay(value); // Initial display
+    }
+
+    function createSelect(container, config, value, key, onChangeCallback) {
+        const select = document.createElement('select');
+        select.className = 'setting-input';
+        for (const val in config.options) {
+            select.options.add(new Option(config.options[val], val));
+        }
+        select.value = value;
+        select.addEventListener('change', e => updateSetting(key, e.target.value, onChangeCallback));
+        container.appendChild(select);
+    }
+    
+    function createToggleButton(key, value, onChangeCallback) {
+        const lowerCaseValue = String(value).toLowerCase();
+        const isBoolStr = lowerCaseValue === 'true' || lowerCaseValue === 'false';
+        const isEnabled = lowerCaseValue === 'true' || lowerCaseValue === '1';
+        const btn = document.createElement('button');
+        btn.className = `btn-toggle ${isEnabled ? 'enabled' : 'disabled'}`;
+        btn.textContent = isEnabled ? 'Enabled' : 'Disabled';
+        btn.addEventListener('click', () => {
+            const newState = !(currentSettings[key].toLowerCase() === 'true' || currentSettings[key] === '1');
+            const newValue = isBoolStr ? (newState ? 'True' : 'False') : (newState ? '1' : '0');
+            updateSetting(key, newValue, onChangeCallback);
+            btn.textContent = newState ? 'Enabled' : 'Disabled';
+            btn.classList.toggle('enabled', newState);
+            btn.classList.toggle('disabled', !newState);
+        });
+        return btn;
+    }
+
+    function createTextInput(container, value, key, onChangeCallback) {
+        const input = document.createElement('input');
+        input.type = 'text';
+        input.className = 'setting-input';
+        input.value = value;
+        input.addEventListener('input', e => updateSetting(key, e.target.value, onChangeCallback));
+        container.appendChild(input);
+    }
+
+    function updateSetting(key, newValue, callback) {
+        currentSettings[key] = String(newValue);
+        if (callback) callback();
+    }
+    
+    // --- Smart Snap Logic ---
+    function calculateSmartStep(min, max) {
+        const range = max - min;
+        if (range <= 2) return 0.1;
+        if (range <= 20) return 1;
+        if (range <= 100) return 10;
+        if (range <= 500) return 25;
+        if (range <= 2500) return 50;
+        return 100;
+    }
+
+    smartSnapBtn.addEventListener('click', () => {
+        isSmartSnapEnabled = !isSmartSnapEnabled;
+        smartSnapBtn.classList.toggle('active', isSmartSnapEnabled);
+
+        document.querySelectorAll('input[type="range"]').forEach(slider => {
+            const valueDisplay = slider.nextElementSibling;
+            const key = slider.closest('.setting-item').dataset.key;
+            
+            if (isSmartSnapEnabled) {
+                const smartStep = calculateSmartStep(parseFloat(slider.min), parseFloat(slider.max));
+                slider.step = smartStep;
+                
+                const snappedValue = Math.round(slider.value / smartStep) * smartStep;
+                slider.value = snappedValue;
+                updateSetting(key, String(snappedValue), () => {
+                    const item = slider.closest('.setting-item');
+                    item.querySelector('.original-value').textContent = (originalSettings[key] !== currentSettings[key]) ? `(was: ${originalSettings[key]})` : '';
+                });
+
+            } else {
+                slider.step = slider.dataset.originalStep;
+            }
+            
+            valueDisplay.textContent = Number(slider.step) < 1 ? parseFloat(slider.value).toFixed(2) : Math.round(slider.value);
+        });
+    });
+
+    // --- Other Event Listeners ---
+    dropZone.addEventListener('click', () => fileInput.click());
+    dropZone.addEventListener('dragover', e => { e.preventDefault(); dropZone.classList.add('drag-over'); });
+    dropZone.addEventListener('dragleave', () => dropZone.classList.remove('drag-over'));
+    dropZone.addEventListener('drop', e => { e.preventDefault(); dropZone.classList.remove('drag-over'); handleFile(e.dataTransfer.files[0]); });
+    fileInput.addEventListener('change', e => handleFile(e.target.files[0]));
+
+    resetBtn.addEventListener('click', () => {
+        if (confirm('Are you sure you want to discard all changes?')) {
+            searchInput.value = '';
+            parseAndRender(Object.keys(originalSettings).sort().map(k => `${k} "${originalSettings[k]}"`).join('\n'));
+        }
+    });
+
+    searchInput.addEventListener('input', e => {
+        const term = e.target.value.toLowerCase();
+        let visibleCount = 0;
+        document.querySelectorAll('.category-group').forEach(group => {
+            let hasVisibleItem = false;
+            group.querySelectorAll('.setting-item').forEach(item => {
+                const key = item.dataset.key;
+                const keyLower = key.toLowerCase();
+                const descLower = settingDescriptions[key]?.toLowerCase() || '';
+                if (keyLower.includes(term) || descLower.includes(term)) {
+                    item.style.display = 'flex';
+                    hasVisibleItem = true;
+                    visibleCount++;
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+            group.style.display = hasVisibleItem ? 'block' : 'none';
+        });
+        noResultsMessage.style.display = (visibleCount === 0 && term) ? 'block' : 'none';
+    });
+
+    downloadBtn.addEventListener('click', () => {
+        const fileContent = Object.keys(currentSettings)
+            .sort()
+            .map(key => `${key} "${currentSettings[key]}"`)
+            .join('\n');
+        const blob = new Blob([fileContent], { type: 'text/plain;charset=utf-8' });
+        const a = document.createElement('a');
+        a.href = URL.createObjectURL(blob);
+        a.download = 'client.cfg';
+        a.click();
+        URL.revokeObjectURL(a.href);
+    });
+});
+</script>
+
+</body>
+</html>
