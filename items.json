@@ -1,4 +1,3 @@
---- START OF FILE items.json ---
 {
     "comment": "Ultimate Rust Item List for Keybind Editor - v2.0 - Generated from user data",
     "1840570710": { "name": "Above Ground Pool" },
@@ -665,4 +664,3 @@
     680234026: { "name": "Yellow Perch" },
     -1231934338: { "name": "roadsign.jacket" }
 }
---- END OF FILE items.json ---
