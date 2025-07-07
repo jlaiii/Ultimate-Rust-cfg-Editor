@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rust Favorite Servers Editor</title>
+    <style>
+        :root {
+            --bg-color: #2c3e50;
+            --primary-color: #34495e;
+            --secondary-color: #22303f;
+            --text-color: #ecf0f1;
+            --accent-color: #e67e22;
+            --accent-hover: #d35400;
+            --success-color: #2ecc71;
+            --danger-color: #e74c3c;
+            --border-radius: 5px;
+            --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            font-family: var(--font-family);
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+        }
+        .container {
+            width: 100%;
+            max-width: 800px;
+            background-color: var(--primary-color);
+            padding: 25px;
+            border-radius: var(--border-radius);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+        h1 {
+            color: var(--accent-color);
+            text-align: center;
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 10px;
+            margin-top: 0;
+            margin-bottom: 25px;
+        }
+        
+        /* Upload Section */
+        #upload-section { text-align: center; }
+        #drop-zone {
+            border: 3px dashed var(--secondary-color);
+            padding: 40px;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            transition: background-color 0.3s, border-color 0.3s;
+        }
+        #drop-zone.dragover {
+            background-color: var(--secondary-color);
+            border-color: var(--accent-color);
+        }
+        #drop-zone p { margin: 0; font-size: 1.2em; }
+        #file-input { display: none; }
+        
+        /* Instructions */
+        .instructions {
+            background-color: var(--secondary-color);
+            padding: 15px;
+            margin-top: 20px;
+            border-radius: var(--border-radius);
+            font-size: 0.9em;
+            line-height: 1.6;
+        }
+        .instructions code {
+            background-color: var(--bg-color);
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+        }
+        
+        /* Editor Section */
+        #editor-section { display: none; }
+        #add-server-form {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        #new-server-input { flex-grow: 1; }
+        
+        /* Controls & List */
+        .top-controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        .search-control { flex-grow: 1; min-width: 200px; }
+        .sort-controls { display: flex; gap: 5px; flex-wrap: wrap; }
+        
+        #server-list { list-style: none; padding: 0; margin: 0; }
+        .server-item {
+            background-color: var(--secondary-color);
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: var(--border-radius);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 15px;
+            transition: background-color 0.2s;
+        }
+        .server-item:hover { background-color: #40586e; }
+        .server-info { flex-grow: 1; word-break: break-all; }
+        .server-value { font-weight: bold; font-size: 1.1em; }
+        .server-timestamp { font-size: 0.8em; color: #bdc3c7; margin-top: 5px; }
+        .server-actions button { margin-left: 5px; }
+
+        .bottom-actions { text-align: right; margin-top: 20px;}
+
+        /* General UI Elements */
+        input[type="text"] {
+            padding: 10px;
+            border-radius: var(--border-radius);
+            border: 2px solid var(--secondary-color);
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-size: 1em;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        input[type="text"]:focus { outline: none; border-color: var(--accent-color); }
+        button {
+            padding: 10px 15px;
+            border: none;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 0.9em;
+            transition: background-color 0.2s, transform 0.1s;
+        }
+        button:active { transform: scale(0.98); }
+        .btn-primary { background-color: var(--accent-color); color: white; }
+        .btn-primary:hover { background-color: var(--accent-hover); }
+        .btn-secondary { background-color: #7f8c8d; color: white; }
+        .btn-secondary:hover { background-color: #95a5a6; }
+        .btn-edit { background-color: var(--success-color); color: white; }
+        .btn-edit:hover { background-color: #27ae60; }
+        .btn-delete { background-color: var(--danger-color); color: white; }
+        .btn-delete:hover { background-color: #c0392b; }
+        
+        .alert { padding: 15px; margin-bottom: 20px; border-radius: var(--border-radius); text-align: center; }
+        .alert-error { background-color: var(--danger-color); color: white; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Rust Favorite Servers Editor</h1>
+        <div id="alert-container"></div>
+
+        <!-- UPLOAD SECTION -->
+        <div id="upload-section">
+            <div id="drop-zone">
+                <p>Drag & Drop your <code>favorites.cfg</code> file here</p>
+                <p>or</p>
+                <button type="button" class="btn-primary" onclick="document.getElementById('file-input').click();">Click to Select File</button>
+            </div>
+            <input type="file" id="file-input" accept=".cfg,.txt,.json">
+            
+            <div class="instructions">
+                <h3>How to use this tool:</h3>
+                <ol>
+                    <li>Find your Rust config folder. It's usually here:<br><code><Steam Install>/steamapps/common/Rust/cfg/</code></li>
+                    <li>Drag the <code>favorites.cfg</code> file from that folder into the box above, or click the button to select it.</li>
+                    <li>Edit, add, or delete your servers using the tools below.</li>
+                    <li>Click the "Download favorites.cfg" button to save your changes.</li>
+                    <li>Replace the old <code>favorites.cfg</code> file in the Rust folder with your new downloaded one.</li>
+                </ol>
+            </div>
+        </div>
+
+        <!-- EDITOR SECTION -->
+        <div id="editor-section">
+            <form id="add-server-form" onsubmit="event.preventDefault(); addServer();">
+                <input type="text" id="new-server-input" placeholder="Add new server (e.g., main.rustoria.us)" required>
+                <button type="submit" class="btn-primary">Add Server</button>
+            </form>
+
+            <div class="top-controls">
+                <div class="search-control">
+                    <input type="text" id="search-input" placeholder="Search servers...">
+                </div>
+                <div class="sort-controls">
+                    <span>Sort by:</span>
+                    <button class="btn-secondary" id="sort-name-asc">Name A-Z</button>
+                    <button class="btn-secondary" id="sort-name-desc">Name Z-A</button>
+                    <button class="btn-secondary" id="sort-date-new">Newest</button>
+                    <button class="btn-secondary" id="sort-date-old">Oldest</button>
+                </div>
+            </div>
+
+            <ul id="server-list">
+                <!-- Server items will be generated here by JavaScript -->
+            </ul>
+
+            <div class="bottom-actions">
+                 <button id="copy-btn" class="btn-secondary">Copy JSON</button>
+                <button id="download-btn" class="btn-primary">Download favorites.cfg</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Global state
+        let favoritesData = null;
+
+        // DOM Elements
+        const dropZone = document.getElementById('drop-zone');
+        const fileInput = document.getElementById('file-input');
+        const uploadSection = document.getElementById('upload-section');
+        const editorSection = document.getElementById('editor-section');
+        const serverList = document.getElementById('server-list');
+        const newServerInput = document.getElementById('new-server-input');
+        const searchInput = document.getElementById('search-input');
+        const alertContainer = document.getElementById('alert-container');
+
+        // --- File Handling ---
+        dropZone.addEventListener('click', () => fileInput.click());
+        dropZone.addEventListener('dragover', (e) => { e.preventDefault(); dropZone.classList.add('dragover'); });
+        dropZone.addEventListener('dragleave', () => { dropZone.classList.remove('dragover'); });
+        dropZone.addEventListener('drop', (e) => {
+            e.preventDefault();
+            dropZone.classList.remove('dragover');
+            const files = e.dataTransfer.files;
+            if (files.length) handleFile(files[0]);
+        });
+        fileInput.addEventListener('change', (e) => { if (e.target.files.length) handleFile(e.target.files[0]); });
+
+        function handleFile(file) {
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                try {
+                    const data = JSON.parse(e.target.result);
+                    if (data && Array.isArray(data.Servers)) {
+                        favoritesData = data;
+                        uploadSection.style.display = 'none';
+                        editorSection.style.display = 'block';
+                        renderServerList();
+                    } else {
+                        showAlert('Error: Invalid file format. The file must contain a "Servers" array.', 'error');
+                    }
+                } catch (error) {
+                    showAlert(`Error parsing file: ${error.message}. Please ensure it's a valid JSON file.`, 'error');
+                }
+            };
+            reader.readAsText(file);
+        }
+        
+        // --- UI Rendering & Alerts ---
+        function renderServerList() {
+            serverList.innerHTML = '';
+            if (!favoritesData) return;
+
+            const searchTerm = searchInput.value.toLowerCase().trim();
+            let itemsRendered = 0;
+
+            favoritesData.Servers.forEach((server, index) => {
+                if (server.Value.toLowerCase().includes(searchTerm)) {
+                    const li = document.createElement('li');
+                    li.className = 'server-item';
+                    li.dataset.index = index;
+
+                    const date = new Date(server.Timestamp * 1000).toLocaleString();
+
+                    li.innerHTML = `
+                        <div class="server-info">
+                            <div class="server-value">${server.Value}</div>
+                            <div class="server-timestamp">Added: ${date}</div>
+                        </div>
+                        <div class="server-actions">
+                            <button class="btn-edit" onclick="toggleEdit(${index})">Edit</button>
+                            <button class="btn-delete" onclick="deleteServer(${index})">Delete</button>
+                        </div>
+                    `;
+                    serverList.appendChild(li);
+                    itemsRendered++;
+                }
+            });
+
+            if (itemsRendered === 0) {
+                 if (searchTerm) {
+                    serverList.innerHTML = `<li class="server-item">No servers found matching "${searchInput.value}"</li>`;
+                } else if (favoritesData.Servers.length === 0) {
+                    serverList.innerHTML = '<li class="server-item">No favorite servers found. Add one above!</li>';
+                }
+            }
+        }
+
+        function showAlert(message, type = 'error') {
+            alertContainer.innerHTML = `<div class="alert alert-${type}">${message}</div>`;
+            setTimeout(() => { alertContainer.innerHTML = ''; }, 5000);
+        }
+
+        // --- CRUD Operations ---
+        function addServer() {
+            const newServerValue = newServerInput.value.trim();
+            if (newServerValue) {
+                const newServer = {
+                    Value: newServerValue,
+                    Timestamp: Math.floor(Date.now() / 1000)
+                };
+                favoritesData.Servers.push(newServer);
+                newServerInput.value = '';
+                searchInput.value = ''; 
+                renderServerList();
+            }
+        }
+
+        function deleteServer(index) {
+            if (confirm(`Are you sure you want to delete "${favoritesData.Servers[index].Value}"?`)) {
+                favoritesData.Servers.splice(index, 1);
+                renderServerList();
+            }
+        }
+
+        function toggleEdit(index) {
+            const item = serverList.querySelector(`[data-index='${index}']`);
+            const serverInfo = item.querySelector('.server-info');
+            const serverActions = item.querySelector('.server-actions');
+            const currentValue = favoritesData.Servers[index].Value;
+
+            serverInfo.innerHTML = `<input type="text" class="edit-input" value="${currentValue}" style="width: 100%;" />`;
+            serverActions.innerHTML = `
+                <button class="btn-edit" onclick="saveEdit(${index})">Save</button>
+                <button class="btn-secondary" onclick="renderServerList()">Cancel</button>
+            `;
+            
+            const editInput = item.querySelector('.edit-input');
+            editInput.focus();
+            editInput.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter') saveEdit(index);
+                if (e.key === 'Escape') renderServerList();
+            });
+        }
+
+        function saveEdit(index) {
+            const item = serverList.querySelector(`[data-index='${index}']`);
+            const newValue = item.querySelector('.edit-input').value.trim();
+            if (newValue) {
+                favoritesData.Servers[index].Value = newValue;
+            }
+            renderServerList();
+        }
+
+        // --- Event Listeners for Actions ---
+        searchInput.addEventListener('input', renderServerList);
+
+        document.getElementById('download-btn').addEventListener('click', () => {
+            if (!favoritesData) return;
+            const content = JSON.stringify(favoritesData, null, 2);
+            const blob = new Blob([content], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'favorites.cfg';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        });
+        
+        document.getElementById('copy-btn').addEventListener('click', () => {
+            if (!favoritesData) return;
+            const content = JSON.stringify(favoritesData, null, 2);
+            navigator.clipboard.writeText(content).then(() => {
+                alert('JSON content copied to clipboard!');
+            }).catch(err => {
+                showAlert('Failed to copy to clipboard.', 'error');
+            });
+        });
+
+        // --- Sorting ---
+        document.getElementById('sort-name-asc').addEventListener('click', () => {
+            favoritesData.Servers.sort((a, b) => a.Value.localeCompare(b.Value));
+            renderServerList();
+        });
+        document.getElementById('sort-name-desc').addEventListener('click', () => {
+            favoritesData.Servers.sort((a, b) => b.Value.localeCompare(a.Value));
+            renderServerList();
+        });
+        document.getElementById('sort-date-new').addEventListener('click', () => {
+            favoritesData.Servers.sort((a, b) => b.Timestamp - a.Timestamp);
+            renderServerList();
+        });
+        document.getElementById('sort-date-old').addEventListener('click', () => {
+            favoritesData.Servers.sort((a, b) => a.Timestamp - b.Timestamp);
+            renderServerList();
+        });
+    </script>
+</body>
+</html>
