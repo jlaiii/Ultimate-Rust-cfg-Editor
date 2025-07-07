@@ -3,557 +3,597 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ultimate Rust Client.cfg Editor</title>
+    <title>Rust Settings Editor</title>
+    <!-- Fonts and Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Teko:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
         :root {
-            --bg-color: #1a1b1e;
-            --surface-color: #242529;
-            --primary-color: #8A4DFF;
-            --primary-hover: #7b44e6;
-            --text-color: #e4e6eb;
-            --text-muted-color: #b0b3b8;
-            --border-color: #3a3f44;
-            --success-color: #4CAF50;
-            --danger-color: #f44336;
-            --font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            --border-radius: 8px;
+            /* Rust-inspired Color Palette */
+            --bg-color: #1a1a1a;
+            --primary-color: rgba(40, 40, 40, 0.85);
+            --secondary-color: #202020;
+            --text-color: #e0e0e0;
+            --accent-color: #cd412b; /* Rusty Orange */
+            --accent-hover: #d7523f;
+            --success-color: #5a8a4f; /* Muted Green */
+            --danger-color: #b73622;
+            --border-color: rgba(255, 255, 255, 0.1);
+            --border-radius: 3px;
+            --font-primary: 'Teko', sans-serif;
+            --font-secondary: 'Roboto', sans-serif;
         }
-
-        *, *::before, *::after { box-sizing: border-box; }
 
         body {
-            font-family: var(--font-family);
+            font-family: var(--font-secondary);
             background-color: var(--bg-color);
+            /* Gritty background texture */
+            background-image: url('https://www.transparenttextures.com/patterns/brushed-metal.png');
+            background-attachment: fixed;
             color: var(--text-color);
             margin: 0;
-            padding: 2rem 1rem;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
-
-        #app { max-width: 800px; margin: 0 auto; }
-        
-        #upload-container {
-            padding: 40px;
-            text-align: center;
-            background-color: var(--surface-color);
-            border-radius: var(--border-radius);
-            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
-        }
-
-        #drop-zone {
-            border: 2px dashed var(--border-color);
-            border-radius: var(--border-radius);
-            padding: 60px 20px;
-            transition: background-color 0.2s, border-color 0.2s;
-            cursor: pointer;
-        }
-        #drop-zone.drag-over {
-            border-color: var(--primary-color);
-            background-color: rgba(138, 77, 255, 0.1);
-        }
-        #drop-zone p { margin: 0; font-size: 1.2em; color: var(--text-muted-color); }
-        #drop-zone span { color: var(--primary-color); font-weight: 500; }
-        #file-input { display: none; }
-
-        #editor-wrapper { display: none; }
-
-        .sticky-header {
-            position: sticky;
-            top: 0;
-            background-color: rgba(26, 27, 30, 0.85);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            z-index: 100;
-            padding: 1rem 0;
-            border-bottom: 1px solid var(--border-color);
-            margin-bottom: 2rem;
-        }
-        .header-content { max-width: 800px; margin: 0 auto; }
-        .header-title { font-size: 1.5em; font-weight: 600; margin: 0 0 1rem 0; text-align: center;}
-        .header-controls {
+            padding: 20px;
             display: flex;
-            flex-wrap: wrap;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 900px; /* Slightly wider for key-value pairs */
+            background-color: var(--primary-color);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            border: 1px solid var(--border-color);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+        }
+
+        h1 {
+            font-family: var(--font-primary);
+            color: var(--text-color);
+            text-align: center;
+            text-transform: uppercase;
+            font-size: 2.8em;
+            letter-spacing: 3px;
+            border-bottom: 1px solid var(--accent-color);
+            padding-bottom: 15px;
+            margin-top: 0;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+        }
+        h1 .fa-gear {
+            color: var(--accent-color);
+            margin-right: 15px;
+            animation: spin 10s linear infinite;
+        }
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        /* --- Drag & Drop Overlay --- */
+        #drag-overlay {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 9999;
+            display: none; /* Hidden by default */
+            justify-content: center;
+            align-items: center;
+            pointer-events: none; /* Allows clicks to pass through */
+        }
+        #drag-overlay.visible { display: flex; }
+        #drag-overlay-content {
+            border: 3px dashed var(--accent-color);
+            border-radius: 10px;
+            padding: 40px 80px;
+            text-align: center;
+            color: white;
+            font-family: var(--font-primary);
+            font-size: 2.5em;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+        
+        /* Upload Section */
+        #upload-section { text-align: center; }
+        #drop-zone {
+            border: 2px solid var(--border-color);
+            background-color: rgba(0,0,0,0.2);
+            padding: 40px;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            transition: background-color 0.3s, border-color 0.3s;
+        }
+        #drop-zone.dragover {
+            background-color: rgba(0,0,0,0.4);
+            border-color: var(--accent-color);
+            box-shadow: inset 0 0 15px rgba(0,0,0,0.5);
+        }
+        #drop-zone p { margin: 10px 0; font-size: 1.2em; opacity: 0.8;}
+        #file-input { display: none; }
+        
+        /* Instructions */
+        .instructions {
+            background-color: var(--secondary-color);
+            padding: 20px;
+            margin-top: 25px;
+            border-radius: var(--border-radius);
+            border-left: 4px solid var(--accent-color);
+            font-size: 0.9em;
+            line-height: 1.7;
+            text-align: left;
+        }
+        .instructions h3 {
+            font-family: var(--font-primary);
+            font-size: 1.5em;
+            letter-spacing: 1px;
+            margin-top: 0;
+            text-transform: uppercase;
+        }
+        .instructions code {
+            background-color: var(--bg-color);
+            padding: 3px 6px;
+            border-radius: 3px;
+            font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+            color: var(--accent-color);
+        }
+        
+        /* Editor Section */
+        #editor-section { display: none; }
+        #add-setting-form {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 25px;
+            flex-wrap: wrap; /* Allow wrapping on smaller screens */
+        }
+        #add-setting-form input {
+            flex: 1 1 48%; /* Each input takes about half width */
+            min-width: 150px; /* Minimum width for inputs */
+        }
+        #add-setting-form button {
+            flex-grow: 1; /* Button grows to fill space */
+            flex-basis: 100%; /* Take full width on wrap */
+        }
+        @media (min-width: 600px) {
+            #add-setting-form input { flex: 1; } /* On wider screens, inputs share space */
+            #add-setting-form button { flex-basis: auto; width: auto; } /* Button size depends on content */
+        }
+
+
+        /* Controls & List */
+        .top-controls {
+            display: flex;
             justify-content: space-between;
             align-items: center;
-            gap: 1rem;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            gap: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid var(--border-color);
         }
-        #search-input {
-            padding: 10px 15px; background-color: var(--surface-color); border: 1px solid var(--border-color);
-            color: var(--text-color); border-radius: 5px; font-size: 1em; flex: 1 1 200px;
-        }
-        .header-buttons { display: flex; gap: 10px; flex-wrap: wrap; }
-        .btn { padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; font-weight: 500; font-size: 0.9em; transition: background-color 0.2s, transform 0.1s; }
-        .btn:active { transform: scale(0.98); }
-        .btn-primary { background-color: var(--primary-color); color: #fff; }
-        .btn-primary:hover { background-color: var(--primary-hover); }
-        .btn-secondary { background-color: #4e4f50; color: var(--text-color); }
-        .btn-secondary:hover { background-color: #5d5e5f; }
-        .btn.active { background-color: var(--primary-color); color: #fff; }
-
-
-        .category-group {
-            background-color: var(--surface-color); border-radius: var(--border-radius);
-            margin-bottom: 2rem; box-shadow: 0 2px 8px rgba(0,0,0,0.15); overflow: hidden;
-        }
-        .category-header {
-            font-size: 1.5em; font-weight: 600; text-transform: capitalize; padding: 1.25rem 1.5rem;
-            background-color: rgba(0,0,0,0.15); border-bottom: 1px solid var(--border-color); color: var(--text-color);
-        }
-
-        .setting-item {
-            display: flex; justify-content: space-between; align-items: center; padding: 1.25rem 1.5rem;
-            border-bottom: 1px solid var(--border-color); min-height: 74px;
-        }
-        .category-group .setting-item:last-child { border-bottom: none; }
-
-        .setting-details { flex-basis: 55%; padding-right: 1rem; }
-        .setting-key { font-weight: 500; display: flex; align-items: center; gap: 8px; color: var(--text-color); margin-bottom: 4px; }
-        .setting-key-name { word-break: break-all; }
-        .original-value { font-size: 0.8em; color: var(--text-muted-color); font-style: italic; }
-
-        .info-icon { cursor: help; position: relative; display: inline-flex; width: 16px; height: 16px; color: var(--text-muted-color); }
-        .info-icon svg { width: 100%; height: 100%; }
-        .tooltip-text { visibility: hidden; width: 250px; background-color: #2e2f34; color: #fff; text-align: center; border-radius: 6px; padding: 10px; position: absolute; z-index: 1; bottom: 135%; left: 50%; margin-left: -125px; opacity: 0; transition: opacity 0.3s; font-size: 0.9em; font-weight: 400; box-shadow: 0 4px 15px rgba(0,0,0,0.4); pointer-events: none; }
-        .info-icon:hover .tooltip-text { visibility: visible; opacity: 1; }
-
-        .setting-input-container { flex-basis: 40%; display: flex; justify-content: flex-end; align-items: center; gap: 15px; }
-        select.setting-input { width: 100%; max-width: 220px; padding: 8px 10px; background-color: var(--bg-color); border: 1px solid var(--border-color); color: var(--text-color); border-radius: 5px; font-size: 1em; cursor: pointer; }
+        .search-control { flex-grow: 1; min-width: 200px; }
+        .sort-controls { display: flex; gap: 8px; flex-wrap: wrap; }
+        .sort-controls span { align-self: center; opacity: 0.7; }
         
-        .btn-toggle { padding: 8px 18px; border-radius: 5px; cursor: pointer; font-weight: 500; font-size: 0.9em; border: 1px solid transparent; min-width: 110px; text-align: center; transition: all 0.2s ease; }
-        .btn-toggle.disabled { background-color: #4a4a52; color: var(--text-muted-color); }
-        .btn-toggle.enabled { background-color: var(--success-color); color: white; }
+        #setting-list { list-style: none; padding: 0; margin: 0; }
+        .setting-item {
+            background-color: var(--secondary-color);
+            padding: 15px 20px;
+            margin-bottom: 8px;
+            border-radius: var(--border-radius);
+            border-left: 3px solid transparent;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 15px;
+            transition: all 0.2s ease-in-out;
+        }
+        .setting-item:hover {
+            background-color: #2c2c2c;
+            border-left-color: var(--accent-color);
+            transform: translateX(5px);
+        }
+        .setting-info { flex-grow: 1; word-break: break-all; display: flex; justify-content: space-between; }
+        .setting-key { font-weight: bold; font-size: 1.1em; color: var(--accent-color); }
+        .setting-value { font-size: 1.1em; color: var(--text-color); margin-left: 20px; } /* Added margin for separation */
+        .setting-actions button { margin-left: 5px; }
 
-        .slider-container { display: flex; align-items: center; justify-content: flex-end; gap: 15px; width: 100%; max-width: 220px; }
-        .slider-value { font-weight: 500; min-width: 40px; text-align: right; color: var(--primary-color); }
-        input[type="range"] { flex-grow: 1; accent-color: var(--primary-color); cursor: pointer; }
-
-        #no-results-message { display: none; text-align: center; margin-top: 3rem; color: var(--text-muted-color); font-size: 1.1rem; }
+        /* General UI Elements */
+        input[type="text"] {
+            padding: 12px 10px;
+            border-radius: var(--border-radius);
+            border: none;
+            border-bottom: 2px solid var(--border-color);
+            background-color: transparent;
+            color: var(--text-color);
+            font-size: 1em;
+            font-family: var(--font-secondary);
+            width: 100%;
+            box-sizing: border-box;
+            transition: border-color 0.3s;
+        }
+        input[type="text"]:focus {
+            outline: none;
+            border-color: var(--accent-color);
+        }
+        button {
+            padding: 10px 18px;
+            border: 1px solid rgba(0,0,0,0.3);
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            font-weight: bold;
+            font-family: var(--font-secondary);
+            font-size: 0.9em;
+            text-transform: uppercase;
+            transition: background-color 0.2s, box-shadow 0.1s;
+        }
+        button:active {
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.4);
+        }
+        .btn-primary { background-color: var(--accent-color); color: white; }
+        .btn-primary:hover { background-color: var(--accent-hover); }
+        .btn-secondary { background-color: #555; color: #ddd; }
+        .btn-secondary:hover { background-color: #666; }
+        .btn-edit { background-color: var(--success-color); color: white; }
+        .btn-edit:hover { background-color: #6cac62; }
+        .btn-delete { background-color: #a04444; color: white; }
+        .btn-delete:hover { background-color: #b04f4f; }
+        
+        .alert { padding: 15px; margin-bottom: 20px; border-radius: var(--border-radius); text-align: center; font-weight: bold; }
+        .alert-error { background-color: var(--danger-color); color: white; }
+        .alert-success { background-color: var(--success-color); color: white; }
     </style>
 </head>
 <body>
 
-<div id="app">
-    <div id="upload-container">
-        <div id="drop-zone">
-            <p><span>Upload</span> or Drag & Drop your <span>client.cfg</span></p>
-            <p style="font-size: 0.9em; margin-top: 10px;">Your file is processed locally and never leaves your computer.</p>
+    <div id="drag-overlay">
+        <div id="drag-overlay-content">
+            <i class="fas fa-file-import"></i> Drop client.cfg
         </div>
-        <input type="file" id="file-input" accept=".cfg,.txt">
     </div>
 
-    <div id="editor-wrapper">
-        <div class="sticky-header">
-            <div class="header-content">
-                <h2 class="header-title">Rust Settings Editor</h2>
-                <div class="header-controls">
-                    <input type="search" id="search-input" placeholder="Search by name or description...">
-                    <div class="header-buttons">
-                        <button id="smart-snap-btn" class="btn btn-secondary">Smart Snap</button>
-                        <button id="reset-btn" class="btn btn-secondary">Reset Changes</button>
-                        <button id="download-btn" class="btn btn-primary">Download client.cfg</button>
-                    </div>
-                </div>
+    <div class="container">
+        <h1><i class="fas fa-gear"></i> Rust Settings Editor</h1>
+        <div id="alert-container"></div>
+
+        <!-- UPLOAD SECTION -->
+        <div id="upload-section">
+            <div id="drop-zone">
+                <p>Drag & Drop <code>client.cfg</code> anywhere on the page</p>
+                <p>- or -</p>
+                <button type="button" class="btn-primary" onclick="document.getElementById('file-input').click();">Select File</button>
+            </div>
+            <input type="file" id="file-input" accept=".cfg,.txt">
+            
+            <div class="instructions">
+                <h3>How-To Guide</h3>
+                <ol>
+                    <li>Locate your Rust config directory:<br><code><Steam Install>/steamapps/common/Rust/cfg/</code></li>
+                    <li>Drag <code>client.cfg</code> anywhere on the page, or select it manually.</li>
+                    <li>Add, edit, or remove settings.</li>
+                    <li>Click "Download .CFG" to get your updated file.</li>
+                    <li>Replace the old file in your Rust directory with the new one.</li>
+                </ol>
             </div>
         </div>
-        <div id="settings-container"></div>
-        <p id="no-results-message">No settings found matching your search.</p>
+
+        <!-- EDITOR SECTION -->
+        <div id="editor-section">
+            <form id="add-setting-form" onsubmit="event.preventDefault(); addSetting();">
+                <input type="text" id="new-setting-key" placeholder="New setting key (e.g., global.fov)" required>
+                <input type="text" id="new-setting-value" placeholder="New setting value (e.g., 90)" required>
+                <button type="submit" class="btn-primary">Add Setting</button>
+            </form>
+
+            <div class="top-controls">
+                <div class="search-control">
+                    <input type="text" id="search-input" placeholder="Filter settings by key or value...">
+                </div>
+                <div class="sort-controls">
+                    <span>Sort:</span>
+                    <button class="btn-secondary" id="sort-key-asc">Key A-Z</button>
+                    <button class="btn-secondary" id="sort-key-desc">Key Z-A</button>
+                </div>
+            </div>
+
+            <ul id="setting-list">
+                <!-- Setting items will be generated here by JavaScript -->
+            </ul>
+
+            <div class="bottom-actions">
+                <button id="download-btn" class="btn-primary">Download .CFG</button>
+            </div>
+        </div>
     </div>
-</div>
 
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-    // --- Element References ---
-    const uploadContainer = document.getElementById('upload-container');
-    const editorWrapper = document.getElementById('editor-wrapper');
-    const dropZone = document.getElementById('drop-zone');
-    const fileInput = document.getElementById('file-input');
-    const searchInput = document.getElementById('search-input');
-    const settingsContainer = document.getElementById('settings-container');
-    const downloadBtn = document.getElementById('download-btn');
-    const resetBtn = document.getElementById('reset-btn');
-    const smartSnapBtn = document.getElementById('smart-snap-btn');
-    const noResultsMessage = document.getElementById('no-results-message');
+    <script>
+        // Global state: Store settings as a simple key-value object
+        let configSettings = null; // e.g., { "audio.master": "1", "graphics.fov": "90", ... }
 
-    let originalSettings = {};
-    let currentSettings = {};
-    let isSmartSnapEnabled = false;
+        // DOM Elements
+        const dropZone = document.getElementById('drop-zone');
+        const fileInput = document.getElementById('file-input');
+        const uploadSection = document.getElementById('upload-section');
+        const editorSection = document.getElementById('editor-section');
+        const settingList = document.getElementById('setting-list');
+        const newSettingKeyInput = document.getElementById('new-setting-key');
+        const newSettingValueInput = document.getElementById('new-setting-value');
+        const searchInput = document.getElementById('search-input');
+        const alertContainer = document.getElementById('alert-container');
+        const dragOverlay = document.getElementById('drag-overlay');
 
-    const settingDescriptions = {
-        'audio.master': 'Main game volume.',
-        'audio.game': 'Volume of in-game sound effects.',
-        'audio.voiceprops': 'Volume of items like the Megaphone.',
-        'audio.instruments': 'Volume of player-played instruments.',
-        'audio.musicvolume': 'Volume of in-game music.',
-        'audio.musicvolumemenu': 'Volume of music in the main menu.',
-        'audio.ui': 'Volume of user interface sounds and clicks.',
-        'client.camdist': 'Default distance for the debug/3rd person camera.',
-        'client.lookatradius': 'How close your crosshair needs to be to an object to interact with it.',
-        'client.camfov': 'Field of View for the 3rd person debug/admin camera.',
-        'culling.entitymaxdist': 'Maximum distance at which entities (players, barrels, etc.) are rendered.',
-        'decor.quality': 'Level of detail for small decorative items like bushes and rocks.',
-        'effects.maxgibs': 'Maximum number of gibs (body parts, debris) that can be on screen.',
-        'fps.limit': 'Limits your maximum frames per second (FPS). Set to 0 for unlimited.',
-        'graphics.fov': 'Main Field of View. Higher values let you see more.',
-        'graphics.drawdistance': 'Maximum distance at which objects are rendered. Lower values improve performance.',
-        'graphics.renderscale': 'Render resolution scale. Lower than 1 improves performance but makes the game blurrier.',
-        'graphics.lodbias': 'Global bias for Level of Detail. Higher values mean lower quality models at a distance.',
-        'grass.quality': 'Level of detail and density of grass.',
-        'input.sensitivity': 'Controls your mouse sensitivity for looking around.',
-        'mesh.quality': 'Level of detail for object models.',
-        'particle.quality': 'Level of detail for particle effects like smoke, fire, and explosions.',
-        'player.noclipspeed': 'Movement speed while in noclip/debug camera mode.',
-        'player.noclipspeedfast': 'Movement speed in noclip when holding SHIFT.',
-        'player.noclipspeedslow': 'Movement speed in noclip when holding CTRL.',
-        'terrain.quality': 'Level of detail for the ground and terrain.',
-        'tree.quality': 'Level of detail for trees.',
-        'gc.buffer': 'Memory allocated to garbage collection in megabytes. Higher values can reduce stuttering.',
-    };
-    
-    // THE ULTIMATE HAND-TUNED CONTROL LIST
-    const settingControlConfig = {
-        'audio.eventaudio': { type: 'slider', min: 0, max: 1, step: 0.1 },
-        'audio.game': { type: 'slider', min: 0, max: 1, step: 0.05 },
-        'audio.instruments': { type: 'slider', min: 0, max: 1, step: 0.05 },
-        'audio.master': { type: 'slider', min: 0, max: 1, step: 0.05 },
-        'audio.musicvolume': { type: 'slider', min: 0, max: 1, step: 0.05 },
-        'audio.musicvolumemenu': { type: 'slider', min: 0, max: 1, step: 0.05 },
-        'audio.ui': { type: 'slider', min: 0, max: 1, step: 0.05 },
-        'audio.voiceprops': { type: 'slider', min: 0, max: 1, step: 0.05 },
-        'audio.voices': { type: 'slider', min: 0, max: 1, step: 0.05 },
-        'client.camdist': { type: 'slider', min: 1, max: 5, step: 0.1 },
-        'client.camfov': { type: 'slider', min: 60, max: 100, step: 1 },
-        'client.lookatradius': { type: 'slider', min: 0, max: 1, step: 0.05 },
-        'console.consolescale': { type: 'slider', min: 8, max: 24, step: 1 },
-        'culling.entitymaxdist': { type: 'slider', min: 1000, max: 10000, step: 250 },
-        'culling.entityminculldist': { type: 'slider', min: 0, max: 100, step: 1 },
-        'culling.entityminshadowculldist': { type: 'slider', min: 0, max: 50, step: 1 },
-        'decor.quality': { type: 'slider', min: 0, max: 100, step: 5 },
-        'effects.maxgibs': { type: 'slider', min: 0, max: 2000, step: 100 },
-        'effects.maxgibdist': { type: 'slider', min: 25, max: 300, step: 5 },
-        'effects.mingiblife': { type: 'slider', min: 1, max: 20, step: 1 },
-        'effects.maxgiblife': { type: 'slider', min: 5, max: 30, step: 1 },
-        'effects.motionblur': { type: 'slider', min: 0, max: 1, step: 0.1 },
-        'effects.lensdirt': { type: 'slider', min: 0, max: 1, step: 0.1 },
-        'effects.vignet': { type: 'slider', min: 0, max: 1, step: 0.1 },
-        'fps.limit': { type: 'slider', min: 0, max: 300, step: 10 },
-        'graphics.fov': { type: 'slider', min: 70, max: 90, step: 1 },
-        'graphics.af': { type: 'slider', min: 1, max: 16, step: 1 },
-        'graphics.drawdistance': { type: 'slider', min: 500, max: 2500, step: 50 },
-        'graphics.shaderlod': { type: 'slider', min: 100, max: 600, step: 10 },
-        'graphics.lodbias': { type: 'slider', min: 0.3, max: 1.0, step: 0.05 },
-        'graphics.renderscale': { type: 'slider', min: 0.5, max: 1.0, step: 0.05 },
-        'graphics.maxqueuedframes': { type: 'slider', min: 1, max: 3, step: 1 },
-        'graphics.parallax': { type: 'slider', min: 0, max: 2, step: 1 },
-        'graphics.shadowlights': { type: 'slider', min: 0, max: 4, step: 1 },
-        'graphics.uiscale': { type: 'slider', min: 0.5, max: 1.5, step: 0.05 },
-        'graphicssettings.anisotropicfiltering': { type: 'slider', min: 1, max: 16, step: 1 },
-        'graphicssettings.globaltexturemipmaplimit': { type: 'slider', min: 0, max: 2, step: 1 },
-        'graphicssettings.particleraycastbudget': { type: 'slider', min: 64, max: 1024, step: 64 },
-        'graphicssettings.pixellightcount': { type: 'slider', min: 2, max: 8, step: 1 },
-        'graphicssettings.shadowdistancepercent': { type: 'slider', min: 0, max: 100, step: 5 },
-        'grass.quality': { type: 'slider', min: 0, max: 100, step: 5 },
-        'grass.distance': { type: 'slider', min: 50, max: 200, step: 10 },
-        'input.sensitivity': { type: 'slider', min: 0.1, max: 2.0, step: 0.05 },
-        'input.ads_sensitivity': { type: 'slider', min: 0.1, max: 2.0, step: 0.05 },
-        'input.vehicle_sensitivity': { type: 'slider', min: 0.1, max: 2.0, step: 0.05 },
-        'input.holdtime': { type: 'slider', min: 0.1, max: 1.0, step: 0.05 },
-        'mesh.quality': { type: 'slider', min: 0, max: 100, step: 5 },
-        'particle.quality': { type: 'slider', min: 0, max: 100, step: 5 },
-        'player.noclipspeed': { type: 'slider', min: 5, max: 50, step: 1 },
-        'player.noclipspeedfast': { type: 'slider', min: 10, max: 100, step: 5 },
-        'player.noclipspeedslow': { type: 'slider', min: 1, max: 10, step: 0.5 },
-        'playercull.maxplayerdist': { type: 'slider', min: 1000, max: 10000, step: 250 },
-        'playercull.minculldist': { type: 'slider', min: 0, max: 100, step: 1 },
-        'reflection.planarcount': { type: 'slider', min: 0, max: 5, step: 1 },
-        'reflection.planarresolution': { type: 'slider', min: 256, max: 2048, step: 256 },
-        'sss.quality': { type: 'slider', min: 0, max: 2, step: 1 },
-        'sss.scale': { type: 'slider', min: 0, max: 1, step: 0.1 },
-        'terrain.quality': { type: 'slider', min: 0, max: 100, step: 5 },
-        'tree.quality': { type: 'slider', min: 0, max: 100, step: 5 },
-        'tree.meshes': { type: 'slider', min: 10, max: 100, step: 1 },
-        'effects.antialiasing': { type: 'select', options: { '0': 'Off', '1': 'FXAA', '2': 'SMAA', '3': 'TSSAA' } },
-        'gc.buffer': { type: 'select', options: { '256': '256 MB', '512': '512 MB', '1024': '1024 MB', '2048': '2048 MB' } },
-        'global.censornudity': { type: 'select', options: { '0': 'Off', '1': 'Pixelated', '2': 'Underwear' } },
-        'graphics.dlss': { type: 'select', options: { '-2': 'Ultra Performance', '-1': 'Performance', '0': 'Off', '1': 'Quality' } },
-        'graphics.screenmode': { type: 'select', options: { '0': 'Exclusive', '1': 'Borderless', '2': 'Windowed' } },
-        'graphics.shadowquality': { type: 'select', options: { '0': 'Off', '1': 'Low', '2': 'High' } },
-        'graphics.shadowcascades': { type: 'select', options: { '0': 'No Cascades', '2': 'Two Cascades', '4': 'Four Cascades' } },
-        'water.quality': { type: 'select', options: { '0': 'Low', '1': 'Medium', '2': 'High' } },
-        'water.reflections': { type: 'select', options: { '0': 'Off', '1': 'Low', '2': 'Medium', '3': 'High' } },
-        'audio.speakers': { type: 'select', options: { '2': 'Stereo', '5': '5.1 Surround', '7': '7.1 Surround' } },
-    };
-
-    const infoIconSVG = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>`;
-
-    function handleFile(file) {
-        if (!file) return;
-        const reader = new FileReader();
-        reader.onload = e => parseAndRender(e.target.result);
-        reader.readAsText(file);
-    }
-
-    function parseAndRender(content) {
-        try {
-            originalSettings = parseConfig(content);
-            currentSettings = JSON.parse(JSON.stringify(originalSettings));
-            renderEditor();
-            uploadContainer.style.display = 'none';
-            editorWrapper.style.display = 'block';
-        } catch (error) {
-            alert('Error: Could not parse file. Please ensure it is a valid client.cfg.');
-            console.error(error);
-        }
-    }
-
-    function parseConfig(text) {
-        const settings = {};
-        const regex = /^([a-zA-Z0-9\._\-]+)\s+"([^"]*)"$/;
-        text.split(/[\r\n]+/).forEach(line => {
-            const match = line.trim().match(regex);
-            if (match) settings[match[1]] = match[2];
-        });
-        return settings;
-    }
-
-    function groupSettings(settings) {
-        const grouped = {};
-        for (const key in settings) {
-            const parts = key.split('.');
-            const groupName = parts.length > 1 ? parts[0] : 'general';
-            if (!grouped[groupName]) grouped[groupName] = {};
-            grouped[groupName][key] = settings[key];
-        }
-        return Object.keys(grouped).sort().reduce((obj, key) => { obj[key] = grouped[key]; return obj; }, {});
-    }
-
-    function renderEditor() {
-        settingsContainer.innerHTML = '';
-        const grouped = groupSettings(currentSettings);
-        for (const categoryName in grouped) {
-            const groupDiv = document.createElement('div');
-            groupDiv.className = 'category-group';
-            groupDiv.dataset.category = categoryName;
-            const header = document.createElement('h2');
-            header.className = 'category-header';
-            header.textContent = categoryName;
-            groupDiv.appendChild(header);
-            const sortedKeys = Object.keys(grouped[categoryName]).sort();
-            for (const key of sortedKeys) {
-                groupDiv.appendChild(createSettingControl(key, currentSettings[key]));
-            }
-            settingsContainer.appendChild(groupDiv);
-        }
-    }
-
-    function createSettingControl(key, value) {
-        const item = document.createElement('div');
-        item.className = 'setting-item';
-        item.dataset.key = key;
-
-        const details = document.createElement('div');
-        details.className = 'setting-details';
-        const keyEl = document.createElement('div');
-        keyEl.className = 'setting-key';
-        keyEl.innerHTML = `<span class="setting-key-name">${key}</span>`;
-        if (settingDescriptions[key]) {
-            keyEl.innerHTML += `<span class="info-icon">${infoIconSVG}<span class="tooltip-text">${settingDescriptions[key]}</span></span>`;
-        }
-        details.appendChild(keyEl);
-        const originalValueEl = document.createElement('div');
-        originalValueEl.className = 'original-value';
-        details.appendChild(originalValueEl);
-        
-        const inputContainer = document.createElement('div');
-        inputContainer.className = 'setting-input-container';
-
-        const customConfig = settingControlConfig[key];
-        
-        const onValueChange = () => {
-            if (originalSettings[key] !== currentSettings[key]) {
-                originalValueEl.textContent = `(was: ${originalSettings[key]})`;
-            } else {
-                originalValueEl.textContent = '';
-            }
-        };
-
-        if (customConfig?.type === 'slider') {
-            createSlider(inputContainer, customConfig, value, key, onValueChange);
-        } else if (customConfig?.type === 'select') {
-            createSelect(inputContainer, customConfig, value, key, onValueChange);
-        } else if (['true', 'false', '1', '0'].includes(String(value).toLowerCase())) {
-            inputContainer.appendChild(createToggleButton(key, value, onValueChange));
-        } else if (!isNaN(parseFloat(value)) && isFinite(value)) {
-            // True fallback for unknown numeric cvars
-            const baseValue = parseFloat(value);
-            const genConfig = { min: 0, max: Math.max(100, Math.ceil(Math.abs(baseValue) * 2)), step: 1 };
-            if (baseValue < 0) genConfig.min = Math.floor(baseValue * 2);
-            createSlider(inputContainer, genConfig, value, key, onValueChange);
-        } else {
-            createTextInput(inputContainer, value, key, onValueChange);
-        }
-        
-        item.append(details, inputContainer);
-        onValueChange();
-        return item;
-    }
-    
-    function createSlider(container, config, value, key, onChangeCallback) {
-        const sliderContainer = document.createElement('div');
-        sliderContainer.className = 'slider-container';
-        const slider = document.createElement('input');
-        slider.type = 'range';
-        slider.dataset.originalStep = config.step;
-        Object.assign(slider, config, { value });
-
-        const valueDisplay = sliderContainer.appendChild(document.createElement('span'));
-        valueDisplay.className = 'slider-value';
-        
-        const updateDisplay = (val) => {
-            valueDisplay.textContent = Number(slider.step) < 1 ? parseFloat(val).toFixed(2) : Math.round(val);
-        };
-        
-        slider.addEventListener('input', e => {
-            updateDisplay(e.target.value);
-            updateSetting(key, e.target.value, onChangeCallback);
-        });
-
-        sliderContainer.append(slider, valueDisplay);
-        container.appendChild(sliderContainer);
-        updateDisplay(value); // Initial display
-    }
-
-    function createSelect(container, config, value, key, onChangeCallback) {
-        const select = document.createElement('select');
-        select.className = 'setting-input';
-        for (const val in config.options) {
-            select.options.add(new Option(config.options[val], val));
-        }
-        select.value = value;
-        select.addEventListener('change', e => updateSetting(key, e.target.value, onChangeCallback));
-        container.appendChild(select);
-    }
-    
-    function createToggleButton(key, value, onChangeCallback) {
-        const lowerCaseValue = String(value).toLowerCase();
-        const isBoolStr = lowerCaseValue === 'true' || lowerCaseValue === 'false';
-        const isEnabled = lowerCaseValue === 'true' || lowerCaseValue === '1';
-        const btn = document.createElement('button');
-        btn.className = `btn-toggle ${isEnabled ? 'enabled' : 'disabled'}`;
-        btn.textContent = isEnabled ? 'Enabled' : 'Disabled';
-        btn.addEventListener('click', () => {
-            const newState = !(currentSettings[key].toLowerCase() === 'true' || currentSettings[key] === '1');
-            const newValue = isBoolStr ? (newState ? 'True' : 'False') : (newState ? '1' : '0');
-            updateSetting(key, newValue, onChangeCallback);
-            btn.textContent = newState ? 'Enabled' : 'Disabled';
-            btn.classList.toggle('enabled', newState);
-            btn.classList.toggle('disabled', !newState);
-        });
-        return btn;
-    }
-
-    function createTextInput(container, value, key, onChangeCallback) {
-        const input = document.createElement('input');
-        input.type = 'text';
-        input.className = 'setting-input';
-        input.value = value;
-        input.addEventListener('input', e => updateSetting(key, e.target.value, onChangeCallback));
-        container.appendChild(input);
-    }
-
-    function updateSetting(key, newValue, callback) {
-        currentSettings[key] = String(newValue);
-        if (callback) callback();
-    }
-    
-    // --- Smart Snap Logic ---
-    function calculateSmartStep(min, max) {
-        const range = max - min;
-        if (range <= 2) return 0.1;
-        if (range <= 20) return 1;
-        if (range <= 100) return 10;
-        if (range <= 500) return 25;
-        if (range <= 2500) return 50;
-        return 100;
-    }
-
-    smartSnapBtn.addEventListener('click', () => {
-        isSmartSnapEnabled = !isSmartSnapEnabled;
-        smartSnapBtn.classList.toggle('active', isSmartSnapEnabled);
-
-        document.querySelectorAll('input[type="range"]').forEach(slider => {
-            const valueDisplay = slider.nextElementSibling;
-            const key = slider.closest('.setting-item').dataset.key;
-            
-            if (isSmartSnapEnabled) {
-                const smartStep = calculateSmartStep(parseFloat(slider.min), parseFloat(slider.max));
-                slider.step = smartStep;
-                
-                const snappedValue = Math.round(slider.value / smartStep) * smartStep;
-                slider.value = snappedValue;
-                updateSetting(key, String(snappedValue), () => {
-                    const item = slider.closest('.setting-item');
-                    item.querySelector('.original-value').textContent = (originalSettings[key] !== currentSettings[key]) ? `(was: ${originalSettings[key]})` : '';
-                });
-
-            } else {
-                slider.step = slider.dataset.originalStep;
-            }
-            
-            valueDisplay.textContent = Number(slider.step) < 1 ? parseFloat(slider.value).toFixed(2) : Math.round(slider.value);
-        });
-    });
-
-    // --- Other Event Listeners ---
-    dropZone.addEventListener('click', () => fileInput.click());
-    dropZone.addEventListener('dragover', e => { e.preventDefault(); dropZone.classList.add('drag-over'); });
-    dropZone.addEventListener('dragleave', () => dropZone.classList.remove('drag-over'));
-    dropZone.addEventListener('drop', e => { e.preventDefault(); dropZone.classList.remove('drag-over'); handleFile(e.dataTransfer.files[0]); });
-    fileInput.addEventListener('change', e => handleFile(e.target.files[0]));
-
-    resetBtn.addEventListener('click', () => {
-        if (confirm('Are you sure you want to discard all changes?')) {
-            searchInput.value = '';
-            parseAndRender(Object.keys(originalSettings).sort().map(k => `${k} "${originalSettings[k]}"`).join('\n'));
-        }
-    });
-
-    searchInput.addEventListener('input', e => {
-        const term = e.target.value.toLowerCase();
-        let visibleCount = 0;
-        document.querySelectorAll('.category-group').forEach(group => {
-            let hasVisibleItem = false;
-            group.querySelectorAll('.setting-item').forEach(item => {
-                const key = item.dataset.key;
-                const keyLower = key.toLowerCase();
-                const descLower = settingDescriptions[key]?.toLowerCase() || '';
-                if (keyLower.includes(term) || descLower.includes(term)) {
-                    item.style.display = 'flex';
-                    hasVisibleItem = true;
-                    visibleCount++;
-                } else {
-                    item.style.display = 'none';
+        // --- File Handling ---
+        function setupFileHandlers() {
+            // Global drag-and-drop listeners for overlay
+            window.addEventListener('dragover', e => {
+                e.preventDefault();
+                dragOverlay.classList.add('visible');
+            });
+            window.addEventListener('dragleave', e => {
+                // Only hide if the drag leaves the entire window, not just a child element
+                if (e.clientX === 0 || e.clientY === 0 || e.clientX === window.innerWidth || e.clientY === window.innerHeight) {
+                    dragOverlay.classList.remove('visible');
                 }
             });
-            group.style.display = hasVisibleItem ? 'block' : 'none';
+            window.addEventListener('drop', e => {
+                e.preventDefault();
+                dragOverlay.classList.remove('visible');
+                // Also ensure the local drop zone 'dragover' class is removed
+                dropZone.classList.remove('dragover'); 
+                const files = e.dataTransfer.files;
+                if (files.length) handleFile(files[0]);
+            });
+
+            // Specific drop zone listeners (for visual feedback on that area)
+            dropZone.addEventListener('click', () => fileInput.click());
+            dropZone.addEventListener('dragover', (e) => { e.preventDefault(); dropZone.classList.add('dragover'); });
+            dropZone.addEventListener('dragleave', () => { dropZone.classList.remove('dragover'); });
+
+            // File input change listener
+            fileInput.addEventListener('change', (e) => { if (e.target.files.length) handleFile(e.target.files[0]); });
+        }
+
+        function handleFile(file) {
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                try {
+                    const fileContent = e.target.result;
+                    configSettings = parseCfgContent(fileContent);
+
+                    // Even if no settings are found, show the editor so the user can start adding
+                    uploadSection.style.display = 'none';
+                    editorSection.style.display = 'block';
+                    renderSettingList();
+                    if (Object.keys(configSettings).length === 0) {
+                        showAlert('Warning: No valid settings were found in the file. It might be empty or malformed. You can add new settings below.', 'warning');
+                    } else {
+                        showAlert('File loaded successfully!', 'success');
+                    }
+                } catch (error) {
+                    showAlert(`Error parsing file: ${error.message}. Please ensure it's a valid client.cfg file.`, 'error');
+                }
+            };
+            reader.readAsText(file);
+        }
+
+        /**
+         * Parses a client.cfg content string into a key-value JavaScript object.
+         * Expected format: `key "value"`
+         * Ignores empty lines, comments (//), and lines without quotes (assumed to be commands without values).
+         */
+        function parseCfgContent(content) {
+            const settings = {};
+            const lines = content.split('\n');
+            lines.forEach(line => {
+                line = line.trim();
+                // Ignore empty lines, lines starting with // (comments), or lines that are just commands (like 'writecfg')
+                if (line === '' || line.startsWith('//') || !line.includes('"')) { 
+                    return;
+                }
+                
+                const firstQuoteIndex = line.indexOf('"');
+                if (firstQuoteIndex === -1) {
+                    return; // Should be redundant due to !line.includes('"')
+                }
+                
+                const key = line.substring(0, firstQuoteIndex).trim();
+                let value = line.substring(firstQuoteIndex + 1);
+                
+                // Remove trailing quote
+                const lastQuoteIndex = value.lastIndexOf('"');
+                if (lastQuoteIndex !== -1) {
+                    value = value.substring(0, lastQuoteIndex);
+                }
+                
+                if (key) { // Ensure key is not empty
+                    settings[key] = value;
+                }
+            });
+            return settings;
+        }
+
+        /**
+         * Generates client.cfg content string from a key-value JavaScript object.
+         * Sorts keys alphabetically for consistent output.
+         */
+        function generateCfgContent(settings) {
+            let content = '';
+            // Sort keys alphabetically for consistent output
+            const sortedKeys = Object.keys(settings).sort(); 
+            sortedKeys.forEach(key => {
+                // Ensure value is always quoted, even if it's a number or boolean
+                content += `${key} "${settings[key]}"\n`;
+            });
+            return content;
+        }
+        
+        // --- UI Rendering & Alerts ---
+        function renderSettingList() {
+            settingList.innerHTML = '';
+            if (!configSettings) return;
+
+            const searchTerm = searchInput.value.toLowerCase().trim();
+            let itemsToRender = Object.entries(configSettings); // Convert object to array of [key, value] pairs
+
+            // Filter
+            if (searchTerm) {
+                itemsToRender = itemsToRender.filter(([key, value]) => 
+                    key.toLowerCase().includes(searchTerm) || value.toLowerCase().includes(searchTerm)
+                );
+            }
+
+            // Apply current sort order (default to A-Z by key if not specified or first load)
+            const currentSort = settingList.dataset.sort || 'key-asc';
+            if (currentSort === 'key-asc') {
+                itemsToRender.sort((a, b) => a[0].localeCompare(b[0]));
+            } else if (currentSort === 'key-desc') {
+                itemsToRender.sort((a, b) => b[0].localeCompare(a[0]));
+            }
+
+            let itemsRendered = 0;
+            itemsToRender.forEach(([key, value]) => {
+                const li = document.createElement('li');
+                li.className = 'setting-item';
+                li.dataset.key = key; // Store the original key for easy lookup
+
+                li.innerHTML = `
+                    <div class="setting-info">
+                        <div class="setting-key">${key}</div>
+                        <div class="setting-value">${value}</div>
+                    </div>
+                    <div class="setting-actions">
+                        <button class="btn-edit" onclick="toggleEdit('${key}')">Edit</button>
+                        <button class="btn-delete" onclick="deleteSetting('${key}')">Delete</button>
+                    </div>
+                `;
+                settingList.appendChild(li);
+                itemsRendered++;
+            });
+
+            if (itemsRendered === 0) {
+                 if (searchTerm) {
+                    settingList.innerHTML = `<li class="setting-item" style="justify-content:center; opacity:0.7;">No settings found matching "${searchInput.value}"</li>`;
+                } else if (Object.keys(configSettings).length === 0) {
+                    settingList.innerHTML = '<li class="setting-item" style="justify-content:center; opacity:0.7;">No settings found. Add one above or upload a client.cfg file!</li>';
+                }
+            }
+        }
+
+        function showAlert(message, type = 'error') {
+            alertContainer.innerHTML = `<div class="alert alert-${type}">${message}</div>`;
+            setTimeout(() => { alertContainer.innerHTML = ''; }, 5000);
+        }
+
+        // --- CRUD Operations ---
+        function addSetting() {
+            const newKey = newSettingKeyInput.value.trim();
+            const newValue = newSettingValueInput.value.trim();
+
+            if (!newKey) {
+                showAlert('Setting key cannot be empty.', 'error');
+                return;
+            }
+            
+            if (configSettings === null) {
+                configSettings = {}; // Initialize if starting fresh without loading a file
+            }
+
+            if (configSettings[newKey] !== undefined) {
+                showAlert(`Setting "${newKey}" already exists. Please edit it instead or choose a different key.`, 'error');
+                return;
+            }
+            
+            configSettings[newKey] = newValue; // Add or update the setting
+            newSettingKeyInput.value = '';
+            newSettingValueInput.value = '';
+            searchInput.value = ''; // Clear search when adding new
+            renderSettingList();
+            showAlert(`Setting "${newKey}" added.`, 'success');
+        }
+
+        function deleteSetting(key) {
+            if (confirm(`Are you sure you want to delete setting "${key}"?`)) {
+                delete configSettings[key];
+                renderSettingList();
+                showAlert(`Setting "${key}" deleted.`, 'success');
+            }
+        }
+
+        function toggleEdit(key) {
+            const item = settingList.querySelector(`[data-key='${key}']`);
+            if (!item) return; // Should not happen
+
+            const settingInfo = item.querySelector('.setting-info');
+            const settingActions = item.querySelector('.setting-actions');
+            const currentValue = configSettings[key];
+
+            settingInfo.innerHTML = `
+                <div class="setting-key">${key}</div>
+                <input type="text" class="edit-input" value="${currentValue}" style="flex-grow:1; background-color: rgba(0,0,0,0.3); margin-left: 20px;" />
+            `;
+            settingActions.innerHTML = `
+                <button class="btn-edit" onclick="saveEdit('${key}')">Save</button>
+                <button class="btn-secondary" onclick="renderSettingList()">Cancel</button>
+            `;
+            
+            const editInput = item.querySelector('.edit-input');
+            editInput.focus();
+            editInput.select();
+            editInput.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter') saveEdit(key);
+                if (e.key === 'Escape') renderSettingList();
+            });
+        }
+
+        function saveEdit(key) {
+            const item = settingList.querySelector(`[data-key='${key}']`);
+            const newValue = item.querySelector('.edit-input').value.trim();
+            
+            configSettings[key] = newValue; // Update the value
+            renderSettingList();
+            showAlert(`Setting "${key}" updated.`, 'success');
+        }
+
+        // --- Event Listeners for Actions ---
+        searchInput.addEventListener('input', renderSettingList);
+
+        document.getElementById('download-btn').addEventListener('click', () => {
+            if (!configSettings) {
+                showAlert('No configuration loaded to download.', 'error');
+                return;
+            }
+            const content = generateCfgContent(configSettings);
+            const blob = new Blob([content], { type: 'text/plain' }); // Use text/plain for .cfg
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'client.cfg';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
         });
-        noResultsMessage.style.display = (visibleCount === 0 && term) ? 'block' : 'none';
-    });
+        
+        // --- Sorting ---
+        document.getElementById('sort-key-asc').addEventListener('click', () => {
+            settingList.dataset.sort = 'key-asc';
+            renderSettingList();
+        });
+        document.getElementById('sort-key-desc').addEventListener('click', () => {
+            settingList.dataset.sort = 'key-desc';
+            renderSettingList();
+        });
 
-    downloadBtn.addEventListener('click', () => {
-        const fileContent = Object.keys(currentSettings)
-            .sort()
-            .map(key => `${key} "${currentSettings[key]}"`)
-            .join('\n');
-        const blob = new Blob([fileContent], { type: 'text/plain;charset=utf-8' });
-        const a = document.createElement('a');
-        a.href = URL.createObjectURL(blob);
-        a.download = 'client.cfg';
-        a.click();
-        URL.revokeObjectURL(a.href);
-    });
-});
-</script>
-
+        // Initializer: Set up global drag-and-drop and other file handlers
+        setupFileHandlers();
+    </script>
 </body>
 </html>
