@@ -1,666 +1,1647 @@
-{
-    "comment": "Ultimate Rust Item List for Keybind Editor - v2.0 - Generated from user data",
-    "1840570710": { "name": "Above Ground Pool" },
-    "-2124352573": { "name": "Acoustic Guitar" },
-    "-2027793839": { "name": "Advent Calendar" },
-    "1712261904": { "name": "Advanced Max Health Tea" },
-    "2063916636": { "name": "Advanced Ore Tea" },
-    "1905387657": { "name": "Pure Rad. Removal Tea" },
-    "-33009419": { "name": "Pure Anti-Rad Tea" },
-    "524678627": { "name": "Advanced Scrap Tea" },
-    "-541206665": { "name": "Advanced Wood Tea" },
-    "343045591": { "name": "MLRS Aiming Module" },
-    "1171735914": { "name": "AND Switch" },
-    "-1018587433": { "name": "Animal Fat" },
-    "342438846": { "name": "Anchovy" },
-    "-1432674913": { "name": "Anti-Radiation Pills" },
-    "-487356515": { "name": "Anti-Rad Tea" },
-    "1548091822": { "name": "Apple" },
-    "359723196": { "name": "Chippy Arcade Game" },
-    "-1729415579": { "name": "Adv. Anti-Rad Tea" },
-    "1874610722": { "name": "Armored Cockpit Vehicle Module" },
-    "1221063409": { "name": "Armored Double Door" },
-    "1353298668": { "name": "Armored Door" },
-    "-1615281216": { "name": "Armored Passenger Vehicle Module" },
-    "671706427": { "name": "Reinforced Glass Window" },
-    "-1215753368": { "name": "Arrow (Wooden)" },
-    "-1103483966": { "name": "Arrow (Fire)" },
-    "-1090999121": { "name": "Arrow (High Velocity)" },
-    "-1234326503": { "name": "Arrow (Bone)" },
-    "-470439097": { "name": "Arctic Suit" },
-    "1545779598": { "name": "Assault Rifle" },
-    "-1335497659": { "name": "Assault Rifle – ICE" },
-    "-1622110948": { "name": "Bandit Guard Gear" },
-    "2100007442": { "name": "Audio Alarm" },
-    "-2139580305": { "name": "Auto Turret" },
-    "2021351233": { "name": "Advanced Rad. Removal Tea" },
-    "-1004426654": { "name": "attire.bunnyears" },
-    "3222790": { "name": "Hide Halterneck" },
-    "794356786": { "name": "Hide Boots" },
-    "1722154847": { "name": "Hide Pants" },
-    980333378: { "name": "Hide Poncho" },
-    "-1773144852": { "name": "Hide Skirt" },
-    196700171: { "name": "Hide Vest" },
-    "-1506417026: { "name": "Ninja Suit" },
-    "-324675402: { "name": "Reindeer Antlers" },
-    "-842267147: { "name": "Snowman Helmet" },
-    "-1262185308: { "name": "Binoculars" },
-    "-262590403: { "name": "Salvaged Axe" },
-    "1099314009": { "name": "Barbeque" },
-    "-1215166612: { "name": "A Barrel Costume" },
-    "-1950721390: { "name": "Concrete Barricade" },
-    1655650836: { "name": "Metal Barricade" },
-    "-559599960: { "name": "Sandbag Barricade" },
-    15388698: { "name": "Stone Barricade" },
-    866889860: { "name": "Wooden Barricade" },
-    1382263453: { "name": "Barbed Wooden Barricade" },
-    1373240771: { "name": "Wooden Barricade Cover" },
-    "-2026042603: { "name": "Baseball Bat" },
-    "-649128577: { "name": "Basic Wood Tea" },
-    609049394: { "name": "Battery – Small" },
-    1850456855: { "name": "Bandage" },
-    "-582782051: { "name": "Snap Trap" },
-    "-1863559151: { "name": "Water Barrel" },
-    -321431890: { "name": "Beach Chair" },
-    -1621539785: { "name": "Beach Parasol" },
-    657352755: { "name": "Beachtable" },
-    -8312704: { "name": "Beach Towel" },
-    1840822026: { "name": "Beancan Grenade" },
-    -1520560807: { "name": "Raw Bear Meat" },
-    -1273339005: { "name": "Bed" },
-    1675639563: { "name": "Beenie Hat" },
-    1973165031: { "name": "Birthday Cake" },
-    1771755747: { "name": "Black Berry" },
-    122783240: { "name": "Black Berry Clone" },
-    1911552868: { "name": "Black Berry Seed" },
-    1931713481: { "name": "Black Raspberries" },
-    1553078977: { "name": "Bleach" },
-    -690968985: { "name": "Blocker" },
-    1776460938: { "name": "Blood" },
-    -996920608: { "name": "Blueprint" },
-    1112162468: { "name": "Blue Berry" },
-    838831151: { "name": "Blue Berry Clone" },
-    803954639: { "name": "Blue Berry Seed" },
-    1744298439: { "name": "Blue Boomer" },
-    1036321299: { "name": "Blue Dog Tags" },
-    1364514421: { "name": "Blue ID Tag" },
-    -484206264: { "name": "Blue Keycard" },
-    -515830359: { "name": "Blue Roman Candle" },
-    1588298435: { "name": "Bolt Action Rifle" },
-    1711033574: { "name": "Bone Club" },
-    1746956556: { "name": "Bone Armor" },
-    215754713: { "name": "Bone Arrow" },
-    1719978075: { "name": "Bone Fragments" },
-    -1903165497: { "name": "Deer Skull Mask" },
-    1814288539: { "name": "Bone Knife" },
-    -23994173: { "name": "Boonie Hat" },
-    -1113501606: { "name": "Boom Box" },
-    -1549739227: { "name": "Boots" },
-    -1478094705: { "name": "Boogie Board" },
-    613961768: { "name": "Bota Bag" },
-    755224797: { "name": "Vodka Bottle" },
-    1443579727: { "name": "Hunting Bow" },
-    833533164: { "name": "Large Wood Box" },
-    803222026: { "name": "Repair Bench" },
-    -180129657: { "name": "Wood Storage Box" },
-    844440409: { "name": "Bronze Egg" },
-    850280505: { "name": "Bucket Helmet" },
-    1424075905: { "name": "Water Bucket" },
-    1525520776: { "name": "Building Plan" },
-    1366282552: { "name": "Leather Gloves" },
-    1877339384: { "name": "Burlap Headwrap" },
-    602741290: { "name": "Burlap Shirt" },
-    -761829530: { "name": "Burlap Shoes" },
-    1992974553: { "name": "Burlap Trousers" },
-    838308300: { "name": "Burst Module" },
-    -194509282: { "name": "Butcher Knife" },
-    1783512007: { "name": "Cactus Flesh" },
-    -1316706473: { "name": "Camera" },
-    1946219319: { "name": "Camp Fire" },
-    -1501451746: { "name": "Cockpit Vehicle Module" },
-    -700591459: { "name": "Can of Beans" },
-    1655979682: { "name": "Empty Can Of Beans" },
-    -1941646328: { "name": "Can of Tuna" },
-    -1557377697: { "name": "Empty Tuna Can" },
-    -1379036069: { "name": "Canbourine" },
-    1714496074: { "name": "Candle Hat" },
-    1121925526: { "name": "Candy Cane" },
-    1789825282: { "name": "Candy Cane Club" },
-    1230691307: { "name": "Captain’s Log" },
-    -1022661119: { "name": "Baseball Cap" },
-    1081921512: { "name": "Card Table" },
-    3380160: { "name": "Card Movember Moustache" },
-    1696050067: { "name": "Modular Car Lift" },
-    1524980732: { "name": "Carvable Pumpkin" },
-    476066818: { "name": "Cassette – Long" },
-    -912398867: { "name": "Cassette – Medium" },
-    1523403414: { "name": "Cassette – Short" },
-    -587989372: { "name": "Catfish" },
-    634478325: { "name": "CCTV Camera" },
-    1142993169: { "name": "Ceiling Light" },
-    1104520648: { "name": "Chainsaw" },
-    1451568081: { "name": "Chainlink Fence Gate" },
-    -1117626326: { "name": "Chainlink Fence" },
-    1534542921: { "name": "Chair" },
-    1324203999: { "name": "Champagne Boomer" },
-    -1938052175: { "name": "Charcoal" },
-    2054391128: { "name": "Factory Door" },
-    -1916473915: { "name": "Chinese Lantern" },
-    -965336208: { "name": "Chocolate Bar" },
-    674734128: { "name": "Festive Doorway Garland" },
-    2009734114: { "name": "Christmas Door Wreath" },
-    1058261682: { "name": "Christmas Lights" },
-    794443127: { "name": "Christmas Tree" },
-    968019378: { "name": "Clatter Helmet" },
-    -858312878: { "name": "Cloth" },
-    204391461: { "name": "Coal :(" },
-    170758448: { "name": "Cockpit With Engine Vehicle Module" },
-    -803263829: { "name": "Coffee Can Helmet" },
-    573676040: { "name": "Coffin" },
-    2040726127: { "name": "Combat Knife" },
-    884424049: { "name": "Compound Bow" },
-    -1488398114: { "name": "Composter" },
-    -1588628467: { "name": "Computer Station" },
-    1176355476: { "name": "Concrete Hatchet" },
-    -1360171080: { "name": "Concrete Pickaxe" },
-    968421290: { "name": "Connected Speaker" },
-    -1848736516: { "name": "Cooked Chicken" },
-    -1509851560: { "name": "Cooked Deer Meat" },
-    1668129151: { "name": "Cooked Fish" },
-    -1162759543: { "name": "Cooked Horse Meat" },
-    1536610005: { "name": "Cooked Human Meat" },
-    -242084766: { "name": "Cooked Pork" },
-    813023040: { "name": "Cooked Wolf Meat" },
-    1873897110: { "name": "Cooked Bear Meat" },
-    1367190888: { "name": "Corn" },
-    -778875547: { "name": "Corn Clone" },
-    998894949: { "name": "Corn Seed" },
-    -216999575: { "name": "Counter" },
-    -1049881973: { "name": "Cowbell" },
-    1189981699: { "name": "Crate Costume" },
-    1965232394: { "name": "Crossbow" },
-    -321733511: { "name": "Crude Oil" },
-    -97956382: { "name": "Tool Cupboard" },
-    1242522330: { "name": "Cursed Cauldron" },
-    1796682209: { "name": "Custom SMG" },
-    -1667224349: { "name": "Decorative Baubels" },
-    -209869746: { "name": "Decorative Plastic Candy Canes" },
-    1686524871: { "name": "Decorative Gingerbread Men" },
-    -129230242: { "name": "Decorative Pinecones" },
-    2106561762: { "name": "Decorative Tinsel" },
-    -151387974: { "name": "Deluxe Christmas Lights" },
-    1568388703: { "name": "Diesel Fuel" },
-    1895235349: { "name": "Disco Ball" },
-    286648290: { "name": "Disco Floor" },
-    1735402444: { "name": "Disco Floor (Large)" },
-    296519935: { "name": "Diving Fins" },
-    -113413047: { "name": "Diving Mask" },
-    -2022172587: { "name": "Diving Tank" },
-    -1101924344: { "name": "Wetsuit" },
-    1223900335: { "name": "Dog Tag" },
-    1409529282: { "name": "Door Closer" },
-    -1112793865: { "name": "Door Key" },
-    -765183617: { "name": "Double Barrel Shotgun" },
-    1521286012: { "name": "Double Sign Post" },
-    -854270928: { "name": "Dragon Door Knocker" },
-    -22883916: { "name": "Dragon Mask" },
-    1588492232: { "name": "Drone" },
-    -1519126340: { "name": "Drop Box" },
-    -1330640246: { "name": "Junkyard Drum Kit" },
-    1401987718: { "name": "Duct Tape" },
-    -979302481: { "name": "Easter Door Wreath" },
-    1856217390: { "name": "Egg Basket" },
-    -747743875: { "name": "Egg Suit" },
-    -1448252298: { "name": "Electrical Branch" },
-    -629028935: { "name": "Electric Fuse" },
-    1177596584: { "name": "Elevator" },
-    -75944661: { "name": "Eoka Pistol" },
-    -1321651331: { "name": "Explosive 5.56 Rifle Ammo" },
-    -592016202: { "name": "Explosives" },
-    2005491391: { "name": "Extended Magazine" },
-    -1215753368: { "name": "Flame Thrower" },
-    -1427743900: { "name": "Incendiary Rocket" },
-    143803535: { "name": "F1 Grenade" },
-    -936921910: { "name": "Flashbang" },
-    1556365900: { "name": "Molotov Cocktail" },
-    -930193596: { "name": "Fertilizer" },
-    -1230433643: { "name": "Festive Double Doorway Garland" },
-    -1379835144: { "name": "Festive Window Garland" },
-    14241751: { "name": "Fire Arrow" },
-    -1973785141: { "name": "Fogger-3000" },
-    -1707425764: { "name": "Fishing Tackle" },
-    1569882109: { "name": "Handmade Fishing Rod" },
-    559147458: { "name": "Survival Fish Trap" },
-    1575635062: { "name": "Frankenstein Table" },
-    1413014235: { "name": "Fridge" },
-    -1000573653: { "name": "Frog Boots" },
-    1186655046: { "name": "Fuel Tank Vehicle Module" },
-    -1999722522: { "name": "Furnace" },
-    -148794216: { "name": "Garage Door" },
-    1659114910: { "name": "Gas Mask" },
-    479143914: { "name": "Gears" },
-    999690781: { "name": "Geiger Counter" },
-    -695124222: { "name": "Giant Candy Decor" },
-    282103175: { "name": "Giant Lollipop Decor" },
-    -558880549: { "name": "Gingerbread Suit" },
-    -690276911: { "name": "Glowing Eyes" },
-    -1899491405: { "name": "Glue" },
-    -1002156085: { "name": "Gold Egg" },
-    -746030907: { "name": "Granola Bar" },
-    -1679267738: { "name": "Graveyard Fence" },
-    -455286320: { "name": "Gray ID Tag" },
-    1762167092: { "name": "Green ID Tag" },
-    -1776128552: { "name": "Green Berry Seed" },
-    -1305326964: { "name": "Green Berry Clone" },
-    858486327: { "name": "Green Berry" },
-    -656349006: { "name": "Green Boomer" },
-    37122747: { "name": "Green Keycard" },
-    -1306288356: { "name": "Green Roman Candle" },
-    -568419968: { "name": "Grub" },
-    -1449152644: { "name": "MLRS" },
-    -1759188988: { "name": "Hab Repair" },
-    200773292: { "name": "Hammer" },
-    -1167031859: { "name": "Spoiled Wolf Meat" },
-    -1252059217: { "name": "Hatchet" },
-    -1622110948: { "name": "attire.banditguard" },
-    -1266045928: { "name": "attire.bunny.onesie" },
-    1081315464: { "name": "attire.nesthat" },
-    861513346: { "name": "Lumberjack Suit" },
-    491263800: { "name": "Nomad Suit" },
-    -253079493: { "name": "Scientist Suit" },
-    -560304835: { "name": "Space Suit" },
-    1266491000: { "name": "Hazmat Suit" },
-    1107575710: { "name": "Arctic Scientist Suit" },
-    86840834: { "name": "NVGM Scientist Suit" },
-    -1958316066: { "name": "Scientist Suit (Peacekeeper)" },
-    -1518883088: { "name": "Night Vision Goggles" },
-    -1772746857: { "name": "Heavy Scientist Suit" },
-    -1507239837: { "name": "HBHF Sensor" },
-    -1732475823: { "name": "Medium Frankenstein Head" },
-    835042040: { "name": "Medium Frankenstein Legs" },
-    1491753484: { "name": "Medium Frankenstein Torso" },
-    -297099594: { "name": "Heavy Frankenstein Head" },
-    -2024549027: { "name": "Heavy Frankenstein Legs" },
-    1614528785: { "name": "Heavy Frankenstein Torso" },
-    1181207482: { "name": "Heavy Plate Helmet" },
-    -1102429027: { "name": "Heavy Plate Jacket" },
-    -1778159885: { "name": "Heavy Plate Pants" },
-    -886280491: { "name": "Hemp Clone" },
-    -237809779: { "name": "Hemp Seed" },
-    -1698937385: { "name": "Herring" },
-    1712070256: { "name": "HV 5.56 Rifle Ammo" },
-    -1691396643: { "name": "HV Pistol Ammo" },
-    -1841918730: { "name": "High Velocity Rocket" },
-    -985781766: { "name": "High Ice Wall" },
-    317398316: { "name": "High Quality Metal" },
-    -1982036270: { "name": "High Quality Metal Ore" },
-    1989785143: { "name": "High Quality Horse Shoes" },
-    1160881421: { "name": "Hitch & Trough" },
-    -1214542497: { "name": "HMLMG" },
-    -1442559428: { "name": "Hobo Barrel" },
-    -1334569149: { "name": "Hockey Mask" },
-    442289265: { "name": "Holosight" },
-    -1579932985: { "name": "Horse Dung" },
-    -1997543660: { "name": "Horse Saddle" },
-    363163265: { "name": "Hose Tool" },
-    996293980: { "name": "Human Skull" },
-    -143132326: { "name": "Huge Wooden Sign" },
-    605467368: { "name": "Incendiary 5.56 Rifle Ammo" },
-    51984655: { "name": "Incendiary Pistol Bullet" },
-    -173268126: { "name": "Rustigé Egg – Ivory" },
-    1242482355: { "name": "Jack O Lantern Angry" },
-    -1824943010: { "name": "Jack O Lantern Happy" },
-    1488979457: { "name": "Jackhammer" },
-    -97459906: { "name": "Jumpsuit" },
-    190184021: { "name": "Kayak" },
-    -850982208: { "name": "Key Lock" },
-    2040726127: { "name": "knife.combat" },
-    -778367295: { "name": "L96 Rifle" },
-    -316250604: { "name": "Wooden Ladder" },
-    1948067030: { "name": "Ladder Hatch" },
-    -1100168350: { "name": "Large Water Catcher" },
-    23352662: { "name": "Large Banner Hanging" },
-    2070189026: { "name": "Large Banner on pole" },
-    1581210395: { "name": "Large Planter Box" },
-    -1622660759: { "name": "Large Present" },
-    -132516482: { "name": "Weapon Lasersight" },
-    1381010055: { "name": "Leather" },
-    21402876: { "name": "Burlap Gloves" },
-    -134959124: { "name": "Light Frankenstein Head" },
-    106959911: { "name": "Light Frankenstein Legs" },
-    -1624770297: { "name": "Light Frankenstein Torso" },
-    -2027988285: { "name": "Locomotive" },
-    -1469578201: { "name": "Longsword" },
-    935692442: { "name": "Longsleeve T-Shirt" },
-    -946369541: { "name": "Low Grade Fuel" },
-    -1812555177: { "name": "LR-300 Assault Rifle" },
-    -763071910: { "name": "Lumberjack Hoodie" },
-    -2069578888: { "name": "LMG.M249" },
-    28201841: { "name": "M39 Rifle" },
-    -852563019: { "name": "M92 Pistol" },
-    -1966748496: { "name": "Mace" },
-    -1137865085: { "name": "Machete" },
-    -586784898: { "name": "Mail Box" },
-    696029452: { "name": "Paper Map" },
-    -1184406448: { "name": "Basic Max Health Tea" },
-    -682687162: { "name": "Burnt Human Meat" },
-    -1607980696: { "name": "Workbench Level 3" },
-    -41896755: { "name": "Workbench Level 2" },
-    1524187186: { "name": "Workbench Level 1" },
-    -583379016: { "name": "Megaphone" },
-    -194953424: { "name": "Metal Facemask" },
-    110116923: { "name": "Ice Metal Facemask" },
-    -1117626326: { "name": "wall.frame.fence" },
-    69511070: { "name": "Metal Fragments" },
-    -4031221: { "name": "Metal Ore" },
-    -1021495308: { "name": "Metal Spring" },
-    -819720157: { "name": "Metal Window Bars" },
-    39600618: { "name": "Microphone Stand" },
-    1426574435: { "name": "MC repair" },
-    -542577259: { "name": "Minnows" },
-    1052926200: { "name": "Mining Quarry" },
-    1259919256: { "name": "Mixing Table" },
-    -20045316: { "name": "Mobile Phone" },
-    -1123473824: { "name": "Multiple Grenade Launcher" },
-    -2047081330: { "name": "Movember Moustache" },
-    1318558775: { "name": "MP5A4" },
-    -1405508498: { "name": "Muzzle Boost" },
-    1478091698: { "name": "Muzzle Brake" },
-    1953903201: { "name": "Nailgun" },
-    1516985844: { "name": "Netting" },
-    -961457160: { "name": "New Year Gong" },
-    1414245162: { "name": "Note" },
-    -1904821376: { "name": "Orange Roughy" },
-    -282193997: { "name": "Orange ID Tag" },
-    -7270019: { "name": "Orange Boomer" },
-    -1286302544: { "name": "OR Switch" },
-    1480022580: { "name": "Basic Ore Tea" },
-    1315082560: { "name": "Ox Mask" },
-    1491189398: { "name": "Paddle" },
-    -126305173: { "name": "Painted Egg" },
-    237239288: { "name": "Pants" },
-    -1779183908: { "name": "Paper" },
-    -575744869: { "name": "Party Hat" },
-    -379734527: { "name": "Pattern Boomer" },
-    1272430949: { "name": "Wheelbarrow Piano" },
-    1697996440: { "name": "Landscape Photo Frame" },
-    1205084994: { "name": "Large Photo Frame" },
-    1729712564: { "name": "Portrait Photo Frame" },
-    -1302129395: { "name": "Pickaxe" },
-    286193827: { "name": "Pickles" },
-    180752235: { "name": "Pink ID Tag" },
-    -144513264: { "name": "Pipe Tool" },
-    -1360171080: { "name": "concretepickaxe" },
-    1090916276: { "name": "Pitchfork" },
-    -804769727: { "name": "Plant Fiber" },
-    273172220: { "name": "Plumber’s Trumpet" },
-    -1651220691: { "name": "Pookie Bear" },
-    576509618: { "name": "Portable Boom Box" },
-    -2086926071: { "name": "Potato" },
-    1512054436: { "name": "Potato Clone" },
-    -2084071424: { "name": "Potato Seed" },
-    -365097295: { "name": "Powered Water Purifier" },
-    -2049214035: { "name": "Pressure Pad" },
-    -956706906: { "name": "Prison Cell Gate" },
-    -1429456799: { "name": "Prison Cell Wall" },
-    1914691295: { "name": "Prototype 17" },
-    -399173933: { "name": "Prototype Hatchet" },
-    236677901: { "name": "Prototype Pickaxe" },
-    140006625: { "name": "PTZ CCTV Camera" },
-    -567909622: { "name": "Pumpkin" },
-    1346158228: { "name": "Pumpkin Bucket" },
-    1898094925: { "name": "Pumpkin Plant Clone" },
-    -1511285251: { "name": "Pumpkin Seed" },
-    -1130709577: { "name": "Pump Jack" },
-    795371088: { "name": "Pump Shotgun" },
-    -1386082991: { "name": "Purple ID Tag" },
-    2024467711: { "name": "Pure Scrap Tea" },
-    1729374708: { "name": "Pure Ore Tea" },
-    -557539629: { "name": "Pure Wood Tea" },
-    1373971859: { "name": "Python Revolver" },
-    -496584751: { "name": "Rad. Removal Tea" },
-    492357192: { "name": "RAND Switch" },
-    271048478: { "name": "Rat Mask" },
-    -1440987069: { "name": "Raw Chicken Breast" },
-    1422530437: { "name": "Raw Deer Meat" },
-    989925924: { "name": "Raw Fish" },
-    -1130350864: { "name": "Raw Horse Meat" },
-    -1709878924: { "name": "Raw Human Meat" },
-    621915341: { "name": "Raw Pork" },
-    -395377963: { "name": "Raw Wolf Meat" },
-    -1736356576: { "name": "Reactive Target" },
-    1272194103: { "name": "Red Berry" },
-    2133269020: { "name": "Red Berry Clone" },
-    830839496: { "name": "Red Berry Seed" },
-    -1553999294: { "name": "Red Boomer" },
-    -602717596: { "name": "Red Dog Tags" },
-    70102328: { "name": "Red ID Tag" },
-    -1880870149: { "name": "Red Keycard" },
-    -1486461488: { "name": "Red Roman Candle" },
-    -454370658: { "name": "Red Volcano Firework" },
-    1394042569: { "name": "RHIB" },
-    -1861522751: { "name": "Research Table" },
-    -544317637: { "name": "Research Paper" },
-    649912614: { "name": "Revolver" },
-    888415708: { "name": "RF Receiver" },
-    -1044468317: { "name": "RF Broadcaster" },
-    596469572: { "name": "RF Transmitter" },
-    -566907190: { "name": "RF Pager" },
-    176787552: { "name": "Rifle Body" },
-    671063303: { "name": "Riot Helmet" },
-    1199391518: { "name": "Road Signs" },
-    -699558439: { "name": "Roadsign Gloves" },
-    1850456855: { "name": "Road Sign Kilt" },
-    -2002277461: { "name": "Road Sign Jacket" },
-    60528587: { "name": "Roadsign Horse Armor" },
-    963906841: { "name": "Rock" },
-    442886268: { "name": "Rocket Launcher" },
-    1414245522: { "name": "Rope" },
-    -1985799200: { "name": "Rug" },
-    -1104881824: { "name": "Rug Bear Skin" },
-    -173268129: { "name": "Rustigé Egg – Red" },
-    -173268132: { "name": "Rustigé Egg – Blue" },
-    -173268131: { "name": "Rustigé Egg – Purple" },
-    -173268125: { "name": "Rustigé Egg – Green" },
-    -173268128: { "name": "Rustigé Egg – White" },
-    -384243979: { "name": "SAM Ammo" },
-    -1009359066: { "name": "SAM Site" },
-    -851988960: { "name": "Salmon" },
-    -277057363: { "name": "Salt Water" },
-    -262590403: { "name": "axe.salvaged" },
-    -1506397857: { "name": "Salvaged Hammer" },
-    -1780802565: { "name": "Salvaged Icepick" },
-    1950721418: { "name": "Salvaged Shelves" },
-    1326180354: { "name": "Salvaged Sword" },
-    -1978999529: { "name": "Salvaged Cleaver" },
-    -575483084: { "name": "Santa Hat" },
-    2126889441: { "name": "Santa Beard" },
-    -1654233406: { "name": "Sardine" },
-    -1878475007: { "name": "Satchel Charge" },
-    177226991: { "name": "Scarecrow" },
-    809942731: { "name": "Scarecrow Wrap" },
-    273951840: { "name": "Scarecrow Suit" },
-    -1884328185: { "name": "ScrapTransportHeliRepair" },
-    263834859: { "name": "Basic Scrap Tea" },
-    -932201673: { "name": "Scrap" },
-    2087678962: { "name": "Search Light" },
-    567871954: { "name": "Secret Lab Chair" },
-    573926264: { "name": "Semi Automatic Body" },
-    818877484: { "name": "Semi-Automatic Pistol" },
-    -904863145: { "name": "Semi-Automatic Rifle" },
-    1234880403: { "name": "Sewing Kit" },
-    1230323789: { "name": "SMG Body" },
-    -1994909036: { "name": "Sheet Metal" },
-    1390353317: { "name": "Sheet Metal Double Door" },
-    -2067472972: { "name": "Sheet Metal Door" },
-    -2025184684: { "name": "Shirt" },
-    -1695367501: { "name": "Shorts" },
-    -796583652: { "name": "Shop Front" },
-    -148229307: { "name": "Metal Shop Front" },
-    352499047: { "name": "Shotgun Trap" },
-    -2107018088: { "name": "Shovel Bass" },
-    -1023374709: { "name": "Wood Shutters" },
-    -1199897169: { "name": "Metal horizontal embrasure" },
-    -1199897172: { "name": "Metal Vertical embrasure" },
-    -1368584029: { "name": "Sickle" },
-    1153652756: { "name": "Large Wooden Sign" },
-    -1819233322: { "name": "Medium Wooden Sign" },
-    -1138208076: { "name": "Small Wooden Sign" },
-    -855748505: { "name": "Simple Handmade Sight" },
-    -1850571427: { "name": "Silencer" },
-    1757265204: { "name": "Silver Egg" },
-    1542290441: { "name": "Single Sign Post" },
-    -117565659: { "name": "Cultist Deer Torch" },
-    -216116642: { "name": "Skull Door Knocker" },
-    553887414: { "name": "Skull Fire Pit" },
-    -25740268: { "name": "Skull Spikes" },
-    -769647921: { "name": "Skull Trophy" },
-    1819863051: { "name": "Sky Lantern" },
-    -1770889433: { "name": "Sky Lantern – Green" },
-    -1824770114: { "name": "Sky Lantern – Orange" },
-    831955134: { "name": "Sky Lantern – Purple" },
-    -1433390281: { "name": "Sky Lantern – Red" },
-    -135252633: { "name": "Sled" },
-    -1754948969: { "name": "Sleeping Bag" },
-    -1293296287: { "name": "Small Oil Refinery" },
-    -132247350: { "name": "Small Water Catcher" },
-    1903654061: { "name": "Small Planter Box" },
-    -722241321: { "name": "Small Present" },
-    -1768880890: { "name": "Small Shark" },
-    -369760990: { "name": "Small Stash" },
-    -1878764039: { "name": "Small Trout" },
-    -1039528932: { "name": "Small Water Bottle" },
-    -695978112: { "name": "Smart Alarm" },
-    988652725: { "name": "Smart Switch" },
-    1263920163: { "name": "Smoke Grenade" },
-    -17123659: { "name": "Smoke Rocket WIP!!!!" },
-    -363689972: { "name": "Snowball" },
-    1103488722: { "name": "Snowball Gun" },
-    -48090175: { "name": "Snow Jacket" },
-    1358643074: { "name": "Snow Machine" },
-    -1364246987: { "name": "Snowmobile" },
-    1768112091: { "name": "Tomaha Snowmobile" },
-    1629293099: { "name": "Snowman" },
-    -555122905: { "name": "Sofa" },
-    782422285: { "name": "Sofa – Pattern" },
-    -187031121: { "name": "Solo Submarine" },
-    -343857907: { "name": "Sound Light" },
-    1784406797: { "name": "Sousaphone" },
-    -41440462: { "name": "Spas-12 Shotgun" },
-    -1517740219: { "name": "Speargun" },
-    -1800345240: { "name": "Speargun Spear" },
-    -1100422738: { "name": "Spinning wheel" },
-    -563624462: { "name": "Splitter" },
-    882559853: { "name": "Spider Webs" },
-    -92759291: { "name": "Wooden Floor Spikes" },
-    1885488976: { "name": "Spooky Speaker" },
-    352130972: { "name": "Rotten Apple" },
-    -751151717: { "name": "Spoiled Chicken" },
-    1272768630: { "name": "Spoiled Human Meat" },
-    -596876839: { "name": "Spray Can" },
-    -1366326648: { "name": "Spray Can Decal" },
-    -1623334696: { "name": "Pure Ore Tea" },
-    -1331212963: { "name": "Star Tree Topper" },
-    642482233: { "name": "Sticks" },
-    1668858301: { "name": "Small Stocking" },
-    -465682601: { "name": "SUPER Stocking" },
-    -2099697608: { "name": "Stones" },
-    -1583967946: { "name": "Stone Hatchet" },
-    171931394: { "name": "Stone Pickaxe" },
-    1602646136: { "name": "Stone Spear" },
-    268565518: { "name": "Storage Vehicle Module" },
-    1149964039: { "name": "Storage Monitor" },
-    -1614955425: { "name": "Strengthened Glass Window" },
-    2104517339: { "name": "Strobe Light" },
-    1015352446: { "name": "Duo Submarine" },
-    -1581843485: { "name": "Sulfur" },
-    -1157596551: { "name": "Sulfur Ore" },
-    352321488: { "name": "Sunglasses" },
-    -1003665711: { "name": "Super Tea" },
-    1397052267: { "name": "Supply Signal" },
-    1975934948: { "name": "Survey Charge" },
-    -1108136649: { "name": "Tactical Gloves" },
-    593465182: { "name": "Table" },
-    1608640313: { "name": "Tank Top" },
-    1523195708: { "name": "Targeting Computer" },
-    2019042823: { "name": "Tarp" },
-    73681876: { "name": "Tech Trash" },
-    1234878710: { "name": "Telephone" },
-    1371909803: { "name": "Tesla Coil" },
-    -295829489: { "name": "Test Generator" },
-    -1758372725: { "name": "Thompson" },
-    709206314: { "name": "Tiger Mask" },
-    1248356124: { "name": "Timed Explosive Charge" },
-    665332906: { "name": "Timer" },
-    1803831286: { "name": "Garry’s Mod Tool Gun" },
-    795236088: { "name": "Torch" },
-    -1671551935: { "name": "Torpedo" },
-    975983052: { "name": "Twitch Rivals Trophy" },
-    -1569700847: { "name": "Twitch.Headset" },
-    20489901: { "name": "Purple Sunglasses" },
-    1205607945: { "name": "Two Sided Hanging Sign" },
-    -1647846966: { "name": "Two Sided Ornate Hanging Sign" },
-    826309791: { "name": "Two Sided Town Sign Post" },
-    -1802083073: { "name": "High Quality Valves" },
-    926800282: { "name": "Medium Quality Valves" },
-    1330084809: { "name": "Low Quality Valves" },
-    1481635392: { "name": "Vending Machine" },
-    1770744540: { "name": "Generic vehicle chassis" },
-    -44066790: { "name": "Large Chassis" },
-    -44066823: { "name": "Medium Chassis" },
-    -44066600: { "name": "Small Chassis" },
-    878301596: { "name": "Generic vehicle module" },
-    -1880231361: { "name": "Flatbed Vehicle Module" },
-    1376065505: { "name": "Rear Seats Vehicle Module" },
-    -626174997: { "name": "Taxi Vehicle Module" },
-    -1040518150: { "name": "Camper Vehicle Module" },
-    -1693832478: { "name": "Large Flatbed Vehicle Module" },
-    895374329: { "name": "Passenger Vehicle Module" },
-    1559779253: { "name": "Engine Vehicle Module" },
-    -280223496: { "name": "Violet Boomer" },
-    -99886070: { "name": "Violet Roman Candle" },
-    -1538109120: { "name": "Violet Volcano Firework" },
-    -2027988285: { "name": "wagon" },
-    -1327005675: { "name": "Short Ice Wall" },
-    -463122489: { "name": "Watch Tower" },
-    -1779180711: { "name": "Water" },
-    722955039: { "name": "Water Gun" },
-    -1815301988: { "name": "Water Pistol" },
-    -1284169891: { "name": "Water Pump" },
-    2114754781: { "name": "Water Purifier" },
-    -1367281941: { "name": "Waterpipe Shotgun" },
-    952603248: { "name": "Weapon flashlight" },
-    838308300: { "name": "weapon.mod.burstmodule" },
-    567235583: { "name": "8x Zoom Scope" },
-    174866732: { "name": "16x Zoom Scope" },
-    854447607: { "name": "White Berry" },
-    -992286106: { "name": "White Berry Seed" },
-    1533551194: { "name": "White Berry Clone" },
-    22947882: { "name": "White ID Tag" },
-    261913429: { "name": "White Volcano Firework" },
-    -1819763926: { "name": "Wind Turbine" },
-    -144417939: { "name": "Wire Tool" },
-    2048317869: { "name": "Wolf Skull" },
-    -151838493: { "name": "Wood" },
-    1659447559: { "name": "Wooden Horse Armor" },
-    -2094954543: { "name": "Wood Armor Helmet" },
-    418081930: { "name": "Wood Chestplate" },
-    832133926: { "name": "Wood Armor Pants" },
-    699075597: { "name": "Wooden Cross" },
-    1729120840: { "name": "Wooden Door" },
-    -1183726687: { "name": "Wooden Window Bars" },
-    1540934679: { "name": "Wooden Spear" },
-    -1234735557: { "name": "Wooden Arrow" },
-    -810326667: { "name": "Work Cart" },
-    1770475779: { "name": "Worm" },
-    1094293920: { "name": "Wrapping Paper" },
-    204970153: { "name": "Wrapped Gift" },
-    1293102274: { "name": "XOR Switch" },
-    -211235948: { "name": "Xylobone" },
-    81423963: { "name": "Yellow ID Tag" },
-    -520133715: { "name": "Yellow Berry Seed" },
-    390728933: { "name": "Yellow Berry Clone" },
-    1660145984: { "name": "Yellow Berry" },
-    680234026: { "name": "Yellow Perch" },
-    -1231934338: { "name": "roadsign.jacket" }
-}
+[
+  {
+    "displayName": null,
+    "shortName": "ammo.snowballgun",
+    "itemID": 550753330,
+    "description": null,
+    "stackSize": 128
+  },
+  {
+    "displayName": "5.56 Rifle Ammo",
+    "shortName": "ammo.rifle",
+    "itemID": -1211166256,
+    "description": "Ammunition for a Rifle. Loses velocity when fired over long distances resulting in slightly decreased damage.",
+    "stackSize": 128
+  },
+  {
+    "displayName": "8x Zoom Scope",
+    "shortName": "weapon.mod.small.scope",
+    "itemID": 567235583,
+    "description": "A small 8x zoom scope.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "12 Gauge Buckshot",
+    "shortName": "ammo.shotgun",
+    "itemID": -1685290200,
+    "description": "Ammunition for a Shotgun.",
+    "stackSize": 64
+  },
+  {
+    "displayName": "12 Gauge Incendiary Shell",
+    "shortName": "ammo.shotgun.fire",
+    "itemID": -1036635990,
+    "description": "Incendiary Shotgun Ammunition",
+    "stackSize": 64
+  },
+  {
+    "displayName": "12 Gauge Slug",
+    "shortName": "ammo.shotgun.slug",
+    "itemID": -727717969,
+    "description": "Single large projectile for a Shotgun.",
+    "stackSize": 32
+  },
+  {
+    "displayName": "40mm HE Grenade",
+    "shortName": "ammo.grenadelauncher.he",
+    "itemID": 349762871,
+    "description": "Ammunition for a 40mm Grenade Launcher.",
+    "stackSize": 12
+  },
+  {
+    "displayName": "40mm Shotgun Round",
+    "shortName": "ammo.grenadelauncher.buckshot",
+    "itemID": 1055319033,
+    "description": "Ammunition for a 40mm Grenade Launcher.",
+    "stackSize": 24
+  },
+  {
+    "displayName": "40mm Smoke Grenade",
+    "shortName": "ammo.grenadelauncher.smoke",
+    "itemID": 915408809,
+    "description": "Ammunition for a 40mm Grenade Launcher.",
+    "stackSize": 12
+  },
+  {
+    "displayName": "A Barrel Costume",
+    "shortName": "barrelcostume",
+    "itemID": -1215166612,
+    "description": "A stupid barrel costume, so you can hide like a pro..p",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Above Ground Pool",
+    "shortName": "abovegroundpool",
+    "itemID": 1840570710,
+    "description": "A large wooden pool that can be filled with water.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Abyss Assault Rifle",
+    "shortName": "rifle.ak.diver",
+    "itemID": -139037392,
+    "description": "A waterlogged assault rifle from the abyss",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Abyss Divers Suit",
+    "shortName": "hazmatsuit.diver",
+    "itemID": -797592358,
+    "description": "A divers suit found in the abyss, doubles as a reliable hazmat suit",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Abyss Horizontal Storage Tank",
+    "shortName": "abyss.barrel.horizontal",
+    "itemID": -880494890,
+    "description": "Horizontal Abyss container taken from the depths of the ocean",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Abyss Metal Hatchet",
+    "shortName": "diverhatchet",
+    "itemID": 1046904719,
+    "description": "Metal hatchet, reclaimed from the abyss, perfect for survival and crafting",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Abyss Metal Pickaxe",
+    "shortName": "diverpickaxe",
+    "itemID": 1561022037,
+    "description": "Plucked from the abyss, this Metal Pickaxe is a prized possession for any survivor",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Abyss Torch",
+    "shortName": "divertorch",
+    "itemID": 1846605708,
+    "description": "Illuminate the underwater depths with this durable and waterproof diving torch",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Abyss Vertical Storage Tank",
+    "shortName": "abyss.barrel.vertical",
+    "itemID": -919882824,
+    "description": "Vertical Abyss container taken from the depths of the ocean",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Acoustic Guitar",
+    "shortName": "fun.guitar",
+    "itemID": -2124352573,
+    "description": "A classic acoustic guitar, built for jam sessions around campfires at night.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Advanced Anti-Rad Tea",
+    "shortName": "radiationresisttea.advanced",
+    "itemID": -1729415579,
+    "description": "An advanced tea that provides some hydration and temporarily increases your resistance to radiation a moderate amount.",
+    "stackSize": 10
+  },
+  {
+    "displayName": "Advanced Cooling Tea",
+    "shortName": "advancedcoolingtea",
+    "itemID": -1498613415,
+    "description": "An advanced cooling tea, provides hydration and temporarily decreases your max and core temperature.",
+    "stackSize": 10
+  },
+  {
+    "displayName": "Advanced Crafting Quality Tea",
+    "shortName": "advancedcraftingtea_quality",
+    "itemID": -652889722,
+    "description": "An advanced crafting tea, provides hydration and temporarily increases the chances of a higher quality crafting outcome.",
+    "stackSize": 10
+  },
+  {
+    "displayName": "Advanced Harvesting Tea",
+    "shortName": "advanceharvestingtea",
+    "itemID": -1385721419,
+    "description": "An advanced harvesting tea, provides hydration and temporarily boosts the amount of resources you receive from harvesting corpses a moderate amount.",
+    "stackSize": 10
+  },
+  {
+    "displayName": "Advanced Healing Tea",
+    "shortName": "healingtea.advanced",
+    "itemID": -2123125470,
+    "description": "An advanced healing tea, provides hydration and heals you a moderate amount over time.",
+    "stackSize": 10
+  },
+  {
+    "displayName": "Advanced Max Health Tea",
+    "shortName": "maxhealthtea.advanced",
+    "itemID": 603811464,
+    "description": "An advanced health tea, provides hydration and temporarily boosts maximum health a moderate amount.",
+    "stackSize": 10
+  },
+  {
+    "displayName": "Advanced Ore Tea",
+    "shortName": "oretea.advanced",
+    "itemID": 2063916636,
+    "description": "An advanced ore tea, provides hydration and temporarily increases your yield from ores a moderate amount.",
+    "stackSize": 10
+  },
+  {
+    "displayName": "Advanced Rad. Removal Tea",
+    "shortName": "radiationremovetea.advanced",
+    "itemID": 2021351233,
+    "description": "A tea that removes some radiation.",
+    "stackSize": 10
+  },
+  {
+    "displayName": "Advanced Scrap Tea",
+    "shortName": "scraptea.advanced",
+    "itemID": 524678627,
+    "description": "An advanced scrap tea, temporarily increases the amount of scrap you receive from barrels a moderate amount.",
+    "stackSize": 10
+  },
+  {
+    "displayName": "Advanced Warming Tea",
+    "shortName": "advancedwarmingtea",
+    "itemID": -334418777,
+    "description": "An advanced warming tea that temporarily increases both your core and minimum temperature.",
+    "stackSize": 10
+  },
+  {
+    "displayName": "Advanced Wood Tea",
+    "shortName": "woodtea.advanced",
+    "itemID": -541206665,
+    "description": "An advanced wood tea, temporarily increases the yield from cutting trees a moderate amount.",
+    "stackSize": 10
+  },
+  {
+    "displayName": "Advent Calendar",
+    "shortName": "xmas.advent",
+    "itemID": -2027793839,
+    "description": "Receive a special gift each and every day!",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Anchovy",
+    "shortName": "fish.anchovy",
+    "itemID": 342438846,
+    "description": "A small bony fish commonly found in large schools.",
+    "stackSize": 10
+  },
+  {
+    "displayName": "AND Switch",
+    "shortName": "electric.andswitch",
+    "itemID": 1171735914,
+    "description": "A logic gate that allows electrical passthrough if BOTH inputs receives power, passthrough amount is the greater of either power source",
+    "stackSize": 5
+  },
+  {
+    "displayName": "Animal Fat",
+    "shortName": "fat.animal",
+    "itemID": -1018587433,
+    "description": "Harvested from animals, combine with cloth to create a low quality fuel source.",
+    "stackSize": 1000
+  },
+  {
+    "displayName": "Anti-Radiation Pills",
+    "shortName": "antiradpills",
+    "itemID": -1432674913,
+    "description": "Taking these pills will lower your radiation level. WARNING: May cause extreme dehydration.",
+    "stackSize": 10
+  },
+  {
+    "displayName": "Apple",
+    "shortName": "apple",
+    "itemID": 1548091822,
+    "description": "An Apple. Eating it provides a small boost to health, hunger, and thirst.",
+    "stackSize": 10
+  },
+  {
+    "displayName": "Apple Pie",
+    "shortName": "pie.apple",
+    "itemID": 4384538,
+    "description": "A delicious apple pie, always too hot. Provides a boost to hunger, health and hydration. Gives better night vision, including tree markings and ore hotspots, for a short time.",
+    "stackSize": 3
+  },
+  {
+    "displayName": "Arctic Scientist Suit",
+    "shortName": "hazmatsuit_scientist_arctic",
+    "itemID": 1107575710,
+    "description": "A hazmat suit made from radiation resistant rubber.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Arctic Suit",
+    "shortName": "hazmatsuit.arcticsuit",
+    "itemID": -470439097,
+    "description": "An arctic variant of the hazmat suit which trades radiation for cold protection.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Armored Cockpit Vehicle Module",
+    "shortName": "vehicle.1mod.cockpit.armored",
+    "itemID": 1874610722,
+    "description": "Single module armored cockpit for a driver and one passenger.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Armored Door",
+    "shortName": "door.hinged.toptier",
+    "itemID": 1353298668,
+    "description": "Extremely strong door with a hatch to see and shoot out of.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Armored Double Door",
+    "shortName": "door.double.hinged.toptier",
+    "itemID": 1221063409,
+    "description": "Extremely strong door with a hatch to see and shoot out of.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Armored Passenger Vehicle Module",
+    "shortName": "vehicle.1mod.passengers.armored",
+    "itemID": -1615281216,
+    "description": "Single module armored seating for two passengers.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Asbestos Armor Insert",
+    "shortName": "clothing.mod.armorinsert_asbestos",
+    "itemID": -903796529,
+    "description": "Asbestos insert providing extra protection from heat for crafted clothes and armor.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Assault Rifle",
+    "shortName": "rifle.ak",
+    "itemID": 1545779598,
+    "description": "High damage machine rifle.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Attack Helicopter",
+    "shortName": "attackhelicopter",
+    "itemID": 1113514903,
+    "description": "A fairly solid helicopter with weapons capability.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Audio Alarm",
+    "shortName": "electric.audioalarm",
+    "itemID": 2100007442,
+    "description": "A speaker which will emit a loud warning alarm when powered",
+    "stackSize": 5
+  },
+  {
+    "displayName": "Auto Turret",
+    "shortName": "autoturret",
+    "itemID": -2139580305,
+    "description": "This automated electric sentry turret will engage and neutralize any moving targets it has line of sight to. You must equip it with a projectile weapon and the corresponding ammunition. Note : The turret will search for targets in a 180 degree arc facing *you* when you place it. Requires 10 power.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Ballista",
+    "shortName": "ballista.static",
+    "itemID": 1714509152,
+    "description": "A stationary ballista, perfect for defence. Can fire deadly bolts at distant targets.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Bamboo Barrel",
+    "shortName": "bamboo.barrel",
+    "itemID": -1652561344,
+    "description": "Keep your things in this bamboo barrel. Stores up to 48 items. Cannot be locked.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Bamboo Salvaged Shelves",
+    "shortName": "salvaged.bamboo.shelves",
+    "itemID": -2110553371,
+    "description": "Bamboo shelves for item stacking",
+    "stackSize": 10
+  },
+  {
+    "displayName": "Bandage",
+    "shortName": "bandage",
+    "itemID": -2072273936,
+    "description": "Heal yourself or others with this bandage. Left-click heals you, right-click heals a target.",
+    "stackSize": 3
+  },
+  {
+    "displayName": "Bandana Mask",
+    "shortName": "mask.bandana",
+    "itemID": -702051347,
+    "description": "A square of cloth which is tied around the face over the nose and mouth.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Bandit Guard Gear",
+    "shortName": "attire.banditguard",
+    "itemID": -1622110948,
+    "description": "A bandit guard suit",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Barbed Wooden Barricade",
+    "shortName": "barricade.woodwire",
+    "itemID": 1382263453,
+    "description": "A wooden barricade with barbed wire, made of Wood and Metal Fragments. The barbed wire causes damage and will also slow player movement.",
+    "stackSize": 10
+  },
+  {
+    "displayName": "Barbeque",
+    "shortName": "bbq",
+    "itemID": 1099314009,
+    "description": "A makeshift Barbeque. You can cook significant amounts of food with this.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Baseball Bat",
+    "shortName": "mace.baseballbat",
+    "itemID": -2026042603,
+    "description": "A baseball bat wrapped in barbed wire",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Baseball Cap",
+    "shortName": "hat.cap",
+    "itemID": -1022661119,
+    "description": "Simple hat for your head. Offers basic protection from damage and the cold.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Basic Anti-Rad Tea",
+    "shortName": "radiationresisttea",
+    "itemID": -487356515,
+    "description": "A basic tea that provides hydration and temporarily increases your resistance to radiation a small amount.",
+    "stackSize": 10
+  },
+  {
+    "displayName": "Basic Cooling Tea",
+    "shortName": "coolingtea",
+    "itemID": -1260229965,
+    "description": "A basic cooling tea that temporarily decreases your max and core temperature.",
+    "stackSize": 10
+  },
+  {
+    "displayName": "Basic Crafting Quality Tea",
+    "shortName": "craftingtea_quality",
+    "itemID": 368008432,
+    "description": "A basic crafting tea. provides hydration and increases the chances of a higher quality crafting outcome for a short time.",
+    "stackSize": 10
+  },
+  {
+    "displayName": "Basic Harvesting Tea",
+    "shortName": "harvestingtea",
+    "itemID": 1516531815,
+    "description": "A basic harvesting tea, provides hydration and temporarily increases the amount of resources you receive from harvesting corpses a small amount.",
+    "stackSize": 10
+  },
+  {
+    "displayName": "Basic Healing Tea",
+    "shortName": "healingtea",
+    "itemID": -929092070,
+    "description": "A basic healing tea, provides hydration and heals you a small amount over time.",
+    "stackSize": 10
+  },
+  {
+    "displayName": "Basic Horse Shoes",
+    "shortName": "horse.shoes.basic",
+    "itemID": -1211268013,
+    "description": "Equipping these horse shoes will grant your horse additional movement speed",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Basic Max Health Tea",
+    "shortName": "maxhealthtea",
+    "itemID": -1184406448,
+    "description": "A basic health tea, provides hydration and temporarily boosts maximum health a small amount.",
+    "stackSize": 10
+  },
+  {
+    "displayName": "Basic Ore Tea",
+    "shortName": "oretea",
+    "itemID": 1480022580,
+    "description": "A basic ore tea, provides hydration and temporarily increases your yield from harvesting ores a small amount.",
+    "stackSize": 10
+  },
+  {
+    "displayName": "Basic Scrap Tea",
+    "shortName": "scraptea",
+    "itemID": 263834859,
+    "description": "A basic scrap tea, temporarily increases the amount of scrap you receive from barrels a small amount.",
+    "stackSize": 10
+  },
+  {
+    "displayName": "Basic Warming Tea",
+    "shortName": "warmingtea",
+    "itemID": -1142222427,
+    "description": "A basic warming tea that temporarily increases both your core and minimum temperature.",
+    "stackSize": 10
+  },
+  {
+    "displayName": "Basic Wood Tea",
+    "shortName": "woodtea",
+    "itemID": -649128577,
+    "description": "A basic wood tea, temporarily increases the yield from cutting trees a small amount.",
+    "stackSize": 10
+  },
+  {
+    "displayName": "Bath Tub Planter",
+    "shortName": "bathtub.planter",
+    "itemID": -1274093662,
+    "description": "A small planter with enough room to plant 3 seeds.",
+    "stackSize": 10
+  },
+  {
+    "displayName": "Battering Ram",
+    "shortName": "batteringram",
+    "itemID": -187304968,
+    "description": "A reinforced siege weapon built for smashing through wooden and stone constructions with brute force. Must be repaired with high quality metal to keep functioning.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Battering Ram Head",
+    "shortName": "batteringram.head.repair",
+    "itemID": -479314201,
+    "description": null,
+    "stackSize": 1
+  },
+  {
+    "displayName": "Battery - Small",
+    "shortName": "battery.small",
+    "itemID": 609049394,
+    "description": "A Battery.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Beach Chair",
+    "shortName": "beachchair",
+    "itemID": -321431890,
+    "description": "The Beach Chair is the best way to relax, whether it's by the pool or on the beach.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Beach Parasol",
+    "shortName": "beachparasol",
+    "itemID": -1621539785,
+    "description": "A large umbrella that will shield you from the sun.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Beach Table",
+    "shortName": "beachtable",
+    "itemID": 657352755,
+    "description": "A small table to hold your drinks while relaxing.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Beach Towel",
+    "shortName": "beachtowel",
+    "itemID": -8312704,
+    "description": "A colourful beach towel. Placing this will give you a location to respawn.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Beancan Grenade",
+    "shortName": "grenade.beancan",
+    "itemID": 1840822026,
+    "description": "An unreliable explosive grenade. Each one has a different length fuse, so you might lose some fingers. Can be used to make satchel charges.",
+    "stackSize": 5
+  },
+  {
+    "displayName": "Bear Pie",
+    "shortName": "pie.bear",
+    "itemID": 2039177180,
+    "description": "A pie made of bear meat, provides a boost to hunger, health and hydration. Increases effect of harvesting teas but reduces their duration.",
+    "stackSize": 3
+  },
+  {
+    "displayName": "Bed",
+    "shortName": "bed",
+    "itemID": -1273339005,
+    "description": "A Bed. Placing this will give you a place to respawn and can be used much more frequently than a sleeping bag. Note: Must be placed inside a building.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Bee Catapult Bomb",
+    "shortName": "catapult.ammo.bee",
+    "itemID": 1954597876,
+    "description": "A bunch of Bee Grenades in a single catapult projectile. Creates swarms of Bees on impact.",
+    "stackSize": 4
+  },
+  {
+    "displayName": "Bee Grenade",
+    "shortName": "grenade.bee",
+    "itemID": 1168916338,
+    "description": "A fragile glass jar full of bees. Breaking upon impact, the bees will find the nearest player to attack. Careful where you throw it!",
+    "stackSize": 5
+  },
+  {
+    "displayName": "Beehive",
+    "shortName": "beehive",
+    "itemID": 184516676,
+    "description": "Hand made beehive, place a nucleus inside to raise your own bees and produce honeycomb. Happy bees will make honeycomb more quickly.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Beehive Nucleus",
+    "shortName": "nucleus",
+    "itemID": -1811234677,
+    "description": "The heart of any hive, needed for raising bees. Produce honeycomb from happy bees to grow the nucleus and increase yields.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Beenie Hat",
+    "shortName": "hat.beenie",
+    "itemID": 1675639563,
+    "description": "A wooly hat, offering some basic protection from damage and cold for your head.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Bicycle",
+    "shortName": "bicycle",
+    "itemID": 821588319,
+    "description": "A pedal bike.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Big Cat Pie",
+    "shortName": "pie.bigcat",
+    "itemID": 309017792,
+    "description": "A pie made from jungle cat meat, purrfect temperature. Boosts hunger, health and hydration. Shows nearby animal tracks for a short time.",
+    "stackSize": 3
+  },
+  {
+    "displayName": "Binoculars",
+    "shortName": "tool.binoculars",
+    "itemID": -1262185308,
+    "description": "Binoculars allowing you to see objects at great length.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Birthday Cake",
+    "shortName": "cakefiveyear",
+    "itemID": 1973165031,
+    "description": "A very special and happy birthday to Rust!",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Black Berry",
+    "shortName": "black.berry",
+    "itemID": 1771755747,
+    "description": "A black berry.",
+    "stackSize": 20
+  },
+  {
+    "displayName": "Black Berry Clone",
+    "shortName": "clone.black.berry",
+    "itemID": 122783240,
+    "description": "A clipping of a Black Berry Plant.",
+    "stackSize": 50
+  },
+  {
+    "displayName": "Black Berry Seed",
+    "shortName": "seed.black.berry",
+    "itemID": 1911552868,
+    "description": "These black berry seeds can be planted in the ground and grown to collect additional food. Planting these seeds in a planter, and then watering them with large quantities of water yields significantly more berries and faster growth.",
+    "stackSize": 50
+  },
+  {
+    "displayName": "Black Raspberries",
+    "shortName": "black.raspberries",
+    "itemID": 1931713481,
+    "description": "Black Raspberries picked from berry bushes. Eating it provides a small boost to health, hunger, and thirst.",
+    "stackSize": 20
+  },
+  {
+    "displayName": "Bleach",
+    "shortName": "bleach",
+    "itemID": 1553078977,
+    "description": "A powerful oxidizing agent. Can be used as a disinfectant.",
+    "stackSize": 20
+  },
+  {
+    "displayName": "Blocker",
+    "shortName": "electric.blocker",
+    "itemID": -690968985,
+    "description": "This object prevents passthrough while power is received through its second input.",
+    "stackSize": 5
+  },
+  {
+    "displayName": "Blood",
+    "shortName": "blood",
+    "itemID": 1776460938,
+    "description": "Used in creation of medkits.",
+    "stackSize": 1000
+  },
+  {
+    "displayName": "Blow Pipe",
+    "shortName": "blowpipe",
+    "itemID": -851288382,
+    "description": "A blown weapon that fires darts with different effects.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Blueberries",
+    "shortName": "blueberries",
+    "itemID": -586342290,
+    "description": "Blueberries picked from berry bushes. Eating it provides a small boost to health, hunger, and thirst.",
+    "stackSize": 20
+  },
+  {
+    "displayName": "Blue Berry",
+    "shortName": "blue.berry",
+    "itemID": 1112162468,
+    "description": "A blue berry. Can be eaten or used in mixing table recipes to create teas.",
+    "stackSize": 20
+  },
+  {
+    "displayName": "Blue Berry Clone",
+    "shortName": "clone.blue.berry",
+    "itemID": 838831151,
+    "description": "A clipping of a Blue Berry Plant.",
+    "stackSize": 50
+  },
+  {
+    "displayName": "Blue Berry Seed",
+    "shortName": "seed.blue.berry",
+    "itemID": 803954639,
+    "description": "These blue berry seeds can be planted in the ground and grown to collect additional food. Planting these seeds in a planter, and then watering them with large quantities of water yields significantly more berries and faster growth.",
+    "stackSize": 50
+  },
+  {
+    "displayName": "Blue Boomer",
+    "shortName": "firework.boomer.blue",
+    "itemID": 1744298439,
+    "description": "A very large mortar type firework with a blue starburst",
+    "stackSize": 20
+  },
+  {
+    "displayName": "Blue Dog Tags",
+    "shortName": "bluedogtags",
+    "itemID": 1036321299,
+    "description": "Blue Dog Tags",
+    "stackSize": 5000
+  },
+  {
+    "displayName": "Blue ID Tag",
+    "shortName": "blueidtag",
+    "itemID": 1364514421,
+    "description": "Blue ID Tag",
+    "stackSize": 5000
+  },
+  {
+    "displayName": "Blue Industrial Wall Light",
+    "shortName": "industrial.wall.light.blue",
+    "itemID": 920930831,
+    "description": "A small blue light source.",
+    "stackSize": 10
+  },
+  {
+    "displayName": "Blue Jumpsuit",
+    "shortName": "jumpsuit.suit.blue",
+    "itemID": 1601468620,
+    "description": "A Blue Jumpsuit",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Blue Keycard",
+    "shortName": "keycard_blue",
+    "itemID": -484206264,
+    "description": "A keycard with medium level clearance.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Blueprint",
+    "shortName": "blueprintbase",
+    "itemID": -996920608,
+    "description": "Blueprint",
+    "stackSize": 1000
+  },
+  {
+    "displayName": "Blue Roman Candle",
+    "shortName": "firework.romancandle.blue",
+    "itemID": -515830359,
+    "description": "A small repeating firework, shoots a series of Blue balls into the air",
+    "stackSize": 20
+  },
+  {
+    "displayName": "Blunderbuss",
+    "shortName": "blunderbuss",
+    "itemID": -880412831,
+    "description": "A Shotgun with two barrels allowing two shots to be fired in quick succession before needing to reload.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Bolt Action Rifle",
+    "shortName": "rifle.bolt",
+    "itemID": 1588298435,
+    "description": "A High powered, highly accurate, long range rifle.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Bone Armor",
+    "shortName": "bone.armor.suit",
+    "itemID": 1746956556,
+    "description": "A primitive suit of armor made of bones, weak protection from damage and the elements but better than nothing.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Bone Arrow",
+    "shortName": "arrow.bone",
+    "itemID": 215754713,
+    "description": "An Arrow equipped with a large bone arrowhead making it very easy to hit targets at the expense of damage",
+    "stackSize": 64
+  },
+  {
+    "displayName": "Bone Club",
+    "shortName": "bone.club",
+    "itemID": 1711033574,
+    "description": "A blunt weapon made from a femur. All around basic gathering tool.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Bone Dart",
+    "shortName": "dart.bone",
+    "itemID": -361911645,
+    "description": "A basic damage dart.",
+    "stackSize": 64
+  },
+  {
+    "displayName": "Bone Fragments",
+    "shortName": "bone.fragments",
+    "itemID": 1719978075,
+    "description": "Extracted from animal carcass. Used as a raw material to make bone weapons and armour.",
+    "stackSize": 1000
+  },
+  {
+    "displayName": "Bone Helmet",
+    "shortName": "deer.skull.mask",
+    "itemID": -1903165497,
+    "description": "A primitive helmet made from bone. Moderate protection from projectiles and melee damage.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Bone Knife",
+    "shortName": "knife.bone",
+    "itemID": 1814288539,
+    "description": "Melee weapon crafted from bone fragments. Good for harvesting carcases.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Boogie Board",
+    "shortName": "boogieboard",
+    "itemID": -1478094705,
+    "description": "Use the boogie board to catch some sick waves.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Boom Box",
+    "shortName": "boombox",
+    "itemID": -1113501606,
+    "description": "A large speaker to play recorded cassette tapes which can also stream audio from the internet. Open the settings to change audio options.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Boomerang",
+    "shortName": "boomerang",
+    "itemID": 1680793490,
+    "description": "Can be used a melee weapon or as a throwable. Once thrown (with right click) it travels in an arc before coming back to you.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Boonie Hat",
+    "shortName": "hat.boonie",
+    "itemID": -23994173,
+    "description": "A boonie hat, offering minor protection from damage and cold for your head.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Boots",
+    "shortName": "shoes.boots",
+    "itemID": -1549739227,
+    "description": "Sturdy work boots to keep your toes safe, you'd feel nothing if you kicked a table leg. Strong protection against the cold and incoming damage.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Bota Bag",
+    "shortName": "botabag",
+    "itemID": 613961768,
+    "description": "A canteen used to carry Water. Left click to drink, right click to fill from water sources, or to pour out.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Bread Loaf",
+    "shortName": "bread.loaf",
+    "itemID": 281099360,
+    "description": "A loaf of bread, eating it provides a boost to health, hunger and hydration. Feeding to a horse will provide a boost to its digestion and dung production for a short time.",
+    "stackSize": 10
+  },
+  {
+    "displayName": "Brick Skin Window Bars",
+    "shortName": "wall.window.bars.brickskin",
+    "itemID": -81700958,
+    "description": "Metal window bars made to fit a brick skin sized window.",
+    "stackSize": 10
+  },
+  {
+    "displayName": "Bronze Egg",
+    "shortName": "easter.bronzeegg",
+    "itemID": 844440409,
+    "description": "A Bronze Egg. Open for a surprise or collect 10 to upgrade to a silver egg.",
+    "stackSize": 10
+  },
+  {
+    "displayName": "Bucket Helmet",
+    "shortName": "bucket.helmet",
+    "itemID": 850280505,
+    "description": "A Bucket Helmet. It provides a level of regional protection from inflicted damage.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Building Plan",
+    "shortName": "building.planner",
+    "itemID": 1525520776,
+    "description": "A building plan. You can use this to craft buildings - right click when equipped for more options.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Bunny Ears",
+    "shortName": "attire.bunnyears",
+    "itemID": -1004426654,
+    "description": "Bunny Ears. Grants additional Egg Vision allowing you to detect more eggs during an Easter egg hunt.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Bunny Hat",
+    "shortName": "hat.bunnyhat",
+    "itemID": 23391694,
+    "description": "A silly Bunny Hat with wobbly ears to celebrate Easter 2021",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Bunny Onesie",
+    "shortName": "attire.bunny.onesie",
+    "itemID": -1266045928,
+    "description": "A Bunny Onesie. Grants additional Egg Vision allowing you to detect more eggs during an Easter egg hunt.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Burlap Gloves",
+    "shortName": "burlap.gloves.new",
+    "itemID": 21402876,
+    "description": "Basic burlap gloves, offering protection from the elements",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Burlap Headwrap",
+    "shortName": "burlap.headwrap",
+    "itemID": 1877339384,
+    "description": "A Headwrap made out of burlap.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Burlap Shirt",
+    "shortName": "burlap.shirt",
+    "itemID": 602741290,
+    "description": "A Shirt made out of burlap.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Burlap Shoes",
+    "shortName": "burlap.shoes",
+    "itemID": -761829530,
+    "description": "Shoes made out of burlap.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Burlap Trousers",
+    "shortName": "burlap.trousers",
+    "itemID": 1992974553,
+    "description": "Trousers made out of burlap.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Burnt Bear Meat",
+    "shortName": "bearmeat.burned",
+    "itemID": -989755543,
+    "description": "Bear Meat that has been overcooked.",
+    "stackSize": 20
+  },
+  {
+    "displayName": "Burnt Chicken",
+    "shortName": "chicken.burned",
+    "itemID": 1973684065,
+    "description": "Burned chicken. Eating it will damage your health.",
+    "stackSize": 20
+  },
+  {
+    "displayName": "Burnt Deer Meat",
+    "shortName": "deermeat.burned",
+    "itemID": -78533081,
+    "description": "Burned Deer Meat. Eating it will damage your health.",
+    "stackSize": 20
+  },
+  {
+    "displayName": "Burnt Horse Meat",
+    "shortName": "horsemeat.burned",
+    "itemID": 1917703890,
+    "description": "Burned horse meat. Eating it will damage your health.",
+    "stackSize": 20
+  },
+  {
+    "displayName": "Burnt Human Meat",
+    "shortName": "humanmeat.burned",
+    "itemID": -682687162,
+    "description": "Burned Meat from a human being. Consuming will damage your health.",
+    "stackSize": 20
+  },
+  {
+    "displayName": "Burnt Pork",
+    "shortName": "meat.pork.burned",
+    "itemID": 1391703481,
+    "description": "This little piggy has been in the oven for too long.",
+    "stackSize": 20
+  },
+  {
+    "displayName": "Burnt Wolf Meat",
+    "shortName": "wolfmeat.burned",
+    "itemID": 1827479659,
+    "description": "Spoiled Wolf Meat. Consuming will damage your health.",
+    "stackSize": 20
+  },
+  {
+    "displayName": "Burst Module",
+    "shortName": "weapon.mod.burstmodule",
+    "itemID": 838308300,
+    "description": "A weapon attachment that modifies recoil and rate of fire. Allows weapon to fire in 3 round bursts when turned on. Use [+firemode] to toggle on or off.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Butcher Knife",
+    "shortName": "knife.butcher",
+    "itemID": -194509282,
+    "description": "A sharp butcher knife. Extremely good at harvesting flesh from both dead or alive bodies.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Button",
+    "shortName": "electric.button",
+    "itemID": -1778897469,
+    "description": "A simple electric button.",
+    "stackSize": 5
+  },
+  {
+    "displayName": "Cable Tunnel",
+    "shortName": "electric.cabletunnel",
+    "itemID": 1835946060,
+    "description": "Allows you to pass a cable through a wall. Each input will forward the amount it receives to the corresponding output on the other side.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Cactus Flesh",
+    "shortName": "cactusflesh",
+    "itemID": 1783512007,
+    "description": "Flesh of a Cactus, contains water.",
+    "stackSize": 10
+  },
+  {
+    "displayName": "Camera",
+    "shortName": "tool.camera",
+    "itemID": -1316706473,
+    "description": "A camera. Take screenshots with primary fire, zoom in and out with secondary fire, and lock focus with third fire.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Camper Vehicle Module",
+    "shortName": "vehicle.2mod.camper",
+    "itemID": -1040518150,
+    "description": "Dual module camper that allows up to 4 players to respawn. Also includes a barbecue, a locker and a small box for item storage.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Camp Fire",
+    "shortName": "campfire",
+    "itemID": 1946219319,
+    "description": "A small camp fire. Provides warmth and light, and you can cook with it.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Canbourine",
+    "shortName": "fun.tambourine",
+    "itemID": -1379036069,
+    "description": "A selection of crumpled cans assembled into a ring to produce some great background percussion.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Candle Hat",
+    "shortName": "hat.candle",
+    "itemID": 1714496074,
+    "description": "A hat with a candle on top. You can turn the candle on in your inventory.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Candy Cane",
+    "shortName": "candycane",
+    "itemID": 1121925526,
+    "description": "A very old candy cane from 2014",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Candy Cane Club",
+    "shortName": "candycaneclub",
+    "itemID": 1789825282,
+    "description": "Smash some faces with this large piece of candy",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Can of Beans",
+    "shortName": "can.beans",
+    "itemID": -700591459,
+    "description": "Beans found as loot. Eating it provides a small boost to health, hunger, and thirst.",
+    "stackSize": 10
+  },
+  {
+    "displayName": "Can of Tuna",
+    "shortName": "can.tuna",
+    "itemID": -1941646328,
+    "description": "Chunked tuna found as loot. Eating it provides a small boost to health, hunger, and thirst.",
+    "stackSize": 10
+  },
+  {
+    "displayName": "Captain's Log",
+    "shortName": "captainslog",
+    "itemID": 1230691307,
+    "description": "A deteriorating piece of paper with information relating to the last moments of this vessel.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Card Movember Moustache",
+    "shortName": "movembermoustachecard",
+    "itemID": 3380160,
+    "description": "A fake moustache for Movember",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Card Table",
+    "shortName": "cardtable",
+    "itemID": 1081921512,
+    "description": "A table for playing card games",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Car Key",
+    "shortName": "car.key",
+    "itemID": 946662961,
+    "description": "A key to a car, created at a vehicle lift. Keep this item safe; if lost you'll be unable to drive the car again!",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Car Radio",
+    "shortName": "vehicle.car_radio",
+    "itemID": 721798950,
+    "description": "A small radio to use in cars. Will only work while the car is turned on.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Carvable Pumpkin",
+    "shortName": "carvable.pumpkin",
+    "itemID": 1524980732,
+    "description": "A pumpkin that you can carve. Requires wood as a fuel source.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Cassette - Long",
+    "shortName": "cassette",
+    "itemID": 476066818,
+    "description": "A tape that you can record audio on to using a Cassette Recorder. Stores up to 30s of audio.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Cassette - Medium",
+    "shortName": "cassette.medium",
+    "itemID": -912398867,
+    "description": "A tape that you can record audio on to using a Cassette Recorder. Stores up to 20s of audio.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Cassette Recorder",
+    "shortName": "fun.casetterecorder",
+    "itemID": -1530414568,
+    "description": "Insert a cassette and play the recorded audio with [attack], [attack2] to record new audio and [+reload] to throw.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Cassette - Short",
+    "shortName": "cassette.short",
+    "itemID": 1523403414,
+    "description": "A tape that you can record audio on to using a Cassette Recorder. Stores up to 10s of audio.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Catapult",
+    "shortName": "catapult",
+    "itemID": 1145722690,
+    "description": "An improvised catapult siege weapon. Built for flinging destructive projectiles with questionable accuracy. Can be towed by horses.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Catfish",
+    "shortName": "fish.catfish",
+    "itemID": -587989372,
+    "description": "A large, whiskered fresh water based predator. Eats everything, so you never know what you'll find in it's stomach.",
+    "stackSize": 5
+  },
+  {
+    "displayName": "CCTV Camera",
+    "shortName": "cctv.camera",
+    "itemID": 634478325,
+    "description": "A CCTV Camera system can be used for realtime surveillance and security around your base when powered and paired with the Computer Station.",
+    "stackSize": 64
+  },
+  {
+    "displayName": "Ceiling Light",
+    "shortName": "ceilinglight",
+    "itemID": 1142993169,
+    "description": "A small ceiling mounted light source.",
+    "stackSize": 10
+  },
+  {
+    "displayName": "Chainlink Fence",
+    "shortName": "wall.frame.fence",
+    "itemID": -1117626326,
+    "description": "A Chainlink Fence.",
+    "stackSize": 10
+  },
+  {
+    "displayName": "Chainlink Fence Gate",
+    "shortName": "wall.frame.fence.gate",
+    "itemID": 1451568081,
+    "description": "A Chainlink Fence Gate.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Chainsaw",
+    "shortName": "chainsaw",
+    "itemID": 1104520648,
+    "description": "A Chainsaw. Very effective at cutting trees in addition to soft fleshy objects. Requires Low Grade Fuel to run.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Chair",
+    "shortName": "chair",
+    "itemID": 1534542921,
+    "description": "Every home needs a chair. A decorative item which provides comfort while seated.",
+    "stackSize": 5
+  },
+  {
+    "displayName": "Champagne Boomer",
+    "shortName": "firework.boomer.champagne",
+    "itemID": 1324203999,
+    "description": "A very large mortar type firework with an massive champagne colored explosion followed by smaller orange starbursts",
+    "stackSize": 20
+  },
+  {
+    "displayName": "Charcoal",
+    "shortName": "charcoal",
+    "itemID": -1938052175,
+    "description": "Byproduct from campfires and furnaces used for crafting gunpowder.",
+    "stackSize": 1000
+  },
+  {
+    "displayName": "Chicken Coop",
+    "shortName": "chickencoop",
+    "itemID": -2018158920,
+    "description": "An enclosure to keep some chickens around. Chickens with plenty of food, water and sunlight produce more eggs.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Chicken Costume",
+    "shortName": "chicken.costume",
+    "itemID": -152332823,
+    "description": "An inflatable chicken costume. Acting as a replacement for wooden pants, you can equip this item to look as silly as possible.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Chicken Pie",
+    "shortName": "pie.chicken",
+    "itemID": 120820987,
+    "description": "Just like mom used to make. Provides a boost to hunger, health and hydration. Increases the chance of better genes from crops for short time.",
+    "stackSize": 3
+  },
+  {
+    "displayName": "Chinese Lantern",
+    "shortName": "chineselantern",
+    "itemID": -1916473915,
+    "description": "A decorative Paper lantern",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Chinese Lantern White",
+    "shortName": "chineselanternwhite",
+    "itemID": -770304148,
+    "description": "A decorative White Paper lantern",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Chippy Arcade Game",
+    "shortName": "arcade.machine.chippy",
+    "itemID": 359723196,
+    "description": "An Arcade Machine",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Chocolate Bar",
+    "shortName": "chocolate",
+    "itemID": -965336208,
+    "description": "Chocolate Bar found as loot. Eating it provides a small boost to health, hunger, and thirst.",
+    "stackSize": 10
+  },
+  {
+    "displayName": "Christmas Door Wreath",
+    "shortName": "xmasdoorwreath",
+    "itemID": 2009734114,
+    "description": "Get into the christmas spirit with this holiday door wreath.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Christmas Lights",
+    "shortName": "xmas.lightstring",
+    "itemID": 1058261682,
+    "description": "A string of colored lights to decorate your home",
+    "stackSize": 20
+  },
+  {
+    "displayName": "Christmas Tree",
+    "shortName": "xmas.tree",
+    "itemID": 794443127,
+    "description": "Get into the holiday spirit with this decorative Christmas tree",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Clan Table",
+    "shortName": "clantable",
+    "itemID": 486661382,
+    "description": "A table for managing clans.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Clatter Helmet",
+    "shortName": "clatter.helmet",
+    "itemID": 968019378,
+    "description": "Special helmet for players who own Clatter and have played for at least 30 minutes, replaces the bucket helmet.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Cloth",
+    "shortName": "cloth",
+    "itemID": -858312878,
+    "description": "Cloth from an animal or a Hemp Bush. Used in many clothing items, weapons, and more.",
+    "stackSize": 1000
+  },
+  {
+    "displayName": "Coal :(",
+    "shortName": "coal",
+    "itemID": 204391461,
+    "description": "Crappy Holidays!",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Cockpit Vehicle Module",
+    "shortName": "vehicle.1mod.cockpit",
+    "itemID": -1501451746,
+    "description": "Single module cockpit for a driver and one passenger.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Cockpit With Engine Vehicle Module",
+    "shortName": "vehicle.1mod.cockpit.with.engine",
+    "itemID": 170758448,
+    "description": "Single module cockpit for a driver and one passenger, with a small engine.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Coconut Armor Chestplate",
+    "shortName": "cocoknight.armor.torso",
+    "itemID": 1426097945,
+    "description": "A shoddy piece of body armor made from coconut and plants, provides some basic protection from melee and ranged attacks.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Coconut Armor Gloves",
+    "shortName": "cocoknight.armor.gloves",
+    "itemID": 1873004466,
+    "description": "Hand protection made of bark and plants, offers some protection to the upper body.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Coconut Armor Helmet",
+    "shortName": "cocoknight.armor.helmet",
+    "itemID": -582467439,
+    "description": "A shoddy helmet made from coconut, provides some basic protection from melee and ranged attacks.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Coconut Armor Pants",
+    "shortName": "cocoknight.armor.pants",
+    "itemID": 507284030,
+    "description": "A shoddy piece of leg armor made from coconut and plants, provides some basic protection from melee and ranged attacks.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Code Lock",
+    "shortName": "lock.code",
+    "itemID": 1159991980,
+    "description": "An electronic lock. Locked and unlocked with four-digit code.",
+    "stackSize": 10
+  },
+  {
+    "displayName": "Coffee Can Helmet",
+    "shortName": "coffeecan.helmet",
+    "itemID": -803263829,
+    "description": "A Coffee Can Helmet. It provides a level of regional protection from inflicted damage.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Coffin",
+    "shortName": "coffin.storage",
+    "itemID": 573676040,
+    "description": "An old wooden coffin, can store up to 42 items",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Combat Knife",
+    "shortName": "knife.combat",
+    "itemID": 2040726127,
+    "description": "Combat knife designed for close combat engagements, can attack while sprinting. Best in class at harvesting flesh.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Command Block",
+    "shortName": "command.block",
+    "itemID": -1247485104,
+    "description": "A block that runs commands",
+    "stackSize": 64
+  },
+  {
+    "displayName": "Composter",
+    "shortName": "composter",
+    "itemID": -1488398114,
+    "description": "Produces fertilizer from compostable items.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Compound Bow",
+    "shortName": "bow.compound",
+    "itemID": 884424049,
+    "description": "A very powerful bow. Can only be fully drawn while stationary. Keep still for bonus damage and speed.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Computer Station",
+    "shortName": "computerstation",
+    "itemID": -1588628467,
+    "description": "A Computer station for remote control access",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Concrete Barricade",
+    "shortName": "barricade.concrete",
+    "itemID": -1950721390,
+    "description": "A barricade made out of Stones.",
+    "stackSize": 10
+  },
+  {
+    "displayName": "Concrete Hatchet",
+    "shortName": "concretehatchet",
+    "itemID": 1176355476,
+    "description": "A salvaged piece of concrete and rebar which can be used to harvest wood",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Concrete Pickaxe",
+    "shortName": "concretepickaxe",
+    "itemID": -1360171080,
+    "description": "A salvaged piece of concrete and rebar with a sharp edge. Can be used to harvest Stone, Metal ore and Sulfur ore.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Confetti Cannon",
+    "shortName": "confetticannon",
+    "itemID": 1603174987,
+    "description": "Blast a cloud of birthday themed confetti cheer.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Connected Speaker",
+    "shortName": "connected.speaker",
+    "itemID": 968421290,
+    "description": "A small speaker that will play any audio from a connected Boom Box.",
+    "stackSize": 5
+  },
+  {
+    "displayName": "Cooked Bear Meat",
+    "shortName": "bearmeat.cooked",
+    "itemID": 1873897110,
+    "description": "Delicious Bear Meat, Eating it will restore some health, hunger, and thirst.",
+    "stackSize": 20
+  },
+  {
+    "displayName": "Cooked Big Cat Meat",
+    "shortName": "bigcatmeat.cooked",
+    "itemID": -1318837358,
+    "description": "Delicious Big Cat Meat, Eating it will restore some health, hunger, and thirst.",
+    "stackSize": 20
+  },
+  {
+    "displayName": "Cooked Chicken",
+    "shortName": "chicken.cooked",
+    "itemID": -1848736516,
+    "description": "Cooked chicken. Eating it will restore some health, hunger, and thirst.",
+    "stackSize": 20
+  },
+  {
+    "displayName": "Cooked Crocodile Meat",
+    "shortName": "crocodilemeat.cooked",
+    "itemID": 392828520,
+    "description": "Delicious Crocodile Meat, Eating it will restore some health, hunger, and thirst.",
+    "stackSize": 20
+  },
+  {
+    "displayName": "Cooked Deer Meat",
+    "shortName": "deermeat.cooked",
+    "itemID": -1509851560,
+    "description": "Cooked Deer Meat. Eating it will restore some health, hunger, and thirst.",
+    "stackSize": 20
+  },
+  {
+    "displayName": "Cooked Fish",
+    "shortName": "fish.cooked",
+    "itemID": 1668129151,
+    "description": "Cooked Fish. Eating it provides a small boost to health, hunger, and thirst.",
+    "stackSize": 20
+  },
+  {
+    "displayName": "Cooked Horse Meat",
+    "shortName": "horsemeat.cooked",
+    "itemID": -1162759543,
+    "description": "Cooked Horse Meat. Eating it will restore some health, hunger, and thirst.",
+    "stackSize": 20
+  },
+  {
+    "displayName": "Cooked Human Meat",
+    "shortName": "humanmeat.cooked",
+    "itemID": 1536610005,
+    "description": "Salty meat from a human being, eating this will restore some hunger and health but reduces hydration. Maybe you should look for a better food source.",
+    "stackSize": 20
+  },
+  {
+    "displayName": "Cooked Pork",
+    "shortName": "meat.pork.cooked",
+    "itemID": -242084766,
+    "description": "Cooked pork, Eating it will restore some health, hunger, and thirst.",
+    "stackSize": 20
+  },
+  {
+    "displayName": "Cooked Snake Meat",
+    "shortName": "snakemeat.cooked",
+    "itemID": -170436364,
+    "description": "Delicious Snake Meat, Eating it will restore some health, hunger, and thirst.",
+    "stackSize": 20
+  },
+  {
+    "displayName": "Cooked Wolf Meat",
+    "shortName": "wolfmeat.cooked",
+    "itemID": 813023040,
+    "description": "Cooked Wolf Meat. Eating it will restore some health, hunger, and thirst.",
+    "stackSize": 20
+  },
+  {
+    "displayName": "Cooking Workbench",
+    "shortName": "cookingworkbench",
+    "itemID": 1456143403,
+    "description": "Used to cook advanced recipes for food, fuel, ammunition and explosives.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Corn",
+    "shortName": "corn",
+    "itemID": 1367190888,
+    "description": "An ear of corn. Eating it provides a small boost to health, hunger, and thirst.",
+    "stackSize": 20
+  },
+  {
+    "displayName": "Corn Clone",
+    "shortName": "clone.corn",
+    "itemID": -778875547,
+    "description": "A Clipping of a Corn Plant.",
+    "stackSize": 50
+  },
+  {
+    "displayName": "Corn Seed",
+    "shortName": "seed.corn",
+    "itemID": 998894949,
+    "description": "Corn seeds can be found when picking wild Corn plants. These seeds can be planted in the ground and grown to collect additional food. Planting these seeds in a planter, and then watering them with large quantities of water yields significantly more corn and faster growth.",
+    "stackSize": 50
+  },
+  {
+    "displayName": "Counter",
+    "shortName": "electric.counter",
+    "itemID": -216999575,
+    "description": "A basic cathode ray tube screen combined with an incremental counter. Can display power received, or can count upwards and allow passthrough when a target is reached.",
+    "stackSize": 5
+  },
+  {
+    "displayName": "Cowbell",
+    "shortName": "fun.cowbell",
+    "itemID": -1049881973,
+    "description": "A road sign that's been repurposed to produce some beautiful, calming, percussion.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Crate Costume",
+    "shortName": "cratecostume",
+    "itemID": 1189981699,
+    "description": "A sneaky crate costume. Use with a friend to expertly troll other players",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Crocodile Pie",
+    "shortName": "pie.crocodile",
+    "itemID": 54265286,
+    "description": "A pie made from crocodile meat, may cause a reptile dysfunction. Boosts hunger, health and hydration. Gives better night vision, including tree markings and ore hotspots, for a short time.",
+    "stackSize": 3
+  },
+  {
+    "displayName": "Crossbow",
+    "shortName": "crossbow",
+    "itemID": 1965232394,
+    "description": "A very accurate ranged weapon.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Crude Oil",
+    "shortName": "crude.oil",
+    "itemID": -321733511,
+    "description": "Raw Oil out of the ground, must be refined in a refinery to be used.",
+    "stackSize": 500
+  },
+  {
+    "displayName": "Cultist Deer Torch",
+    "shortName": "torch.torch.skull",
+    "itemID": -1175656359,
+    "description": "Cultist Deer Torch",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Cursed Cauldron",
+    "shortName": "cursedcauldron",
+    "itemID": 1242522330,
+    "description": "A spooky cast iron cauldron with a green goo.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Custom SMG",
+    "shortName": "smg.2",
+    "itemID": 1796682209,
+    "description": "A rapid-firing Machine Gun. Sacrifices accuracy and distance for speed.",
+    "stackSize": 1
+  }
+]
