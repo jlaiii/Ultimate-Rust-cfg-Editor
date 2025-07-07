@@ -3,472 +3,636 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ultimate Rust Keybind Editor v0.1 (Robust Fallback & Debugger)</title>
+    <title>Rust Keybinds Editor</title>
+    <!-- Fonts and Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Teko:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
         :root {
-            --bg-color: #1a1a1c; --card-bg: #2b2d31; --primary-color: #3d8bff; --text-color: #e2e2e2;
-            --text-muted: #8e9297; --border-color: #3a3d42; --error-color: #ff6b6b; --success-color: #6bff9b;
-            --warning-color: #ffc400;
+            /* Rust-inspired Color Palette */
+            --bg-color: #1a1a1a;
+            --primary-color: rgba(40, 40, 40, 0.85);
+            --secondary-color: #202020;
+            --text-color: #e0e0e0;
+            --accent-color: #cd412b; /* Rusty Orange */
+            --accent-hover: #d7523f;
+            --success-color: #5a8a4f; /* Muted Green */
+            --info-color: #3b719f;
+            --danger-color: #b73622;
+            --border-color: rgba(255, 255, 255, 0.1);
+            --border-radius: 3px;
+            --font-primary: 'Teko', sans-serif;
+            --font-secondary: 'Roboto', sans-serif;
         }
-        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background-color: var(--bg-color); color: var(--text-color); margin: 0; padding: 2rem; }
-        .container { max-width: 1200px; margin: 0 auto; position: relative; z-index: 1; }
-        header { text-align: center; margin-bottom: 2rem; }
-        h1 { color: var(--primary-color); }
-        .main-content { display: grid; grid-template-columns: 1fr 450px; gap: 2rem; align-items: start; }
-        .bindings-panel { min-width: 0; }
-        .controls { display: flex; gap: 1rem; margin-bottom: 1.5rem; align-items: center; }
-        .search-bar { flex-grow: 1; background-color: var(--card-bg); border: 1px solid var(--border-color); color: var(--text-color); padding: 0.75rem; border-radius: 6px; font-size: 1rem; }
-        .search-bar:focus { outline: none; border-color: var(--primary-color); box-shadow: 0 0 0 3px rgba(61, 139, 255, 0.3); }
-        .btn { padding: 0.75rem 1.5rem; border-radius: 6px; border: none; cursor: pointer; font-weight: 600; font-size: 1rem; transition: transform 0.1s, background-color 0.2s; }
-        .btn:active { transform: scale(0.98); }
-        .btn:disabled { background-color: #4f545c; cursor: not-allowed; }
-        .btn-primary { background-color: var(--primary-color); color: white; }
-        .btn-success { background-color: var(--success-color); color: #1a1a1c; }
-        #bindings-list { max-height: 70vh; overflow-y: auto; padding-right: 10px; }
-        #initial-message { text-align: center; color: var(--text-muted); padding: 3rem; border: 2px dashed var(--border-color); border-radius: 8px; }
-        .bind-card { background-color: var(--card-bg); border: 1px solid var(--border-color); border-radius: 8px; padding: 1rem; display: grid; grid-template-columns: auto auto 1fr auto; align-items: center; gap: 1rem; margin-bottom: 1rem; }
-        .bind-card.conflicting { border-left: 4px solid var(--error-color); }
-        .bind-icon { font-size: 1.2rem; }
-        .bind-key { background-color: var(--bg-color); padding: 0.5rem 1rem; border-radius: 4px; font-family: 'Courier New', Courier, monospace; font-weight: bold; text-align: center; }
-        .bind-command { font-family: 'Courier New', Courier, monospace; color: var(--text-muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-        .bind-actions button { background: none; border: 1px solid var(--border-color); color: var(--text-muted); cursor: pointer; padding: 0.5rem 1rem; border-radius: 4px; transition: all 0.2s; white-space: nowrap; }
-        .bind-actions button:hover { background-color: var(--primary-color); color: white; border-color: var(--primary-color); }
-        .keyboard-container { background-color: var(--card-bg); padding: 1rem; border-radius: 8px; }
-        .keyboard-row { display: flex; justify-content: center; gap: 5px; margin-bottom: 5px; }
-        .key { display: flex; justify-content: center; align-items: center; height: 45px; width: 45px; background-color: #444; border: 1px solid #222; border-radius: 5px; cursor: pointer; transition: all 0.2s; font-size: 0.9em; }
-        .key:hover { background-color: #555; transform: translateY(-2px); }
-        .key.bound { background-color: var(--primary-color); color: white; font-weight: bold; }
-        .key.bound.conflicting { background-color: var(--error-color); }
-        .key[data-key-size="large"] { width: 70px; } .key[data-key-size="xlarge"] { width: 90px; } .key[data-key-size="xxlarge"] { width: 120px; } .key[data-key-size="space"] { width: 250px; }
-        .modal-backdrop { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.7); display: none; justify-content: center; align-items: center; z-index: 1000; }
-        .modal-content { background-color: var(--card-bg); padding: 2rem; border-radius: 8px; width: 90%; max-width: 700px; box-shadow: 0 5px 25px rgba(0,0,0,0.5); display: flex; flex-direction: column; max-height: 90vh; }
-        .modal-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-color); padding-bottom: 1rem; margin-bottom: 1.5rem; }
-        .modal-body { overflow-y: auto; flex-grow: 1; padding-right: 1rem; }
-        .modal-actions { text-align: right; margin-top: 1.5rem; display: flex; justify-content: space-between; flex-shrink: 0; }
-        .hidden { display: none; }
-        .editor-section { margin-bottom: 2rem; }
-        .editor-section h3 { margin-top: 0; border-bottom: 1px solid var(--border-color); padding-bottom: 0.5rem; }
-        #key-setter { display: flex; align-items: center; gap: 1rem; }
-        #key-display { font-family: 'Courier New', Courier, monospace; background-color: var(--bg-color); padding: 0.75rem 1.5rem; border-radius: 6px; font-size: 1.2rem; font-weight: bold; min-width: 150px; text-align: center;}
-        #action-category-selector { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; }
-        .category-btn { background-color: #36393f; border: 1px solid var(--border-color); color: var(--text-color); padding: 1rem; border-radius: 8px; cursor: pointer; text-align: center; transition: all 0.2s; }
-        .category-btn:hover { background-color: var(--primary-color); border-color: var(--primary-color); }
-        .category-btn span { font-size: 2rem; display: block; margin-bottom: 0.5rem; }
-        #command-builder-area { margin-top: 1.5rem; padding: 1.5rem; border: 1px solid var(--border-color); border-radius: 8px; background-color: #202225;}
-        .command-builder h4 { margin-top: 0; color: var(--primary-color); }
-        .form-group { margin-bottom: 1rem; }
-        label { display: block; margin-bottom: 0.5rem; color: var(--text-muted); }
-        .command-palette-search { width: 100%; box-sizing: border-box; padding: 0.75rem; font-size: 1.1rem; }
-        #crafting-queue-list .queue-item { display: flex; align-items: center; justify-content: space-between; background-color: var(--bg-color); padding: 0.5rem; border-radius: 4px; margin-bottom: 0.5rem; }
-        .delete-queue-item-btn { cursor: pointer; color: var(--error-color); font-weight: bold; padding: 0 0.5rem; }
-        #drop-zone-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(61, 139, 255, 0.2); border: 3px dashed var(--primary-color); z-index: 9999; display: flex; justify-content: center; align-items: center; box-sizing: border-box; pointer-events: none; }
-        #drop-zone-overlay.hidden { display: none; }
-        .drop-zone-text { color: white; font-size: 2rem; font-weight: bold; padding: 2rem 3rem; background-color: rgba(0, 0, 0, 0.6); border-radius: 12px; text-align: center; }
-        .footer-debug { text-align: right; margin-top: 2rem; }
-        #debug-info-textarea { width: 100%; height: 400px; box-sizing: border-box; background-color: var(--bg-color); color: var(--text-color); border: 1px solid var(--border-color); font-family: monospace; }
+
+        /* --- General Page Setup --- */
+        body {
+            font-family: var(--font-secondary);
+            background-color: var(--bg-color);
+            background-image: url('https://www.transparenttextures.com/patterns/brushed-metal.png');
+            background-attachment: fixed;
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 900px; /* Increased width for more complex UI */
+            background-color: var(--primary-color);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            border: 1px solid var(--border-color);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+        }
+
+        h1 {
+            font-family: var(--font-primary);
+            color: var(--text-color);
+            text-align: center;
+            text-transform: uppercase;
+            font-size: 2.8em;
+            letter-spacing: 3px;
+            border-bottom: 1px solid var(--accent-color);
+            padding-bottom: 15px;
+            margin-top: 0;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+        }
+        h1 .fa-keyboard {
+            color: var(--accent-color);
+            margin-right: 15px;
+        }
+        
+        /* --- Drag & Drop Overlay --- */
+        #drag-overlay {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 9999;
+            display: none; /* Hidden by default */
+            justify-content: center;
+            align-items: center;
+            pointer-events: none; /* Allows clicks to pass through */
+        }
+        #drag-overlay.visible { display: flex; }
+        #drag-overlay-content {
+            border: 3px dashed var(--accent-color);
+            border-radius: 10px;
+            padding: 40px 80px;
+            text-align: center;
+            color: white;
+            font-family: var(--font-primary);
+            font-size: 2.5em;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        /* --- Upload Section --- */
+        #upload-section { text-align: center; }
+        #drop-zone {
+            border: 2px solid var(--border-color);
+            background-color: rgba(0,0,0,0.2);
+            padding: 40px;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            transition: background-color 0.3s, border-color 0.3s;
+        }
+        #drop-zone.dragover {
+            background-color: rgba(0,0,0,0.4);
+            border-color: var(--accent-color);
+            box-shadow: inset 0 0 15px rgba(0,0,0,0.5);
+        }
+        #drop-zone p { margin: 10px 0; font-size: 1.2em; opacity: 0.8;}
+        #file-input { display: none; }
+        
+        /* --- Instructions Panel --- */
+        .instructions {
+            background-color: var(--secondary-color);
+            padding: 20px;
+            margin-top: 25px;
+            border-radius: var(--border-radius);
+            border-left: 4px solid var(--accent-color);
+            font-size: 0.95em;
+            line-height: 1.7;
+            text-align: left;
+        }
+        .instructions h3 {
+            font-family: var(--font-primary);
+            font-size: 1.5em;
+            letter-spacing: 1px;
+            margin-top: 0;
+            text-transform: uppercase;
+        }
+        .instructions code {
+            background-color: var(--bg-color);
+            padding: 3px 6px;
+            border-radius: 3px;
+            font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+            color: var(--accent-color);
+            word-break: break-all;
+        }
+        .instructions .grid { display: grid; grid-template-columns: auto 1fr; gap: 10px 20px; align-items: center; margin-top: 15px; }
+        
+        /* --- Editor Section --- */
+        #editor-section { display: none; }
+        
+        /* Add/Presets Form */
+        .add-preset-container {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+        }
+        #add-bind-form { display: flex; flex-grow: 1; gap: 10px; min-width: 400px; }
+        #new-bind-key { max-width: 150px; }
+        #new-bind-command { flex-grow: 1; }
+        #preset-controls { display: flex; gap: 10px; align-items: center; }
+        #preset-select { padding: 12px 10px; background-color: var(--secondary-color); color: var(--text-color); border: 1px solid var(--border-color); border-radius: var(--border-radius); }
+        
+        /* Top Controls (Search) */
+        .top-controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        /* Bind List */
+        #bind-list { list-style: none; padding: 0; margin: 0; }
+        .bind-item {
+            background-color: var(--secondary-color);
+            padding: 10px 20px;
+            margin-bottom: 8px;
+            border-radius: var(--border-radius);
+            border-left: 3px solid transparent;
+            display: grid;
+            grid-template-columns: 150px 1fr 180px;
+            align-items: center;
+            gap: 20px;
+            transition: all 0.2s ease-in-out;
+        }
+        .bind-item:hover {
+            background-color: #2c2c2c;
+            border-left-color: var(--accent-color);
+        }
+        .bind-key { font-weight: bold; font-family: Consolas, monospace; color: var(--accent-color); text-transform: uppercase; word-break: break-all; }
+        .bind-command { word-break: break-all; font-family: Consolas, monospace; position: relative; }
+        .bind-actions { text-align: right; }
+        .bind-actions button { margin-left: 5px; }
+
+        .bottom-actions { text-align: right; margin-top: 25px; }
+
+        /* --- Tooltip --- */
+        .tooltip {
+            position: absolute;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            border: 1px solid var(--accent-color);
+            padding: 10px 15px;
+            border-radius: var(--border-radius);
+            z-index: 1000;
+            font-size: 0.9em;
+            max-width: 300px;
+            display: none;
+            pointer-events: none;
+            font-family: var(--font-secondary);
+        }
+        
+        /* --- General UI Elements --- */
+        input[type="text"], select {
+            padding: 12px 10px;
+            border-radius: var(--border-radius);
+            border: none;
+            border-bottom: 2px solid var(--border-color);
+            background-color: transparent;
+            color: var(--text-color);
+            font-size: 1em;
+            font-family: var(--font-secondary);
+            width: 100%;
+            box-sizing: border-box;
+            transition: border-color 0.3s;
+        }
+        input[type="text"]:focus, select:focus { outline: none; border-color: var(--accent-color); }
+        button {
+            padding: 10px 18px;
+            border: 1px solid rgba(0,0,0,0.3);
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            font-weight: bold;
+            font-family: var(--font-secondary);
+            font-size: 0.9em;
+            text-transform: uppercase;
+            transition: all 0.2s;
+        }
+        button:active { transform: scale(0.97); box-shadow: inset 0 2px 4px rgba(0,0,0,0.4); }
+        .btn-primary { background-color: var(--accent-color); color: white; }
+        .btn-primary:hover { background-color: var(--accent-hover); }
+        .btn-secondary { background-color: #555; color: #ddd; }
+        .btn-secondary:hover { background-color: #666; }
+        .btn-edit { background-color: var(--success-color); color: white; }
+        .btn-edit:hover { background-color: #6cac62; }
+        .btn-delete { background-color: #a04444; color: white; }
+        .btn-delete:hover { background-color: #b04f4f; }
+        
+        .alert { padding: 15px; margin-bottom: 20px; border-radius: var(--border-radius); text-align: center; font-weight: bold; }
+        .alert-error { background-color: var(--danger-color); color: white; }
     </style>
 </head>
 <body>
-    <div id="drop-zone-overlay" class="hidden">
-        <div class="drop-zone-text">📂<br>Drop your keys.cfg file anywhere</div>
+
+    <div id="drag-overlay">
+        <div id="drag-overlay-content">
+            <i class="fas fa-file-import"></i> Drop keys.cfg
+        </div>
     </div>
     
+    <div class="tooltip" id="command-tooltip"></div>
+
     <div class="container">
-        <header>
-            <h1>Ultimate Rust Keybind Editor <span style="font-size:0.5em; color: var(--primary-color)">v0.1</span></h1>
-            <p id="instructions">Drag & drop your <code>keys.cfg</code> file here, or <label for="file-input" class="btn-link" style="color: var(--primary-color); cursor:pointer;">click to select</label>.</p>
-            <input type="file" id="file-input" class="hidden" accept=".cfg,.txt">
-        </header>
-        <div class="main-content">
-            <div class="bindings-panel">
-                <div class="controls">
-                    <input type="text" id="search-bar" class="search-bar" placeholder="🔍 Search binds...">
-                    <button id="add-new-bind-btn" class="btn btn-primary">Add New Bind</button>
-                    <button id="export-btn" class="btn btn-success">Export keys.cfg</button>
-                </div>
-                <div id="bindings-list">
-                    <div id="initial-message"><h3>Welcome!</h3><p>Load your <code>keys.cfg</code> file to see your current keybinds.<br>Or, click "Add New Bind" to create a new configuration from scratch.</p></div>
-                </div>
-            </div>
-            <aside class="keyboard-container" id="visual-keyboard"></aside>
-        </div>
-        <footer class="footer-debug"><a href="#" id="debug-info-btn" style="color: var(--text-muted); font-size: 0.9em;">Get Debug Info</a></footer>
-    </div>
-    
-    <!-- Editor Modal -->
-    <div id="editor-modal" class="modal-backdrop">
-        <div class="modal-content">
-            <div class="modal-header"><h2 id="modal-title">Create/Edit Binding</h2><button id="close-modal-btn" style="background:none; border:none; color:var(--text-color); font-size:1.5rem; cursor:pointer;">×</button></div>
-            <div class="modal-body">
-                <div class="editor-section"><h3>1. Choose a Key</h3><div id="key-setter"><div id="key-display">Not Set</div><button id="set-key-btn" class="btn">Set/Change Key</button></div></div>
-                <div class="editor-section"><h3>2. Choose an Action</h3><div id="action-category-selector"><button class="category-btn" data-type="action"><span>▶️</span>Common Action</button><button class="category-btn" data-type="craft"><span>⚙️</span>Craft Item(s)</button><button class="category-btn" data-type="chat"><span>💬</span>Send Chat Message</button><button class="category-btn" data-type="toggle"><span>🔧</span>Create a Toggle</button></div><div id="command-builder-area" class="hidden"></div></div>
-            </div>
-            <div class="modal-actions"><button id="delete-bind-btn" class="btn" style="background-color: var(--error-color)">Delete Bind</button><div><button id="cancel-btn" class="btn" style="background-color: var(--text-muted);">Cancel</button><button id="save-btn" class="btn btn-primary" disabled>Save Changes</button></div></div>
-        </div>
-    </div>
+        <h1><i class="fas fa-keyboard"></i> Rust Keybinds Editor</h1>
+        <div id="alert-container"></div>
 
-    <!-- Debug Modal -->
-    <div id="debug-modal" class="modal-backdrop">
-        <div class="modal-content">
-            <div class="modal-header"><h2>Debug Information</h2><button id="close-debug-modal-btn" style="background:none; border:none; color:var(--text-color); font-size:1.5rem; cursor:pointer;">×</button></div>
-            <div class="modal-body">
-                <p style="color:var(--text-muted)">If you're having an issue, copy all the text below and include it in your bug report.</p>
-                <textarea id="debug-info-textarea" readonly></textarea>
+        <!-- UPLOAD SECTION -->
+        <div id="upload-section">
+            <div id="drop-zone">
+                <p>Drag & Drop <code>keys.cfg</code> anywhere on the page</p>
+                <p>- or -</p>
+                <button type="button" class="btn-primary" onclick="document.getElementById('file-input').click();">Select File Manually</button>
             </div>
-            <div class="modal-actions" style="justify-content:flex-end;"><button id="copy-debug-info-btn" class="btn btn-primary">Copy Info to Clipboard</button></div>
-        </div>
-    </div>
-    
-    <!-- Templates -->
-    <template id="bind-card-template"><div class="bind-card"><div class="bind-icon"></div><div class="bind-key"></div><div class="bind-command"></div><div class="bind-actions"><button class="edit-btn">Edit</button></div></div></template>
-    <template id="action-builder-template"><div class="command-builder"><h4>▶️ Select a Common Action</h4><div class="form-group"><input type="text" class="search-bar command-palette-search" placeholder="Search for actions like 'sprint', 'reload', 'inventory'..."></div><div class="palette-results"></div></div></template>
-    <template id="crafting-builder-template"><div class="command-builder"><h4>⚙️ Crafting Queue Builder</h4><p style="font-size: 0.9em; color: var(--text-muted);">Search for an item to add it to the crafting queue.</p><div class="form-group"><input type="text" class="search-bar command-palette-search" placeholder="Search for items like 'bandage', 'stone hatchet', 'wall'..."></div><div class="palette-results" style="max-height: 150px; overflow-y: auto; border: 1px solid var(--border-color); border-radius: 4px; margin-top: 0.5rem;"></div><div id="crafting-queue-list" style="margin-top: 1rem;"></div></div></template>
-    <template id="chat-builder-template"><div class="command-builder"><h4>💬 Chat Message Builder</h4><div class="form-group"><label for="chat-builder-input">Message to send:</label><input type="text" id="chat-builder-input" class="search-bar" placeholder="e.g., brb, need meds"></div><div class="form-group" style="display:flex; align-items:center; gap:0.5rem;"><input type="checkbox" id="team-chat-checkbox" style="width:18px; height:18px;"><label for="team-chat-checkbox" style="margin-bottom:0;">Send to team chat</label></div></div></template>
-    <template id="toggle-builder-template"><div class="command-builder"><h4>🔧 Toggle Builder</h4><p style="font-size: 0.9em; color: var(--text-muted);">Switches between two commands on each press.</p><div class="form-group"><label for="toggle-builder-input1">Command 1:</label><input type="text" id="toggle-builder-input1" class="search-bar" placeholder="e.g., graphics.fov 90"></div><div class="form-group"><label for="toggle-builder-input2">Command 2:</label><input type="text" id="toggle-builder-input2" class="search-bar" placeholder="e.g., graphics.fov 70"></div></div></template>
-    
-    <script>
-    // --- Global Variables and Error Handling ---
-    let RUST_ITEMS = {}; 
-    const COMMAND_LIBRARY = [ {type: 'action', cmd: "+forward", desc: "Move Forward"},{type: 'action', cmd: "+backward", desc: "Move Backward"}, {type: 'action', cmd: "+left", desc: "Strafe Left"},{type: 'action', cmd: "+right", desc: "Strafe Right"}, {type: 'action', cmd: "+jump", desc: "Jump"},{type: 'action', cmd: "+sprint", desc: "Sprint"},{type: 'action', cmd: "+duck", desc: "Crouch"}, {type: 'action', cmd: "+attack", desc: "Primary Attack"},{type: 'action', cmd: "+attack2", desc: "Secondary Attack (Aim)"}, {type: 'action', cmd: "+reload", desc: "Reload"},{type: 'action', cmd: "+voice", desc: "Push-to-Talk"}, {type: 'action', cmd: "inventory.toggle", desc: "Toggle Inventory"},{type: 'action', cmd: "+map", desc: "Open Map"}, {type: 'action', cmd: "chat.open", desc: "Open Chat"},{type: 'action', cmd: "consoletoggle", desc: "Toggle Console"}, {type: 'action', cmd: "kill", desc: "Suicide"}, {type: 'action', cmd: "graphics.fov", desc: "Set Field of View (e.g. graphics.fov 90)", isAdvanced: true}, ];
-    let keyBinds = [];
-    let currentlyEditing = { index: -1, key: null, command: null, builder: { type: null } };
-    let rawLoadedConfig = 'No file loaded yet.';
-    let errorLog = [];
-
-    // --- Advanced Debugger: Global Error Catcher ---
-    window.onerror = function(message, source, lineno, colno, error) {
-        const timestamp = new Date().toISOString();
-        const formattedError = `[${timestamp}] ERROR: ${message} at ${source.split('/').pop()}:${lineno}:${colno}`;
-        errorLog.push(formattedError);
-        console.error("Caught by global handler:", formattedError, error);
-        return false; // Let the browser also handle it.
-    };
-
-    document.addEventListener('DOMContentLoaded', () => {
-        const instructions = document.getElementById('instructions');
-        
-        // --- Data Loading with Fallback ---
-        fetch('items.json') // Fetch the items.json file from the same folder
-            .then(response => { if (!response.ok) throw new Error(`HTTP error! status: ${response.status}.`); return response.json(); })
-            .then(itemArray => {
-                // The JSON is an array of items. We need to convert it into an object 
-                // keyed by itemID for fast lookups, as expected by the rest of the app.
-                RUST_ITEMS = itemArray.reduce((acc, item) => {
-                    // Use displayName, but fall back to shortName if it's null or empty.
-                    const name = item.displayName || item.shortName;
-                    if (item.itemID && name) {
-                        acc[item.itemID] = { name: name };
-                    }
-                    return acc;
-                }, {});
-                initializeApp(); 
-            })
-            .catch(error => {
-                console.warn("Could not load items.json, using fallback. Error:", error);
-                instructions.innerHTML = "⚠️ Warning: Could not load the full item database. Crafting functionality will be limited. <br>Ensure <code>items.json</code> is in the same folder as this HTML file.";
-                instructions.style.color = "var(--warning-color)";
+            <input type="file" id="file-input" accept=".cfg,.txt">
+            
+            <div class="instructions">
+                <h3><i class="fas fa-book"></i> How-To Guide</h3>
+                <ol>
+                    <li>Locate your Rust config directory: <code><Steam Install>/steamapps/common/Rust/cfg/</code></li>
+                    <li>Drag <code>keys.cfg</code> onto this page, or select it manually.</li>
+                    <li>Add, edit, or remove keybinds using the editor.</li>
+                    <li>Click "Download .CFG" to get your updated file.</li>
+                    <li>Replace the old <code>keys.cfg</code> file in your Rust directory with the new one.</li>
+                </ol>
                 
-                // --- Simple Fallback Item List ---
-                RUST_ITEMS = {
-                  "1850456855": { "name": "Bandage (Fallback)" },
-                  "-1405508498": { "name": "Stone Hatchet (Fallback)" },
-                  "-1224263351": { "name": "Wall (Fallback)" },
-                  "-1036635990": { "name": "Foundation (Fallback)" },
-                  "-722240306": { "name": "Sheet Metal Door (Fallback)" }
-                };
-                initializeApp();
+                <h3><i class="fas fa-lightbulb"></i> Command Syntax Explained</h3>
+                <div class="grid">
+                    <code>+</code>
+                    <span>A prefix for actions active only while a key is held (e.g., <code>+forward</code>).</span>
+                    <code>;</code>
+                    <span>Separates multiple commands on one key (e.g., <code>forward;sprint</code> for auto-run).</span>
+                    <code>~</code>
+                    <span>Toggles a command or cycles values (e.g., <code>~graphics.fov 70 90</code>).</span>
+                    <code>[ ]</code>
+                    <span>For compound keys with modifiers (e.g., <code>[leftcontrol+r]</code> or <code>[leftshift+k]</code>).</span>
+                    <code>" "</code>
+                    <span>Required for commands with spaces (e.g., <code>chat.say "/home 1"</code>), but optional for single-word commands. The editor will add them on export for safety.</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- EDITOR SECTION -->
+        <div id="editor-section">
+            <div class="add-preset-container">
+                <form id="add-bind-form" onsubmit="event.preventDefault(); addBind();">
+                    <input type="text" id="new-bind-key" placeholder="Key (e.g., h or [alt+h])" required>
+                    <input type="text" id="new-bind-command" placeholder="Command (e.g., +hoverloot)" required>
+                    <button type="submit" class="btn-primary">Add Bind</button>
+                </form>
+                <div id="preset-controls">
+                     <select id="preset-select">
+                        <option value="">-- Add a Preset Bind --</option>
+                        <!-- Options will be added by JS -->
+                    </select>
+                    <button class="btn-secondary" id="add-preset-btn">Add</button>
+                </div>
+            </div>
+
+            <div class="top-controls">
+                <input type="text" id="search-input" placeholder="Filter by key or command...">
+            </div>
+
+            <ul id="bind-list">
+                <!-- Bind items will be generated here by JavaScript -->
+            </ul>
+
+            <div class="bottom-actions">
+                <button id="copy-btn" class="btn-secondary">Copy to Clipboard</button>
+                <button id="download-btn" class="btn-primary">Download .CFG</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // --- Global State & Constants ---
+        let keybinds = []; // Array of { key: string, command: string }
+        // This regex now handles simple keys (w, f1) and compound keys ([leftcontrol+k])
+        // It captures the key and then everything else on the line as the potential command.
+        const BIND_REGEX = /^bind\s+(\S+|\[.+?\])\s+(.*)$/;
+
+        const COMMAND_DESCRIPTIONS = {
+            'attack': 'Fires your weapon or uses your primary action.',
+            'attack2': 'Aims down sights or uses your secondary action.',
+            'forward': 'Move forward.', 'backward': 'Move backward.', 'left': 'Strafe left.', 'right': 'Strafe right.',
+            'sprint': 'Sprint (must be held).', 'duck': 'Crouch (must be held).', 'jump': 'Jump.',
+            'reload': 'Reload your weapon.',
+            'inventory.toggle': 'Opens or closes your inventory.',
+            'map.toggle': 'Opens or closes the map.',
+            'chat.open': 'Opens the chat input.',
+            'chat.say': 'Makes your character say something in chat. Usage: chat.say "message"',
+            'console.toggle': 'Opens or closes the F1 developer console.',
+            'combatlog': 'Prints the most recent combat events to the console.',
+            'craft.add': 'Adds an item to the crafting queue. Usage: craft.add [item_id] [amount]',
+            'hoverloot': 'Instantly transfers all items from a container you are looking at to your inventory.',
+            'kill': 'Kills your character (suicide).',
+            'client.disconnect': 'Disconnects from the current server.',
+            'audio.toggle': 'Toggles game audio on or off.',
+            'swapseats': 'Swaps to the next available seat in a vehicle.',
+            'swaptoseat': 'Swaps to a specific seat index in a vehicle (0-indexed). Usage: swaptoseat [index]',
+            'lighttoggle': 'Toggles a deployable light source (e.g., lantern) on or off.',
+            'focusmap': 'Focuses on the map when it is open.',
+            'invprev': 'Cycles to the previous item in your hotbar.',
+            'invnext': 'Cycles to the next item in your hotbar.',
+            'firemode': 'Changes the fire mode of your equipped weapon (e.g., auto, semi-auto, burst).',
+            'inventory.examineheld': 'Examines the item currently held in your hands.',
+            'inventory.togglecrafting': 'Toggles the crafting menu open/closed.',
+            'gametip.showgametip': 'Displays a custom game tip on screen. Usage: gametip.showgametip "Your Message"',
+            'gametip.hidegametip': 'Hides any active game tip.',
+            'voice': 'Activates in-game voice chat (push-to-talk).',
+            'wireslackup': 'Increases wire slack for electrical wiring.',
+            'wireslackdown': 'Decreases wire slack for electrical wiring.',
+            'zoomincrease': 'Increases the zoom level (e.g., for binoculars or scopes).',
+            'zoomdecrease': 'Decreases the zoom level.',
+            'graphics.fov': 'Sets or toggles your field of view. Usage: graphics.fov [value] or ~graphics.fov [val1] [val2]',
+            'notec': 'Plays the "C" note on an instrument.',
+            'noted': 'Plays the "D" note on an instrument.',
+            'notee': 'Plays the "E" note on an instrument.',
+            'notef': 'Plays the "F" note on an instrument.',
+            'noteg': 'Plays the "G" note on an instrument.',
+            'notea': 'Plays the "A" note on an instrument.',
+            'noteb': 'Plays the "B" note on an instrument.',
+            'notesharpmod': 'Applies a sharp modifier to the next note.',
+            'noteoctaveupmod': 'Applies an octave up modifier to the next note.',
+        };
+        const PRESET_BINDS = [
+            { name: 'Auto-run (Forward + Sprint)', key: 'z', command: 'forward;sprint' },
+            { name: 'Quick Hoverloot', key: 'h', command: '+hoverloot' },
+            { name: 'FOV Toggle (70/90)', key: 'c', command: '~graphics.fov 70 90' },
+            { name: 'Combat Log (Show/Hide)', key: 'f1', command: 'combatlog;consoletoggle' },
+            { name: 'Quick Suicide', key: '[leftshift+k]', command: 'kill' },
+            { name: 'Auto-craft Bandage (1)', key: 'v', command: 'craft.add -2072273936 1' },
+            { name: 'Toggle Mute (Voice)', key: 'm', command: 'audio.toggle' },
+            { name: 'Custom Message (Hello World)', key: '[alt+1]', command: 'chat.say "Hello World!"' },
+            { name: 'Toggle Voice Chat', key: 'q', command: '+voice' }, // Common bind for voice
+        ];
+
+        // --- DOM Elements ---
+        const dragOverlay = document.getElementById('drag-overlay');
+        const fileInput = document.getElementById('file-input');
+        const dropZone = document.getElementById('drop-zone');
+        const uploadSection = document.getElementById('upload-section');
+        const editorSection = document.getElementById('editor-section');
+        const bindList = document.getElementById('bind-list');
+        const searchInput = document.getElementById('search-input');
+        const alertContainer = document.getElementById('alert-container');
+        const newBindKeyInput = document.getElementById('new-bind-key');
+        const newBindCommandInput = document.getElementById('new-bind-command');
+        const presetSelect = document.getElementById('preset-select');
+        const tooltip = document.getElementById('command-tooltip');
+
+        // --- File Handling & Parsing ---
+        function setupFileHandlers() {
+            window.addEventListener('dragover', e => { e.preventDefault(); dragOverlay.classList.add('visible'); });
+            window.addEventListener('dragleave', e => {
+                // Only hide if the drag leaves the entire window, not just a child element
+                if (e.clientX === 0 || e.clientY === 0 || e.clientX === window.innerWidth || e.clientY === window.innerHeight) {
+                    dragOverlay.classList.remove('visible');
+                }
             });
-
-        function initializeApp() {
-            // --- DOM Elements ---
-            const fileInput = document.getElementById('file-input');
-            const bindingsList = document.getElementById('bindings-list');
-            const visualKeyboard = document.getElementById('visual-keyboard');
-            const searchBar = document.getElementById('search-bar');
-            const exportBtn = document.getElementById('export-btn');
-            const addNewBindBtn = document.getElementById('add-new-bind-btn');
-            const initialMessage = document.getElementById('initial-message');
-            const editorModal = document.getElementById('editor-modal');
-            const dropZoneOverlay = document.getElementById('drop-zone-overlay');
-            const debugModal = document.getElementById('debug-modal');
-            const debugInfoBtn = document.getElementById('debug-info-btn');
-            const closeDebugModalBtn = document.getElementById('close-debug-modal-btn');
-            const copyDebugInfoBtn = document.getElementById('copy-debug-info-btn');
-            const debugInfoTextarea = document.getElementById('debug-info-textarea');
-
-            // --- Robust Drag and Drop Handling ---
-            window.addEventListener('dragenter', e => { e.stopPropagation(); e.preventDefault(); if (e.dataTransfer && e.dataTransfer.types.includes('Files')) { dropZoneOverlay.classList.remove('hidden'); } });
-            window.addEventListener('dragover', e => { e.stopPropagation(); e.preventDefault(); });
-            window.addEventListener('dragleave', e => { if (e.relatedTarget === null) { dropZoneOverlay.classList.add('hidden'); } });
-            window.addEventListener('drop', e => { e.stopPropagation(); e.preventDefault(); dropZoneOverlay.classList.add('hidden'); if (e.dataTransfer.files.length > 0) { handleFile(e.dataTransfer.files[0]); } });
-
-            function handleFile(file) {
-                if (file && (file.name.endsWith('.cfg') || file.name.endsWith('.txt'))) {
-                    const reader = new FileReader();
-                    reader.onload = (evt) => {
-                        rawLoadedConfig = evt.target.result; // Store raw config for debugging
-                        parseConfig(rawLoadedConfig);
-                        instructions.textContent = `Successfully loaded: ${file.name}`;
-                        instructions.style.color = 'var(--success-color)';
-                        initialMessage.classList.add('hidden');
-                    };
-                    reader.readAsText(file);
-                } else if (file) {
-                    instructions.textContent = `Invalid file type: ${file.name}. Please use a .cfg or .txt file.`;
-                    instructions.style.color = 'var(--error-color)';
-                }
-            }
-            
-            function renderAll() {
-                checkForConflicts();
-                renderBindList();
-                renderKeyboard();
-                filterBinds();
-                initialMessage.classList.toggle('hidden', keyBinds.length > 0);
-            }
-
-            function parseConfig(text) {
-                keyBinds = [];
-                const bindRegex = /^bind\s+("?)([^"\s]+)\1\s+("?)(.*)\3$/i;
-                text.split('\n').forEach(line => {
-                    const match = line.trim().match(bindRegex);
-                    if (match) { let command = match[4]; if (command.startsWith('"') && command.endsWith('"')) command = command.slice(1, -1); keyBinds.push({ key: match[2], command: command }); }
-                });
-                renderAll();
-            }
-            
-            function renderBindList() {
-                bindingsList.querySelectorAll('.bind-card').forEach(c => c.remove());
-                const cardTemplate = document.getElementById('bind-card-template');
-                keyBinds.forEach((bind, index) => {
-                    const card = cardTemplate.content.cloneNode(true).firstElementChild;
-                    card.dataset.index = index;
-                    card.querySelector('.bind-key').textContent = bind.key;
-                    const { icon, text } = getCommandInfo(bind.command);
-                    card.querySelector('.bind-icon').textContent = icon;
-                    card.querySelector('.bind-command').textContent = text;
-                    if (bind.isConflicting) card.classList.add('conflicting');
-                    card.querySelector('.edit-btn').addEventListener('click', () => openEditor(index));
-                    bindingsList.appendChild(card);
-                });
-            }
-            
-            function getCommandInfo(command) {
-                if (command.startsWith('craft.add')) { const ids = command.match(/-?\d+/g) || []; const firstItem = RUST_ITEMS[ids[0]]?.name || 'Unknown Item'; const text = ids.length > 1 ? `${firstItem} + ${ids.length - 1} more` : firstItem; return { icon: '⚙️', text: `Craft: ${text}` }; }
-                if (command.startsWith('chat.say')) { const isTeam = command.includes('/t '); return { icon: isTeam ? '👥' : '💬', text: command.replace('chat.say "/t ', 'Team: "').replace('chat.say "', 'Chat: "') }; }
-                if (command.startsWith('~')) return { icon: '🔧', text: `Toggle: ${command.substring(1).split(';')[0]}...` };
-                const simpleCmd = COMMAND_LIBRARY.find(c => c.cmd === command);
-                if (simpleCmd) return { icon: '▶️', text: simpleCmd.desc };
-                return { icon: '⚡', text: command };
-            }
-
-            function generateKeyboard() { const layout = [["escape", "f1", "f2", "f3", "f4", "f5", "f6", "f7", "f8", "f9", "f10", "f11", "f12"], ["`", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "-", "=", "backspace"], ["tab", "q", "w", "e", "r", "t", "y", "u", "i", "o", "p", "[", "]", "\\"], ["capslock", "a", "s", "d", "f", "g", "h", "j", "k", "l", ";", "'", "return"], ["leftshift", "z", "x", "c", "v", "b", "n", "m", ",", ".", "/", "rightshift"], ["leftcontrol", "leftalt", "space", "rightalt", "rightcontrol"], ["mouse0","mouse1","mouse2","mouse3","mouse4"],["mousewheelup", "mousewheeldown"]]; const sizeMap = { backspace: 'xlarge', tab: 'large', capslock: 'xlarge', return: 'xlarge', leftshift: 'xxlarge', rightshift: 'xxlarge', space: 'space' }; const displayMap = { leftcontrol: 'ctrl', leftshift: 'shift', leftalt: 'alt', rightcontrol: 'ctrl', rightshift: 'shift', rightalt: 'alt', return: 'enter', capslock: 'caps' }; layout.forEach(row => { const r = document.createElement('div'); r.className = 'keyboard-row'; row.forEach(key => { const k = document.createElement('div'); k.className = 'key'; k.dataset.key = key; k.textContent = displayMap[key] || key; if (sizeMap[key]) k.dataset.keySize = sizeMap[key]; k.addEventListener('click', () => { const idx = keyBinds.findIndex(b => b.key === key); openEditor(idx !== -1 ? idx : undefined, key); }); r.appendChild(k); }); visualKeyboard.appendChild(r); }); }
-            function renderKeyboard() { if (visualKeyboard.innerHTML === '') generateKeyboard(); const boundKeys = new Set(keyBinds.map(b => b.key)); const conflictingKeys = new Set(keyBinds.filter(b => b.isConflicting).map(b => b.key)); visualKeyboard.querySelectorAll('.key').forEach(keyEl => { const key = keyEl.dataset.key; keyEl.classList.remove('bound', 'conflicting'); if (boundKeys.has(key)) keyEl.classList.add('bound'); if (conflictingKeys.has(key)) keyEl.classList.add('conflicting'); }); }
-            function checkForConflicts() { const counts = keyBinds.reduce((acc, bind) => { acc[bind.key] = (acc[bind.key] || 0) + 1; return acc; }, {}); keyBinds.forEach(bind => { bind.isConflicting = counts[bind.key] > 1; });}
-            function filterBinds() { const term = searchBar.value.toLowerCase(); bindingsList.querySelectorAll('.bind-card').forEach(card => { const key = card.querySelector('.bind-key').textContent.toLowerCase(); const cmd = card.querySelector('.bind-command').textContent.toLowerCase(); card.style.display = (key.includes(term) || cmd.includes(term)) ? 'grid' : 'none'; }); }
-
-            function openEditor(index, presetKey = null) {
-                currentlyEditing.index = index;
-                const isNew = index === undefined || index === -1;
-                editorModal.querySelector('#modal-title').textContent = isNew ? "Create New Bind" : `Editing Bind for '${keyBinds[index].key}'`;
-                editorModal.querySelector('#delete-bind-btn').classList.toggle('hidden', isNew);
-                if (isNew) {
-                    resetModalToDefault(presetKey);
-                } else {
-                    const bind = keyBinds[index];
-                    currentlyEditing.key = bind.key;
-                    editorModal.querySelector('#key-display').textContent = bind.key;
-                    deconstructCommand(bind.command);
-                }
-                validateModal();
-                editorModal.style.display = 'flex';
-            }
-            function resetModalToDefault(presetKey = null) {
-                currentlyEditing.key = presetKey;
-                editorModal.querySelector('#key-display').textContent = presetKey || 'Not Set';
-                editorModal.querySelector('#command-builder-area').classList.add('hidden');
-                editorModal.querySelector('#action-category-selector').classList.remove('hidden');
-                currentlyEditing.builder = { type: null };
-            }
-            function closeEditor() {
-                editorModal.style.display = 'none';
-                document.removeEventListener('keydown', keydownHandler);
-                editorModal.querySelector('#set-key-btn').textContent = 'Set/Change Key';
-            }
-            function keydownHandler(e) {
+            window.addEventListener('drop', e => {
                 e.preventDefault();
-                let key = e.key.toLowerCase();
-                if (key === 'control') key = 'leftcontrol'; else if (key === 'shift') key = 'leftshift'; else if (key === 'alt') key = 'leftalt'; else if (key === ' ') key = 'space'; else if (key === 'enter') key = 'return';
-                if (e.ctrlKey && !key.includes('control')) key = `[leftcontrol+${key}]`;
-                if (e.shiftKey && !key.includes('shift')) key = `[leftshift+${key}]`;
-                if (e.altKey && !key.includes('alt')) key = `[leftalt+${key}]`;
-                currentlyEditing.key = key;
-                editorModal.querySelector('#key-display').textContent = key;
-                editorModal.querySelector('#set-key-btn').textContent = 'Set/Change Key';
-                validateModal();
-            }
-            function handlePaletteSearch(e) {
-                const term = e.target.value.toLowerCase();
-                const resultsContainer = editorModal.querySelector('.palette-results');
-                resultsContainer.innerHTML = '';
-                if (term.length < 1) return;
-                let results = [];
-                if (currentlyEditing.builder.type === 'craft') {
-                    for (const id in RUST_ITEMS) { if (RUST_ITEMS[id].name.toLowerCase().includes(term)) results.push({ type: 'craft', id, name: RUST_ITEMS[id].name }); }
-                } else if (currentlyEditing.builder.type === 'action') {
-                    results = COMMAND_LIBRARY.filter(cmd => cmd.desc.toLowerCase().includes(term));
-                }
-                results.slice(0, 10).forEach(res => {
-                    const itemEl = document.createElement('div');
-                    itemEl.style.cssText = 'padding: 0.75rem; cursor: pointer; border-bottom: 1px solid var(--border-color);';
-                    itemEl.textContent = res.name || res.desc;
-                    itemEl.addEventListener('click', () => handlePaletteSelection(res));
-                    resultsContainer.appendChild(itemEl);
-                });
-            }
-            function handlePaletteSelection(selection) {
-                if (selection.type === 'craft') {
-                    currentlyEditing.builder.items.push(selection);
-                    updateCraftingQueueUI();
-                    const searchInput = editorModal.querySelector('.command-palette-search');
-                    searchInput.value = '';
-                    searchInput.focus();
-                    editorModal.querySelector('.palette-results').innerHTML = '';
-                } else {
-                    currentlyEditing.builder.command = selection.cmd;
-                    editorModal.querySelector('#command-builder-area').innerHTML = `<div class="command-builder"><h4>▶️ Action Selected</h4><p>${selection.desc}</p><code>${selection.cmd}</code></div>`;
-                }
-                validateModal();
-            }
-            function updateCraftingQueueUI() {
-                const listEl = editorModal.querySelector('#crafting-queue-list');
-                if (!listEl) return;
-                listEl.innerHTML = '';
-                currentlyEditing.builder.items.forEach((item, index) => {
-                    const itemEl = document.createElement('div');
-                    itemEl.className = 'queue-item';
-                    itemEl.innerHTML = `<span>${item.name}</span><span class="delete-queue-item-btn" data-index="${index}">×</span>`;
-                    itemEl.querySelector('.delete-queue-item-btn').addEventListener('click', (e) => {
-                        currentlyEditing.builder.items.splice(e.target.dataset.index, 1);
-                        updateCraftingQueueUI();
-                        validateModal();
-                    });
-                    listEl.appendChild(itemEl);
-                });
-            }
-            function deconstructCommand(command) {
-                const builderArea = editorModal.querySelector('#command-builder-area');
-                editorModal.querySelector('#action-category-selector').classList.add('hidden');
-                builderArea.classList.remove('hidden');
-                if (command.startsWith('craft.add')) {
-                    const ids = command.match(/-?\d+/g) || [];
-                    currentlyEditing.builder = { type: 'craft', items: ids.map(id => ({ id, name: RUST_ITEMS[id]?.name || 'Unknown Item' })) };
-                    builderArea.innerHTML = document.getElementById('crafting-builder-template').innerHTML;
-                    updateCraftingQueueUI();
-                } else if (command.startsWith('chat.say')) {
-                    currentlyEditing.builder = { type: 'chat' };
-                    builderArea.innerHTML = document.getElementById('chat-builder-template').innerHTML;
-                    builderArea.querySelector('#chat-builder-input').value = command.match(/chat\.say\s+"(?:\/t\s)?(.*)"/)?.[1] || '';
-                    builderArea.querySelector('#team-chat-checkbox').checked = command.includes('/t ');
-                } else if (command.startsWith('~')) {
-                    const parts = command.substring(1).split(';');
-                    currentlyEditing.builder = { type: 'toggle' };
-                    builderArea.innerHTML = document.getElementById('toggle-builder-template').innerHTML;
-                    builderArea.querySelector('#toggle-builder-input1').value = parts[0] || '';
-                    builderArea.querySelector('#toggle-builder-input2').value = parts[1] || '';
-                } else {
-                    const simpleCmd = COMMAND_LIBRARY.find(c => c.cmd === command);
-                    currentlyEditing.builder = { type: 'action', command: command };
-                    builderArea.innerHTML = `<div class="command-builder"><h4>▶️ Action</h4><p>${simpleCmd?.desc || "Custom/Raw Command"}</p><code>${command}</code></div>`;
-                }
-                builderArea.querySelectorAll('input').forEach(input => input.addEventListener('input', validateModal));
-            }
-            function validateModal() {
-                let commandIsValid = false;
-                const { type } = currentlyEditing.builder;
-                const builderArea = editorModal.querySelector('#command-builder-area');
-                if (type === 'action') commandIsValid = !!currentlyEditing.builder.command;
-                if (type === 'craft') commandIsValid = currentlyEditing.builder.items && currentlyEditing.builder.items.length > 0;
-                if (type === 'chat') commandIsValid = builderArea.querySelector('#chat-builder-input')?.value.trim() !== '';
-                if (type === 'toggle') commandIsValid = builderArea.querySelector('#toggle-builder-input1')?.value.trim() !== '' && builderArea.querySelector('#toggle-builder-input2')?.value.trim() !== '';
-                editorModal.querySelector('#save-btn').disabled = !(currentlyEditing.key && commandIsValid);
-            }
-            editorModal.querySelector('#set-key-btn').addEventListener('click', () => {
-                editorModal.querySelector('#key-display').textContent = 'Listening...';
-                editorModal.querySelector('#set-key-btn').textContent = 'Listening...';
-                document.addEventListener('keydown', keydownHandler, { once: true });
+                dragOverlay.classList.remove('visible');
+                const files = e.dataTransfer.files;
+                if (files.length) handleFile(files[0]);
             });
-            editorModal.querySelector('#action-category-selector').addEventListener('click', (e) => {
-                const btn = e.target.closest('.category-btn');
-                if (!btn) return;
-                const type = btn.dataset.type;
-                currentlyEditing.builder = { type: type };
-                editorModal.querySelector('#action-category-selector').classList.add('hidden');
-                const builderArea = editorModal.querySelector('#command-builder-area');
-                builderArea.classList.remove('hidden');
-                let templateId = '';
-                if (type === 'action') templateId = 'action-builder-template';
-                else if (type === 'craft') { templateId = 'crafting-builder-template'; currentlyEditing.builder.items = []; }
-                else if (type === 'chat') templateId = 'chat-builder-template';
-                else if (type === 'toggle') templateId = 'toggle-builder-template';
-                builderArea.innerHTML = document.getElementById(templateId).innerHTML;
-                const searchInput = builderArea.querySelector('.command-palette-search');
-                if (searchInput) { searchInput.addEventListener('input', handlePaletteSearch); searchInput.focus(); }
-                builderArea.querySelectorAll('input').forEach(input => input.addEventListener('input', validateModal));
-                validateModal();
-            });
-            editorModal.querySelector('#save-btn').addEventListener('click', () => {
-                let finalCommand = '';
-                const builderArea = editorModal.querySelector('#command-builder-area');
-                switch (currentlyEditing.builder.type) {
-                    case 'craft': finalCommand = currentlyEditing.builder.items.map(item => `craft.add ${item.id}`).join(';'); break;
-                    case 'chat': const msg = builderArea.querySelector('#chat-builder-input').value; const isTeam = builderArea.querySelector('#team-chat-checkbox').checked; finalCommand = `chat.say "${isTeam ? '/t ' : ''}${msg}"`; break;
-                    case 'toggle': const cmd1 = builderArea.querySelector('#toggle-builder-input1').value; const cmd2 = builderArea.querySelector('#toggle-builder-input2').value; finalCommand = `~${cmd1};${cmd2}`; break;
-                    case 'action': finalCommand = currentlyEditing.builder.command; break;
-                }
-                const newBind = { key: currentlyEditing.key, command: finalCommand };
-                if (currentlyEditing.index === undefined || currentlyEditing.index === -1) { keyBinds.push(newBind); } else { keyBinds[currentlyEditing.index] = newBind; }
-                renderAll(); closeEditor();
-            });
-            editorModal.querySelector('#delete-bind-btn').addEventListener('click', () => { if (confirm('Are you sure you want to delete this bind? This cannot be undone.')) { if (currentlyEditing.index > -1) { keyBinds.splice(currentlyEditing.index, 1); renderAll(); } closeEditor(); } });
-            editorModal.querySelector('#cancel-btn').addEventListener('click', closeEditor);
-            editorModal.querySelector('#close-modal-btn').addEventListener('click', closeEditor);
-
-            debugInfoBtn.addEventListener('click', (e) => {
-                e.preventDefault();
-                const debugInfo = {
-                    timestamp: new Date().toISOString(),
-                    userAgent: navigator.userAgent,
-                    errorLog: errorLog,
-                    rawConfigFile: rawLoadedConfig,
-                    parsedBinds: keyBinds
-                };
-                debugInfoTextarea.value = JSON.stringify(debugInfo, null, 2);
-                debugModal.style.display = 'flex';
-                copyDebugInfoBtn.textContent = 'Copy Info to Clipboard';
-                copyDebugInfoBtn.style.backgroundColor = 'var(--primary-color)';
-            });
-            closeDebugModalBtn.addEventListener('click', () => debugModal.style.display = 'none');
-            copyDebugInfoBtn.addEventListener('click', () => {
-                navigator.clipboard.writeText(debugInfoTextarea.value).then(() => {
-                    copyDebugInfoBtn.textContent = 'Copied!';
-                    copyDebugInfoBtn.style.backgroundColor = 'var(--success-color)';
-                    setTimeout(() => {
-                        copyDebugInfoBtn.textContent = 'Copy Info to Clipboard';
-                        copyDebugInfoBtn.style.backgroundColor = 'var(--primary-color)';
-                    }, 2000);
-                });
-            });
-
-            fileInput.addEventListener('change', e => handleFile(e.target.files[0]));
-            document.querySelector('label[for="file-input"]').addEventListener("click", () => fileInput.click());
-            searchBar.addEventListener('input', filterBinds);
-            exportBtn.addEventListener('click', () => { let t='echo "Keybinds generated by Ultimate Web Editor v0.1"\n'; keyBinds.forEach(e=>{t+=`bind ${e.key} "${e.command}"\n`}); const e=new Blob([t],{type:"text/plain"}),o=document.createElement("a");o.href=URL.createObjectURL(e),o.download="keys.cfg",o.click(),URL.revokeObjectURL(o.href)});
-            addNewBindBtn.addEventListener('click', () => openEditor());
-            
-            renderAll();
+            dropZone.addEventListener('click', () => fileInput.click());
+            fileInput.addEventListener('change', e => { if (e.target.files.length) handleFile(e.target.files[0]); });
         }
-    });
+        
+        function handleFile(file) {
+            const reader = new FileReader();
+            reader.onload = e => {
+                try {
+                    const content = e.target.result;
+                    parseCfgContent(content);
+                    uploadSection.style.display = 'none';
+                    editorSection.style.display = 'block';
+                    populatePresets();
+                    renderBindList();
+                } catch (error) {
+                    showAlert(`Error reading file: ${error.message}`, 'error');
+                }
+            };
+            reader.readAsText(file);
+        }
+
+        function parseCfgContent(content) {
+            keybinds = [];
+            const lines = content.split(/\r?\n/);
+            lines.forEach(line => {
+                const match = line.trim().match(BIND_REGEX);
+                if (match) {
+                    let command = match[2].trim();
+                    // Remove surrounding quotes if they exist from the parsed command
+                    if (command.startsWith('"') && command.endsWith('"')) {
+                        command = command.substring(1, command.length - 1);
+                    }
+                    keybinds.push({ key: match[1], command: command });
+                }
+            });
+        }
+
+        // --- UI Rendering ---
+        function renderBindList() {
+            bindList.innerHTML = '';
+            const searchTerm = searchInput.value.toLowerCase().trim();
+            const bindsToRender = searchTerm
+                ? keybinds.filter(b => b.key.toLowerCase().includes(searchTerm) || b.command.toLowerCase().includes(searchTerm))
+                : keybinds;
+            
+            if (bindsToRender.length === 0) {
+                const message = searchTerm ? `No binds found matching "${searchInput.value}"` : 'No keybinds found. Add one above!';
+                bindList.innerHTML = `<li class="bind-item" style="display:flex; justify-content:center; opacity:0.7;">${message}</li>`;
+                return;
+            }
+
+            bindsToRender.forEach(bind => {
+                const originalIndex = keybinds.indexOf(bind);
+                const li = document.createElement('li');
+                li.className = 'bind-item';
+                li.dataset.index = originalIndex;
+
+                li.innerHTML = `
+                    <div class="bind-key">${bind.key}</div>
+                    <div class="bind-command" data-command="${bind.command}">${bind.command}</div>
+                    <div class="bind-actions">
+                        <button class="btn-edit" onclick="toggleEdit(${originalIndex})">Edit</button>
+                        <button class="btn-delete" onclick="deleteBind(${originalIndex})">Delete</button>
+                    </div>
+                `;
+                bindList.appendChild(li);
+            });
+            setupTooltips();
+        }
+        
+        function populatePresets() {
+            presetSelect.innerHTML = '<option value="">-- Add a Preset Bind --</option>';
+            PRESET_BINDS.forEach((preset, index) => {
+                const option = document.createElement('option');
+                option.value = index;
+                option.textContent = `${preset.name} (${preset.key})`;
+                presetSelect.appendChild(option);
+            });
+        }
+
+        function showAlert(message, type = 'error') {
+            alertContainer.innerHTML = `<div class="alert alert-${type}">${message}</div>`;
+            setTimeout(() => { alertContainer.innerHTML = ''; }, 5000);
+        }
+        
+        function setupTooltips() {
+            document.querySelectorAll('[data-command]').forEach(elem => {
+                elem.addEventListener('mousemove', e => {
+                    // Extract the primary command from a potentially chained command or a command with args
+                    const rawCommand = elem.dataset.command;
+                    const primaryCommand = rawCommand.split(';')[0].split(' ')[0].replace('+', '').replace('~', '');
+                    const description = COMMAND_DESCRIPTIONS[primaryCommand];
+                    if (description) {
+                        tooltip.style.display = 'block';
+                        tooltip.innerHTML = `<strong>${primaryCommand}:</strong> ${description}`;
+                        tooltip.style.left = `${e.pageX + 15}px`;
+                        tooltip.style.top = `${e.pageY + 15}px`;
+                    } else {
+                        tooltip.style.display = 'none';
+                    }
+                });
+                elem.addEventListener('mouseleave', () => { tooltip.style.display = 'none'; });
+            });
+        }
+
+        // --- CRUD & Actions ---
+        function addBind(key, command) {
+            const keyVal = key || newBindKeyInput.value.trim();
+            const cmdVal = command || newBindCommandInput.value.trim();
+            if (keyVal && cmdVal) {
+                keybinds.push({ key: keyVal, command: cmdVal });
+                if(!key && !command) { // Only clear input fields if it wasn't a preset addition
+                    newBindKeyInput.value = '';
+                    newBindCommandInput.value = '';
+                }
+                newBindKeyInput.focus();
+                renderBindList();
+            } else {
+                showAlert('Key and Command cannot be empty!', 'error');
+            }
+        }
+        
+        function deleteBind(index) {
+            // Need to adjust index if filtered/searched list is being displayed
+            // The dataset.index stores the original index
+            const actualIndex = parseInt(document.querySelector(`[data-index='${index}']`).dataset.index);
+
+            if (confirm(`Are you sure you want to delete the bind for key "${keybinds[actualIndex].key}"?`)) {
+                keybinds.splice(actualIndex, 1);
+                renderBindList();
+            }
+        }
+
+        function toggleEdit(index) {
+            // Use the actual original index
+            const actualIndex = parseInt(document.querySelector(`[data-index='${index}']`).dataset.index);
+            const item = bindList.querySelector(`[data-index='${actualIndex}']`);
+            const bind = keybinds[actualIndex];
+            
+            item.innerHTML = `
+                <div class="bind-key"><input type="text" class="edit-key-input" value="${bind.key}" style="max-width: 140px;"></div>
+                <div class="bind-command"><input type="text" class="edit-command-input" value="${bind.command}"></div>
+                <div class="bind-actions">
+                    <button class="btn-edit" onclick="saveEdit(${actualIndex})">Save</button>
+                    <button class="btn-secondary" onclick="renderBindList()">Cancel</button>
+                </div>
+            `;
+            const keyInput = item.querySelector('.edit-key-input');
+            keyInput.focus();
+            keyInput.select();
+            item.querySelector('.edit-command-input').addEventListener('keydown', e => {
+                if (e.key === 'Enter') saveEdit(actualIndex);
+                if (e.key === 'Escape') renderBindList();
+            });
+        }
+
+        function saveEdit(index) {
+            const item = bindList.querySelector(`[data-index='${index}']`);
+            const newKey = item.querySelector('.edit-key-input').value.trim();
+            const newCommand = item.querySelector('.edit-command-input').value.trim();
+            if (newKey && newCommand) {
+                keybinds[index] = { key: newKey, command: newCommand };
+            } else {
+                showAlert('Key and Command cannot be empty!', 'error');
+            }
+            renderBindList();
+        }
+
+        function generateCfgContent() {
+            // Always wrap commands in quotes for safety, as Rust requires them for commands with spaces.
+            return keybinds.map(b => `bind ${b.key} "${b.command}"`).join('\n');
+        }
+
+        // --- Event Listeners ---
+        document.getElementById('add-preset-btn').addEventListener('click', () => {
+            const selectedIndex = presetSelect.value;
+            if (selectedIndex !== "") {
+                const preset = PRESET_BINDS[selectedIndex];
+                addBind(preset.key, preset.command);
+                presetSelect.value = ''; // Reset dropdown
+            }
+        });
+
+        searchInput.addEventListener('input', renderBindList);
+
+        document.getElementById('download-btn').addEventListener('click', () => {
+            const content = generateCfgContent();
+            const blob = new Blob([content], { type: 'text/plain;charset=utf-8' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'keys.cfg';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        });
+        
+        document.getElementById('copy-btn').addEventListener('click', () => {
+            const content = generateCfgContent();
+            navigator.clipboard.writeText(content).then(() => {
+                alert('CFG content copied to clipboard!');
+            }).catch(err => {
+                showAlert('Failed to copy to clipboard.', 'error');
+            });
+        });
+
+        // --- Initializer ---
+        setupFileHandlers();
     </script>
 </body>
 </html>
