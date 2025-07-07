@@ -76,6 +76,31 @@
             from { transform: rotate(0deg); }
             to { transform: rotate(360deg); }
         }
+
+        /* --- Drag & Drop Overlay (NEW) --- */
+        #drag-overlay {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 9999;
+            display: none; /* Hidden by default */
+            justify-content: center;
+            align-items: center;
+            pointer-events: none; /* Allows clicks to pass through */
+        }
+        #drag-overlay.visible { display: flex; }
+        #drag-overlay-content {
+            border: 3px dashed var(--accent-color);
+            border-radius: 10px;
+            padding: 40px 80px;
+            text-align: center;
+            color: white;
+            font-family: var(--font-primary);
+            font-size: 2.5em;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
         
         /* Upload Section */
         #upload-section { text-align: center; }
@@ -217,6 +242,12 @@
 </head>
 <body>
 
+    <div id="drag-overlay">
+        <div id="drag-overlay-content">
+            <i class="fas fa-file-import"></i> Drop favorites.cfg
+        </div>
+    </div>
+
     <div class="container">
         <h1><i class="fas fa-gear"></i> Rust Favorites Editor</h1>
         <div id="alert-container"></div>
@@ -224,7 +255,7 @@
         <!-- UPLOAD SECTION -->
         <div id="upload-section">
             <div id="drop-zone">
-                <p>Drag & Drop <code>favorites.cfg</code></p>
+                <p>Drag & Drop <code>favorites.cfg</code> anywhere on the page</p>
                 <p>- or -</p>
                 <button type="button" class="btn-primary" onclick="document.getElementById('file-input').click();">Select File</button>
             </div>
@@ -286,18 +317,39 @@
         const newServerInput = document.getElementById('new-server-input');
         const searchInput = document.getElementById('search-input');
         const alertContainer = document.getElementById('alert-container');
+        const dragOverlay = document.getElementById('drag-overlay'); // NEW: Get the drag overlay element
 
         // --- File Handling ---
-        dropZone.addEventListener('click', () => fileInput.click());
-        dropZone.addEventListener('dragover', (e) => { e.preventDefault(); dropZone.classList.add('dragover'); });
-        dropZone.addEventListener('dragleave', () => { dropZone.classList.remove('dragover'); });
-        dropZone.addEventListener('drop', (e) => {
-            e.preventDefault();
-            dropZone.classList.remove('dragover');
-            const files = e.dataTransfer.files;
-            if (files.length) handleFile(files[0]);
-        });
-        fileInput.addEventListener('change', (e) => { if (e.target.files.length) handleFile(e.target.files[0]); });
+        function setupFileHandlers() { // NEW: Wrap file handling listeners in a function
+            // Global drag-and-drop listeners for overlay
+            window.addEventListener('dragover', e => {
+                e.preventDefault();
+                dragOverlay.classList.add('visible');
+            });
+            window.addEventListener('dragleave', e => {
+                // Only hide if the drag leaves the entire window, not just a child element
+                if (e.clientX === 0 || e.clientY === 0 || e.clientX === window.innerWidth || e.clientY === window.innerHeight) {
+                    dragOverlay.classList.remove('visible');
+                }
+            });
+            window.addEventListener('drop', e => {
+                e.preventDefault();
+                dragOverlay.classList.remove('visible');
+                // Also ensure the local drop zone 'dragover' class is removed
+                dropZone.classList.remove('dragover'); 
+                const files = e.dataTransfer.files;
+                if (files.length) handleFile(files[0]);
+            });
+
+            // Specific drop zone listeners (for visual feedback on that area)
+            dropZone.addEventListener('click', () => fileInput.click());
+            dropZone.addEventListener('dragover', (e) => { e.preventDefault(); dropZone.classList.add('dragover'); });
+            dropZone.addEventListener('dragleave', () => { dropZone.classList.remove('dragover'); });
+            // The drop event listener on dropZone is now handled by the global window listener, so it's removed here.
+
+            // File input change listener
+            fileInput.addEventListener('change', (e) => { if (e.target.files.length) handleFile(e.target.files[0]); });
+        }
 
         function handleFile(file) {
             const reader = new FileReader();
@@ -393,21 +445,25 @@
         }
 
         function deleteServer(index) {
-            if (confirm(`Are you sure you want to delete "${favoritesData.Servers[index].Value}"?`)) {
-                favoritesData.Servers.splice(index, 1);
+            // Adjust index to match the original index in the `favoritesData.Servers` array
+            const actualIndex = parseInt(document.querySelector(`[data-index='${index}']`).dataset.index);
+            if (confirm(`Are you sure you want to delete "${favoritesData.Servers[actualIndex].Value}"?`)) {
+                favoritesData.Servers.splice(actualIndex, 1);
                 renderServerList();
             }
         }
 
         function toggleEdit(index) {
-            const item = serverList.querySelector(`[data-index='${index}']`);
+            // Adjust index to match the original index in the `favoritesData.Servers` array
+            const actualIndex = parseInt(document.querySelector(`[data-index='${index}']`).dataset.index);
+            const item = serverList.querySelector(`[data-index='${actualIndex}']`);
             const serverInfo = item.querySelector('.server-info');
             const serverActions = item.querySelector('.server-actions');
-            const currentValue = favoritesData.Servers[index].Value;
+            const currentValue = favoritesData.Servers[actualIndex].Value;
 
             serverInfo.innerHTML = `<input type="text" class="edit-input" value="${currentValue}" style="width: 100%; background-color: rgba(0,0,0,0.3);" />`;
             serverActions.innerHTML = `
-                <button class="btn-edit" onclick="saveEdit(${index})">Save</button>
+                <button class="btn-edit" onclick="saveEdit(${actualIndex})">Save</button>
                 <button class="btn-secondary" onclick="renderServerList()">Cancel</button>
             `;
             
@@ -415,17 +471,19 @@
             editInput.focus();
             editInput.select();
             editInput.addEventListener('keydown', (e) => {
-                if (e.key === 'Enter') saveEdit(index);
+                if (e.key === 'Enter') saveEdit(actualIndex);
                 if (e.key === 'Escape') renderServerList();
             });
         }
 
         function saveEdit(index) {
-            const item = serverList.querySelector(`[data-index='${index}']`);
+            // Adjust index to match the original index in the `favoritesData.Servers` array
+            const actualIndex = parseInt(document.querySelector(`[data-index='${index}']`).dataset.index);
+            const item = serverList.querySelector(`[data-index='${actualIndex}']`);
             const newValue = item.querySelector('.edit-input').value.trim();
             if (newValue) {
-                favoritesData.Servers[index].Value = newValue;
-                favoritesData.Servers[index].Timestamp = Math.floor(Date.now() / 1000); // Also update timestamp
+                favoritesData.Servers[actualIndex].Value = newValue;
+                favoritesData.Servers[actualIndex].Timestamp = Math.floor(Date.now() / 1000); // Also update timestamp
             }
             renderServerList();
         }
@@ -474,6 +532,9 @@
             favoritesData.Servers.sort((a, b) => a.Timestamp - b.Timestamp);
             renderServerList();
         });
+
+        // Initializer: Set up global drag-and-drop and other file handlers
+        setupFileHandlers();
     </script>
 </body>
 </html>
