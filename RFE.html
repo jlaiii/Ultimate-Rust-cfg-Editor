@@ -4,76 +4,121 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rust Favorite Servers Editor</title>
+    <!-- Fonts and Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Teko:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
         :root {
-            --bg-color: #2c3e50;
-            --primary-color: #34495e;
-            --secondary-color: #22303f;
-            --text-color: #ecf0f1;
-            --accent-color: #e67e22;
-            --accent-hover: #d35400;
-            --success-color: #2ecc71;
-            --danger-color: #e74c3c;
-            --border-radius: 5px;
-            --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            /* Rust-inspired Color Palette */
+            --bg-color: #1a1a1a;
+            --primary-color: rgba(40, 40, 40, 0.85);
+            --secondary-color: #202020;
+            --text-color: #e0e0e0;
+            --accent-color: #cd412b; /* Rusty Orange */
+            --accent-hover: #d7523f;
+            --success-color: #5a8a4f; /* Muted Green */
+            --danger-color: #b73622;
+            --border-color: rgba(255, 255, 255, 0.1);
+            --border-radius: 3px;
+            --font-primary: 'Teko', sans-serif;
+            --font-secondary: 'Roboto', sans-serif;
         }
+
         body {
-            font-family: var(--font-family);
+            font-family: var(--font-secondary);
             background-color: var(--bg-color);
+            /* Gritty background texture */
+            background-image: url('https://www.transparenttextures.com/patterns/brushed-metal.png');
+            background-attachment: fixed;
             color: var(--text-color);
             margin: 0;
             padding: 20px;
             display: flex;
             justify-content: center;
             align-items: flex-start;
+            min-height: 100vh;
         }
+
         .container {
             width: 100%;
             max-width: 800px;
             background-color: var(--primary-color);
-            padding: 25px;
+            padding: 30px;
             border-radius: var(--border-radius);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            border: 1px solid var(--border-color);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
         }
+
         h1 {
-            color: var(--accent-color);
+            font-family: var(--font-primary);
+            color: var(--text-color);
             text-align: center;
-            border-bottom: 2px solid var(--secondary-color);
-            padding-bottom: 10px;
+            text-transform: uppercase;
+            font-size: 2.8em;
+            letter-spacing: 3px;
+            border-bottom: 1px solid var(--accent-color);
+            padding-bottom: 15px;
             margin-top: 0;
-            margin-bottom: 25px;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+        }
+        h1 .fa-gear {
+            color: var(--accent-color);
+            margin-right: 15px;
+            animation: spin 10s linear infinite;
+        }
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
         }
         
         /* Upload Section */
         #upload-section { text-align: center; }
         #drop-zone {
-            border: 3px dashed var(--secondary-color);
+            border: 2px solid var(--border-color);
+            background-color: rgba(0,0,0,0.2);
             padding: 40px;
             border-radius: var(--border-radius);
             cursor: pointer;
             transition: background-color 0.3s, border-color 0.3s;
         }
         #drop-zone.dragover {
-            background-color: var(--secondary-color);
+            background-color: rgba(0,0,0,0.4);
             border-color: var(--accent-color);
+            box-shadow: inset 0 0 15px rgba(0,0,0,0.5);
         }
-        #drop-zone p { margin: 0; font-size: 1.2em; }
+        #drop-zone p { margin: 10px 0; font-size: 1.2em; opacity: 0.8;}
         #file-input { display: none; }
         
         /* Instructions */
         .instructions {
             background-color: var(--secondary-color);
-            padding: 15px;
-            margin-top: 20px;
+            padding: 20px;
+            margin-top: 25px;
             border-radius: var(--border-radius);
+            border-left: 4px solid var(--accent-color);
             font-size: 0.9em;
-            line-height: 1.6;
+            line-height: 1.7;
+            text-align: left;
+        }
+        .instructions h3 {
+            font-family: var(--font-primary);
+            font-size: 1.5em;
+            letter-spacing: 1px;
+            margin-top: 0;
+            text-transform: uppercase;
         }
         .instructions code {
             background-color: var(--bg-color);
-            padding: 2px 5px;
+            padding: 3px 6px;
             border-radius: 3px;
             font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+            color: var(--accent-color);
         }
         
         /* Editor Section */
@@ -81,7 +126,7 @@
         #add-server-form {
             display: flex;
             gap: 10px;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
         }
         #new-server-input { flex-grow: 1; }
         
@@ -90,91 +135,109 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
             flex-wrap: wrap;
             gap: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid var(--border-color);
         }
         .search-control { flex-grow: 1; min-width: 200px; }
-        .sort-controls { display: flex; gap: 5px; flex-wrap: wrap; }
+        .sort-controls { display: flex; gap: 8px; flex-wrap: wrap; }
+        .sort-controls span { align-self: center; opacity: 0.7; }
         
         #server-list { list-style: none; padding: 0; margin: 0; }
         .server-item {
             background-color: var(--secondary-color);
-            padding: 15px;
-            margin-bottom: 10px;
+            padding: 15px 20px;
+            margin-bottom: 8px;
             border-radius: var(--border-radius);
+            border-left: 3px solid transparent;
             display: flex;
             align-items: center;
             justify-content: space-between;
             gap: 15px;
-            transition: background-color 0.2s;
+            transition: all 0.2s ease-in-out;
         }
-        .server-item:hover { background-color: #40586e; }
+        .server-item:hover {
+            background-color: #2c2c2c;
+            border-left-color: var(--accent-color);
+            transform: translateX(5px);
+        }
         .server-info { flex-grow: 1; word-break: break-all; }
-        .server-value { font-weight: bold; font-size: 1.1em; }
-        .server-timestamp { font-size: 0.8em; color: #bdc3c7; margin-top: 5px; }
+        .server-value { font-weight: bold; font-size: 1.1em; color: var(--text-color); }
+        .server-timestamp { font-size: 0.8em; color: #888; margin-top: 5px; }
         .server-actions button { margin-left: 5px; }
 
-        .bottom-actions { text-align: right; margin-top: 20px;}
+        .bottom-actions { text-align: right; margin-top: 25px; }
 
         /* General UI Elements */
         input[type="text"] {
-            padding: 10px;
+            padding: 12px 10px;
             border-radius: var(--border-radius);
-            border: 2px solid var(--secondary-color);
-            background-color: var(--bg-color);
+            border: none;
+            border-bottom: 2px solid var(--border-color);
+            background-color: transparent;
             color: var(--text-color);
             font-size: 1em;
+            font-family: var(--font-secondary);
             width: 100%;
             box-sizing: border-box;
+            transition: border-color 0.3s;
         }
-        input[type="text"]:focus { outline: none; border-color: var(--accent-color); }
+        input[type="text"]:focus {
+            outline: none;
+            border-color: var(--accent-color);
+        }
         button {
-            padding: 10px 15px;
-            border: none;
+            padding: 10px 18px;
+            border: 1px solid rgba(0,0,0,0.3);
             border-radius: var(--border-radius);
             cursor: pointer;
             font-weight: bold;
+            font-family: var(--font-secondary);
             font-size: 0.9em;
-            transition: background-color 0.2s, transform 0.1s;
+            text-transform: uppercase;
+            transition: background-color 0.2s, box-shadow 0.1s;
         }
-        button:active { transform: scale(0.98); }
+        button:active {
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.4);
+        }
         .btn-primary { background-color: var(--accent-color); color: white; }
         .btn-primary:hover { background-color: var(--accent-hover); }
-        .btn-secondary { background-color: #7f8c8d; color: white; }
-        .btn-secondary:hover { background-color: #95a5a6; }
+        .btn-secondary { background-color: #555; color: #ddd; }
+        .btn-secondary:hover { background-color: #666; }
         .btn-edit { background-color: var(--success-color); color: white; }
-        .btn-edit:hover { background-color: #27ae60; }
-        .btn-delete { background-color: var(--danger-color); color: white; }
-        .btn-delete:hover { background-color: #c0392b; }
+        .btn-edit:hover { background-color: #6cac62; }
+        .btn-delete { background-color: #a04444; color: white; }
+        .btn-delete:hover { background-color: #b04f4f; }
         
-        .alert { padding: 15px; margin-bottom: 20px; border-radius: var(--border-radius); text-align: center; }
+        .alert { padding: 15px; margin-bottom: 20px; border-radius: var(--border-radius); text-align: center; font-weight: bold; }
         .alert-error { background-color: var(--danger-color); color: white; }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <h1>Rust Favorite Servers Editor</h1>
+        <h1><i class="fas fa-gear"></i> Rust Favorites Editor</h1>
         <div id="alert-container"></div>
 
         <!-- UPLOAD SECTION -->
         <div id="upload-section">
             <div id="drop-zone">
-                <p>Drag & Drop your <code>favorites.cfg</code> file here</p>
-                <p>or</p>
-                <button type="button" class="btn-primary" onclick="document.getElementById('file-input').click();">Click to Select File</button>
+                <p>Drag & Drop <code>favorites.cfg</code></p>
+                <p>- or -</p>
+                <button type="button" class="btn-primary" onclick="document.getElementById('file-input').click();">Select File</button>
             </div>
             <input type="file" id="file-input" accept=".cfg,.txt,.json">
             
             <div class="instructions">
-                <h3>How to use this tool:</h3>
+                <h3>How-To Guide</h3>
                 <ol>
-                    <li>Find your Rust config folder. It's usually here:<br><code><Steam Install>/steamapps/common/Rust/cfg/</code></li>
-                    <li>Drag the <code>favorites.cfg</code> file from that folder into the box above, or click the button to select it.</li>
-                    <li>Edit, add, or delete your servers using the tools below.</li>
-                    <li>Click the "Download favorites.cfg" button to save your changes.</li>
-                    <li>Replace the old <code>favorites.cfg</code> file in the Rust folder with your new downloaded one.</li>
+                    <li>Locate your Rust config directory:<br><code><Steam Install>/steamapps/common/Rust/cfg/</code></li>
+                    <li>Drag <code>favorites.cfg</code> into the zone above, or select it manually.</li>
+                    <li>Add, edit, or remove servers.</li>
+                    <li>Click "Download .CFG" to get your updated file.</li>
+                    <li>Replace the old file in your Rust directory with the new one.</li>
                 </ol>
             </div>
         </div>
@@ -182,18 +245,18 @@
         <!-- EDITOR SECTION -->
         <div id="editor-section">
             <form id="add-server-form" onsubmit="event.preventDefault(); addServer();">
-                <input type="text" id="new-server-input" placeholder="Add new server (e.g., main.rustoria.us)" required>
+                <input type="text" id="new-server-input" placeholder="Add new server (e.g., connect main.rustoria.us:28015)" required>
                 <button type="submit" class="btn-primary">Add Server</button>
             </form>
 
             <div class="top-controls">
                 <div class="search-control">
-                    <input type="text" id="search-input" placeholder="Search servers...">
+                    <input type="text" id="search-input" placeholder="Filter servers...">
                 </div>
                 <div class="sort-controls">
-                    <span>Sort by:</span>
-                    <button class="btn-secondary" id="sort-name-asc">Name A-Z</button>
-                    <button class="btn-secondary" id="sort-name-desc">Name Z-A</button>
+                    <span>Sort:</span>
+                    <button class="btn-secondary" id="sort-name-asc">A-Z</button>
+                    <button class="btn-secondary" id="sort-name-desc">Z-A</button>
                     <button class="btn-secondary" id="sort-date-new">Newest</button>
                     <button class="btn-secondary" id="sort-date-old">Oldest</button>
                 </div>
@@ -204,8 +267,8 @@
             </ul>
 
             <div class="bottom-actions">
-                 <button id="copy-btn" class="btn-secondary">Copy JSON</button>
-                <button id="download-btn" class="btn-primary">Download favorites.cfg</button>
+                 <button id="copy-btn" class="btn-secondary">Copy as JSON</button>
+                <button id="download-btn" class="btn-primary">Download .CFG</button>
             </div>
         </div>
     </div>
@@ -240,17 +303,23 @@
             const reader = new FileReader();
             reader.onload = (e) => {
                 try {
-                    const data = JSON.parse(e.target.result);
+                    // Attempt to parse the file content. Rust's file is JSON with a .cfg extension.
+                    const fileContent = e.target.result;
+                    
+                    // The .cfg file is typically just a JSON object.
+                    // The root object is expected to have a "Servers" key which is an array.
+                    const data = JSON.parse(fileContent);
+
                     if (data && Array.isArray(data.Servers)) {
                         favoritesData = data;
                         uploadSection.style.display = 'none';
                         editorSection.style.display = 'block';
                         renderServerList();
                     } else {
-                        showAlert('Error: Invalid file format. The file must contain a "Servers" array.', 'error');
+                        showAlert('Error: Invalid file format. The file must be a JSON object containing a "Servers" array.', 'error');
                     }
                 } catch (error) {
-                    showAlert(`Error parsing file: ${error.message}. Please ensure it's a valid JSON file.`, 'error');
+                    showAlert(`Error parsing file: ${error.message}. Please ensure it's a valid favorites.cfg file.`, 'error');
                 }
             };
             reader.readAsText(file);
@@ -262,36 +331,43 @@
             if (!favoritesData) return;
 
             const searchTerm = searchInput.value.toLowerCase().trim();
+            let itemsToRender = [...favoritesData.Servers];
             let itemsRendered = 0;
 
-            favoritesData.Servers.forEach((server, index) => {
-                if (server.Value.toLowerCase().includes(searchTerm)) {
-                    const li = document.createElement('li');
-                    li.className = 'server-item';
-                    li.dataset.index = index;
+            // Give each item its original index before filtering
+            itemsToRender = itemsToRender.map((server, index) => ({...server, originalIndex: index}));
 
-                    const date = new Date(server.Timestamp * 1000).toLocaleString();
+            // Filter
+            if (searchTerm) {
+                itemsToRender = itemsToRender.filter(server => server.Value.toLowerCase().includes(searchTerm));
+            }
 
-                    li.innerHTML = `
-                        <div class="server-info">
-                            <div class="server-value">${server.Value}</div>
-                            <div class="server-timestamp">Added: ${date}</div>
-                        </div>
-                        <div class="server-actions">
-                            <button class="btn-edit" onclick="toggleEdit(${index})">Edit</button>
-                            <button class="btn-delete" onclick="deleteServer(${index})">Delete</button>
-                        </div>
-                    `;
-                    serverList.appendChild(li);
-                    itemsRendered++;
-                }
+            itemsToRender.forEach(server => {
+                const li = document.createElement('li');
+                li.className = 'server-item';
+                li.dataset.index = server.originalIndex;
+
+                const date = new Date(server.Timestamp * 1000).toLocaleString();
+
+                li.innerHTML = `
+                    <div class="server-info">
+                        <div class="server-value">${server.Value}</div>
+                        <div class="server-timestamp">Added: ${date}</div>
+                    </div>
+                    <div class="server-actions">
+                        <button class="btn-edit" onclick="toggleEdit(${server.originalIndex})">Edit</button>
+                        <button class="btn-delete" onclick="deleteServer(${server.originalIndex})">Delete</button>
+                    </div>
+                `;
+                serverList.appendChild(li);
+                itemsRendered++;
             });
 
             if (itemsRendered === 0) {
                  if (searchTerm) {
-                    serverList.innerHTML = `<li class="server-item">No servers found matching "${searchInput.value}"</li>`;
+                    serverList.innerHTML = `<li class="server-item" style="justify-content:center; opacity:0.7;">No servers found matching "${searchInput.value}"</li>`;
                 } else if (favoritesData.Servers.length === 0) {
-                    serverList.innerHTML = '<li class="server-item">No favorite servers found. Add one above!</li>';
+                    serverList.innerHTML = '<li class="server-item" style="justify-content:center; opacity:0.7;">No favorite servers found. Add one above!</li>';
                 }
             }
         }
@@ -309,7 +385,7 @@
                     Value: newServerValue,
                     Timestamp: Math.floor(Date.now() / 1000)
                 };
-                favoritesData.Servers.push(newServer);
+                favoritesData.Servers.unshift(newServer); // Add to the top
                 newServerInput.value = '';
                 searchInput.value = ''; 
                 renderServerList();
@@ -329,7 +405,7 @@
             const serverActions = item.querySelector('.server-actions');
             const currentValue = favoritesData.Servers[index].Value;
 
-            serverInfo.innerHTML = `<input type="text" class="edit-input" value="${currentValue}" style="width: 100%;" />`;
+            serverInfo.innerHTML = `<input type="text" class="edit-input" value="${currentValue}" style="width: 100%; background-color: rgba(0,0,0,0.3);" />`;
             serverActions.innerHTML = `
                 <button class="btn-edit" onclick="saveEdit(${index})">Save</button>
                 <button class="btn-secondary" onclick="renderServerList()">Cancel</button>
@@ -337,6 +413,7 @@
             
             const editInput = item.querySelector('.edit-input');
             editInput.focus();
+            editInput.select();
             editInput.addEventListener('keydown', (e) => {
                 if (e.key === 'Enter') saveEdit(index);
                 if (e.key === 'Escape') renderServerList();
@@ -348,6 +425,7 @@
             const newValue = item.querySelector('.edit-input').value.trim();
             if (newValue) {
                 favoritesData.Servers[index].Value = newValue;
+                favoritesData.Servers[index].Timestamp = Math.floor(Date.now() / 1000); // Also update timestamp
             }
             renderServerList();
         }
