@@ -5,79 +5,53 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rust Item Guesser</title>
     <style>
-        /* === Rust Theme Styles === */
-        /* General Reset & Box Sizing */
-        *, *::before, *::after {
-            box-sizing: border-box;
-        }
-
+        /* Rust-inspired CSS */
         body {
-            font-family: 'Impact', 'Arial Black', sans-serif; /* Attempt a more aggressive, Rust-like font */
-            background-color: #1a1a1a; /* Even darker base background */
-            color: #d0d0d0; /* Muted light text */
+            font-family: 'Arial', sans-serif; /* A more common, 'harder' font */
+            background-color: #1a1a1a; /* Very dark background */
+            color: #d0d0d0; /* Light grey text */
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
             margin: 0;
             padding: 20px;
-            /* Subtle textured background with a faint grid and diagonal lines for a worn look */
-            background-image:
-                linear-gradient(rgba(0,0,0,0.2) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(0,0,0,0.2) 1px, transparent 1px),
-                linear-gradient(135deg, rgba(0,0,0,0.1) 25%, transparent 25%, transparent 50%, rgba(0,0,0,0.1) 50%, rgba(0,0,0,0.1) 75%, transparent 75%, transparent),
-                url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHZpZXdCb3g9IjAgMCAyMCAyMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIGZpbGw9IiMwMDAwMDAiIGZpbGwtb3BhY2l0eT0iMC4wNSIvPjwvc3ZnPg==');
-            background-size: 20px 20px, 20px 20px, 40px 40px, 100% 100%;
-            background-blend-mode: overlay, overlay, multiply, normal; /* Blend modes for layered textures */
+            box-sizing: border-box;
         }
 
         .game-container {
-            background-color: #262626; /* Darker main container */
+            background-color: #252525; /* Darker panel */
             border-radius: 8px; /* Slightly sharper corners */
-            box-shadow: 0 0 30px rgba(0, 0, 0, 0.9), /* Deeper overall shadow */
-                        inset 0 0 0 2px #444; /* Subtle inner frame effect */
-            border: 2px solid #555; /* Solid outer border */
-            padding: 35px; /* More padding */
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.6); /* More prominent shadow */
+            border: 1px solid #404040; /* Subtle border for definition */
+            padding: 30px;
             text-align: center;
             width: 100%;
-            max-width: 800px; /* Wider for more content */
-            position: relative;
-            overflow: hidden;
-            /* Add some noise/grit texture to the container itself */
-            background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAMAAAD9gGh5AAAANlBMVEUAAAD///8yMjIyMjIBAQEyMjIyMjIBAQEzMzMxMTExMTExMTExMTFGRkYwMDAxMTExMTGMfD+2AAAAEHRSTlMAGh0eLzFBgI+Qn7C/0NXX2v9oAAAAQElEQVR42mNgGAWjYBRgY0BCQkICJCYgYGAIYEISFuYCgiJioIICLg5mNg5mJmYGxiYmLm5+BiZuHk4ubh4GBgYAl50Bq7k4sXIAAAAASUVORK5CYII=');
-            background-size: 50px 50px;
-            background-blend-mode: overlay;
+            max-width: 700px;
         }
 
         h1 {
-            color: #ff8800; /* Distinct Rust orange */
-            margin-bottom: 30px;
-            font-size: 3.2em; /* Even larger title */
-            text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.7), /* Deeper shadow */
-                         0 0 25px rgba(255, 136, 0, 0.6); /* Stronger orange glow */
-            letter-spacing: 2px; /* More spacing */
-            text-transform: uppercase; /* All caps for impact */
+            color: #c84820; /* Gritty, desaturated red/orange */
+            margin-bottom: 25px;
+            font-size: 2.8em;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+            letter-spacing: 1px;
+            text-transform: uppercase; /* More industrial feel */
         }
 
         h2 {
-            color: #c0c0c0;
-            margin-bottom: 25px;
-            font-size: 2.2em; /* Larger subtitles */
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+            color: #b0b0b0; /* Muted heading color */
+            margin-bottom: 20px;
+            font-size: 1.9em;
             text-transform: uppercase;
         }
 
-        h3 { /* For "How to Play" heading */
-            color: #ffaa00; /* Yellowish orange */
-            font-size: 1.8em;
-            margin-top: 30px;
-            margin-bottom: 15px;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.4);
-            text-transform: uppercase;
+        p {
+            color: #a0a0a0; /* Standard paragraph text */
         }
 
         .screen {
-            margin-top: 25px;
+            margin-top: 20px;
         }
 
         .hidden {
@@ -85,41 +59,36 @@
         }
 
         button {
-            background-color: #e06e00; /* Deeper, richer orange */
+            background-color: #a03010; /* Stronger, darker red for primary actions */
             color: white;
-            border: 2px solid #a04c00; /* Darker, prominent border */
-            padding: 16px 35px; /* Even larger padding */
-            margin: 12px;
-            border-radius: 5px; /* Sharper edges */
+            border: 1px solid #702008; /* Darker border */
+            padding: 14px 28px; /* Larger hit area */
+            margin: 10px;
+            border-radius: 5px; /* Slightly sharper button edges */
             cursor: pointer;
-            font-size: 1.3em; /* Larger font */
+            font-size: 1.2em;
             font-weight: bold;
-            transition: background-color 0.2s ease, transform 0.1s ease, box-shadow 0.2s ease, border-color 0.2s ease;
-            min-width: 200px;
-            box-shadow: inset 0 3px 6px rgba(0, 0, 0, 0.4), /* Inner shadow for depth */
-                        0 6px 12px rgba(0, 0, 0, 0.6); /* Outer shadow */
+            transition: background-color 0.2s ease, transform 0.1s ease, border-color 0.2s ease;
+            min-width: 180px; /* Ensure buttons have a minimum width */
             text-transform: uppercase;
-            letter-spacing: 0.5px;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
         }
 
         button:hover {
-            background-color: #ff7700; /* Brighter orange on hover */
-            border-color: #cc6000;
-            transform: translateY(-4px) scale(1.03); /* More pronounced lift */
-            box-shadow: inset 0 3px 6px rgba(0, 0, 0, 0.5),
-                        0 8px 16px rgba(0, 0, 0, 0.8);
+            background-color: #c04020; /* Brighter red on hover */
+            transform: translateY(-2px);
+            border-color: #903010;
         }
 
         button:active {
-            background-color: #a04c00; /* Even darker on click */
-            border-color: #803d00;
+            background-color: #802505; /* Even darker on click */
             transform: translateY(0);
-            box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.7); /* Flatter on click */
+            box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4) inset; /* Inset shadow for press effect */
         }
 
         button:disabled {
-            background-color: #333; /* Muted disabled state */
-            border-color: #222;
+            background-color: #444;
+            border-color: #333;
             color: #888;
             cursor: not-allowed;
             transform: none;
@@ -128,102 +97,74 @@
 
         #choices-container {
             display: grid;
-            grid-template-columns: 1fr;
-            gap: 20px; /* More space */
-            margin-top: 40px;
+            grid-template-columns: 1fr; /* Default to single column */
+            gap: 12px; /* Slightly tighter gap */
+            margin-top: 30px;
         }
 
-        @media (min-width: 680px) { /* Adjust breakpoint for potentially longer text */
+        /* Adjust for wider screens to make 2 columns */
+        @media (min-width: 600px) {
             #choices-container {
                 grid-template-columns: 1fr 1fr;
             }
         }
 
         .choice-button {
-            background-color: #3a3a3a; /* Darker choice background */
-            color: #f0f0f0;
-            border: 1px solid #666;
-            padding: 20px; /* More padding */
-            border-radius: 6px;
+            background-color: #383838; /* Darker grey for choice panels */
+            color: #d0d0d0;
+            border: 1px solid #505050; /* Defined border */
+            padding: 18px; /* More padding for text */
+            border-radius: 5px; /* Sharper corners */
             cursor: pointer;
-            font-size: 1.15em; /* Slightly larger font */
+            font-size: 1.05em;
             text-align: left;
             transition: background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
-            line-height: 1.6; /* Better readability */
-            min-height: 100px; /* Ensure choices have enough height */
+            line-height: 1.5;
+            min-height: 90px; /* Ensure choices have some height */
             display: flex;
             align-items: center;
-            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.4); /* Pronounced shadow */
+            box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2); /* Subtle depth */
         }
 
         .choice-button:hover:not(:disabled) {
-            background-color: #4a4a4a; /* Lighter hover */
-            border-color: #ff9900; /* Brighter orange border on hover */
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.6);
+            background-color: #4a4a4a; /* Slightly lighter on hover */
+            border-color: #c84820; /* Rust red highlight on hover */
+            box-shadow: 0 0 8px rgba(200, 72, 32, 0.4); /* Glowing effect */
         }
 
         .choice-button.correct {
-            background-color: #449d44; /* Stronger green for correct */
-            border-color: #398439;
-            box-shadow: 0 0 20px rgba(68, 157, 68, 0.8); /* Intense green glow */
+            background-color: #3a6a3a; /* Desaturated, deep green */
+            border-color: #2a4a2a;
+            box-shadow: 0 0 12px rgba(58, 106, 58, 0.6);
         }
 
         .choice-button.incorrect {
-            background-color: #c9302c; /* Stronger red for incorrect */
-            border-color: #ac2925;
-            box-shadow: 0 0 20px rgba(201, 48, 44, 0.8); /* Intense red glow */
+            background-color: #8a3a3a; /* Desaturated, deep red */
+            border-color: #6a2a2a;
+            box-shadow: 0 0 12px rgba(138, 58, 58, 0.6);
         }
 
         #progress-text, #score-text {
-            font-size: 1.4em; /* Larger progress/score */
-            margin-bottom: 15px;
-            color: #b0b0b0;
+            font-size: 1.3em;
+            margin-bottom: 10px;
+            color: #c0c0c0;
             font-weight: bold;
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
-        }
-
-        #question-text {
-            font-size: 1.9em; /* Larger question text */
-            margin-top: 30px;
-            margin-bottom: 30px;
-            color: #ffffff; /* Pure white for question */
-            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6);
-            line-height: 1.3;
         }
 
         #feedback-text {
-            margin-top: 30px;
+            margin-top: 25px;
             font-weight: bold;
-            font-size: 1.7em; /* Even larger feedback text */
-            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6);
+            font-size: 1.6em;
+            color: #c84820; /* Rust red for feedback */
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+            text-transform: uppercase;
         }
 
         #final-score-text {
-            font-size: 2em; /* Largest final score */
-            margin-bottom: 40px;
-            color: #ffcc00; /* Golden for final score */
-            text-shadow: 3px 3px 7px rgba(0, 0, 0, 0.7);
-        }
-
-        /* How to Play Section Specific Styles */
-        .how-to-play {
-            background-color: #333;
-            border: 1px solid #555;
-            border-radius: 5px;
-            padding: 25px; /* More padding */
-            margin-top: 35px; /* More space */
-            text-align: left;
-            box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.6); /* Deeper inner shadow */
-        }
-        .how-to-play p {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Use a more readable font for instructions */
-            font-size: 1.1em; /* Slightly larger for readability */
-            line-height: 1.7;
-            margin-bottom: 12px;
-            color: #ccc;
-        }
-        .how-to-play strong {
-            color: #ffaa00; /* Highlight important words */
+            font-size: 1.8em;
+            margin-bottom: 30px;
+            color: #e0e0e0;
+            font-weight: bold;
         }
     </style>
 </head>
@@ -234,20 +175,9 @@
         <!-- Menu Screen -->
         <div id="menu-screen" class="screen">
             <h2>Choose Difficulty</h2>
-            <button id="easy-btn" data-difficulty="easy">Easy</button>
-            <button id="medium-btn" data-difficulty="medium">Medium</button>
-            <button id="expert-btn" data-difficulty="expert">Expert</button>
-
-            <div class="how-to-play">
-                <h3>How to Play</h3>
-                <p>Welcome, survivor! Test your knowledge of Rust items by guessing what description belongs to each one.</p>
-                <p>1. <strong>Select Difficulty:</strong> Choose Easy, Medium, or Expert. Easy uses 10 items, Medium uses 25, and Expert uses all available items in a random order.</p>
-                <p>2. <strong>Guess the Description:</strong> An item name will appear. Below it, you'll see four possible descriptions. Only one is correct!</p>
-                <p>3. <strong>Click Your Answer:</strong> Select the description you believe is accurate.</p>
-                <p>4. <strong>Feedback:</strong> You'll instantly see if you were right (green) or wrong (red). If wrong, the correct answer will be highlighted.</p>
-                <p>5. <strong>Score & Progress:</strong> Your score and current question progress are displayed at the top.</p>
-                <p>Sharpen your skills and see how well you know the world of Rust!</p>
-            </div>
+            <button id="easy-btn" data-difficulty="easy">Easy (10 Items)</button>
+            <button id="medium-btn" data-difficulty="medium">Medium (25 Items)</button>
+            <button id="expert-btn" data-difficulty="expert">Expert (All Items)</button>
         </div>
 
         <!-- Game Screen -->
@@ -270,7 +200,7 @@
     </div>
 
     <script>
-        // === Game Logic (JavaScript) ===
+        // script.js content goes here
         document.addEventListener('DOMContentLoaded', () => {
             // DOM Elements
             const menuScreen = document.getElementById('menu-screen');
@@ -298,8 +228,8 @@
             let currentDifficulty = '';
 
             // --- EMBED YOUR ITEMS.JSON DATA HERE ---
-            // IMPORTANT: Replace the entire content of this array with your actual items.json data.
-            // Ensure it's formatted as a valid JavaScript array of objects.
+            // IMPORTANT: Replace the content below with your actual items.json data.
+            // It must be a valid JavaScript array of objects.
             allItems = [
               {
                 "name": "Stone Hatchet",
@@ -461,6 +391,13 @@
                 showMenu();
             }
 
+            // Shows the main menu
+            function showMenu() {
+                showScreen(menuScreen);
+                feedbackText.classList.add('hidden'); // Hide any previous feedback
+                feedbackText.textContent = '';
+            }
+
             // Starts the game based on chosen difficulty
             function startGame(difficulty) {
                 currentDifficulty = difficulty;
@@ -567,11 +504,11 @@
                     score++;
                     selectedButton.classList.add('correct');
                     feedbackText.textContent = 'Correct!';
-                    feedbackText.style.color = '#5cb85c'; // Lighter green for feedback
+                    feedbackText.style.color = '#3a6a3a'; // Desaturated green for correct feedback
                 } else {
                     selectedButton.classList.add('incorrect');
                     feedbackText.textContent = 'Incorrect!';
-                    feedbackText.style.color = '#d9534f'; // Lighter red for feedback
+                    feedbackText.style.color = '#8a3a3a'; // Desaturated red for incorrect feedback
                     // Highlight the correct answer
                     const correctAnswerButton = choicesContainer.querySelector('[data-correct="true"]');
                     if (correctAnswerButton) {
