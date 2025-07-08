@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rust Item Guesser</title>
+    <style>
+        /* === Rust Theme Styles === */
+        /* General Reset & Box Sizing */
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Impact', 'Arial Black', sans-serif; /* Attempt a more aggressive, Rust-like font */
+            background-color: #1a1a1a; /* Even darker base background */
+            color: #d0d0d0; /* Muted light text */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            /* Subtle textured background with a faint grid and diagonal lines for a worn look */
+            background-image:
+                linear-gradient(rgba(0,0,0,0.2) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0,0,0,0.2) 1px, transparent 1px),
+                linear-gradient(135deg, rgba(0,0,0,0.1) 25%, transparent 25%, transparent 50%, rgba(0,0,0,0.1) 50%, rgba(0,0,0,0.1) 75%, transparent 75%, transparent),
+                url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHZpZXdCb3g9IjAgMCAyMCAyMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIGZpbGw9IiMwMDAwMDAiIGZpbGwtb3BhY2l0eT0iMC4wNSIvPjwvc3ZnPg==');
+            background-size: 20px 20px, 20px 20px, 40px 40px, 100% 100%;
+            background-blend-mode: overlay, overlay, multiply, normal; /* Blend modes for layered textures */
+        }
+
+        .game-container {
+            background-color: #262626; /* Darker main container */
+            border-radius: 8px; /* Slightly sharper corners */
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.9), /* Deeper overall shadow */
+                        inset 0 0 0 2px #444; /* Subtle inner frame effect */
+            border: 2px solid #555; /* Solid outer border */
+            padding: 35px; /* More padding */
+            text-align: center;
+            width: 100%;
+            max-width: 800px; /* Wider for more content */
+            position: relative;
+            overflow: hidden;
+            /* Add some noise/grit texture to the container itself */
+            background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAMAAAD9gGh5AAAANlBMVEUAAAD///8yMjIyMjIBAQEyMjIyMjIBAQEzMzMxMTExMTExMTExMTFGRkYwMDAxMTExMTGMfD+2AAAAEHRSTlMAGh0eLzFBgI+Qn7C/0NXX2v9oAAAAQElEQVR42mNgGAWjYBRgY0BCQkICJCYgYGAIYEISFuYCgiJioIICLg5mNg5mJmYGxiYmLm5+BiZuHk4ubh4GBgYAl50Bq7k4sXIAAAAASUVORK5CYII=');
+            background-size: 50px 50px;
+            background-blend-mode: overlay;
+        }
+
+        h1 {
+            color: #ff8800; /* Distinct Rust orange */
+            margin-bottom: 30px;
+            font-size: 3.2em; /* Even larger title */
+            text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.7), /* Deeper shadow */
+                         0 0 25px rgba(255, 136, 0, 0.6); /* Stronger orange glow */
+            letter-spacing: 2px; /* More spacing */
+            text-transform: uppercase; /* All caps for impact */
+        }
+
+        h2 {
+            color: #c0c0c0;
+            margin-bottom: 25px;
+            font-size: 2.2em; /* Larger subtitles */
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+            text-transform: uppercase;
+        }
+
+        h3 { /* For "How to Play" heading */
+            color: #ffaa00; /* Yellowish orange */
+            font-size: 1.8em;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.4);
+            text-transform: uppercase;
+        }
+
+        .screen {
+            margin-top: 25px;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        button {
+            background-color: #e06e00; /* Deeper, richer orange */
+            color: white;
+            border: 2px solid #a04c00; /* Darker, prominent border */
+            padding: 16px 35px; /* Even larger padding */
+            margin: 12px;
+            border-radius: 5px; /* Sharper edges */
+            cursor: pointer;
+            font-size: 1.3em; /* Larger font */
+            font-weight: bold;
+            transition: background-color 0.2s ease, transform 0.1s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+            min-width: 200px;
+            box-shadow: inset 0 3px 6px rgba(0, 0, 0, 0.4), /* Inner shadow for depth */
+                        0 6px 12px rgba(0, 0, 0, 0.6); /* Outer shadow */
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        button:hover {
+            background-color: #ff7700; /* Brighter orange on hover */
+            border-color: #cc6000;
+            transform: translateY(-4px) scale(1.03); /* More pronounced lift */
+            box-shadow: inset 0 3px 6px rgba(0, 0, 0, 0.5),
+                        0 8px 16px rgba(0, 0, 0, 0.8);
+        }
+
+        button:active {
+            background-color: #a04c00; /* Even darker on click */
+            border-color: #803d00;
+            transform: translateY(0);
+            box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.7); /* Flatter on click */
+        }
+
+        button:disabled {
+            background-color: #333; /* Muted disabled state */
+            border-color: #222;
+            color: #888;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        #choices-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px; /* More space */
+            margin-top: 40px;
+        }
+
+        @media (min-width: 680px) { /* Adjust breakpoint for potentially longer text */
+            #choices-container {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .choice-button {
+            background-color: #3a3a3a; /* Darker choice background */
+            color: #f0f0f0;
+            border: 1px solid #666;
+            padding: 20px; /* More padding */
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1.15em; /* Slightly larger font */
+            text-align: left;
+            transition: background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+            line-height: 1.6; /* Better readability */
+            min-height: 100px; /* Ensure choices have enough height */
+            display: flex;
+            align-items: center;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.4); /* Pronounced shadow */
+        }
+
+        .choice-button:hover:not(:disabled) {
+            background-color: #4a4a4a; /* Lighter hover */
+            border-color: #ff9900; /* Brighter orange border on hover */
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.6);
+        }
+
+        .choice-button.correct {
+            background-color: #449d44; /* Stronger green for correct */
+            border-color: #398439;
+            box-shadow: 0 0 20px rgba(68, 157, 68, 0.8); /* Intense green glow */
+        }
+
+        .choice-button.incorrect {
+            background-color: #c9302c; /* Stronger red for incorrect */
+            border-color: #ac2925;
+            box-shadow: 0 0 20px rgba(201, 48, 44, 0.8); /* Intense red glow */
+        }
+
+        #progress-text, #score-text {
+            font-size: 1.4em; /* Larger progress/score */
+            margin-bottom: 15px;
+            color: #b0b0b0;
+            font-weight: bold;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+        }
+
+        #question-text {
+            font-size: 1.9em; /* Larger question text */
+            margin-top: 30px;
+            margin-bottom: 30px;
+            color: #ffffff; /* Pure white for question */
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6);
+            line-height: 1.3;
+        }
+
+        #feedback-text {
+            margin-top: 30px;
+            font-weight: bold;
+            font-size: 1.7em; /* Even larger feedback text */
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6);
+        }
+
+        #final-score-text {
+            font-size: 2em; /* Largest final score */
+            margin-bottom: 40px;
+            color: #ffcc00; /* Golden for final score */
+            text-shadow: 3px 3px 7px rgba(0, 0, 0, 0.7);
+        }
+
+        /* How to Play Section Specific Styles */
+        .how-to-play {
+            background-color: #333;
+            border: 1px solid #555;
+            border-radius: 5px;
+            padding: 25px; /* More padding */
+            margin-top: 35px; /* More space */
+            text-align: left;
+            box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.6); /* Deeper inner shadow */
+        }
+        .how-to-play p {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Use a more readable font for instructions */
+            font-size: 1.1em; /* Slightly larger for readability */
+            line-height: 1.7;
+            margin-bottom: 12px;
+            color: #ccc;
+        }
+        .how-to-play strong {
+            color: #ffaa00; /* Highlight important words */
+        }
+    </style>
+</head>
+<body>
+    <div class="game-container">
+        <h1>Rust Item Guesser</h1>
+
+        <!-- Menu Screen -->
+        <div id="menu-screen" class="screen">
+            <h2>Choose Difficulty</h2>
+            <button id="easy-btn" data-difficulty="easy">Easy</button>
+            <button id="medium-btn" data-difficulty="medium">Medium</button>
+            <button id="expert-btn" data-difficulty="expert">Expert</button>
+
+            <div class="how-to-play">
+                <h3>How to Play</h3>
+                <p>Welcome, survivor! Test your knowledge of Rust items by guessing what description belongs to each one.</p>
+                <p>1. <strong>Select Difficulty:</strong> Choose Easy, Medium, or Expert. Easy uses 10 items, Medium uses 25, and Expert uses all available items in a random order.</p>
+                <p>2. <strong>Guess the Description:</strong> An item name will appear. Below it, you'll see four possible descriptions. Only one is correct!</p>
+                <p>3. <strong>Click Your Answer:</strong> Select the description you believe is accurate.</p>
+                <p>4. <strong>Feedback:</strong> You'll instantly see if you were right (green) or wrong (red). If wrong, the correct answer will be highlighted.</p>
+                <p>5. <strong>Score & Progress:</strong> Your score and current question progress are displayed at the top.</p>
+                <p>Sharpen your skills and see how well you know the world of Rust!</p>
+            </div>
+        </div>
+
+        <!-- Game Screen -->
+        <div id="game-screen" class="screen hidden">
+            <p id="progress-text">0/0</p>
+            <p id="score-text">Score: 0</p>
+            <h2 id="question-text">What description belongs to: Item Name?</h2>
+            <div id="choices-container">
+                <!-- Choices will be injected here by JavaScript -->
+            </div>
+            <p id="feedback-text" class="hidden"></p>
+        </div>
+
+        <!-- Results Screen -->
+        <div id="results-screen" class="screen hidden">
+            <h2>Game Over!</h2>
+            <p id="final-score-text"></p>
+            <button id="restart-btn">Play Again</button>
+        </div>
+    </div>
+
+    <script>
+        // === Game Logic (JavaScript) ===
+        document.addEventListener('DOMContentLoaded', () => {
+            // DOM Elements
+            const menuScreen = document.getElementById('menu-screen');
+            const gameScreen = document.getElementById('game-screen');
+            const resultsScreen = document.getElementById('results-screen');
+
+            const easyBtn = document.getElementById('easy-btn');
+            const mediumBtn = document.getElementById('medium-btn');
+            const expertBtn = document.getElementById('expert-btn');
+            const restartBtn = document.getElementById('restart-btn');
+
+            const progressText = document.getElementById('progress-text');
+            const scoreText = document.getElementById('score-text');
+            const questionText = document.getElementById('question-text');
+            const choicesContainer = document.getElementById('choices-container');
+            const feedbackText = document.getElementById('feedback-text');
+            const finalScoreText = document.getElementById('final-score-text');
+
+            // Game Variables
+            let allItems = []; // Stores all items for the game
+            let gameItems = []; // Items for the current game session
+            let currentItemIndex = 0;
+            let score = 0;
+            let totalQuestions = 0;
+            let currentDifficulty = '';
+
+            // --- EMBED YOUR ITEMS.JSON DATA HERE ---
+            // IMPORTANT: Replace the entire content of this array with your actual items.json data.
+            // Ensure it's formatted as a valid JavaScript array of objects.
+            allItems = [
+              {
+                "name": "Stone Hatchet",
+                "info": "A crude hatchet, useful for chopping wood and breaking stones."
+              },
+              {
+                "name": "Torch",
+                "info": "Provides a small amount of light and heat. Can be used as a weapon."
+              },
+              {
+                "name": "Bandage",
+                "info": "Heals a small amount of health over time. Stops bleeding."
+              },
+              {
+                "name": "5.56 Rifle Ammo",
+                "info": "Ammunition for a Rifle. Loses velocity when fired over long distances resulting in slightly decreased damage."
+              },
+              {
+                "name": "Shotgun Shell",
+                "info": "Single large projectile for a Shotgun. Effective at close range."
+              },
+              {
+                "name": "Metal Ore",
+                "info": "Raw metal, can be smelted in a furnace to produce Metal Fragments."
+              },
+              {
+                "name": "Low Grade Fuel",
+                "info": "A basic combustible fuel, used in furnaces, lamps, and various other crafting recipes."
+              },
+              {
+                "name": "Wood",
+                "info": "Basic building material, essential for crafting and construction."
+              },
+              {
+                "name": "Stones",
+                "info": "Common resource, used for crafting tools, foundations, and more."
+              },
+              {
+                "name": "Cloth",
+                "info": "Soft material, used for crafting clothing, bandages, and other items."
+              },
+              {
+                "name": "Road Sign Kilt",
+                "info": "A kilt made from road signs, offers good protection and a unique aesthetic."
+              },
+              {
+                "name": "Large Furnace",
+                "info": "A large version of the furnace, capable of smelting more resources at once."
+              },
+              {
+                "name": "Assault Rifle",
+                "info": "A high-tier, fully automatic rifle, deadly at medium to long ranges."
+              },
+              {
+                "name": "Medical Syringe",
+                "info": "Instantly restores a significant amount of health. Consumable."
+              },
+              {
+                "name": "Explosive 5.56 Rifle Ammo",
+                "info": "Ammunition that explodes on impact, dealing area damage and destroying weaker structures."
+              },
+              {
+                "name": "Water Pipe Shotgun",
+                "info": "A makeshift single-shot shotgun, effective in close quarters."
+              },
+              {
+                "name": "Bear Trap",
+                "info": "A deployable trap that deals damage and immobilizes players or animals."
+              },
+              {
+                "name": "Scrap",
+                "info": "A valuable resource used for crafting, trading at Bandit Camp, and researching blueprints."
+              },
+              {
+                "name": "Auto Turret",
+                "info": "A deployable automated defense system that shoots enemies."
+              },
+              {
+                "name": "M249",
+                "info": "A rare and powerful light machine gun, featuring a large magazine capacity and high rate of fire."
+              },
+              {
+                "name": "C4 (Timed Explosive)",
+                "info": "A powerful explosive used for raiding and destroying strong fortifications."
+              },
+              {
+                "name": "Rocket Launcher",
+                "info": "A heavy weapon that fires rockets, ideal for breaching heavily fortified bases."
+              },
+              {
+                "name": "Research Table",
+                "info": "Used to research new blueprints from items you possess."
+              },
+              {
+                "name": "Work Bench Level 1",
+                "info": "The most basic workbench, allows crafting of simple tools and items."
+              },
+              {
+                "name": "Work Bench Level 2",
+                "info": "An intermediate workbench, unlocks more complex crafting recipes."
+              },
+              {
+                "name": "Work Bench Level 3",
+                "info": "The highest tier workbench, required for crafting the most advanced items in the game."
+              },
+              {
+                "name": "Armored Door",
+                "info": "The strongest door available, resistant to most forms of attack."
+              },
+              {
+                "name": "Large Wood Box",
+                "info": "A basic storage container with a large capacity."
+              },
+              {
+                "name": "Garage Door",
+                "info": "A wide, retractable door often used for vehicle access or main base entrances."
+              },
+              {
+                "name": "Supply Drop",
+                "info": "A crate dropped from an airplane containing valuable loot."
+              }
+            ];
+            // --- END OF EMBEDDED ITEMS.JSON DATA ---
+
+            // --- Utility Functions ---
+
+            // Shuffles an array (Fisher-Yates algorithm)
+            function shuffleArray(array) {
+                for (let i = array.length - 1; i > 0; i--) {
+                    const j = Math.floor(Math.random() * (i + 1));
+                    [array[i], array[j]] = [array[j], array[i]];
+                }
+                return array;
+            }
+
+            // Displays a specific screen and hides others
+            function showScreen(screenToShow) {
+                menuScreen.classList.add('hidden');
+                gameScreen.classList.add('hidden');
+                resultsScreen.classList.add('hidden');
+                screenToShow.classList.remove('hidden');
+            }
+
+            // --- Game Logic ---
+
+            // Initializes the game or shows an error if items data is bad
+            function initializeGame() {
+                // Basic validation: ensure allItems is an array and has items
+                if (!Array.isArray(allItems) || allItems.length === 0) {
+                    alert('Error: Item data is empty or not a valid array. Please check the embedded data in the script.');
+                    return; // Stop initialization
+                }
+                // Further validation: ensure each item has 'name' and 'info'
+                if (!allItems.every(item => item.name && item.info)) {
+                    alert('Error: Some items in the embedded data are missing "name" or "info" properties.');
+                    return; // Stop initialization
+                }
+                console.log('Items loaded:', allItems.length);
+                showMenu();
+            }
+
+            // Starts the game based on chosen difficulty
+            function startGame(difficulty) {
+                currentDifficulty = difficulty;
+                currentItemIndex = 0;
+                score = 0;
+                feedbackText.classList.add('hidden'); // Hide feedback from previous game
+
+                // Determine game items based on difficulty
+                if (difficulty === 'expert') {
+                    gameItems = shuffleArray([...allItems]); // Use all items, shuffled
+                } else {
+                    const numItems = difficulty === 'easy' ? 10 : 25;
+                    // Ensure we don't try to get more items than available
+                    const itemsToPick = Math.min(numItems, allItems.length);
+                    // Shuffle allItems and take the required number
+                    gameItems = shuffleArray([...allItems]).slice(0, itemsToPick);
+                }
+
+                totalQuestions = gameItems.length;
+                console.log(`Starting ${difficulty} game with ${totalQuestions} items.`);
+
+                // If no items are selected (e.g., embedded data is too small for difficulty), go back to menu
+                if (totalQuestions === 0) {
+                    alert('Not enough items available for this difficulty. Please add more items to the embedded data or choose an easier difficulty.');
+                    showMenu();
+                    return;
+                }
+
+                showScreen(gameScreen);
+                displayNextQuestion();
+            }
+
+            // Displays the current question
+            function displayNextQuestion() {
+                if (currentItemIndex >= totalQuestions) {
+                    endGame();
+                    return;
+                }
+
+                const currentItem = gameItems[currentItemIndex];
+                questionText.textContent = `What description belongs to: ${currentItem.name}?`;
+                scoreText.textContent = `Score: ${score}`;
+                progressText.textContent = `Question: ${currentItemIndex + 1}/${totalQuestions}`;
+
+                // Clear previous choices and feedback
+                choicesContainer.innerHTML = '';
+                feedbackText.classList.add('hidden');
+                feedbackText.textContent = '';
+
+                // Generate choices
+                const correctDescription = currentItem.info;
+                const incorrectDescriptions = new Set(); // Use a Set to ensure uniqueness
+
+                // Filter out the current item and get other descriptions
+                const otherItems = allItems.filter(item => item.name !== currentItem.name && item.info);
+
+                // Populate incorrect descriptions (max 3)
+                const shuffledOtherItems = shuffleArray(otherItems);
+                for (let i = 0; incorrectDescriptions.size < 3 && i < shuffledOtherItems.length; i++) {
+                    incorrectDescriptions.add(shuffledOtherItems[i].info);
+                }
+
+                // Combine correct and unique incorrect descriptions
+                const allChoices = [
+                    { text: correctDescription, isCorrect: true },
+                    ...Array.from(incorrectDescriptions).map(info => ({ text: info, isCorrect: false }))
+                ];
+
+                // Ensure there are always 4 choices if possible. If not enough unique incorrect ones,
+                // the game will proceed with fewer choices. This makes it more robust for small datasets.
+                while (allChoices.length < 4 && allChoices.length < allItems.length) {
+                    // Find a random item not already represented in choices
+                    const randomItem = allItems[Math.floor(Math.random() * allItems.length)];
+                    if (randomItem.info && !allChoices.some(choice => choice.text === randomItem.info)) {
+                        allChoices.push({ text: randomItem.info, isCorrect: false });
+                    }
+                }
+
+                // Shuffle choices before displaying
+                shuffleArray(allChoices);
+
+                // Create and append choice buttons
+                allChoices.forEach(choice => {
+                    const button = document.createElement('button');
+                    button.classList.add('choice-button');
+                    button.textContent = choice.text;
+                    if (choice.isCorrect) {
+                        button.dataset.correct = 'true';
+                    }
+                    button.addEventListener('click', () => handleChoiceClick(button));
+                    choicesContainer.appendChild(button);
+                });
+            }
+
+            // Handles a choice button click
+            function handleChoiceClick(selectedButton) {
+                const isCorrect = selectedButton.dataset.correct === 'true';
+                const allChoiceButtons = choicesContainer.querySelectorAll('.choice-button');
+
+                // Disable all buttons to prevent multiple clicks
+                allChoiceButtons.forEach(btn => btn.disabled = true);
+
+                if (isCorrect) {
+                    score++;
+                    selectedButton.classList.add('correct');
+                    feedbackText.textContent = 'Correct!';
+                    feedbackText.style.color = '#5cb85c'; // Lighter green for feedback
+                } else {
+                    selectedButton.classList.add('incorrect');
+                    feedbackText.textContent = 'Incorrect!';
+                    feedbackText.style.color = '#d9534f'; // Lighter red for feedback
+                    // Highlight the correct answer
+                    const correctAnswerButton = choicesContainer.querySelector('[data-correct="true"]');
+                    if (correctAnswerButton) {
+                        correctAnswerButton.classList.add('correct');
+                    }
+                }
+                feedbackText.classList.remove('hidden');
+
+                currentItemIndex++;
+
+                // Wait a bit, then display next question or end game
+                setTimeout(() => {
+                    displayNextQuestion();
+                }, 1500); // 1.5 second delay
+            }
+
+            // Ends the game and shows results
+            function endGame() {
+                showScreen(resultsScreen);
+                finalScoreText.textContent = `You scored ${score} out of ${totalQuestions} items!`;
+            }
+
+            // --- Event Listeners ---
+
+            easyBtn.addEventListener('click', () => startGame('easy'));
+            mediumBtn.addEventListener('click', () => startGame('medium'));
+            expertBtn.addEventListener('click', () => startGame('expert'));
+            restartBtn.addEventListener('click', showMenu);
+
+            // Initial game setup
+            initializeGame();
+        });
+    </script>
+</body>
+</html>
