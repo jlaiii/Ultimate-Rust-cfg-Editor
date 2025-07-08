@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rust Item Lookup</title>
+    <!-- Fonts and Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Teko:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            /* Rust-inspired Color Palette */
+            --bg-color: #1a1a1a;
+            --primary-color: rgba(40, 40, 40, 0.85);
+            --secondary-color: #202020;
+            --text-color: #e0e0e0;
+            --accent-color: #cd412b; /* Rusty Orange */
+            --accent-hover: #d7523f;
+            --success-color: #5a8a4f; /* Muted Green */
+            --danger-color: #b73622;
+            --border-color: rgba(255, 255, 255, 0.1);
+            --border-radius: 3px;
+            --font-primary: 'Teko', sans-serif;
+            --font-secondary: 'Roboto', sans-serif;
+        }
+
+        body {
+            font-family: var(--font-secondary);
+            background-color: var(--bg-color);
+            /* Gritty background texture */
+            background-image: url('https://www.transparenttextures.com/patterns/brushed-metal.png');
+            background-attachment: fixed;
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 900px;
+            background-color: var(--primary-color);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            border: 1px solid var(--border-color);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+        }
+
+        h1 {
+            font-family: var(--font-primary);
+            color: var(--text-color);
+            text-align: center;
+            text-transform: uppercase;
+            font-size: 2.8em;
+            letter-spacing: 3px;
+            border-bottom: 1px solid var(--accent-color);
+            padding-bottom: 15px;
+            margin-top: 0;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+        }
+        h1 .fa-cubes {
+            color: var(--accent-color);
+            margin-right: 15px;
+        }
+        
+        /* Controls & List */
+        .top-controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px; /* Reduced margin */
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        .search-control { flex-grow: 1; min-width: 250px; }
+        .sort-controls { display: flex; gap: 8px; flex-wrap: wrap; }
+        .sort-controls span { align-self: center; opacity: 0.7; }
+        
+        #last-update {
+            text-align: center;
+            opacity: 0.6;
+            font-size: 0.85em;
+            margin-bottom: 25px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 20px;
+        }
+
+        /* NEW: Item List Styling */
+        #item-list { list-style: none; padding: 0; margin: 0; }
+        .item-card {
+            background-color: var(--secondary-color);
+            padding: 20px;
+            margin-bottom: 12px;
+            border-radius: var(--border-radius);
+            border-left: 3px solid transparent;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            transition: all 0.2s ease-in-out;
+        }
+        .item-card:hover {
+            background-color: #2c2c2c;
+            border-left-color: var(--accent-color);
+            transform: translateX(5px);
+        }
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 10px;
+        }
+        .item-display-name {
+            font-family: var(--font-primary);
+            font-size: 1.8em;
+            letter-spacing: 1px;
+            color: var(--accent-color);
+        }
+        .item-stack-size {
+            font-size: 0.9em;
+            background-color: rgba(0,0,0,0.3);
+            padding: 5px 10px;
+            border-radius: var(--border-radius);
+            white-space: nowrap;
+        }
+        .item-details {
+            display: flex;
+            gap: 20px;
+            font-size: 0.9em;
+            opacity: 0.8;
+            align-items: center;
+        }
+        .item-short-name {
+            background-color: var(--bg-color);
+            padding: 3px 6px;
+            border-radius: 3px;
+            font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+            color: var(--accent-color);
+        }
+        .item-description {
+            font-size: 1em;
+            line-height: 1.6;
+        }
+        #no-results {
+            background-color: var(--secondary-color);
+            padding: 30px;
+            text-align: center;
+            opacity: 0.7;
+            border-radius: var(--border-radius);
+        }
+
+        /* General UI Elements */
+        input[type="text"] {
+            padding: 12px 10px;
+            border-radius: var(--border-radius);
+            border: none;
+            border-bottom: 2px solid var(--border-color);
+            background-color: transparent;
+            color: var(--text-color);
+            font-size: 1em;
+            font-family: var(--font-secondary);
+            width: 100%;
+            box-sizing: border-box;
+            transition: border-color 0.3s;
+        }
+        input[type="text"]:focus {
+            outline: none;
+            border-color: var(--accent-color);
+        }
+        button {
+            padding: 10px 18px;
+            border: 1px solid rgba(0,0,0,0.3);
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            font-weight: bold;
+            font-family: var(--font-secondary);
+            font-size: 0.9em;
+            text-transform: uppercase;
+            transition: background-color 0.2s, box-shadow 0.1s;
+        }
+        button:active {
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.4);
+        }
+        .btn-secondary { background-color: #555; color: #ddd; }
+        .btn-secondary:hover { background-color: #666; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1><i class="fas fa-cubes"></i> Rust Item Lookup</h1>
+
+        <div class="top-controls">
+            <div class="search-control">
+                <input type="text" id="search-input" placeholder="Search by name, shortname, or description...">
+            </div>
+            <div class="sort-controls">
+                <span>Sort by Name:</span>
+                <button class="btn-secondary" id="sort-name-asc">A-Z</button>
+                <button class="btn-secondary" id="sort-name-desc">Z-A</button>
+            </div>
+        </div>
+
+        <div id="last-update"></div>
+
+        <ul id="item-list">
+            <!-- Item cards will be generated here by JavaScript -->
+        </ul>
+        <div id="no-results" style="display: none;">
+            No items found matching your search.
+        </div>
+
+    </div>
+
+    <script>
+        // --- Global State ---
+        let allItems = []; // This will be populated from items.json
+
+        // --- DOM Elements ---
+        const itemList = document.getElementById('item-list');
+        const searchInput = document.getElementById('search-input');
+        const lastUpdateDiv = document.getElementById('last-update');
+        const noResultsDiv = document.getElementById('no-results');
+
+        // --- Data Handling ---
+        async function loadItems() {
+            try {
+                const response = await fetch('items.json');
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                const data = await response.json();
+                
+                // Clean the data: handle null values
+                allItems = data.map(item => ({
+                    ...item,
+                    displayName: item.displayName || item.shortName, // Use shortName if displayName is null
+                    description: item.description || 'No description available.' // Provide a default description
+                }));
+
+                // Once data is loaded and cleaned, render the list
+                setLastUpdate();
+                renderItemList();
+
+            } catch (error) {
+                console.error("Could not load or parse items.json:", error);
+                // Display a user-friendly error message on the page
+                itemList.innerHTML = '';
+                noResultsDiv.style.display = 'block';
+                noResultsDiv.style.color = 'var(--danger-color)';
+                noResultsDiv.textContent = 'Error: Could not load item data. Please ensure items.json is in the same folder and is a valid JSON file.';
+            }
+        }
+
+
+        // --- UI Rendering ---
+        function renderItemList() {
+            itemList.innerHTML = '';
+            const searchTerm = searchInput.value.toLowerCase().trim();
+            
+            // 1. Filter Items
+            let itemsToRender = allItems.filter(item => {
+                if (!searchTerm) return true; // Show all if search is empty
+                return (
+                    item.displayName.toLowerCase().includes(searchTerm) ||
+                    item.shortName.toLowerCase().includes(searchTerm) ||
+                    item.description.toLowerCase().includes(searchTerm)
+                );
+            });
+
+            // 2. Sort Items
+            const currentSort = itemList.dataset.sort || 'name-asc';
+            itemsToRender.sort((a, b) => {
+                const nameA = a.displayName.toLowerCase();
+                const nameB = b.displayName.toLowerCase();
+                if (currentSort === 'name-asc') {
+                    return nameA.localeCompare(nameB);
+                } else { // name-desc
+                    return nameB.localeCompare(nameA);
+                }
+            });
+
+            // 3. Render
+            if (itemsToRender.length === 0) {
+                noResultsDiv.style.display = 'block';
+                noResultsDiv.textContent = 'No items found matching your search.';
+                noResultsDiv.style.color = 'var(--text-color)';
+            } else {
+                noResultsDiv.style.display = 'none';
+            }
+            
+            itemsToRender.forEach(item => {
+                const card = document.createElement('li');
+                card.className = 'item-card';
+                card.innerHTML = `
+                    <div class="item-header">
+                        <span class="item-display-name">${item.displayName}</span>
+                        <span class="item-stack-size"><i class="fas fa-box-open"></i> Stack: ${item.stackSize}</span>
+                    </div>
+                    <p class="item-description">${item.description}</p>
+                    <div class="item-details">
+                        <span class="item-short-name">${item.shortName}</span>
+                        <span>Item ID: ${item.itemID}</span>
+                    </div>
+                `;
+                itemList.appendChild(card);
+            });
+        }
+        
+        function setLastUpdate() {
+            const today = new Date();
+            const options = { year: 'numeric', month: 'long', day: 'numeric' };
+            lastUpdateDiv.textContent = `Item Database Last Updated: ${today.toLocaleDateString('en-US', options)}`;
+        }
+
+        // --- Event Listeners ---
+        searchInput.addEventListener('input', renderItemList);
+
+        document.getElementById('sort-name-asc').addEventListener('click', () => {
+            itemList.dataset.sort = 'name-asc';
+            renderItemList();
+        });
+        
+        document.getElementById('sort-name-desc').addEventListener('click', () => {
+            itemList.dataset.sort = 'name-desc';
+            renderItemList();
+        });
+
+        // --- Initial Load ---
+        // Load the items from the JSON file when the page is ready
+        document.addEventListener('DOMContentLoaded', loadItems);
+    </script>
+</body>
+</html>
