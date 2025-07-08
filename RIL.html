@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -102,26 +101,35 @@
         }
         .search-control { flex-grow: 1; min-width: 250px; }
         
-        .sort-and-download-group { /* New flex container for these two */
-            display: flex;
-            flex-direction: column; /* Stack vertically */
-            gap: 8px; /* Space between sort and download */
-            align-items: flex-end; /* Align items to the right within this group */
+        /* Removed sort-specific flex containers */
+        
+        /* --- START OF MODIFICATION --- */
+
+        /* Specific styling for item count - no border */
+        #item-count {
+            text-align: center;
+            font-size: 0.95em; /* Slightly larger for better visibility */
+            font-weight: bold;
+            color: var(--accent-color);
+            margin-top: 15px; /* Space from top controls (search/download) */
+            margin-bottom: 10px; /* Space before last-update div */
+            padding-bottom: 5px; /* Small padding */
         }
-        
-        .sort-controls { display: flex; gap: 8px; flex-wrap: wrap; }
-        .sort-controls span { align-self: center; opacity: 0.7; }
-        
+
+        /* Specific styling for last update - this one gets the border */
         #last-update {
             text-align: center;
             opacity: 0.6;
             font-size: 0.85em;
-            margin-bottom: 25px;
-            border-bottom: 1px solid var(--border-color);
+            margin-top: 0; /* Relies on margin-bottom from #item-count */
+            margin-bottom: 25px; /* Space before the actual item list */
+            border-bottom: 1px solid var(--border-color); /* The separator line */
             padding-bottom: 20px;
         }
+        /* --- END OF MODIFICATION --- */
 
-        /* NEW: Item List Styling */
+
+        /* Item List Styling */
         #item-list { list-style: none; padding: 0; margin: 0; }
         .item-card {
             background-color: var(--secondary-color);
@@ -165,6 +173,7 @@
             font-size: 0.9em;
             opacity: 0.8;
             align-items: center;
+            flex-wrap: wrap; /* Allow details to wrap */
         }
         .item-short-name {
             background-color: var(--bg-color);
@@ -217,8 +226,7 @@
         button:active {
             box-shadow: inset 0 2px 4px rgba(0,0,0,0.4);
         }
-        .btn-secondary { background-color: #555; color: #ddd; }
-        .btn-secondary:hover { background-color: #666; }
+        /* No more btn-secondary as sort buttons are gone */
 
         .btn-download { /* Specific style for the download button */
             background-color: var(--accent-color);
@@ -228,6 +236,17 @@
         .btn-download:hover {
             background-color: var(--accent-hover);
             box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .top-controls {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .search-control { min-width: unset; }
+            button { width: 100%; } /* Make buttons full width */
+            .btn-download { margin-top: 10px; } /* Add space above download button */
         }
     </style>
 </head>
@@ -243,15 +262,12 @@
             <div class="search-control">
                 <input type="text" id="search-input" placeholder="Search by name, shortname, or description...">
             </div>
-            <div class="sort-and-download-group">
-                <div class="sort-controls">
-                    <span>Sort by Name:</span>
-                    <button class="btn-secondary" id="sort-name-asc">A-Z</button>
-                    <button class="btn-secondary" id="sort-name-desc">Z-A</button>
-                </div>
-                <button class="btn-secondary btn-download" id="download-db-btn"><i class="fas fa-download"></i> Download Data</button>
-            </div>
+            <!-- Download Database button moved here directly -->
+            <button class="btn-download" id="download-db-btn"><i class="fas fa-download"></i> Download Database</button>
         </div>
+        
+        <!-- NEW: Item Count Display -->
+        <div id="item-count"></div>
 
         <div id="last-update"></div>
 
@@ -304,6 +320,41 @@
                 "description": "Valuable material for crafting advanced items and researching blueprints.",
                 "stackSize": 1000,
                 "itemID": -93220167
+            },
+            {
+                "displayName": "Assault Rifle",
+                "shortName": "rifle.ak",
+                "description": "A powerful and versatile automatic rifle.",
+                "stackSize": 1,
+                "itemID": 907026405
+            },
+            {
+                "displayName": "Medical Syringe",
+                "shortName": "syringe.medical",
+                "description": "Administers a healing dose, restoring health.",
+                "stackSize": 5,
+                "itemID": 2097368936
+            },
+            {
+                "displayName": "Large Wood Box",
+                "shortName": "box.wooden.large",
+                "description": "A spacious wooden container for storing items.",
+                "stackSize": 1,
+                "itemID": 1391910243
+            },
+            {
+                "displayName": "Explosive 556 Rifle Ammo",
+                "shortName": "ammo.rifle.explosive",
+                "description": "High-explosive ammunition for rifles, dealing splash damage.",
+                "stackSize": 128,
+                "itemID": -1219315998
+            },
+            {
+                "displayName": "Water Bottle",
+                "shortName": "waterbottle",
+                "description": "A reusable container for fresh water.",
+                "stackSize": 1,
+                "itemID": 1494954471
             }
         ];
 
@@ -312,9 +363,10 @@
         const itemList = document.getElementById('item-list');
         const searchInput = document.getElementById('search-input');
         const lastUpdateDiv = document.getElementById('last-update');
+        const itemCountDiv = document.getElementById('item-count');
         const noResultsDiv = document.getElementById('no-results');
         const downloadDbBtn = document.getElementById('download-db-btn');
-        const fallbackMessageDiv = document.getElementById('fallback-message'); // NEW
+        const fallbackMessageDiv = document.getElementById('fallback-message');
 
         // --- Data Handling ---
         async function loadItems() {
@@ -348,7 +400,7 @@
             } finally {
                 // Always set last update and render the list, whether real data or sample data
                 setLastUpdate();
-                renderItemList();
+                renderItemList(); // Initial render after data is loaded
             }
         }
 
@@ -368,19 +420,20 @@
                 );
             });
 
-            // 2. Sort Items
-            const currentSort = itemList.dataset.sort || 'name-asc';
+            // 2. Default Sort (Alphabetical by DisplayName)
+            // Items are always sorted alphabetically by display name in ascending order
             itemsToRender.sort((a, b) => {
                 const nameA = a.displayName.toLowerCase();
                 const nameB = b.displayName.toLowerCase();
-                if (currentSort === 'name-asc') {
-                    return nameA.localeCompare(nameB);
-                } else { // name-desc
-                    return nameB.localeCompare(nameA);
-                }
+                return nameA.localeCompare(nameB);
             });
 
-            // 3. Render
+            // 3. Update Item Count
+            const totalItems = allItems.length;
+            const filteredItemsCount = itemsToRender.length;
+            itemCountDiv.textContent = `Showing ${filteredItemsCount} of ${totalItems} items.`;
+            
+            // 4. Render Items
             if (itemsToRender.length === 0) {
                 noResultsDiv.style.display = 'block';
                 noResultsDiv.textContent = 'No items found matching your search.';
@@ -415,15 +468,7 @@
         // --- Event Listeners ---
         searchInput.addEventListener('input', renderItemList);
 
-        document.getElementById('sort-name-asc').addEventListener('click', () => {
-            itemList.dataset.sort = 'name-asc';
-            renderItemList();
-        });
-        
-        document.getElementById('sort-name-desc').addEventListener('click', () => {
-            itemList.dataset.sort = 'name-desc';
-            renderItemList();
-        });
+        // All sort button event listeners removed
 
         downloadDbBtn.addEventListener('click', () => {
             if (allItems.length === 0) {
