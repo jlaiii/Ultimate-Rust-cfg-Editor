@@ -78,10 +78,15 @@
         */
         .tools-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            /* Changed: Force 4 columns */
+            grid-template-columns: repeat(4, minmax(250px, 1fr)); /* Use minmax to ensure a minimum width for readability */
             gap: 30px;
+            /* Added: Allow horizontal scrolling if content overflows */
+            overflow-x: auto; 
+            padding-bottom: 20px; /* Add some padding for the scrollbar if needed */
         }
 
+        /* Adjust card min-width slightly if needed to prevent too much shrinking */
         .tool-card {
             background-color: var(--panel-bg);
             border: 1px solid var(--border-color);
@@ -92,6 +97,7 @@
             align-items: center;
             justify-content: space-between;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            min-width: 250px; /* Ensure cards don't get too small before scrollbar appears */
         }
 
         .tool-card:hover {
@@ -190,6 +196,15 @@
                 <h3>Keybind Editor</h3>
                 <p>Edit your keys.cfg visually and intuitively. Build your perfect control scheme without ever opening a console.</p>
                 <a href="RKE.html" class="btn">Open Editor</a>
+            </div>
+
+            <!-- Tool Card 4: Rust Item Lookup -->
+            <div class="tool-card">
+                <!-- SVG icon for search/lookup -->
+                <svg class="icon" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+                <h3>Rust Item Lookup</h3>
+                <p>Quickly find details for any in-game item. Search, browse, and get a head start on crafting or trading.</p>
+                <a href="RIL.html" class="btn">Open Lookup</a>
             </div>
 
         </main>
