@@ -12,7 +12,7 @@ A suite of powerful, client-side web tools designed to simplify editing your Rus
 
 ## Features
 
-The hub provides three powerful, purpose-built editors:
+The hub provides four powerful, purpose-built editors:
 
 ### ⚙️ Game Settings Editor (`client.cfg`)
 Expose and edit advanced settings normally buried in the console.
@@ -36,6 +36,15 @@ Manage your list of favorite servers with ease.
 *   **Simple CRUD:** Easily add, edit, and delete servers from your list.
 *   **Sort & Filter:** Organize your server list by name, date added, or use the search bar to find a specific server instantly.
 *   **JSON Export:** Copy your server list as a clean JSON object for backup or sharing.
+
+### 🔍 Rust Item Lookup (`items.json`)
+Search and explore detailed information for all in-game Rust items.
+
+*   **Live Search:** Instantly filter items by display name, short name, or description.
+*   **Visual Cards:** Each item is displayed in a clear, styled card with stack size, description, and item ID.
+*   **Sort Options:** Sort alphabetically (A-Z or Z-A) by item name.
+*   **Local Fallback:** Built-in sample data if the main item database fails to load.
+*   **Download:** Export the full item database as a JSON-formatted text file.
 
 ---
 
