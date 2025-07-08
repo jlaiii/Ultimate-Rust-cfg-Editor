@@ -291,7 +291,7 @@
             const choicesContainer = document.getElementById('choices-container');
             const feedbackText = document.getElementById('feedback-text');
             const finalScoreText = document.getElementById('final-score-text');
-            const errorMessageDiv = document.getElementById('error-message'); // NEW: Get the error message div
+            const errorMessageDiv = document.getElementById('error-message'); // Get the error message div
 
             // Game Variables
             let allItems = []; // Stores all items loaded from items.json
@@ -305,6 +305,20 @@
             const TIME_PER_QUESTION = 30; // 30 seconds per question
             let countdown = TIME_PER_QUESTION;
             let timerInterval;
+
+            // Sample data for local testing fallback (adapted from RIL.html structure)
+            const sampleItems = [
+                { "name": "Wood", "info": "A basic resource. Used for crafting and building. Can be found everywhere.", "stackSize": 1000, "itemID": -828093181 },
+                { "name": "Stone", "info": "Another fundamental resource. Stronger than wood. Essential for early bases.", "stackSize": 1000, "itemID": 1782298708 },
+                { "name": "Metal Ore", "info": "Raw ore, smelt into metal fragments. Found in mountains and rocky areas.", "stackSize": 1000, "itemID": 792266209 },
+                { "name": "Low Grade Fuel", "info": "A combustible liquid used to power various devices and for crafting explosives.", "stackSize": 1000, "itemID": 428795550 },
+                { "name": "Scrap", "info": "Valuable material for crafting advanced items and researching blueprints.", "stackSize": 1000, "itemID": -93220167 },
+                { "name": "Assault Rifle", "info": "A powerful and versatile automatic rifle.", "stackSize": 1, "itemID": 907026405 },
+                { "name": "Medical Syringe", "info": "Administers a healing dose, restoring health.", "stackSize": 5, "itemID": 2097368936 },
+                { "name": "Large Wood Box", "info": "A spacious wooden container for storing items.", "stackSize": 1, "itemID": 1391910243 },
+                { "name": "Explosive 556 Rifle Ammo", "info": "High-explosive ammunition for rifles, dealing splash damage.", "stackSize": 128, "itemID": -1219315998 },
+                { "name": "Water Bottle", "info": "A reusable container for fresh water.", "stackSize": 1, "itemID": 1494954471 }
+            ];
 
             // --- Utility Functions ---
 
@@ -323,29 +337,29 @@
                 gameScreen.classList.add('hidden');
                 resultsScreen.classList.add('hidden');
                 screenToShow.classList.remove('hidden');
-                // NEW: Hide error message when switching screens
+                // Hide error message when switching screens
                 errorMessageDiv.classList.add('hidden');
                 errorMessageDiv.textContent = '';
             }
 
             // --- Game Logic ---
 
-            // Loads item data from items.json
+            // Loads item data from items.json, with fallback to sample data
             async function loadItemsData() {
                 try {
-                    // NEW: Hide any previous error message
-                    errorMessageDiv.classList.add('hidden');
-                    errorMessageDiv.textContent = '';
+                    errorMessageDiv.classList.add('hidden'); // Ensure previous error is hidden
+                    errorMessageDiv.textContent = ''; // Clear previous error text
 
                     const response = await fetch('items.json');
                     if (!response.ok) {
-                        if (response.status === 404) {
-                            throw new Error('items.json not found. Make sure it is in the same folder.');
-                        }
-                        throw new Error(`HTTP error! status: ${response.status}`);
+                        const errorText = response.status === 404 ? 
+                                          'items.json not found. Make sure it is in the same folder.' : 
+                                          `HTTP error! status: ${response.status} (Likely a network or CORS issue).`;
+                        throw new Error(errorText);
                     }
                     allItems = await response.json();
 
+                    // Data validation
                     if (!Array.isArray(allItems) || allItems.length === 0) {
                         throw new Error('items.json is empty or not a valid array.');
                     }
@@ -353,18 +367,32 @@
                         throw new Error('Some items in items.json are missing "name" or "info" properties.');
                     }
 
-                    console.log('Items loaded:', allItems.length);
-                    showMenu();
+                    console.log('Items loaded from items.json:', allItems.length);
                 } catch (error) {
                     console.error('Could not load items.json:', error);
-                    // NEW: Display error message on page instead of alert
-                    errorMessageDiv.innerHTML = `
-                        <i class="fas fa-exclamation-triangle"></i> Error loading game data: ${error.message}<br>
-                        Important: If you are running this file directly from your computer (e.g., file:///), your browser might block loading 'items.json' due to security restrictions. To fix this, please run a local web server.
-                    `;
+                    allItems = sampleItems; // Fallback to sample data
+
+                    // Construct the error message for the user
+                    let userMessage = `<i class="fas fa-exclamation-triangle"></i> Error loading game data: ${error.message}<br>`;
+                    
+                    // Add specific advice for file:// protocol errors
+                    if (error.message.includes('HTTP error') || error.message.includes('NetworkError') || error.message.includes('failed to fetch')) {
+                         userMessage += `
+                            Important: If you are running this file directly from your computer (e.g., <span style="font-family: monospace;">file:///</span>), your browser might block loading 'items.json' due to security restrictions. To fix this, please run a local web server.
+                        `;
+                    }
+
+                    // Inform about fallback to sample data or complete failure
+                    if (allItems.length > 0) {
+                        userMessage += `<br>Showing sample data for local testing.`;
+                    } else {
+                        userMessage += `<br>No sample data available or sample data is invalid. Game cannot proceed.`;
+                    }
+                    
+                    errorMessageDiv.innerHTML = userMessage;
                     errorMessageDiv.classList.remove('hidden');
-                    // Ensure the menu is shown, but with the error visible
-                    showScreen(menuScreen);
+                } finally {
+                    showMenu(); // Always show the menu after attempting to load items
                 }
             }
 
@@ -383,14 +411,13 @@
                 score = 0;
                 feedbackText.classList.add('hidden'); // Hide feedback from previous game
 
-                // NEW: Ensure allItems is loaded and not empty before starting a game
-                if (allItems.length === 0) {
-                    // If items failed to load, show a prompt and return to menu
+                // Ensure allItems is loaded and not empty before starting a game
+                if (!Array.isArray(allItems) || allItems.length === 0) {
                     errorMessageDiv.innerHTML = `
-                        <i class="fas fa-exclamation-triangle"></i> Cannot start game. Item data failed to load previously. Please check console for details or run a local web server.
+                        <i class="fas fa-exclamation-triangle"></i> Cannot start game. Item data is not loaded or is empty. Please check the console for details.
                     `;
                     errorMessageDiv.classList.remove('hidden');
-                    showMenu();
+                    showMenu(); // Return to menu with error visible
                     return;
                 }
 
@@ -408,9 +435,8 @@
                 totalQuestions = gameItems.length;
                 console.log(`Starting ${difficulty} game with ${totalQuestions} items.`);
 
-                // If no items are selected (e.g., items.json is too small for difficulty), go back to menu
+                // If no items are selected (e.g., items.json is too small for difficulty, even with fallback), go back to menu
                 if (totalQuestions === 0) {
-                    // NEW: Display message on page
                     errorMessageDiv.innerHTML = `
                         <i class="fas fa-exclamation-triangle"></i> Not enough items available for this difficulty (${currentDifficulty}). Please add more items to items.json or choose an easier difficulty.
                     `;
