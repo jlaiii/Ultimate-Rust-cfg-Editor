@@ -72,16 +72,43 @@
             margin-right: 15px;
         }
         
+        /* NEW: Fallback message styling */
+        #fallback-message {
+            background-color: rgba(var(--danger-color), 0.1); /* Lighter background for the message */
+            color: var(--danger-color);
+            border: 1px solid var(--danger-color);
+            padding: 15px 20px;
+            border-radius: var(--border-radius);
+            margin-bottom: 25px; /* Space between message and controls */
+            text-align: center;
+            font-weight: bold;
+            display: none; /* Hidden by default */
+            animation: fadeIn 0.5s ease-out; /* Simple animation */
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
         /* Controls & List */
         .top-controls {
             display: flex;
             justify-content: space-between;
-            align-items: center;
+            align-items: flex-start; /* Aligned to top for better multi-line display */
             margin-bottom: 10px; /* Reduced margin */
             flex-wrap: wrap;
             gap: 15px;
         }
         .search-control { flex-grow: 1; min-width: 250px; }
+        
+        .sort-and-download-group { /* New flex container for these two */
+            display: flex;
+            flex-direction: column; /* Stack vertically */
+            gap: 8px; /* Space between sort and download */
+            align-items: flex-end; /* Align items to the right within this group */
+        }
+        
         .sort-controls { display: flex; gap: 8px; flex-wrap: wrap; }
         .sort-controls span { align-self: center; opacity: 0.7; }
         
@@ -192,6 +219,16 @@
         }
         .btn-secondary { background-color: #555; color: #ddd; }
         .btn-secondary:hover { background-color: #666; }
+
+        .btn-download { /* Specific style for the download button */
+            background-color: var(--accent-color);
+            color: var(--text-color);
+            border: 1px solid rgba(0,0,0,0.5); /* Slightly darker border */
+        }
+        .btn-download:hover {
+            background-color: var(--accent-hover);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
     </style>
 </head>
 <body>
@@ -199,14 +236,20 @@
     <div class="container">
         <h1><i class="fas fa-cubes"></i> Rust Item Lookup</h1>
 
+        <!-- NEW: Fallback message area -->
+        <div id="fallback-message"></div>
+
         <div class="top-controls">
             <div class="search-control">
                 <input type="text" id="search-input" placeholder="Search by name, shortname, or description...">
             </div>
-            <div class="sort-controls">
-                <span>Sort by Name:</span>
-                <button class="btn-secondary" id="sort-name-asc">A-Z</button>
-                <button class="btn-secondary" id="sort-name-desc">Z-A</button>
+            <div class="sort-and-download-group">
+                <div class="sort-controls">
+                    <span>Sort by Name:</span>
+                    <button class="btn-secondary" id="sort-name-asc">A-Z</button>
+                    <button class="btn-secondary" id="sort-name-desc">Z-A</button>
+                </div>
+                <button class="btn-secondary btn-download" id="download-db-btn"><i class="fas fa-download"></i> Download Data</button>
             </div>
         </div>
 
@@ -223,13 +266,55 @@
 
     <script>
         // --- Global State ---
-        let allItems = []; // This will be populated from items.json
+        let allItems = []; // This will be populated from items.json or sample data
+
+        // Sample data for local testing fallback
+        const sampleItems = [
+            {
+                "displayName": "Wood",
+                "shortName": "wood",
+                "description": "A basic resource. Used for crafting and building. Can be found everywhere.",
+                "stackSize": 1000,
+                "itemID": -828093181
+            },
+            {
+                "displayName": "Stone",
+                "shortName": "stone",
+                "description": "Another fundamental resource. Stronger than wood. Essential for early bases.",
+                "stackSize": 1000,
+                "itemID": 1782298708
+            },
+            {
+                "displayName": "Metal Ore",
+                "shortName": "metal.ore",
+                "description": "Raw ore, smelt into metal fragments. Found in mountains and rocky areas.",
+                "stackSize": 1000,
+                "itemID": 792266209
+            },
+            {
+                "displayName": "Low Grade Fuel",
+                "shortName": "lmf",
+                "description": "A combustible liquid used to power various devices and for crafting explosives.",
+                "stackSize": 1000,
+                "itemID": 428795550
+            },
+            {
+                "displayName": "Scrap",
+                "shortName": "scrap",
+                "description": "Valuable material for crafting advanced items and researching blueprints.",
+                "stackSize": 1000,
+                "itemID": -93220167
+            }
+        ];
+
 
         // --- DOM Elements ---
         const itemList = document.getElementById('item-list');
         const searchInput = document.getElementById('search-input');
         const lastUpdateDiv = document.getElementById('last-update');
         const noResultsDiv = document.getElementById('no-results');
+        const downloadDbBtn = document.getElementById('download-db-btn');
+        const fallbackMessageDiv = document.getElementById('fallback-message'); // NEW
 
         // --- Data Handling ---
         async function loadItems() {
@@ -247,17 +332,23 @@
                     description: item.description || 'No description available.' // Provide a default description
                 }));
 
-                // Once data is loaded and cleaned, render the list
-                setLastUpdate();
-                renderItemList();
+                // If data loads successfully, hide any previous fallback message
+                fallbackMessageDiv.style.display = 'none';
+                fallbackMessageDiv.textContent = ''; // Clear content
 
             } catch (error) {
                 console.error("Could not load or parse items.json:", error);
-                // Display a user-friendly error message on the page
-                itemList.innerHTML = '';
-                noResultsDiv.style.display = 'block';
-                noResultsDiv.style.color = 'var(--danger-color)';
-                noResultsDiv.textContent = 'Error: Could not load item data. Please ensure items.json is in the same folder and is a valid JSON file.';
+                // Fallback to sample data for local testing
+                allItems = sampleItems; 
+                
+                itemList.innerHTML = ''; // Clear existing list to prevent mixing
+                // Display fallback message
+                fallbackMessageDiv.style.display = 'block';
+                fallbackMessageDiv.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Could not load `items.json`. Showing sample data for local testing.';
+            } finally {
+                // Always set last update and render the list, whether real data or sample data
+                setLastUpdate();
+                renderItemList();
             }
         }
 
@@ -271,9 +362,9 @@
             let itemsToRender = allItems.filter(item => {
                 if (!searchTerm) return true; // Show all if search is empty
                 return (
-                    item.displayName.toLowerCase().includes(searchTerm) ||
-                    item.shortName.toLowerCase().includes(searchTerm) ||
-                    item.description.toLowerCase().includes(searchTerm)
+                    (item.displayName && item.displayName.toLowerCase().includes(searchTerm)) ||
+                    (item.shortName && item.shortName.toLowerCase().includes(searchTerm)) ||
+                    (item.description && item.description.toLowerCase().includes(searchTerm))
                 );
             });
 
@@ -293,7 +384,6 @@
             if (itemsToRender.length === 0) {
                 noResultsDiv.style.display = 'block';
                 noResultsDiv.textContent = 'No items found matching your search.';
-                noResultsDiv.style.color = 'var(--text-color)';
             } else {
                 noResultsDiv.style.display = 'none';
             }
@@ -333,6 +423,25 @@
         document.getElementById('sort-name-desc').addEventListener('click', () => {
             itemList.dataset.sort = 'name-desc';
             renderItemList();
+        });
+
+        downloadDbBtn.addEventListener('click', () => {
+            if (allItems.length === 0) {
+                alert("No item data to download.");
+                return;
+            }
+
+            const dataStr = JSON.stringify(allItems, null, 2); // Pretty print JSON
+            const blob = new Blob([dataStr], { type: 'text/plain' });
+            const url = URL.createObjectURL(blob);
+
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'rust_items_database.txt';
+            document.body.appendChild(a); // Append to body to make it clickable in some browsers
+            a.click();
+            document.body.removeChild(a); // Clean up
+            URL.revokeObjectURL(url); // Release the object URL
         });
 
         // --- Initial Load ---
