@@ -1643,5 +1643,6011 @@
     "itemID": 1796682209,
     "description": "A rapid-firing Machine Gun. Sacrifices accuracy and distance for speed.",
     "stackSize": 1
+  },
+  {
+    "displayName": "Decorative Baubels",
+    "shortName": "xmas.decoration.baubels",
+    "itemID": -1667224349,
+    "description": "Decorative Baubels you can hang on your Christmas tree",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Decorative Gingerbread Men",
+    "shortName": "xmas.decoration.gingerbreadmen",
+    "itemID": 1686524871,
+    "description": "Decorative Gingerbread Men you can hang on your Christmas tree",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Decorative Pinecones",
+    "shortName": "xmas.decoration.pinecone",
+    "itemID": -129230242,
+    "description": "Decorative Pinecones you can hang on your Christmas tree",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Decorative Plastic Candy Canes",
+    "shortName": "xmas.decoration.candycanes",
+    "itemID": -209869746,
+    "description": "Decorative Plastic Candy Canes you can hang on your Christmas tree",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Decorative Tinsel",
+    "shortName": "xmas.decoration.tinsel",
+    "itemID": 2106561762,
+    "description": "Decorative Tinsel you can hang on your Christmas tree",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Deluxe Christmas Lights",
+    "shortName": "xmas.lightstring.advanced",
+    "itemID": -151387974,
+    "description": "Colored, Animated, Powered Lights. Requires 5 electricity. Click to start placement, right click to end. Each unit is 0.5m long.",
+    "stackSize": 150
+  },
+  {
+    "displayName": "Diesel Fuel",
+    "shortName": "diesel_barrel",
+    "itemID": 1568388703,
+    "description": "Suitable fuel to power quarries and the giant excavator.",
+    "stackSize": 20
+  },
+  {
+    "displayName": "Digital Clock",
+    "shortName": "electric.digitalclock",
+    "itemID": 1619039771,
+    "description": "A digital clock that displays the server time and lets you set alarms to pass power through when ringing. Ideal for synchronizing traps or timed events.",
+    "stackSize": 10
+  },
+  {
+    "displayName": "Disco Ball",
+    "shortName": "discoball",
+    "itemID": 1895235349,
+    "description": "Get groovy with this stunning disco ball.",
+    "stackSize": 5
+  },
+  {
+    "displayName": "Disco Floor",
+    "shortName": "discofloor.largetiles",
+    "itemID": 1735402444,
+    "description": "A vibrant flashing floor that pulses in time to music.",
+    "stackSize": 5
+  },
+  {
+    "displayName": "Disco Floor",
+    "shortName": "discofloor",
+    "itemID": 286648290,
+    "description": "A vibrant flashing floor that pulses in time to music.",
+    "stackSize": 5
+  },
+  {
+    "displayName": "Discord Trophy",
+    "shortName": "discord.trophy",
+    "itemID": 1494014226,
+    "description": "A companion that reminds you of your youth.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Diver propulsion vehicle",
+    "shortName": "skidoo",
+    "itemID": -1056824343,
+    "description": "A personal underwater propulsion device",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Diving Fins",
+    "shortName": "diving.fins",
+    "itemID": 296519935,
+    "description": "Diving Fins. Significantly boosts your speed underwater but greatly reduces mobility on land.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Diving Mask",
+    "shortName": "diving.mask",
+    "itemID": -113413047,
+    "description": "A diving mask that provides clear vision under water at the cost of reduced peripheral vision.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Diving Tank",
+    "shortName": "diving.tank",
+    "itemID": -2022172587,
+    "description": "An oxygen tank that enables breathing under water for a period of time. Can be refilled at a workbench.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Documents",
+    "shortName": "documents",
+    "itemID": -451310088,
+    "description": "A stack of technical looking documents.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Dog Tag",
+    "shortName": "dogtagneutral",
+    "itemID": 1223900335,
+    "description": "Neutral Dog Tag",
+    "stackSize": 5000
+  },
+  {
+    "displayName": "Door Closer",
+    "shortName": "door.closer",
+    "itemID": 1409529282,
+    "description": "Automatically closes your doors when left open.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Door Controller",
+    "shortName": "electric.doorcontroller",
+    "itemID": -502177121,
+    "description": "A Door Controller. Will manipulate the state of the closest door when it receives power",
+    "stackSize": 5
+  },
+  {
+    "displayName": "Door Key",
+    "shortName": "door.key",
+    "itemID": -1112793865,
+    "description": "A key to a door, created from a Lock. Keep this item safe; if lost you'll be unable to open the door again!",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Double Barrel Shotgun",
+    "shortName": "shotgun.double",
+    "itemID": -765183617,
+    "description": "A Shotgun with two barrels allowing two shots to be fired in quick succession before needing to reload.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Double Horse Saddle",
+    "shortName": "horse.saddle.double",
+    "itemID": -1323101799,
+    "description": "A horse saddle with two seats. Having this item allows you to claim a horse in a stable by holding E and selecting the \"Claim\" option",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Double Sign Post",
+    "shortName": "sign.post.double",
+    "itemID": 1521286012,
+    "description": "A double sign post that you can plant into terrain.",
+    "stackSize": 5
+  },
+  {
+    "displayName": "Dracula Cape",
+    "shortName": "draculacape",
+    "itemID": -258574361,
+    "description": "A robustly thick outer garment providing ample protection to the wearer.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Dracula Mask",
+    "shortName": "draculamask",
+    "itemID": 1865253052,
+    "description": "A classic halloween costume mask which provides decent protection.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Dragon Door Knocker",
+    "shortName": "dragondoorknocker",
+    "itemID": -854270928,
+    "description": "A heavy brass door knocker",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Dragon Mask",
+    "shortName": "hat.dragonmask",
+    "itemID": -22883916,
+    "description": "A special dragon mask to celebrate Chinese New Year",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Dragon Rocket Launcher",
+    "shortName": "rocket.launcher.dragon",
+    "itemID": -1315992997,
+    "description": "Unmatched craftsmanship meets devastating firepower.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Drone",
+    "shortName": "drone",
+    "itemID": 1588492232,
+    "description": "A remote controlled drone operated from the Computer station with a limited range. Easily damaged from impacts.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Drop Box",
+    "shortName": "dropbox",
+    "itemID": -1519126340,
+    "description": "This item can be deployed on walls so that players can input items from the exterior of the building for safe keeping. You can only access the submitted contents of the Drop Box from the rear.",
+    "stackSize": 5
+  },
+  {
+    "displayName": "Duct Tape",
+    "shortName": "ducttape",
+    "itemID": 1401987718,
+    "description": "A versatile adhesive tape reinforced with cloth.",
+    "stackSize": 20
+  },
+  {
+    "displayName": "Duo Submarine",
+    "shortName": "submarineduo",
+    "itemID": 1015352446,
+    "description": "A small two-person submarine.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Easter Door Wreath",
+    "shortName": "easterdoorwreath",
+    "itemID": -979302481,
+    "description": "A beautiful, hand crafted Easter themed door wreath.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Egg",
+    "shortName": "egg",
+    "itemID": 1858828593,
+    "description": "An egg laid by a chicken, will hatch in a coop. Can be eaten raw but best saved for a recipe.",
+    "stackSize": 20
+  },
+  {
+    "displayName": "Egg Basket",
+    "shortName": "easterbasket",
+    "itemID": 1856217390,
+    "description": "An easter egg basket. Equip to pick up eggs during an easter egg hunt with left click. Use right click to throw",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Egg Suit",
+    "shortName": "attire.egg.suit",
+    "itemID": -747743875,
+    "description": "An eggsquisite egg costume, can be painted when unequipped.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Egg Suit Sign Test",
+    "shortName": "sign.egg.suit",
+    "itemID": -394470247,
+    "description": "A 1-meter by 0.5-meter wooden sign that you can write on.",
+    "stackSize": 5
+  },
+  {
+    "displayName": "Electrical Branch",
+    "shortName": "electrical.branch",
+    "itemID": -1448252298,
+    "description": "This object allows you to branch power off from a main line by a set amount.",
+    "stackSize": 5
+  },
+  {
+    "displayName": "Electric Furnace",
+    "shortName": "electric.furnace",
+    "itemID": -1196547867,
+    "description": "An electrical version of a furnace that uses electricity instead of a fuel source.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Electric Fuse",
+    "shortName": "fuse",
+    "itemID": -629028935,
+    "description": "An unreliable electric fuse. Will allow electrical passthrough for a period of time.",
+    "stackSize": 10
+  },
+  {
+    "displayName": "Electric Heater",
+    "shortName": "electric.heater",
+    "itemID": -784870360,
+    "description": "Provides warmth in a radius when on",
+    "stackSize": 5
+  },
+  {
+    "displayName": "Elevator",
+    "shortName": "elevator",
+    "itemID": 1177596584,
+    "description": "A powered elevator. Place another elevator above or below this to connect it. Requires power.",
+    "stackSize": 5
+  },
+  {
+    "displayName": "Empty Can Of Beans",
+    "shortName": "can.beans.empty",
+    "itemID": 1655979682,
+    "description": "An empty Can of Beans. Can be smelted into Metal Fragments.",
+    "stackSize": 10
+  },
+  {
+    "displayName": "Empty Propane Tank",
+    "shortName": "propanetank",
+    "itemID": -1673693549,
+    "description": "Strong metal object.",
+    "stackSize": 20
+  },
+  {
+    "displayName": "Empty Tuna Can",
+    "shortName": "can.tuna.empty",
+    "itemID": -1557377697,
+    "description": "An empty Can of Tuna. Can be smelted into Metal Fragments.",
+    "stackSize": 10
+  },
+  {
+    "displayName": "Engineering Workbench",
+    "shortName": "iotable",
+    "itemID": 210787554,
+    "description": "This allows you to craft and unlock electrical, water and industrial items",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Engine Vehicle Module",
+    "shortName": "vehicle.1mod.engine",
+    "itemID": 1559779253,
+    "description": "Single module large engine.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Eoka Pistol",
+    "shortName": "pistol.eoka",
+    "itemID": -75944661,
+    "description": "A very cheap, very ineffective, and very unreliable pistol that fires shells.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Explosive 5.56 Rifle Ammo",
+    "shortName": "ammo.rifle.explosive",
+    "itemID": -1321651331,
+    "description": "This ammo explodes on contact dealing a small amount of fragmentation damage to nearby objects.",
+    "stackSize": 128
+  },
+  {
+    "displayName": "Explosives",
+    "shortName": "explosives",
+    "itemID": -592016202,
+    "description": "A component used for crafting C4 and Rockets.",
+    "stackSize": 100
+  },
+  {
+    "displayName": "Extended Magazine",
+    "shortName": "weapon.mod.extendedmags",
+    "itemID": 2005491391,
+    "description": "Larger magazine size",
+    "stackSize": 1
+  },
+  {
+    "displayName": "F1 Grenade",
+    "shortName": "grenade.f1",
+    "itemID": 143803535,
+    "description": "A reliable military grenade that can be thrown a short distance. Deadly at close range on detonation.",
+    "stackSize": 5
+  },
+  {
+    "displayName": "Factory Door",
+    "shortName": "factorydoor",
+    "itemID": 2054391128,
+    "description": "Medium strength door, vulnerable to explosives. Contains a bulletproof viewing portal",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Fertilizer",
+    "shortName": "fertilizer",
+    "itemID": -930193596,
+    "description": "Helps plants grow by increasing ground condition. Produced in a composter.",
+    "stackSize": 1000
+  },
+  {
+    "displayName": "Festive Doorway Garland",
+    "shortName": "xmas.door.garland",
+    "itemID": 674734128,
+    "description": "A Festive decoration to spruce up your doorway during the holdiays!",
+    "stackSize": 10
+  },
+  {
+    "displayName": "Festive Double Doorway Garland",
+    "shortName": "xmas.double.door.garland",
+    "itemID": -1230433643,
+    "description": "A Festive decoration to spruce up your double doorway during the holidays!",
+    "stackSize": 10
+  },
+  {
+    "displayName": "Festive Window Garland",
+    "shortName": "xmas.window.garland",
+    "itemID": -1379835144,
+    "description": "A Festive decoration to spruce up your windows during the holdiays!",
+    "stackSize": 10
+  },
+  {
+    "displayName": "Fire Arrow",
+    "shortName": "arrow.fire",
+    "itemID": 14241751,
+    "description": "A fuel soaked arrow, ignite it by aiming.",
+    "stackSize": 64
+  },
+  {
+    "displayName": "Firebomb",
+    "shortName": "catapult.ammo.incendiary",
+    "itemID": -484006286,
+    "description": "A crude firebomb made of fuel-filled jugs wrapped in a net. Can be placed or used as a projectile in a catapult.",
+    "stackSize": 4
+  },
+  {
+    "displayName": "Firecracker String",
+    "shortName": "lunar.firecrackers",
+    "itemID": -1961560162,
+    "description": "Happy Lunar New Year!",
+    "stackSize": 5
+  },
+  {
+    "displayName": "Fishing Tackle",
+    "shortName": "fishing.tackle",
+    "itemID": -1707425764,
+    "description": "Fishing Tackle",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Fish Pie",
+    "shortName": "pie.fish",
+    "itemID": -1785248332,
+    "description": "Delightful fish pie. Provides a boost to hunger, health and hydration. Increases base comfort level for a short time.",
+    "stackSize": 3
+  },
+  {
+    "displayName": "Fish Trophy",
+    "shortName": "fishtrophy",
+    "itemID": -1913996738,
+    "description": "A wall mountable item to show off your greatest catches. Fish not included.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Flame Thrower",
+    "shortName": "flamethrower",
+    "itemID": -1215753368,
+    "description": "A Flamethrower. Uses low grade fuel as ammunition.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Flame Turret",
+    "shortName": "flameturret",
+    "itemID": 528668503,
+    "description": "Automated Flame turret. Requires Low Grade Fuel. Sprays flames when triggered.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Flare",
+    "shortName": "flare",
+    "itemID": 304481038,
+    "description": "Light up the night sky with this brand new red flare!",
+    "stackSize": 5
+  },
+  {
+    "displayName": "Flashbang",
+    "shortName": "grenade.flashbang",
+    "itemID": -936921910,
+    "description": "A bright explosive device which blinds and disorients anyone near it upon detonation",
+    "stackSize": 5
+  },
+  {
+    "displayName": "Flasher Light",
+    "shortName": "electric.flasherlight",
+    "itemID": -939424778,
+    "description": "A flashing blue light",
+    "stackSize": 5
+  },
+  {
+    "displayName": "Flashlight",
+    "shortName": "flashlight.held",
+    "itemID": -196667575,
+    "description": "A powerful flashlight which illuminates your surroundings and can be used as a weapon.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Flatbed Vehicle Module",
+    "shortName": "vehicle.1mod.flatbed",
+    "itemID": -1880231361,
+    "description": "Single module flatbed.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Floor grill",
+    "shortName": "floor.grill",
+    "itemID": 936496778,
+    "description": "A floor grill must be placed in floor frames. Perfect for placing above a large furnace.",
+    "stackSize": 10
+  },
+  {
+    "displayName": "Floor triangle grill",
+    "shortName": "floor.triangle.grill",
+    "itemID": 1983621560,
+    "description": "A floor grill must be placed in floor frames. Perfect for placing above a large furnace.",
+    "stackSize": 10
+  },
+  {
+    "displayName": "Fluid Combiner",
+    "shortName": "fluid.combiner",
+    "itemID": -265292885,
+    "description": "Combines three separate fluid connections into one connection.",
+    "stackSize": 5
+  },
+  {
+    "displayName": "Fluid Splitter",
+    "shortName": "fluid.splitter",
+    "itemID": -1166712463,
+    "description": "Splits a fluid connection into three separate connections.",
+    "stackSize": 5
+  },
+  {
+    "displayName": "Fluid Switch & Pump",
+    "shortName": "fluid.switch",
+    "itemID": 443432036,
+    "description": "A simple switch that enables fluid to pass through. Can be switched on/off manually or via electricity. Can also pump water upwards to higher entities when powered.",
+    "stackSize": 5
+  },
+  {
+    "displayName": "Fogger-3000",
+    "shortName": "fogmachine",
+    "itemID": -1973785141,
+    "description": "A Fog machine which runs on low grade fuel. Can be set to fill an area with a dense fog or triggered by motion.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Frankenstein Mask",
+    "shortName": "frankensteinmask",
+    "itemID": -1647389398,
+    "description": "Frankenstein halloween costume mask which provides decent protection.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Frankenstein Table",
+    "shortName": "frankensteintable",
+    "itemID": 1575635062,
+    "description": "Place a monsters head, torso and legs into the table to summon Frankensteins monster.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Fridge",
+    "shortName": "fridge",
+    "itemID": 1413014235,
+    "description": "A fridge you can store food into!",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Frog Boots",
+    "shortName": "boots.frog",
+    "itemID": -1000573653,
+    "description": "Thank you for playing the game through its early access run. Enjoy these boots made from radiation resistant frog rubber.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Frontier Bolts Single Item Rack",
+    "shortName": "gunrack.single.1.horizontal",
+    "itemID": 1973949960,
+    "description": "Artfully display your weapon with a handcrafted wall-mounted single weapon rack.",
+    "stackSize": 10
+  },
+  {
+    "displayName": "Frontier Hatchet",
+    "shortName": "frontier_hatchet",
+    "itemID": 1937380239,
+    "description": "A Frontier Hatchet, useful for chopping trees and dismembering corpses.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Frontier Horns Single Item Rack",
+    "shortName": "gunrack.single.3.horizontal",
+    "itemID": -52398594,
+    "description": "Artfully display your weapon with a handcrafted wall-mounted single weapon rack.",
+    "stackSize": 10
+  },
+  {
+    "displayName": "Frontier Horseshoe Single Item Rack",
+    "shortName": "gunrack.single.2.horizontal",
+    "itemID": -849373693,
+    "description": "Artfully display your weapon with a handcrafted wall-mounted single weapon rack.",
+    "stackSize": 10
+  },
+  {
+    "displayName": "Frontier Mirror Large",
+    "shortName": "frontiermirror.large",
+    "itemID": 242933621,
+    "description": "A large wooden frontier themed mirror",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Frontier Mirror Medium",
+    "shortName": "frontiermirror.medium",
+    "itemID": 2055695285,
+    "description": "A medium wood frontier themed mirror",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Frontier Mirror Small",
+    "shortName": "frontiermirror.small",
+    "itemID": 340210699,
+    "description": "A small wooden frontier themed mirror",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Frontier Mirror Standing",
+    "shortName": "frontiermirror.standing",
+    "itemID": 1787198294,
+    "description": "A standing wooden frontier themed mirror",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Frontier Suit",
+    "shortName": "hazmatsuit.frontier",
+    "itemID": -105415879,
+    "description": "A Frontier suit",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Fuel Tank Vehicle Module",
+    "shortName": "vehicle.2mod.fuel.tank",
+    "itemID": 1186655046,
+    "description": "Dual module large fuel tank.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Furnace",
+    "shortName": "furnace",
+    "itemID": -1999722522,
+    "description": "A Furnace. Use it to smelt mined ore.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Garage Door",
+    "shortName": "wall.frame.garagedoor",
+    "itemID": -148794216,
+    "description": "A garage door that rolls up and down.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Garry's Mod Tool Gun",
+    "shortName": "toolgun",
+    "itemID": 1803831286,
+    "description": "Celebrating 15 Years of Garry's Mod! Use this tool gun to upgrade building parts. Right-click for the options. You can also pick up deployed objects while the hammer is equipped.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Gas Compression Overdrive",
+    "shortName": "weapon.mod.gascompressionovedrive",
+    "itemID": -1767794021,
+    "description": "An internal weapon mod which compresses and directs gasses used for cycling the weapon to the barrel, effectively increasing projectile velocity and damage at the expense of cycle rate.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Gas Mask",
+    "shortName": "hat.gas.mask",
+    "itemID": 1659114910,
+    "description": "A Gas Mask",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Gears",
+    "shortName": "gears",
+    "itemID": 479143914,
+    "description": "A selection of gears. Some functional, some not.",
+    "stackSize": 20
+  },
+  {
+    "displayName": "Geiger Counter",
+    "shortName": "geiger.counter",
+    "itemID": 999690781,
+    "description": "A geiger counter used by scientists",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Generic vehicle chassis",
+    "shortName": "vehicle.chassis",
+    "itemID": 1770744540,
+    "description": "Generic vehicle chassis",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Generic vehicle module",
+    "shortName": "vehicle.module",
+    "itemID": 878301596,
+    "description": "Generic vehicle module",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Ghost Costume",
+    "shortName": "ghostsheet",
+    "itemID": -1043618880,
+    "description": "Definitely not a last minute costume idea.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Giant Candy Decor",
+    "shortName": "giantcandycanedecor",
+    "itemID": -695124222,
+    "description": "Get into the holiday spirit with this decorative inflated giant candy cane",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Giant Lollipop Decor",
+    "shortName": "giantlollipops",
+    "itemID": 282103175,
+    "description": "Get into the holiday spirit with these decorative giant lollipops",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Gingerbread Suit",
+    "shortName": "gingerbreadsuit",
+    "itemID": -558880549,
+    "description": "A suit made of gingerbread, slightly crunchy.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Glowing Eyes",
+    "shortName": "gloweyes",
+    "itemID": -690276911,
+    "description": "glowing eyes",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Glue",
+    "shortName": "glue",
+    "itemID": -1899491405,
+    "description": "A strong adhesive.",
+    "stackSize": 10
+  },
+  {
+    "displayName": "Gold Egg",
+    "shortName": "easter.goldegg",
+    "itemID": -1002156085,
+    "description": "A Gold Egg. Containing the best easter loot.",
+    "stackSize": 10
+  },
+  {
+    "displayName": "Gold Frame large",
+    "shortName": "goldframe.large",
+    "itemID": -996235148,
+    "description": "A large gold frame",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Gold Frame Medium",
+    "shortName": "goldframe.medium",
+    "itemID": -1901993050,
+    "description": "A medium gold frame",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Gold Frame Small",
+    "shortName": "goldframe.small",
+    "itemID": -1836526520,
+    "description": "A small gold frame",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Gold Frame Standing",
+    "shortName": "goldframe.standing",
+    "itemID": -1528767189,
+    "description": "A standing gold frame",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Gold Mirror large",
+    "shortName": "goldmirror.large",
+    "itemID": 1365234594,
+    "description": "A large gold mirror",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Gold Mirror Medium",
+    "shortName": "goldmirror.medium",
+    "itemID": -1804515496,
+    "description": "A medium gold mirror",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Gold Mirror Small",
+    "shortName": "goldmirror.small",
+    "itemID": -1444650226,
+    "description": "A small gold mirror",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Gold Mirror Standing",
+    "shortName": "goldmirror.standing",
+    "itemID": 2120241887,
+    "description": "A standing gold mirror",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Granola Bar",
+    "shortName": "granolabar",
+    "itemID": -746030907,
+    "description": "Granola Bar found as loot. Eating it provides a small boost to health, hunger.",
+    "stackSize": 10
+  },
+  {
+    "displayName": "Gravestone",
+    "shortName": "gravestone",
+    "itemID": 809199956,
+    "description": "A Gravestone marking the remains of an unknown soul",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Graveyard Fence",
+    "shortName": "wall.graveyard.fence",
+    "itemID": -1679267738,
+    "description": "A Spooky Fence",
+    "stackSize": 10
+  },
+  {
+    "displayName": "Gray ID Tag",
+    "shortName": "grayidtag",
+    "itemID": -455286320,
+    "description": "Gray ID Tag",
+    "stackSize": 5000
+  },
+  {
+    "displayName": "Green",
+    "shortName": "rockingchair.rockingchair3",
+    "itemID": 192249897,
+    "description": null,
+    "stackSize": 5
+  },
+  {
+    "displayName": "Green Berry",
+    "shortName": "green.berry",
+    "itemID": 858486327,
+    "description": "A green berry. Can be eaten or used in mixing table recipes to create teas.",
+    "stackSize": 20
+  },
+  {
+    "displayName": "Green Berry Clone",
+    "shortName": "clone.green.berry",
+    "itemID": -1305326964,
+    "description": "A clipping of a Green Berry Plant.",
+    "stackSize": 50
+  },
+  {
+    "displayName": "Green Berry Seed",
+    "shortName": "seed.green.berry",
+    "itemID": -1776128552,
+    "description": "These green berry seeds can be planted in the ground and grown to collect additional food. Planting these seeds in a planter, and then watering them with large quantities of water yields significantly more Corn and faster groth.",
+    "stackSize": 50
+  },
+  {
+    "displayName": "Green Boomer",
+    "shortName": "firework.boomer.green",
+    "itemID": -656349006,
+    "description": "A very large mortar type firework with a green starburst",
+    "stackSize": 20
+  },
+  {
+    "displayName": "Green ID Tag",
+    "shortName": "greenidtag",
+    "itemID": 1762167092,
+    "description": "Green ID Tag",
+    "stackSize": 5000
+  },
+  {
+    "displayName": "Green Industrial Wall Light",
+    "shortName": "industrial.wall.light.green",
+    "itemID": 1268178466,
+    "description": "A small green light source.",
+    "stackSize": 10
+  },
+  {
+    "displayName": "Green Keycard",
+    "shortName": "keycard_green",
+    "itemID": 37122747,
+    "description": "A low level clearance card granting access to basic areas.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Green Roman Candle",
+    "shortName": "firework.romancandle.green",
+    "itemID": -1306288356,
+    "description": "A small repeating firework, shoots a series of Green balls into the air",
+    "stackSize": 20
+  },
+  {
+    "displayName": "Grub",
+    "shortName": "grub",
+    "itemID": -568419968,
+    "description": "A pale, fleshy insect that can be used for bait. Could also be eaten in desperate situations.",
+    "stackSize": 25
+  },
+  {
+    "displayName": "Gun Powder",
+    "shortName": "gunpowder",
+    "itemID": -265876753,
+    "description": "Made from Sulfur and Charcoal, a key ingredient of anything that goes bang!",
+    "stackSize": 1000
+  },
+  {
+    "displayName": "Half Height Bamboo Shelves",
+    "shortName": "half.bamboo.shelves",
+    "itemID": -1923843855,
+    "description": "Half height salvaged bamboo shelves for stacking",
+    "stackSize": 10
+  },
+  {
+    "displayName": "Halloween Candy",
+    "shortName": "halloween.candy",
+    "itemID": -888153050,
+    "description": "Some loose halloween candy Collect 10 to upgrade to a Small Loot Bag!",
+    "stackSize": 1000
+  },
+  {
+    "displayName": "Hammer",
+    "shortName": "hammer",
+    "itemID": 200773292,
+    "description": "A Hammer, used to upgrade building materials. Right-click for the options. You can also pick up deployed objects while the hammer is equipped.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Hammerhead Bolt",
+    "shortName": "ballista.bolt.hammerhead",
+    "itemID": -19318653,
+    "description": "Heavy and solid bolt for a ballista, designed to hammer through doors.",
+    "stackSize": 3
+  },
+  {
+    "displayName": "Handcuffs",
+    "shortName": "handcuffs",
+    "itemID": -839576748,
+    "description": "You're under arrest! Use on a surrendering or wounded player to keep them restrained. The wearer is blocked from using or holding items and can be pushed around.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Handmade Fishing Rod",
+    "shortName": "fishingrod.handmade",
+    "itemID": 1569882109,
+    "description": "Use [attack2] to cast out the line and wait for a bite. Requires bait.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Handmade Shell",
+    "shortName": "ammo.handmade.shell",
+    "itemID": 588596902,
+    "description": "Shoddy ammo with multiple projectiles.",
+    "stackSize": 64
+  },
+  {
+    "displayName": "Handmade SMG",
+    "shortName": "t1_smg",
+    "itemID": 2083256995,
+    "description": "An extremely basic automatic firearm. Low damage and accuracy.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Hatchet",
+    "shortName": "hatchet",
+    "itemID": -1252059217,
+    "description": "A Hatchet, useful for chopping trees and dismembering corpses.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Hazmat Plushy",
+    "shortName": "hazmat.plushy",
+    "itemID": 1578317134,
+    "description": "A plushy of your favourite outfit made by the fabulous people at YouTooz.com",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Hazmat Suit",
+    "shortName": "hazmatsuit",
+    "itemID": 1266491000,
+    "description": "A hazmat suit made from radiation resistant rubber.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Hazmat Youtooz",
+    "shortName": "hazmatyoutooz",
+    "itemID": -1696379844,
+    "description": "Hazmat Youtooz",
+    "stackSize": 1
+  },
+  {
+    "displayName": "HBHF Sensor",
+    "shortName": "electric.hbhfsensor",
+    "itemID": -1507239837,
+    "description": "A Heartbeat, Breathing, Humidity and Footstep sensor. Passthrough is equal to the number of humans detected in a 10m radius",
+    "stackSize": 5
+  },
+  {
+    "displayName": "Head Bag",
+    "shortName": "head.bag",
+    "itemID": 209218760,
+    "description": "A sack containing the head of a defeated foe. Can be added to trophies.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Headset",
+    "shortName": "twitch.headset",
+    "itemID": -1569700847,
+    "description": "Every gamer needs a headset! - Gained from Rust's first Twitch drop event.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Heavy Frankenstein Head",
+    "shortName": "frankensteins.monster.03.head",
+    "itemID": -297099594,
+    "description": "Slightly slower, slightly stronger. Combined at a Frankenstein Table to create your very own monster.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Heavy Frankenstein Legs",
+    "shortName": "frankensteins.monster.03.legs",
+    "itemID": -2024549027,
+    "description": "Slightly slower, slightly stronger. Combined at a Frankenstein Table to create your very own monster.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Heavy Frankenstein Torso",
+    "shortName": "frankensteins.monster.03.torso",
+    "itemID": 1614528785,
+    "description": "Slightly slower, slightly stronger. Combined at a Frankenstein Table to create your very own monster.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Heavy Plate Helmet",
+    "shortName": "heavy.plate.helmet",
+    "itemID": 1181207482,
+    "description": "Offers superior protection at the cost of reduced vision and movement speed.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Heavy Plate Jacket",
+    "shortName": "heavy.plate.jacket",
+    "itemID": -1102429027,
+    "description": "Offers superior protection at the cost of aiming down sights and reduced movement speed.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Heavy Plate Pants",
+    "shortName": "heavy.plate.pants",
+    "itemID": -1778159885,
+    "description": "Offers superior protection at the cost of reduced movement speed.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Heavy Scientist Suit",
+    "shortName": "scientistsuit_heavy",
+    "itemID": -1772746857,
+    "description": "A heavy hazmat suit made from radiation resistant rubber.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Heavy Scientist Youtooz",
+    "shortName": "heavyscientistyoutooz",
+    "itemID": -722629980,
+    "description": "Heavy Scientist Youtooz",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Hemp Clone",
+    "shortName": "clone.hemp",
+    "itemID": -886280491,
+    "description": "A clipping of a hemp plant.",
+    "stackSize": 50
+  },
+  {
+    "displayName": "Hemp Seed",
+    "shortName": "seed.hemp",
+    "itemID": -237809779,
+    "description": "Hemp seeds can be found when picking wild Hemp. These seeds can be planted in the ground and grown to collect additional cloth. Planting these seeds in a planter, and then watering them with large quantities of water yields significantly more cloth and faster growth.",
+    "stackSize": 50
+  },
+  {
+    "displayName": "Herring",
+    "shortName": "fish.herring",
+    "itemID": -1698937385,
+    "description": "A small fish commonly found in a variety of water sources.",
+    "stackSize": 10
+  },
+  {
+    "displayName": "Hide Boots",
+    "shortName": "attire.hide.boots",
+    "itemID": 794356786,
+    "description": "Simple hide boots, made with common materials. Basic all-round protection.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Hide Halterneck",
+    "shortName": "attire.hide.helterneck",
+    "itemID": 3222790,
+    "description": "A Halterneck made from the hide of an animal.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Hide Pants",
+    "shortName": "attire.hide.pants",
+    "itemID": 1722154847,
+    "description": "Trousers made from the hide of an animal. Moderate protection against animal attacks.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Hide Poncho",
+    "shortName": "attire.hide.poncho",
+    "itemID": 980333378,
+    "description": "Primitive armour for the chest made from animal skin. One size fits all. Offers some basic protection from damage and the elements.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Hide Skirt",
+    "shortName": "attire.hide.skirt",
+    "itemID": -1773144852,
+    "description": "Simple hide skirt, made with common materials. Basic all-round protection.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Hide Vest",
+    "shortName": "attire.hide.vest",
+    "itemID": 196700171,
+    "description": "Simple hide vest, made with common materials. Basic all-round protection.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "High Caliber Revolver",
+    "shortName": "revolver.hc",
+    "itemID": -92315244,
+    "description": "A powerful six-shot revolver using 5.56 rounds. High damage and accuracy, but slow fire rate and even slower to reload.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "High External Adobe Gate",
+    "shortName": "gates.external.high.adobe",
+    "itemID": -401905610,
+    "description": "A high stone gate, allowing access in and out of your compound.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "High External Adobe Wall",
+    "shortName": "wall.external.high.adobe",
+    "itemID": 756890702,
+    "description": "A high stone wall used to keep people off your property.",
+    "stackSize": 10
+  },
+  {
+    "displayName": "High External Frontier Gate",
+    "shortName": "gates.external.high.frontier",
+    "itemID": 2137338174,
+    "description": "A high wooden gate, allowing access in and out of your compound.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "High External Frontier Wall",
+    "shortName": "wall.external.high.frontier",
+    "itemID": 63265850,
+    "description": "A high stone wall used to keep people off your property.",
+    "stackSize": 10
+  },
+  {
+    "displayName": "High External Legacy Gate",
+    "shortName": "gates.external.high.legacy",
+    "itemID": -1442339204,
+    "description": "A legacy themed wooden gate to keep the untamed wilderness away from your property, it's seen better days. Replaces the High External Wooden Wall.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "High External Legacy Wall",
+    "shortName": "wall.external.high.legacy",
+    "itemID": -1993883724,
+    "description": "A legacy themed wooden wall to keep the untamed wilderness away from your property, made with questionable carpentry. Replaces the High External Wooden Wall.",
+    "stackSize": 10
+  },
+  {
+    "displayName": "High External Stone Gate",
+    "shortName": "gates.external.high.stone",
+    "itemID": -691113464,
+    "description": "A high stone gate, allowing access in and out of your compound.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "High External Stone Wall",
+    "shortName": "wall.external.high.stone",
+    "itemID": -967648160,
+    "description": "A high stone wall used to keep people off your property.",
+    "stackSize": 10
+  },
+  {
+    "displayName": "High External Wooden Gate",
+    "shortName": "gates.external.high.wood",
+    "itemID": -335089230,
+    "description": "A high wooden gate, allowing access in and out of your compound.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "High External Wooden Wall",
+    "shortName": "wall.external.high",
+    "itemID": 99588025,
+    "description": "A high wooden wall used to keep people off your property.",
+    "stackSize": 10
+  },
+  {
+    "displayName": "High Ice Wall",
+    "shortName": "wall.external.high.ice",
+    "itemID": -985781766,
+    "description": "A very high ice wall to protect your property.",
+    "stackSize": 10
+  },
+  {
+    "displayName": "High Quality Carburetor",
+    "shortName": "carburetor3",
+    "itemID": 656371026,
+    "description": "A high quality carburetor for a combustion engine. Mixes air and fuel to the proper ratio.",
+    "stackSize": 5
+  },
+  {
+    "displayName": "High Quality Crankshaft",
+    "shortName": "crankshaft3",
+    "itemID": 1158340332,
+    "description": "A high quality crankshaft for a combustion engine. Converts piston movement into rotational motion.",
+    "stackSize": 5
+  },
+  {
+    "displayName": "High Quality Horse Shoes",
+    "shortName": "horse.shoes.advanced",
+    "itemID": 1989785143,
+    "description": "Equipping these horse shoes will grant your horse additional movement speed",
+    "stackSize": 1
+  },
+  {
+    "displayName": "High Quality Metal",
+    "shortName": "metal.refined",
+    "itemID": 317398316,
+    "description": "High quality metal suitable for armor and weapons construction.",
+    "stackSize": 100
+  },
+  {
+    "displayName": "High Quality Metal Ore",
+    "shortName": "hq.metal.ore",
+    "itemID": -1982036270,
+    "description": "A rock containing High Quality Metal. Can be smelted in a furnace.",
+    "stackSize": 100
+  },
+  {
+    "displayName": "High Quality Pistons",
+    "shortName": "piston3",
+    "itemID": 1883981800,
+    "description": "High quality pistons for a combustion engine. Pistons convert expanding combustion gases into the motion that turns a crankshaft.",
+    "stackSize": 10
+  },
+  {
+    "displayName": "High Quality Spark Plugs",
+    "shortName": "sparkplug3",
+    "itemID": 1072924620,
+    "description": "High quality spark plugs for a combustion engine. Spark plugs ignite the fuel/air mixture to move the pistons.",
+    "stackSize": 20
+  },
+  {
+    "displayName": "High Quality Valves",
+    "shortName": "valve3",
+    "itemID": -1802083073,
+    "description": "High quality poppet valves for a combustion engine. Valves control the intake and exhaust flow.",
+    "stackSize": 15
+  },
+  {
+    "displayName": "High Velocity Arrow",
+    "shortName": "arrow.hv",
+    "itemID": -1023065463,
+    "description": "Lighter, faster arrow that deals less damage.",
+    "stackSize": 64
+  },
+  {
+    "displayName": "High Velocity Rocket",
+    "shortName": "ammo.rocket.hv",
+    "itemID": -1841918730,
+    "description": "Fast moving rocket ammunition. Short to medium range self-propelled, unguided rocket which deals large splash damage on impact but less damage than a normal rocket.",
+    "stackSize": 3
+  },
+  {
+    "displayName": "Hitch & Trough",
+    "shortName": "hitchtroughcombo",
+    "itemID": 1160881421,
+    "description": "A Hitching post and Trough. Dismounting your horses here will keep them healthy and fed as long as it is kept stocked with food.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "HMLMG",
+    "shortName": "hmlmg",
+    "itemID": -1214542497,
+    "description": "A hand made belt-fed light machine gun with high damage, high rate of fire, low accuracy during short bursts.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Hobo Barrel",
+    "shortName": "hobobarrel",
+    "itemID": -1442559428,
+    "description": "A vagabond staple. Use this repurposed oil barrel to stay warm.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Hockey Mask",
+    "shortName": "metal.facemask.hockey",
+    "itemID": -1334569149,
+    "description": "A protective facemask which provides the user with excellent head protection from all forms of attacks.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Holosight",
+    "shortName": "weapon.mod.holosight",
+    "itemID": 442289265,
+    "description": "Uses laser projection to create a holographic sight which is always pointing at the target regardless of view angle.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Homemade Landmine",
+    "shortName": "trap.landmine",
+    "itemID": -1663759755,
+    "description": "Homemade Landmine. If you stand on one, you can ask a friend to disarm it before it explodes.",
+    "stackSize": 5
+  },
+  {
+    "displayName": "Homing Missile",
+    "shortName": "ammo.rocket.seeker",
+    "itemID": 1296788329,
+    "description": "Fast moving rocket ammunition. Uses a type of radar for active target guidance from a Homing Launcher",
+    "stackSize": 4
+  },
+  {
+    "displayName": "Homing Missile Launcher",
+    "shortName": "homingmissile.launcher",
+    "itemID": -218009552,
+    "description": "An active-guidance homing missile launcher. Once launched, the target must be tracked by the launcher until impact. Can be distracted by flares.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Honeycomb",
+    "shortName": "honeycomb",
+    "itemID": -1513203236,
+    "description": "Building blocks of a hive, taken from a natural beehive. Can be cooked in a furnace to guarantee honey, or extracted for honey and a small chance of a nucleus.",
+    "stackSize": 20
+  },
+  {
+    "displayName": "Hoodie",
+    "shortName": "hoodie",
+    "itemID": 1751045826,
+    "description": "A hoodie.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Hopper",
+    "shortName": "hopper",
+    "itemID": 1428574144,
+    "description": "Will suck up any dropped items in it's radius while powered",
+    "stackSize": 5
+  },
+  {
+    "displayName": "Horizontal Weapon Rack",
+    "shortName": "gunrack.horizontal",
+    "itemID": -246672609,
+    "description": "Artfully display your arsenal with a handcrafted wall-mounted weapon rack.",
+    "stackSize": 10
+  },
+  {
+    "displayName": "Horse Costume",
+    "shortName": "horse.costume",
+    "itemID": 1420547167,
+    "description": "An inflatable horse costume. Acting as a replacement for wooden pants, you can equip this item to look as silly as possible.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Horse Dung",
+    "shortName": "horsedung",
+    "itemID": -1579932985,
+    "description": "Fresh and fertile.",
+    "stackSize": 100
+  },
+  {
+    "displayName": "Horse Saddle",
+    "shortName": "horse.saddle",
+    "itemID": -1997543660,
+    "description": "Having this item allows you to claim a horse in a stable by holding E and selecting the \"Claim\" option",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Hose Tool",
+    "shortName": "hosetool",
+    "itemID": 363163265,
+    "description": "A tool used to make fluid connections between objects. Aim at an object and click on an input/output handle, then click on another object's input/output handle to form a connection.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Hot Air Balloon",
+    "shortName": "habrepair",
+    "itemID": -1759188988,
+    "description": "A Hot Air Balloon.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Hot Air Balloon Armor",
+    "shortName": "hab.armor",
+    "itemID": -1989600732,
+    "description": "Armor for the Hot Air Balloon",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Huge Wooden Sign",
+    "shortName": "sign.wooden.huge",
+    "itemID": -143132326,
+    "description": "A 6-meter by 3-meter wooden sign that you can write on.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Human Skull",
+    "shortName": "skull.human",
+    "itemID": 996293980,
+    "description": "A human skull.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Hunters Pie",
+    "shortName": "pie.hunters",
+    "itemID": 320438357,
+    "description": "Tasty hunters pie, made with real deer. Provides a boost to hunger, health and hydration. Reduces bleeding for a short time.",
+    "stackSize": 3
+  },
+  {
+    "displayName": "Hunting Bow",
+    "shortName": "bow.hunting",
+    "itemID": 1443579727,
+    "description": "Hunting Bow, useful for short to medium range combat and hunting.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "HV 5.56 Rifle Ammo",
+    "shortName": "ammo.rifle.hv",
+    "itemID": 1712070256,
+    "description": "This ammunition travels faster, resulting in less drop and slightly higher damage when fired over long distances.",
+    "stackSize": 128
+  },
+  {
+    "displayName": "HV Pistol Ammo",
+    "shortName": "ammo.pistol.hv",
+    "itemID": -1691396643,
+    "description": "This ammunition travels faster, resulting in less drop and slightly higher damage when fired over long distances.",
+    "stackSize": 128
+  },
+  {
+    "displayName": "Ice Assault Rifle",
+    "shortName": "rifle.ak.ice",
+    "itemID": -1335497659,
+    "description": "Ice-covered high damage machine rifle.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Ice Metal Chest Plate",
+    "shortName": "metal.plate.torso.icevest",
+    "itemID": -1478855279,
+    "description": "A metal plate covering your torso, provides excellent protection from all forms of attacks.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Ice Metal Facemask",
+    "shortName": "metal.facemask.icemask",
+    "itemID": 110116923,
+    "description": "A protective facemask which provides the user with excellent head protection from all forms of attacks.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Ice Sculpture",
+    "shortName": "sculpture.ice",
+    "itemID": 504109620,
+    "description": "An block of ice you can sculpt.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Ice Throne",
+    "shortName": "chair.icethrone",
+    "itemID": -1944704288,
+    "description": "Every home needs a chair. A decorative item which provides comfort while seated.",
+    "stackSize": 5
+  },
+  {
+    "displayName": "Igniter",
+    "shortName": "electric.igniter",
+    "itemID": -44876289,
+    "description": "Ignites nearby objects such as furnaces and campfires when power is received",
+    "stackSize": 3
+  },
+  {
+    "displayName": "Improvised Balaclava",
+    "shortName": "mask.balaclava",
+    "itemID": -2012470695,
+    "description": "A makeshift balaclava. Cost effective protection from the cold, but unremarkable at preventing melee and projectile damage.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Improvised Shield",
+    "shortName": "improvised.shield",
+    "itemID": 196784377,
+    "description": "A makeshift metal shield, sturdy but only protects a small area. Usable with single handed weapons and tools.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Incapacitate Dart",
+    "shortName": "dart.incapacitate",
+    "itemID": -963819285,
+    "description": "A dart that slows your target and blocks their vision briefly.",
+    "stackSize": 64
+  },
+  {
+    "displayName": "Incendiary 5.56 Rifle Ammo",
+    "shortName": "ammo.rifle.incendiary",
+    "itemID": 605467368,
+    "description": "Slower moving ammunition that deals fire damage. There's a small chance it will start a fire.",
+    "stackSize": 128
+  },
+  {
+    "displayName": "Incendiary Bolt",
+    "shortName": "ballista.bolt.incendiary",
+    "itemID": -1987565603,
+    "description": "A fire-tipped bolt for a ballista, wrapped in burning cloth, ignites upon impact.",
+    "stackSize": 3
+  },
+  {
+    "displayName": "Incendiary Pistol Bullet",
+    "shortName": "ammo.pistol.fire",
+    "itemID": 51984655,
+    "description": "Slower moving ammunition that deals fire damage. There's a small chance it will start a fire.",
+    "stackSize": 128
+  },
+  {
+    "displayName": "Incendiary Rocket",
+    "shortName": "ammo.rocket.fire",
+    "itemID": 1638322904,
+    "description": "Creates flames upon impact.",
+    "stackSize": 3
+  },
+  {
+    "displayName": "Industrial Combiner",
+    "shortName": "industrial.combiner",
+    "itemID": 1538126328,
+    "description": "Combines three separate industrial connections into one connection.",
+    "stackSize": 5
+  },
+  {
+    "displayName": "Industrial Conveyor",
+    "shortName": "industrial.conveyor",
+    "itemID": 610102428,
+    "description": "Moves an item from one container to another.",
+    "stackSize": 5
+  },
+  {
+    "displayName": "Industrial Crafter",
+    "shortName": "industrial.crafter",
+    "itemID": 1430085198,
+    "description": "Attaches to a workbench to allow automated crafting.",
+    "stackSize": 5
+  },
+  {
+    "displayName": "Industrial Door",
+    "shortName": "door.hinged.industrial.a",
+    "itemID": 818733919,
+    "description": "Medium strength door, vulnerable to explosives.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Industrial Splitter",
+    "shortName": "industrial.splitter",
+    "itemID": 742745918,
+    "description": "Splits an industrial connection into three separate connections.",
+    "stackSize": 5
+  },
+  {
+    "displayName": "Industrial Wall Light",
+    "shortName": "industrial.wall.light",
+    "itemID": 1623701499,
+    "description": "A small light source.",
+    "stackSize": 10
+  },
+  {
+    "displayName": "Inner Tube",
+    "shortName": "innertube",
+    "itemID": -697981032,
+    "description": "An inflated tube for aquatic activities.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Inner Tube",
+    "shortName": "innertube.horse",
+    "itemID": 185586769,
+    "description": "An inflated tube for aquatic activities.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Inner Tube",
+    "shortName": "innertube.unicorn",
+    "itemID": 2052270186,
+    "description": "An inflated tube for aquatic activities.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Instant Camera",
+    "shortName": "tool.instant_camera",
+    "itemID": -2001260025,
+    "description": "An instant camera. Take photos with primary fire, zoom in and out with secondary fire, and change focus mode with reload.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Jacket",
+    "shortName": "jacket",
+    "itemID": -1163532624,
+    "description": "A rugged jacket, will help keep you warm. High cold protection but incompatible with other chest attire.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Jackhammer",
+    "shortName": "jackhammer",
+    "itemID": 1488979457,
+    "description": "A Pneumatic Jackhammer to blast through ore nodes. The sheer power of this device requires no aiming as all weak spots will be instantly destroyed. Works well on human flesh. Can be refilled at a Workbench.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Jack O Lantern Angry",
+    "shortName": "jackolantern.angry",
+    "itemID": 1242482355,
+    "description": "A Lantern. Place it where you need light.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Jack O Lantern Happy",
+    "shortName": "jackolantern.happy",
+    "itemID": -1824943010,
+    "description": "A Lantern. Place it where you need light.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Jar of Honey",
+    "shortName": "honey",
+    "itemID": 1601800933,
+    "description": "A jar of honey. Good for reducing hunger and radiation, or could be saved for recipes. The source of the glass jar is a mystery.",
+    "stackSize": 20
+  },
+  {
+    "displayName": "Jerry Can Guitar",
+    "shortName": "fun.jerrycanguitar",
+    "itemID": -979951147,
+    "description": "Take advantage of the unique acoustics of the Jerry Can Guitar to play some rustic tunes.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Jumpsuit",
+    "shortName": "jumpsuit.suit",
+    "itemID": -97459906,
+    "description": "A Jumpsuit",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Jungle Relic Assault Rifle",
+    "shortName": "rifle.ak.jungle",
+    "itemID": 2054929933,
+    "description": "Jungle Relic themed high damage machine rifle.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Jungle Rock",
+    "shortName": "jungle.rock",
+    "itemID": 1350707894,
+    "description": "A Jungle Rock. The most basic melee weapon and gathering tool.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Junkyard Drum Kit",
+    "shortName": "drumkit",
+    "itemID": -1330640246,
+    "description": "An array of pots, pans and buckets that passes as a serviceable Drum Kit. Three cymbals, some Tom Drums and a Kick Drum means you can easily lay down a beat.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Kayak",
+    "shortName": "kayak",
+    "itemID": 190184021,
+    "description": "An improvised wooden kayak. Seats two and requires a Paddle to operate.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Key Lock",
+    "shortName": "lock.key",
+    "itemID": -850982208,
+    "description": "Place on a door to avoid any unwelcome guests. To craft your key first place the lock on a door and hold E while looking at the Key lock and select 'Create Key', a key will now be added to your crafting queue. If the key is lost, you cannot make another, so don't forget to make extras and put them in a safe place!",
+    "stackSize": 10
+  },
+  {
+    "displayName": "Knights armour cuirass",
+    "shortName": "knighttorso.armour",
+    "itemID": 547862680,
+    "description": "A well made collection of scrap metal formed into a knights armour.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Knights armour helmet",
+    "shortName": "knightsarmour.helmet",
+    "itemID": -427072335,
+    "description": "A medieval knights helmet. Made from scrap metal. Excellent craftmanship.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Knights armour skirt plates",
+    "shortName": "knightsarmour.skirt",
+    "itemID": -945708533,
+    "description": "A well made set of knights plate that covers the hips and thighs. Made of scrap metal.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "L96 Rifle",
+    "shortName": "rifle.l96",
+    "itemID": -778367295,
+    "description": "A military grade high powered, long range rifle with great accuracy.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Ladder Hatch",
+    "shortName": "floor.ladder.hatch",
+    "itemID": 1948067030,
+    "description": "A hatch that opens and changes into a ladder.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Landscape Photo Frame",
+    "shortName": "photoframe.landscape",
+    "itemID": 1697996440,
+    "description": "A landscape oriented canvas for artists paintings.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Landscape Picture Frame",
+    "shortName": "sign.pictureframe.landscape",
+    "itemID": -845557339,
+    "description": "A landscape oriented canvas for artists paintings.",
+    "stackSize": 5
+  },
+  {
+    "displayName": "Lantern",
+    "shortName": "lantern",
+    "itemID": 1658229558,
+    "description": "A Lantern. Place it where you need light, requires low grade fuel to work.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Large Animated Neon Sign",
+    "shortName": "sign.neon.xl.animated",
+    "itemID": 1643667218,
+    "description": "A large, animated neon sign!",
+    "stackSize": 5
+  },
+  {
+    "displayName": "Large Backpack",
+    "shortName": "largebackpack",
+    "itemID": -907422733,
+    "description": "A larger military backpack that can hold items inside it",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Large Banner Hanging",
+    "shortName": "sign.hanging.banner.large",
+    "itemID": 23352662,
+    "description": "A large banner hanging on a wall.",
+    "stackSize": 5
+  },
+  {
+    "displayName": "Large Banner on pole",
+    "shortName": "sign.pole.banner.large",
+    "itemID": 2070189026,
+    "description": "A large banner hanging on a pole.",
+    "stackSize": 5
+  },
+  {
+    "displayName": "Large Candle Set",
+    "shortName": "largecandles",
+    "itemID": -489848205,
+    "description": "Large Candles",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Large Chassis",
+    "shortName": "vehicle.chassis.4mod",
+    "itemID": -44066790,
+    "description": "Four-socket vehicle chassis.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Large Flatbed Vehicle Module",
+    "shortName": "vehicle.2mod.flatbed",
+    "itemID": -1693832478,
+    "description": "Dual module large flatbed.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Large Furnace",
+    "shortName": "furnace.large",
+    "itemID": -1992717673,
+    "description": "Used to smelt large quantities of ore. Difficult to secure, must be placed on terrain.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Large Hunting Trophy",
+    "shortName": "huntingtrophylarge",
+    "itemID": 960673498,
+    "description": "A large trophy stand to mount the head of killed animals or enemies.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Large Loot Bag",
+    "shortName": "halloween.lootbag.large",
+    "itemID": 479292118,
+    "description": "A massive haul. Contains the best halloween loot",
+    "stackSize": 10
+  },
+  {
+    "displayName": "Large Medkit",
+    "shortName": "largemedkit",
+    "itemID": 254522515,
+    "description": "A large medkit that heals you to max health over time and stops any bleeding instantly. Guarantees 100% recovery from the wounded state if placed in your toolbar.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Large Neon Sign",
+    "shortName": "sign.neon.xl",
+    "itemID": 866332017,
+    "description": "A large neon sign!",
+    "stackSize": 5
+  },
+  {
+    "displayName": "Large Photo Frame",
+    "shortName": "photoframe.large",
+    "itemID": 1205084994,
+    "description": "A large frame for your photos.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Large Planter Box",
+    "shortName": "planter.large",
+    "itemID": 1581210395,
+    "description": "A large planter with enough room to plant 9 seeds.",
+    "stackSize": 10
+  },
+  {
+    "displayName": "Large Present",
+    "shortName": "xmas.present.large",
+    "itemID": -1622660759,
+    "description": "A Large Present, the best there is. Unwrap it now!",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Large Rechargeable Battery",
+    "shortName": "electric.battery.rechargable.large",
+    "itemID": 553270375,
+    "description": "A Large Rechargeable Battery. Must have a minimum charge of 5 seconds to discharge. Can be wired in series. Charging rate is dependant on power in, with a maximum of 80% efficiency.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Large Solar Panel",
+    "shortName": "electric.solarpanel.large",
+    "itemID": 2090395347,
+    "description": "A solar panel which converts sunlight into energy. The amount of energy generated is dependent on the sun's intensity and angle to the panel.",
+    "stackSize": 3
+  },
+  {
+    "displayName": "Large Water Catcher",
+    "shortName": "water.catcher.large",
+    "itemID": -1100168350,
+    "description": "Collects drinkable water from the air via rain and dew. Can be connected to other entities to provide water, 20ml a second.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Large Wood Box",
+    "shortName": "box.wooden.large",
+    "itemID": 833533164,
+    "description": "Keep your things in this wooden storage box. Stores up to 48 items.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Large Wooden Sign",
+    "shortName": "sign.wooden.large",
+    "itemID": 1153652756,
+    "description": "A 3-meter by 1.5-meter wooden sign that you can write on.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Laser Detector",
+    "shortName": "electric.laserdetector",
+    "itemID": -798293154,
+    "description": "A gate which allows power to flow while a player is in the beam",
+    "stackSize": 5
+  },
+  {
+    "displayName": "Laser Light",
+    "shortName": "laserlight",
+    "itemID": 853471967,
+    "description": "A small device that shoots out visible lasers in time to music.",
+    "stackSize": 5
+  },
+  {
+    "displayName": "Lavender ID Tag",
+    "shortName": "lavenderidtag",
+    "itemID": 1223729384,
+    "description": "Lavender ID Tag",
+    "stackSize": 5000
+  },
+  {
+    "displayName": "Lead Armor Insert",
+    "shortName": "clothing.mod.armorinsert_lead",
+    "itemID": 2047789913,
+    "description": "Lead insert that adds radiation protection for crafted clothes and armor.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Leather",
+    "shortName": "leather",
+    "itemID": 1381010055,
+    "description": "Leather from an animal. Used in many clothing items and more.",
+    "stackSize": 1000
+  },
+  {
+    "displayName": "Leather Gloves",
+    "shortName": "burlap.gloves",
+    "itemID": 1366282552,
+    "description": "Gloves made out of leather, offers a small amount of protection to the upper body.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Legacy bow",
+    "shortName": "legacy bow",
+    "itemID": -73195037,
+    "description": "Legacy Bow, useful for short to medium range combat and hunting.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Legacy Furnace",
+    "shortName": "legacyfurnace",
+    "itemID": -1310391395,
+    "description": "Legacy Furnace",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Legacy Wood Shelter",
+    "shortName": "legacy.shelter.wood",
+    "itemID": 607400343,
+    "description": "The classic s*** shack. A great starter base for any fresh spawn. You can only have one shelter deployed at anytime.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Light Frankenstein Head",
+    "shortName": "frankensteins.monster.01.head",
+    "itemID": -134959124,
+    "description": "Slightly faster, slightly weaker. Combined at a Frankenstein Table to create your very own monster.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Light Frankenstein Legs",
+    "shortName": "frankensteins.monster.01.legs",
+    "itemID": 106959911,
+    "description": "Slightly faster, slightly weaker. Combined at a Frankenstein Table to create your very own monster.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Light Frankenstein Torso",
+    "shortName": "frankensteins.monster.01.torso",
+    "itemID": -1624770297,
+    "description": "Slightly faster, slightly weaker. Combined at a Frankenstein Table to create your very own monster.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Light-Up Frame Large",
+    "shortName": "lightup.large",
+    "itemID": 242421166,
+    "description": "A large light up frame",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Light-Up Frame Medium",
+    "shortName": "lightupframe.medium",
+    "itemID": -1294739579,
+    "description": "A medium Light-up frame",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Light-Up Frame Small",
+    "shortName": "lightupframe.small",
+    "itemID": 1691223771,
+    "description": "A small light-up frame",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Light-Up Frame Standing",
+    "shortName": "lightupframe.standing",
+    "itemID": 1950013766,
+    "description": "A standing light-up frame",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Light-Up Mirror Large",
+    "shortName": "lightupmirror.large",
+    "itemID": 450531685,
+    "description": "A large light-up mirror",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Light-Up Mirror Medium",
+    "shortName": "lightupmirror.medium",
+    "itemID": 1028889957,
+    "description": "A medium light-up mirror",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Light-Up Mirror Small",
+    "shortName": "lightupmirror.small",
+    "itemID": -389796733,
+    "description": "A small light-up mirror",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Light-Up Mirror Standing",
+    "shortName": "lightupmirror.standing",
+    "itemID": 1916016738,
+    "description": "A standing light-up mirror",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Locker",
+    "shortName": "locker",
+    "itemID": -110921842,
+    "description": "A locker for keeping your clothes and armor safe!",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Locomotive",
+    "shortName": "locomotive",
+    "itemID": -2027988285,
+    "description": "A powerful locomotive.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Longsleeve T-Shirt",
+    "shortName": "tshirt.long",
+    "itemID": 935692442,
+    "description": "Long sleeve tshirt, versatile clothing for protection against damage and the elements.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Longsword",
+    "shortName": "longsword",
+    "itemID": -1469578201,
+    "description": "A powerful 2-handed melee weapon with good range and high damage.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Low Grade Fuel",
+    "shortName": "lowgradefuel",
+    "itemID": -946369541,
+    "description": "Low Grade Fuel, used to power light sources.",
+    "stackSize": 500
+  },
+  {
+    "displayName": "Low Quality Carburetor",
+    "shortName": "carburetor1",
+    "itemID": 656371028,
+    "description": "A low quality carburetor for a combustion engine. Mixes air and fuel to the proper ratio.",
+    "stackSize": 5
+  },
+  {
+    "displayName": "Low Quality Crankshaft",
+    "shortName": "crankshaft1",
+    "itemID": 1158340334,
+    "description": "A low quality crankshaft for a combustion engine. Converts piston movement into rotational motion.",
+    "stackSize": 5
+  },
+  {
+    "displayName": "Low Quality Pistons",
+    "shortName": "piston1",
+    "itemID": 1883981798,
+    "description": "Low quality pistons for a combustion engine. Pistons convert expanding combustion gases into the motion that turns a crankshaft.",
+    "stackSize": 10
+  },
+  {
+    "displayName": "Low Quality Spark Plugs",
+    "shortName": "sparkplug1",
+    "itemID": -89874794,
+    "description": "Low quality spark plugs for a combustion engine. Spark plugs ignite the fuel/air mixture to move the pistons.",
+    "stackSize": 20
+  },
+  {
+    "displayName": "Low Quality Valves",
+    "shortName": "valve1",
+    "itemID": 1330084809,
+    "description": "Low quality poppet valves for a combustion engine. Valves control the intake and exhaust flow.",
+    "stackSize": 15
+  },
+  {
+    "displayName": "LR-300 Assault Rifle",
+    "shortName": "rifle.lr300",
+    "itemID": -1812555177,
+    "description": "Stalk your enemies with this high powered light assault rifle.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Lumberjack Hoodie",
+    "shortName": "lumberjack hoodie",
+    "itemID": -763071910,
+    "description": "A lumberjack themed hoodie, earned by helping the Lumberjack. Offers the same protection as the standard hoodie.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Lumberjack Suit",
+    "shortName": "hazmatsuit.lumberjack",
+    "itemID": 861513346,
+    "description": "A Lumberjack Suit",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Lunar New Year Spear",
+    "shortName": "spear.cny",
+    "itemID": 695450239,
+    "description": "A Chinese themed New Year themed metal Spear",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Lunar Wall Frame Floral",
+    "shortName": "wall.frame.lunar2025_c",
+    "itemID": -2016974826,
+    "description": "A Lunar New Year themed decorative wall divider with floral inlay",
+    "stackSize": 10
+  },
+  {
+    "displayName": "Lunar Wall Frame Inlay",
+    "shortName": "wall.frame.lunar2025_a",
+    "itemID": 1115193056,
+    "description": "A Lunar New Year themed decorative wall divider with geometric inlay",
+    "stackSize": 10
+  },
+  {
+    "displayName": "Lunar Wall Frame Swirling",
+    "shortName": "wall.frame.lunar2025_b",
+    "itemID": -450890885,
+    "description": "A Lunar New Year themed decorative wall divider with swirling inlay",
+    "stackSize": 10
+  },
+  {
+    "displayName": "M4 Shotgun",
+    "shortName": "shotgun.m4",
+    "itemID": 678698219,
+    "description": "A semi automatic military issue shotgun",
+    "stackSize": 1
+  },
+  {
+    "displayName": "M39 Rifle",
+    "shortName": "rifle.m39",
+    "itemID": 28201841,
+    "description": "Military grade semi auto rifle",
+    "stackSize": 1
+  },
+  {
+    "displayName": "M92 Pistol",
+    "shortName": "pistol.m92",
+    "itemID": -852563019,
+    "description": "A semi-automatic Pistol. Fires rapidly and with good accuracy. Military Grade",
+    "stackSize": 1
+  },
+  {
+    "displayName": "M249",
+    "shortName": "lmg.m249",
+    "itemID": -2069578888,
+    "description": "High damage, high rate of fire, belt fed light machine gun.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Mace",
+    "shortName": "mace",
+    "itemID": -1966748496,
+    "description": "A powerful 2-handed melee weapon, It's unique design makes it easier to hit your target when compared to other more traditional weapons.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Machete",
+    "shortName": "machete",
+    "itemID": -1137865085,
+    "description": "A brutal weapon with good range.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Mail Box",
+    "shortName": "mailbox",
+    "itemID": -586784898,
+    "description": "A Mailbox that accepts notes. Only you can access the mail due to a one way slit.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Medical Syringe",
+    "shortName": "syringe.medical",
+    "itemID": 1079279582,
+    "description": "Heal yourself or others with this syringe. Left-click heals you, right-click heals a target.",
+    "stackSize": 2
+  },
+  {
+    "displayName": "Medieval Assault Rifle",
+    "shortName": "rifle.ak.med",
+    "itemID": 472505338,
+    "description": "Medieval themed high damage machine rifle.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Medieval Barricade",
+    "shortName": "barricade.medieval",
+    "itemID": -424687710,
+    "description": "A medieval barricade. Designed to block paths and provide defensive cover as well as being an effective tool to fortify your base.",
+    "stackSize": 10
+  },
+  {
+    "displayName": "Medieval Large Wood Box",
+    "shortName": "medieval.box.wooden.large",
+    "itemID": 814297925,
+    "description": "Keep your things in this medieval themed wooden storage box. Stores up to 48 items.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Medieval Sheet Metal Door",
+    "shortName": "medieval.door.hinged.metal",
+    "itemID": -1654401345,
+    "description": "Medium strength door, vulnerable to explosives.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Medieval Sheet Metal Double Door",
+    "shortName": "medieval.door.double.hinged.metal",
+    "itemID": -380502678,
+    "description": "Medium strength door, vulnerable to explosives.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Medium Animated Neon Sign",
+    "shortName": "sign.neon.125x215.animated",
+    "itemID": 42535890,
+    "description": "An animated neon sign!",
+    "stackSize": 5
+  },
+  {
+    "displayName": "Medium Chassis",
+    "shortName": "vehicle.chassis.3mod",
+    "itemID": -44066823,
+    "description": "Three-socket vehicle chassis.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Medium Frankenstein Head",
+    "shortName": "frankensteins.monster.02.head",
+    "itemID": -1732475823,
+    "description": "A balanced head. Combined at a Frankenstein Table to create your very own monster.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Medium Frankenstein Legs",
+    "shortName": "frankensteins.monster.02.legs",
+    "itemID": 835042040,
+    "description": "A balanced set of legs. Combined at a Frankenstein Table to create your very own monster.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Medium Frankenstein Torso",
+    "shortName": "frankensteins.monster.02.torso",
+    "itemID": 1491753484,
+    "description": "A balanced torso. Combined at a Frankenstein Table to create your very own monster.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Medium Loot Bag",
+    "shortName": "halloween.lootbag.medium",
+    "itemID": 1899610628,
+    "description": "Contains medium level loot, Collect 10 to upgrade to a Large loot bag, containing the best loot",
+    "stackSize": 10
+  },
+  {
+    "displayName": "Medium Neon Sign",
+    "shortName": "sign.neon.125x215",
+    "itemID": -1423304443,
+    "description": "A medium neon sign!",
+    "stackSize": 5
+  },
+  {
+    "displayName": "Medium Present",
+    "shortName": "xmas.present.medium",
+    "itemID": 756517185,
+    "description": "A medium present, might be good! Collect 5 to upgrade to a larger present.",
+    "stackSize": 5
+  },
+  {
+    "displayName": "Medium Quality Carburetor",
+    "shortName": "carburetor2",
+    "itemID": 656371027,
+    "description": "A medium quality carburetor for a combustion engine. Mixes air and fuel to the proper ratio.",
+    "stackSize": 5
+  },
+  {
+    "displayName": "Medium Quality Crankshaft",
+    "shortName": "crankshaft2",
+    "itemID": 1158340331,
+    "description": "A medium quality crankshaft for a combustion engine. Converts piston movement into rotational motion.",
+    "stackSize": 5
+  },
+  {
+    "displayName": "Medium Quality Pistons",
+    "shortName": "piston2",
+    "itemID": 1883981801,
+    "description": "Medium quality pistons for a combustion engine. Pistons convert expanding combustion gases into the motion that turns a crankshaft.",
+    "stackSize": 10
+  },
+  {
+    "displayName": "Medium Quality Spark Plugs",
+    "shortName": "sparkplug2",
+    "itemID": -493159321,
+    "description": "Medium quality spark plugs for a combustion engine. Spark plugs ignite the fuel/air mixture to move the pistons.",
+    "stackSize": 20
+  },
+  {
+    "displayName": "Medium Quality Valves",
+    "shortName": "valve2",
+    "itemID": 926800282,
+    "description": "Medium quality poppet valves for a combustion engine. Valves control the intake and exhaust flow.",
+    "stackSize": 15
+  },
+  {
+    "displayName": "Medium Rechargeable Battery",
+    "shortName": "electric.battery.rechargable.medium",
+    "itemID": 2023888403,
+    "description": "A Medium Rechargable Battery. Must have a minimum charge of 5 seconds to discharge. Can be wired in series. Charging rate is dependant on power in, with a maximum of 80% efficiency.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Medium Wooden Sign",
+    "shortName": "sign.wooden.medium",
+    "itemID": -1819233322,
+    "description": "A 2-meter by 1-meter wooden sign that you can write on.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Megaphone",
+    "shortName": "megaphone",
+    "itemID": -583379016,
+    "description": "A megaphone that lets you broadcast your voice. [attack] to activate your voice.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Memory Cell",
+    "shortName": "electrical.memorycell",
+    "itemID": -746647361,
+    "description": "A 1 bit storage component. SET input will set the value to 1 CLEAR input sets the value to 0. Output will provide connected power if value is 1, Inverted output will provide connected power if value is 0. This is also known as a D-Type Flip Flop",
+    "stackSize": 5
+  },
+  {
+    "displayName": "Metal Armor Insert",
+    "shortName": "clothing.mod.armorinsert_metal",
+    "itemID": 1099611828,
+    "description": "Metal insert for crafted clothing and armor, provides extra protection from projectiles.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Metal Barricade",
+    "shortName": "barricade.metal",
+    "itemID": 1655650836,
+    "description": "A tough metal barricade with barbed wire, made from Metal Fragments. The barbed wire causes damage and will also slow player movement.",
+    "stackSize": 10
+  },
+  {
+    "displayName": "Metal Blade",
+    "shortName": "metalblade",
+    "itemID": 1882709339,
+    "description": "A Metal Blade for making melee weapons.",
+    "stackSize": 20
+  },
+  {
+    "displayName": "Metal Chest Plate",
+    "shortName": "metal.plate.torso",
+    "itemID": 1110385766,
+    "description": "A metal plate covering your torso, provides excellent protection from all forms of attacks.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Metal Detector",
+    "shortName": "metal.detector",
+    "itemID": 1168856825,
+    "description": "Detects metal objects which may otherwise be hidden. When the light flashes, or you hear a beep, aim to search for items. Increase the bar until a flag appears. Dig at the flag with a melee item to reveal what it is. Different areas yield different rewards",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Metal Facemask",
+    "shortName": "metal.facemask",
+    "itemID": -194953424,
+    "description": "A protective facemask which provides the user with excellent head protection from all forms of attacks.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Metal Fragments",
+    "shortName": "metal.fragments",
+    "itemID": 69511070,
+    "description": "Metal Fragments. Smelted from Metal Ore, used in lots of different crafting recipes.",
+    "stackSize": 1000
+  },
+  {
+    "displayName": "Metal horizontal embrasure",
+    "shortName": "shutter.metal.embrasure.a",
+    "itemID": -1199897169,
+    "description": "Static shutter that forms a metal horizontal embrasure over your window frame.",
+    "stackSize": 20
+  },
+  {
+    "displayName": "Metal Ore",
+    "shortName": "metal.ore",
+    "itemID": -4031221,
+    "description": "A naturally occurring rock containing metal and metal compounds. You can extract this metal using a furnace.",
+    "stackSize": 1000
+  },
+  {
+    "displayName": "Metal Pipe",
+    "shortName": "metalpipe",
+    "itemID": 95950017,
+    "description": "Metal Pipe.",
+    "stackSize": 20
+  },
+  {
+    "displayName": "Metal Shield",
+    "shortName": "metal.shield",
+    "itemID": 625599716,
+    "description": "A large sturdy metal shield, keeps arrows and bullets at bay. Usable with single handed weapons and tools.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Metal Shop Front",
+    "shortName": "wall.frame.shopfront.metal",
+    "itemID": -148229307,
+    "description": "A bulletproof shop front for secure trades.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Metal Spring",
+    "shortName": "metalspring",
+    "itemID": -1021495308,
+    "description": "A metal spring. Used to provide motion or resistance in objects.",
+    "stackSize": 20
+  },
+  {
+    "displayName": "Metal Vertical embrasure",
+    "shortName": "shutter.metal.embrasure.b",
+    "itemID": -1199897172,
+    "description": "Static shutter that forms a metal vertical embrasure over your window frame.",
+    "stackSize": 20
+  },
+  {
+    "displayName": "Metal Window Bars",
+    "shortName": "wall.window.bars.metal",
+    "itemID": -819720157,
+    "description": "Metal window bars made to fit a normal sized window.",
+    "stackSize": 10
+  },
+  {
+    "displayName": "Microphone Stand",
+    "shortName": "microphonestand",
+    "itemID": 39600618,
+    "description": "A powered microphone that lets you broadcast your voice. Press [+attack2] to change voice mode between high and low pitch.",
+    "stackSize": 5
+  },
+  {
+    "displayName": "Military Flame Thrower",
+    "shortName": "military flamethrower",
+    "itemID": 703057617,
+    "description": "A Military grade flamethrower. Uses low grade fuel as ammunition.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Military Silencer",
+    "shortName": "weapon.mod.silencer",
+    "itemID": -1850571427,
+    "description": "Significantly reduces the sound of gunfire, and completely removes any visible muzzle flash.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Minecart Planter",
+    "shortName": "minecart.planter",
+    "itemID": 1361520181,
+    "description": "A small planter with enough room to plant 2 seeds.",
+    "stackSize": 10
+  },
+  {
+    "displayName": "Miners Hat",
+    "shortName": "hat.miner",
+    "itemID": -1539025626,
+    "description": "A leather cap with a flashlight attached. It uses Low Grade Fuel and can be activated from the inventory.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Minicopter",
+    "shortName": "minihelicopter.repair",
+    "itemID": 1426574435,
+    "description": null,
+    "stackSize": 1
+  },
+  {
+    "displayName": "Mini Crossbow",
+    "shortName": "minicrossbow",
+    "itemID": -482348853,
+    "description": "A very accurate ranged weapon with a rotating barrel.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Minigun",
+    "shortName": "minigun",
+    "itemID": 935606207,
+    "description": "A military issue belt-fed machine gun with that must be spun up to fire. Fires rapidly once spun up at the expense of movement speed.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Minigun Ammo Pack",
+    "shortName": "minigunammopack",
+    "itemID": 355877490,
+    "description": "A backpack designed to store ammunition for a minigun.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Mining Quarry",
+    "shortName": "mining.quarry",
+    "itemID": 1052926200,
+    "description": "Extracts minerals from the ground. Use a Survey Charge to determine the amount of minerals available for extraction in any given area.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Minnows",
+    "shortName": "fish.minnows",
+    "itemID": -542577259,
+    "description": "A Small group of edible fish.",
+    "stackSize": 10
+  },
+  {
+    "displayName": "Mint ID Tag",
+    "shortName": "mintidtag",
+    "itemID": 1572152877,
+    "description": "Mint ID Tag",
+    "stackSize": 5000
+  },
+  {
+    "displayName": "Mixing Table",
+    "shortName": "mixingtable",
+    "itemID": 1259919256,
+    "description": "Used for mixing recipes.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "MLRS",
+    "shortName": "mlrs",
+    "itemID": -1449152644,
+    "description": "M270 Multiple Launch Rocket System",
+    "stackSize": 1
+  },
+  {
+    "displayName": "MLRS Aiming Module",
+    "shortName": "aiming.module.mlrs",
+    "itemID": 343045591,
+    "description": "An aiming system computer module for an MLRS vehicle.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "MLRS Rocket",
+    "shortName": "ammo.rocket.mlrs",
+    "itemID": -1843426638,
+    "description": "A rocket intended for use in an MLRS (Multiple Launch Rocket System).",
+    "stackSize": 6
+  },
+  {
+    "displayName": "Mobile Phone",
+    "shortName": "mobilephone",
+    "itemID": -20045316,
+    "description": "A mobile phone that lets you place calls from anywhere. Truly cutting edge Cobalt technology. Use [attack] to access the dialer.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Modular Car Lift",
+    "shortName": "modularcarlift",
+    "itemID": 1696050067,
+    "description": "This allows you to modify modular vehicles",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Molotov Cocktail",
+    "shortName": "grenade.molotov",
+    "itemID": 1556365900,
+    "description": "A glass bottle filled with low grade fuel. Smashes and spreads fire when it lands, incredibly high damage to wood and players but innefective against stronger materials.",
+    "stackSize": 5
+  },
+  {
+    "displayName": "Motorbike",
+    "shortName": "motorbike",
+    "itemID": -1417478274,
+    "description": "A motorbike.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Motorbike With Sidecar",
+    "shortName": "motorbike_sidecar",
+    "itemID": 1869224826,
+    "description": "A motorbike with sidecar.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Mounted Ballista",
+    "shortName": "ballista.mounted",
+    "itemID": -759279626,
+    "description": "A ballista mounted on wheels, designed for mobility and capable of firing bolts at distant targets. Can be towed by horses.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Movember Moustache",
+    "shortName": "movembermoustache",
+    "itemID": -2047081330,
+    "description": "A magnificent moustache for Movember",
+    "stackSize": 1
+  },
+  {
+    "displayName": "MP5A4",
+    "shortName": "smg.mp5",
+    "itemID": 1318558775,
+    "description": "A medium damage machine gun.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Multiple Grenade Launcher",
+    "shortName": "multiplegrenadelauncher",
+    "itemID": -1123473824,
+    "description": "A 40MM six barrel, semi automatic grenade launcher",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Mummy Mask",
+    "shortName": "mummymask",
+    "itemID": 809689733,
+    "description": "A classic halloween costume mask which provides decent protection.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Mummy Suit",
+    "shortName": "halloween.mummysuit",
+    "itemID": 277730763,
+    "description": "A mummy suit",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Mushroom",
+    "shortName": "mushroom",
+    "itemID": -1962971928,
+    "description": "A Mushroom found on the ground. Eating it provides a small boost to health, hunger, and thirst.",
+    "stackSize": 10
+  },
+  {
+    "displayName": "Muzzle Boost",
+    "shortName": "weapon.mod.muzzleboost",
+    "itemID": -1405508498,
+    "description": "Increases weapon fire rate by channeling gasses back into the weapon cycling it faster, at the cost of bullet accuracy.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Muzzle Brake",
+    "shortName": "weapon.mod.muzzlebrake",
+    "itemID": 1478091698,
+    "description": "Lowers recoil felt by the operator but can make bullet path more unpredictable and dealing slightly less damage to your foes.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Nailgun",
+    "shortName": "pistol.nailgun",
+    "itemID": 1953903201,
+    "description": "A construction tool turned deadly",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Nailgun Nails",
+    "shortName": "ammo.nailgun.nails",
+    "itemID": -2097376851,
+    "description": "Standard nailgun ammunition",
+    "stackSize": 64
+  },
+  {
+    "displayName": "Nest Hat",
+    "shortName": "attire.nesthat",
+    "itemID": 1081315464,
+    "description": "An extremely silly easter nest hat with googly eyes.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Netting",
+    "shortName": "wall.frame.netting",
+    "itemID": 1516985844,
+    "description": "Netting you can climb.",
+    "stackSize": 5
+  },
+  {
+    "displayName": "New Year Gong",
+    "shortName": "newyeargong",
+    "itemID": -961457160,
+    "description": "Ring in the Lunar new year with a massive gong!",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Night Vision Goggles",
+    "shortName": "nightvisiongoggles",
+    "itemID": -1518883088,
+    "description": "Enables vision at nighttime by projecting and amplifying infrared light.The batteries can be recharged at a Lvl 2 workbench. Cannot be worn with a helmet.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Ninja Suit",
+    "shortName": "attire.ninja.suit",
+    "itemID": -1506417026,
+    "description": "BaboAbe Ninja Suit",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Nomad Suit",
+    "shortName": "hazmatsuit.nomadsuit",
+    "itemID": 491263800,
+    "description": "A nomad suit.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Note",
+    "shortName": "note",
+    "itemID": 1414245162,
+    "description": "A scrap of paper for leaving notes.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "NVGM Scientist Suit",
+    "shortName": "hazmatsuit_scientist_nvgm",
+    "itemID": 86840834,
+    "description": "A hazmat suit made from radiation resistant rubber.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Obsidian Bone Knife",
+    "shortName": "knife.bone.obsidian",
+    "itemID": 158303804,
+    "description": "Melee weapon crafted from obsidian. Good for harvesting carcases.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Oil Filter Silencer",
+    "shortName": "weapon.mod.oilfiltersilencer",
+    "itemID": -781866273,
+    "description": "Significantly reduces the sound of gunfire, and completely removes any visible muzzle flash. Fashioned out of an old oil filter, this won't last long.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "One Sided Town Sign Post",
+    "shortName": "sign.post.town",
+    "itemID": -1832422579,
+    "description": "A one sided town sign post, that you can plant into terrain.",
+    "stackSize": 5
+  },
+  {
+    "displayName": "Orange Boomer",
+    "shortName": "firework.boomer.orange",
+    "itemID": -7270019,
+    "description": "A very large mortar type firework with an orange starburst",
+    "stackSize": 20
+  },
+  {
+    "displayName": "Orange ID Tag",
+    "shortName": "orangeidtag",
+    "itemID": -282193997,
+    "description": "Orange ID Tag",
+    "stackSize": 5000
+  },
+  {
+    "displayName": "Orange Roughy",
+    "shortName": "fish.orangeroughy",
+    "itemID": -1904821376,
+    "description": "A rare fish found in the depths of the ocean. Eats everything, so you never know what you'll find in it's stomach.",
+    "stackSize": 5
+  },
+  {
+    "displayName": "Orchid",
+    "shortName": "orchid",
+    "itemID": 734320711,
+    "description": "Smells nice.",
+    "stackSize": 20
+  },
+  {
+    "displayName": "Orchid Clone",
+    "shortName": "clone.orchid",
+    "itemID": -798662404,
+    "description": "A clipping of an orchid plant.",
+    "stackSize": 50
+  },
+  {
+    "displayName": "Orchid Seed",
+    "shortName": "seed.orchid",
+    "itemID": 1004843240,
+    "description": "Orchid seeds can be found when picking wild Orchids.",
+    "stackSize": 50
+  },
+  {
+    "displayName": "OR Switch",
+    "shortName": "electric.orswitch",
+    "itemID": -1286302544,
+    "description": "A logic gate that allows electrical passthrough if EITHER input receives power, passthrough amount is the greater of either power source",
+    "stackSize": 5
+  },
+  {
+    "displayName": "Outbreak Scientist Suit",
+    "shortName": "oubreak_scientist",
+    "itemID": -2133781216,
+    "description": "A outbreak scientist suit",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Outbreak Sprayer",
+    "shortName": "outbreak.sprayer",
+    "itemID": 1621942085,
+    "description": "An outbreak sprayer used by scientists",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Ox Mask",
+    "shortName": "hat.oxmask",
+    "itemID": 1315082560,
+    "description": "An Ox mask to celebrate the 2021 Lunar New Year.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Paddle",
+    "shortName": "paddle",
+    "itemID": 1491189398,
+    "description": "A versatile melee weapon that can also be used to paddle a kayak.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Paddling Pool",
+    "shortName": "paddlingpool",
+    "itemID": -733625651,
+    "description": "A small inflatable pool that you can fill up with water.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Painted Egg",
+    "shortName": "easter.paintedeggs",
+    "itemID": -126305173,
+    "description": "Some simple painted eggs. Collect 10 to upgrade to a bronze egg",
+    "stackSize": 1000
+  },
+  {
+    "displayName": "Pan Flute",
+    "shortName": "fun.flute",
+    "itemID": -2040817543,
+    "description": "A set of repurposed PVC pipes that can be used to play a variety of melodies.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Pants",
+    "shortName": "pants",
+    "itemID": 237239288,
+    "description": "A pair of pants, highly capable undergarment for your legs. Great all round protection from damage and the elements.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Paper",
+    "shortName": "paper",
+    "itemID": -1779183908,
+    "description": "Paper, a ingredient for Building plan and Note.",
+    "stackSize": 1000
+  },
+  {
+    "displayName": "Paper Map",
+    "shortName": "map",
+    "itemID": 696029452,
+    "description": "Helps you figure out where you are. You can annotate the map by right-clicking and drawing on it. Drag the map into your belt bar to make it active. You will then be able to view the map by holding down the map button (G by default).",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Parachute",
+    "shortName": "parachute",
+    "itemID": 602628465,
+    "description": "Once equipped, press [+jump] while in mid-air to pull the cord. Must be repacked after use. Must be at least 15m above the ground in order to deploy.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Parachute (Deployed)",
+    "shortName": "parachute.deployed",
+    "itemID": 1784005657,
+    "description": "Deployed version of parachute. Hidden.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Party Hat",
+    "shortName": "partyhat",
+    "itemID": -575744869,
+    "description": "A very stupid looking party hat",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Passenger Vehicle Module",
+    "shortName": "vehicle.2mod.passengers",
+    "itemID": 895374329,
+    "description": "Dual module seating.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Pattern Boomer",
+    "shortName": "firework.boomer.pattern",
+    "itemID": -379734527,
+    "description": "A special boomer which allows you light up the night sky with a custom pattern that you draw. Multiple colors and altitude settings are available.",
+    "stackSize": 20
+  },
+  {
+    "displayName": "Photograph",
+    "shortName": "photo",
+    "itemID": 62577426,
+    "description": "A photograph taken with an instant camera.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Pickaxe",
+    "shortName": "pickaxe",
+    "itemID": -1302129395,
+    "description": "A Pickaxe, useful for gathering ore from rocks.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Pickles",
+    "shortName": "jar.pickle",
+    "itemID": 286193827,
+    "description": "Cucumbers in a vinegar bath, jarred by an amateur. Eat at your own risk.",
+    "stackSize": 10
+  },
+  {
+    "displayName": "Piercer Bolt",
+    "shortName": "ballista.bolt.piercer",
+    "itemID": -1127003365,
+    "description": "A piercing bolt for a ballista, capable of penetrating armored vehicles.",
+    "stackSize": 3
+  },
+  {
+    "displayName": "Pinata",
+    "shortName": "pinata",
+    "itemID": -1442496789,
+    "description": "Batter up!",
+    "stackSize": 5
+  },
+  {
+    "displayName": "Pink ID Tag",
+    "shortName": "pinkidtag",
+    "itemID": 180752235,
+    "description": "Pink ID Tag",
+    "stackSize": 5000
+  },
+  {
+    "displayName": "Pipe Tool",
+    "shortName": "pipetool",
+    "itemID": -144513264,
+    "description": "A tool used to make connections between industrial objects. Aim at an object and click on an input/output handle, then click on another object's input/output handle to form a connection. Holding right mouse will clear or cancel a connection.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Pistol Bullet",
+    "shortName": "ammo.pistol",
+    "itemID": 785728077,
+    "description": "Ammunition for a Pistol. Loses velocity when fired over long distances resulting in slightly decreased damage.",
+    "stackSize": 128
+  },
+  {
+    "displayName": "Pitchfork",
+    "shortName": "pitchfork",
+    "itemID": 1090916276,
+    "description": "A 3 pronged pitchfork. Extremely easy to hit targets with.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Pitchfork Bolt",
+    "shortName": "ballista.bolt.pitchfork",
+    "itemID": -357442017,
+    "description": "A wide-impact bolt for a ballista, covering a large area while dealing moderate damage.",
+    "stackSize": 3
+  },
+  {
+    "displayName": "Plant Fiber",
+    "shortName": "plantfiber",
+    "itemID": -804769727,
+    "description": "Fiber from dead plants. Can be composted.",
+    "stackSize": 1000
+  },
+  {
+    "displayName": "Plumber's Trumpet",
+    "shortName": "fun.trumpet",
+    "itemID": 273172220,
+    "description": "Toot your own horn with this brassy improvised Trumpet.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Pookie Bear",
+    "shortName": "pookie.bear",
+    "itemID": -1651220691,
+    "description": "A companion that reminds you of your youth.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Pork Pie",
+    "shortName": "pie.pork",
+    "itemID": 1467878256,
+    "description": "Tempting pork pie, provides a boost to hunger, health and hydration. Improves healing rate from other sources for a short time.",
+    "stackSize": 3
+  },
+  {
+    "displayName": "Portable Boom Box",
+    "shortName": "fun.boomboxportable",
+    "itemID": 576509618,
+    "description": "A portable Boom Box that can play tapes and internet audio streams. [attack] to start/stop and [attack2] to modify settings.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Portrait Photo Frame",
+    "shortName": "photoframe.portrait",
+    "itemID": 1729712564,
+    "description": "A portrait oriented canvas for artists paintings.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Portrait Picture Frame",
+    "shortName": "sign.pictureframe.portrait",
+    "itemID": -1370759135,
+    "description": "A portrait oriented canvas for artists paintings.",
+    "stackSize": 5
+  },
+  {
+    "displayName": "Potato",
+    "shortName": "potato",
+    "itemID": -2086926071,
+    "description": "Potato.",
+    "stackSize": 20
+  },
+  {
+    "displayName": "Potato Clone",
+    "shortName": "clone.potato",
+    "itemID": 1512054436,
+    "description": "A Clipping of a Potato Plant.",
+    "stackSize": 50
+  },
+  {
+    "displayName": "Potato Seed",
+    "shortName": "seed.potato",
+    "itemID": -2084071424,
+    "description": "These potato seeds can be planted in the ground and grown to collect additional food. Planting these seeds in a planter, and then watering them with large quantities of water yields significantly more potatoes and faster growth.",
+    "stackSize": 50
+  },
+  {
+    "displayName": "Powered Water Purifier",
+    "shortName": "powered.water.purifier",
+    "itemID": -365097295,
+    "description": "A device that converts salt water to fresh water while powered.",
+    "stackSize": 3
+  },
+  {
+    "displayName": "Pressure Pad",
+    "shortName": "electric.pressurepad",
+    "itemID": -2049214035,
+    "description": "A gate which allows power to flow while a player is standing on it",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Prison Cell Gate",
+    "shortName": "wall.frame.cell.gate",
+    "itemID": -956706906,
+    "description": "A prison cell gate to lock things behind bars",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Prison Cell Wall",
+    "shortName": "wall.frame.cell",
+    "itemID": -1429456799,
+    "description": "A prison cell wall.",
+    "stackSize": 10
+  },
+  {
+    "displayName": "Prisoner Hood",
+    "shortName": "prisonerhood",
+    "itemID": -892718768,
+    "description": "A hood for prisoners, restricts vision.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Propane Explosive Bomb",
+    "shortName": "catapult.ammo.explosive",
+    "itemID": -1827561369,
+    "description": "An explosive propane-filled keg, devastating to structures. Can be placed or used as a projectile in a catapult.",
+    "stackSize": 4
+  },
+  {
+    "displayName": "Prototype 17",
+    "shortName": "pistol.prototype17",
+    "itemID": 1914691295,
+    "description": "A protype pistol with a built-in 3 round burst fire mode. Strong in close quarters. Swap between single shot and burst with [+firemode]",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Prototype Hatchet",
+    "shortName": "lumberjack.hatchet",
+    "itemID": -399173933,
+    "description": "A prototype field hatchet, useful for gathering wood",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Prototype Pickaxe",
+    "shortName": "lumberjack.pickaxe",
+    "itemID": 236677901,
+    "description": "A prototype field pickaxe. Useful for gathering ore from rocks.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "PTZ CCTV Camera",
+    "shortName": "ptz.cctv.camera",
+    "itemID": 140006625,
+    "description": "A CCTV Camera system can be used for realtime surveillance and security when paired with the Computer Station. This camera has pan, tilt, and zoom capability.",
+    "stackSize": 5
+  },
+  {
+    "displayName": "Pump Jack",
+    "shortName": "mining.pumpjack",
+    "itemID": -1130709577,
+    "description": "Extracts oil from the ground. Use a Survey Charge to determine the amount of oil available for extraction in any given area.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Pumpkin",
+    "shortName": "pumpkin",
+    "itemID": -567909622,
+    "description": "An edible vegetable that can also be worn as a hat. Eating it provides a small boost to health, hunger, and thirst.",
+    "stackSize": 20
+  },
+  {
+    "displayName": "Pumpkin Basket",
+    "shortName": "pumpkinbasket",
+    "itemID": 1346158228,
+    "description": "A pumpkin basket to help you collect candy much faster during Trick or Treat events with left click. Use right click to throw candy",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Pumpkin Pie",
+    "shortName": "pie.pumpkin",
+    "itemID": -1488408786,
+    "description": "Spooky pumpkin pie, provides a boost to health, hunger and hydration. Increases maximum health for a short time.",
+    "stackSize": 3
+  },
+  {
+    "displayName": "Pumpkin Plant Clone",
+    "shortName": "clone.pumpkin",
+    "itemID": 1898094925,
+    "description": "A Clipping of a pumpkin plant.",
+    "stackSize": 50
+  },
+  {
+    "displayName": "Pumpkin Seed",
+    "shortName": "seed.pumpkin",
+    "itemID": -1511285251,
+    "description": "Pumpkin Seeds can be found when picking wild Pumpkin plants. These seeds can be planted in the ground and grown to collect additional food. Planting these seeds in a planter, and then watering them with large quantities of water yields significantly more pumpkins and faster growth.",
+    "stackSize": 50
+  },
+  {
+    "displayName": "Pump Shotgun",
+    "shortName": "shotgun.pump",
+    "itemID": 795371088,
+    "description": "A Shotgun. Fires six rounds.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Pure Anti-Rad Tea",
+    "shortName": "radiationresisttea.pure",
+    "itemID": -33009419,
+    "description": "A pure tea that provides hydration and temporarily increases your resistance to radiation a large amount.",
+    "stackSize": 10
+  },
+  {
+    "displayName": "Pure Cooling Tea",
+    "shortName": "purecoolingtea",
+    "itemID": 1121416193,
+    "description": "A pure cooling tea that temporarily decreases your max and core temperature.",
+    "stackSize": 10
+  },
+  {
+    "displayName": "Pure Crafting Quality Tea",
+    "shortName": "purecraftingtea_quality",
+    "itemID": 97903330,
+    "description": "A pure crafting tea. provides hydration and increases the chances of a higher quality crafting outcome for a short time.",
+    "stackSize": 10
+  },
+  {
+    "displayName": "Pure Harvesting Tea",
+    "shortName": "pureharvestingtea",
+    "itemID": 377750553,
+    "description": "A pure harvesting tea, provides hydration and temporarily increases the amount of resources you receive from harvesting corpses a large amount.",
+    "stackSize": 10
+  },
+  {
+    "displayName": "Pure Healing Tea",
+    "shortName": "healingtea.pure",
+    "itemID": -1677315902,
+    "description": "A pure healing tea, provides hydration and heals you a large amount over time.",
+    "stackSize": 10
+  },
+  {
+    "displayName": "Pure Max Health Tea",
+    "shortName": "maxhealthtea.pure",
+    "itemID": 1712261904,
+    "description": "A pure health tea, provides hydration and temporarily boosts maximum health a large amount.",
+    "stackSize": 10
+  },
+  {
+    "displayName": "Pure Ore Tea",
+    "shortName": "oretea.pure",
+    "itemID": 1729374708,
+    "description": "A pure ore tea, provides hydration and temporarily increases your yield when harvesting ores a large amount.",
+    "stackSize": 10
+  },
+  {
+    "displayName": "Pure Rad. Removal Tea",
+    "shortName": "radiationremovetea.pure",
+    "itemID": 1905387657,
+    "description": "A tea that removes some radiation.",
+    "stackSize": 10
+  },
+  {
+    "displayName": "Pure Scrap Tea",
+    "shortName": "scraptea.pure",
+    "itemID": 2024467711,
+    "description": "A pure scrap tea, temporarily increases the amount of scrap you receive from barrels a large amount.",
+    "stackSize": 10
+  },
+  {
+    "displayName": "Pure Warming Tea",
+    "shortName": "purewarmingtea",
+    "itemID": -1476814093,
+    "description": "A pure warming tea that temporarily increases both your core and minimum temperature.",
+    "stackSize": 10
+  },
+  {
+    "displayName": "Pure Wood Tea",
+    "shortName": "woodtea.pure",
+    "itemID": -557539629,
+    "description": "A pure wood tea, temporarily increases the yield from cutting trees a large amount.",
+    "stackSize": 10
+  },
+  {
+    "displayName": "Purple ID Tag",
+    "shortName": "purpleidtag",
+    "itemID": -1386082991,
+    "description": "Purple ID Tag",
+    "stackSize": 5000
+  },
+  {
+    "displayName": "Purple Sunglasses",
+    "shortName": "twitchsunglasses",
+    "itemID": 20489901,
+    "description": "Sunglasses - Gained from Rust's first Twitch drop event.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Python Revolver",
+    "shortName": "pistol.python",
+    "itemID": 1373971859,
+    "description": "A High Powered six-shooter.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Rabbit Mask",
+    "shortName": "hat.rabbitmask",
+    "itemID": -986782031,
+    "description": "A Beautifully crafted Rabbit mask to celebrate the 2023 Lunar New Year",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Radiation Dart",
+    "shortName": "dart.radiation",
+    "itemID": -594596146,
+    "description": "A dart that applies stackable radiation.",
+    "stackSize": 64
+  },
+  {
+    "displayName": "Radioactive Water",
+    "shortName": "water.radioactive",
+    "itemID": 1811780502,
+    "description": "Glowing water. Consuming will damage your health and irradiate you.",
+    "stackSize": 2147483647
+  },
+  {
+    "displayName": "Rad. Removal Tea",
+    "shortName": "radiationremovetea",
+    "itemID": -496584751,
+    "description": "A tea that removes some radiation.",
+    "stackSize": 10
+  },
+  {
+    "displayName": "Rail Road Planter",
+    "shortName": "rail.road.planter",
+    "itemID": 615112838,
+    "description": "A large planter with enough room to plant 9 seeds.",
+    "stackSize": 10
+  },
+  {
+    "displayName": "RAND Switch",
+    "shortName": "electric.random.switch",
+    "itemID": 492357192,
+    "description": "This switch will allow passthrough based on a random number. Each time the SET input receives power it will roll true or false to allow passthrough",
+    "stackSize": 5
+  },
+  {
+    "displayName": "Rat Mask",
+    "shortName": "hat.ratmask",
+    "itemID": 271048478,
+    "description": "A Beautifully crafted bronze and gold Rat mask to celebrate the 2020 Lunar New Year",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Raw Bear Meat",
+    "shortName": "bearmeat",
+    "itemID": -1520560807,
+    "description": "Raw Bear Meat. Eating it will damage your health, try cooking it first.",
+    "stackSize": 20
+  },
+  {
+    "displayName": "Raw Big Cat Meat",
+    "shortName": "bigcatmeat",
+    "itemID": -2095813057,
+    "description": "Raw Big Cat Meat. Eating it will damage your health, try cooking it first.",
+    "stackSize": 20
+  },
+  {
+    "displayName": "Raw Chicken Breast",
+    "shortName": "chicken.raw",
+    "itemID": -1440987069,
+    "description": "Raw chicken breast. Eating it will damage your health, try cooking it first.",
+    "stackSize": 20
+  },
+  {
+    "displayName": "Raw Crocodile Meat",
+    "shortName": "crocodilemeat",
+    "itemID": -1081599445,
+    "description": "Raw Crocodile Meat. Eating it will damage your health, try cooking it first.",
+    "stackSize": 20
+  },
+  {
+    "displayName": "Raw Deer Meat",
+    "shortName": "deermeat.raw",
+    "itemID": 1422530437,
+    "description": "Raw Deer Meat. Eating it will damage your health, try cooking it first.",
+    "stackSize": 20
+  },
+  {
+    "displayName": "Raw Fish",
+    "shortName": "fish.raw",
+    "itemID": 989925924,
+    "description": "Raw Fish.",
+    "stackSize": 20
+  },
+  {
+    "displayName": "Raw Horse Meat",
+    "shortName": "horsemeat.raw",
+    "itemID": -1130350864,
+    "description": "Raw Horse Meat. Eating it will damage your health, try cooking it first.",
+    "stackSize": 20
+  },
+  {
+    "displayName": "Raw Human Meat",
+    "shortName": "humanmeat.raw",
+    "itemID": -1709878924,
+    "description": "Raw human meat. Consuming will damage your health.",
+    "stackSize": 20
+  },
+  {
+    "displayName": "Raw Pork",
+    "shortName": "meat.boar",
+    "itemID": 621915341,
+    "description": "Raw pork. Eating it will damage your health, try cooking it first.",
+    "stackSize": 20
+  },
+  {
+    "displayName": "Raw Snake Meat",
+    "shortName": "snakemeat",
+    "itemID": -2100458529,
+    "description": "Raw Snake Meat. Eating it will damage your health, try cooking it first.",
+    "stackSize": 20
+  },
+  {
+    "displayName": "Raw Wolf Meat",
+    "shortName": "wolfmeat.raw",
+    "itemID": -395377963,
+    "description": "Raw Wolf Meat. Eating it will damage your health, try cooking it first.",
+    "stackSize": 20
+  },
+  {
+    "displayName": "Reactive Target",
+    "shortName": "target.reactive",
+    "itemID": -1736356576,
+    "description": "A reactive target that knocks down when hit, can be reset.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Rear Seats Vehicle Module",
+    "shortName": "vehicle.1mod.rear.seats",
+    "itemID": 1376065505,
+    "description": "Single module seating for two passengers.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Red Berry",
+    "shortName": "red.berry",
+    "itemID": 1272194103,
+    "description": "A red berry. Can be eaten or used in mixing table recipes to create teas.",
+    "stackSize": 20
+  },
+  {
+    "displayName": "Red Berry Clone",
+    "shortName": "clone.red.berry",
+    "itemID": 2133269020,
+    "description": "A clipping of a Red Berry Plant.",
+    "stackSize": 50
+  },
+  {
+    "displayName": "Red Berry Seed",
+    "shortName": "seed.red.berry",
+    "itemID": 830839496,
+    "description": "These red berry seeds can be planted in the ground and grown to collect additional food. Planting these seeds in a planter, and then watering them with large quantities of water yields significantly more berries and faster growth.",
+    "stackSize": 50
+  },
+  {
+    "displayName": "Red Boomer",
+    "shortName": "firework.boomer.red",
+    "itemID": -1553999294,
+    "description": "A very large mortar type firework with a red starburst",
+    "stackSize": 20
+  },
+  {
+    "displayName": "Red Dog Tags",
+    "shortName": "reddogtags",
+    "itemID": -602717596,
+    "description": "Red Dog Tags",
+    "stackSize": 5000
+  },
+  {
+    "displayName": "Red ID Tag",
+    "shortName": "redidtag",
+    "itemID": 70102328,
+    "description": "Red ID Tag",
+    "stackSize": 5000
+  },
+  {
+    "displayName": "Red Industrial Wall Light",
+    "shortName": "industrial.wall.light.red",
+    "itemID": -1160621614,
+    "description": "A small red light source.",
+    "stackSize": 10
+  },
+  {
+    "displayName": "Red Keycard",
+    "shortName": "keycard_red",
+    "itemID": -1880870149,
+    "description": "A keycard with advanced clearance, grants access to top level areas",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Red Roman Candle",
+    "shortName": "firework.romancandle.red",
+    "itemID": -1486461488,
+    "description": "A small repeating firework, shoots a series of red balls into the air",
+    "stackSize": 20
+  },
+  {
+    "displayName": "Red Volcano Firework",
+    "shortName": "firework.volcano.red",
+    "itemID": -454370658,
+    "description": "Emits a beautiful shower of red sparks",
+    "stackSize": 20
+  },
+  {
+    "displayName": "Reindeer Antlers",
+    "shortName": "attire.reindeer.headband",
+    "itemID": -324675402,
+    "description": "A festive reindeer antlers headband and nose.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Reinforced Glass Window",
+    "shortName": "wall.window.bars.toptier",
+    "itemID": 671706427,
+    "description": "Window bars to fit a standard window. These bars are made out of reinforced metal and contain a thick surround to protect from incoming projectiles.",
+    "stackSize": 10
+  },
+  {
+    "displayName": "Reinforced Wooden Shield",
+    "shortName": "reinforced.wooden.shield",
+    "itemID": 969768382,
+    "description": "A basic wooden shield with added protection, keeps you safe but not for long. Usable with single handed weapons and tools.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Repair Bench",
+    "shortName": "box.repair.bench",
+    "itemID": 803222026,
+    "description": "You can repair your items here for a fraction of their construction cost. You may also use this to apply new skins to existing items.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Research Paper",
+    "shortName": "researchpaper",
+    "itemID": -544317637,
+    "description": "Use this item in a Research Bench to create blueprints of items.",
+    "stackSize": 1000
+  },
+  {
+    "displayName": "Research Table",
+    "shortName": "research.table",
+    "itemID": -1861522751,
+    "description": "You can use this table to learn how to permanently craft items you have found in exchange for scrap.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Retro Tool Cupboard",
+    "shortName": "cupboard.tool.retro",
+    "itemID": 1488606552,
+    "description": "Transform your tool cupboard experience with this modified Hi-Fi cabinet. Complete with retro displays indicating vital base data as well as frosted glass doors allowing you to view its contents of tools and resources!",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Revolver",
+    "shortName": "pistol.revolver",
+    "itemID": 649912614,
+    "description": "A standard eight shot revolver.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "RF Broadcaster",
+    "shortName": "electric.rf.broadcaster",
+    "itemID": -1044468317,
+    "description": "An RF Broadcaster",
+    "stackSize": 1
+  },
+  {
+    "displayName": "RF Pager",
+    "shortName": "rf_pager",
+    "itemID": -566907190,
+    "description": "An RF Pager. An audible tone will be produced when a signal is picked up on the listening frequency. Can be set to silent mode.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "RF Receiver",
+    "shortName": "electric.rf.receiver",
+    "itemID": 888415708,
+    "description": "An RF Receiver",
+    "stackSize": 1
+  },
+  {
+    "displayName": "RF Transmitter",
+    "shortName": "rf.detonator",
+    "itemID": 596469572,
+    "description": "A hand held RF signal broadcaster. Left click to broadcast. Configurable with right mouse.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "RHIB",
+    "shortName": "rhib",
+    "itemID": 1394042569,
+    "description": "",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Rifle Body",
+    "shortName": "riflebody",
+    "itemID": 176787552,
+    "description": "The firing mechanism of a rifle. Used in construction of a weapon that can fire 5.56 ammo fully automatic.",
+    "stackSize": 10
+  },
+  {
+    "displayName": "Riot Helmet",
+    "shortName": "riot.helmet",
+    "itemID": 671063303,
+    "description": "A makeshift riot Helmet. Great at deflecting melee attacks.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Roadsign Gloves",
+    "shortName": "roadsign.gloves",
+    "itemID": -699558439,
+    "description": "Gloves made out of metal, offer a good amount of protection to the upper body.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Roadsign Horse Armor",
+    "shortName": "horse.armor.roadsign",
+    "itemID": 60528587,
+    "description": "A full body armor for a horse. Provides strong protection for you and your steed, at the cost of greatly reduced movement speed.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Road Sign Jacket",
+    "shortName": "roadsign.jacket",
+    "itemID": -2002277461,
+    "description": "A shoddy piece of body armor made from roadsigns.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Road Sign Kilt",
+    "shortName": "roadsign.kilt",
+    "itemID": 1850456855,
+    "description": "A shoddy piece of leg armor made from roadsigns. Moderate protection from melee and projectiles.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Road Signs",
+    "shortName": "roadsigns",
+    "itemID": 1199391518,
+    "description": "Some road signs made of metal.",
+    "stackSize": 20
+  },
+  {
+    "displayName": "Rock",
+    "shortName": "rock",
+    "itemID": 963906841,
+    "description": "A Rock. The most basic melee weapon and gathering tool.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Rocket",
+    "shortName": "ammo.rocket.basic",
+    "itemID": -742865266,
+    "description": "Ammunition for a Rocket Launcher. A short to medium range self-propelled, unguided rocket which deals large splash damage on impact.",
+    "stackSize": 3
+  },
+  {
+    "displayName": "Rocket Launcher",
+    "shortName": "rocket.launcher",
+    "itemID": 442886268,
+    "description": "Shoots rockets slightly farther than North Korea.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Rocking Chair",
+    "shortName": "rockingchair",
+    "itemID": -1863063690,
+    "description": "A rocking chair that responds to your input. Don't fire whilst seated.",
+    "stackSize": 5
+  },
+  {
+    "displayName": "Root Combiner",
+    "shortName": "electrical.combiner",
+    "itemID": -458565393,
+    "description": "This object combines two root electrical sources into a single signal. Helpful for stringing together low energy batteries or solar panels to produce higher power output. Can be wired in series, can not be used with any non energy producing electrical components.",
+    "stackSize": 5
+  },
+  {
+    "displayName": "Rope",
+    "shortName": "rope",
+    "itemID": 1414245522,
+    "description": "A Length of Rope.",
+    "stackSize": 50
+  },
+  {
+    "displayName": "Rose",
+    "shortName": "rose",
+    "itemID": 1414245519,
+    "description": "Romantic AF.",
+    "stackSize": 20
+  },
+  {
+    "displayName": "Rose Clone",
+    "shortName": "clone.rose",
+    "itemID": -19360132,
+    "description": "A clipping of a rose plant.",
+    "stackSize": 50
+  },
+  {
+    "displayName": "Rose Seed",
+    "shortName": "seed.rose",
+    "itemID": -1037472336,
+    "description": "Rose seeds can be found when picking wild Roses.",
+    "stackSize": 50
+  },
+  {
+    "displayName": "Rotten Apple",
+    "shortName": "apple.spoiled",
+    "itemID": 352130972,
+    "description": "A rotten apple. Eating it currently provides a tiny boost to health, hunger, and thirst.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Rowboat",
+    "shortName": "rowboat",
+    "itemID": 1878053256,
+    "description": "",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Rug",
+    "shortName": "rug",
+    "itemID": -1985799200,
+    "description": "A decorative rug that can be placed on walls, floors, and ceilings. Provides comfort when in close proximity.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Rug Bear Skin",
+    "shortName": "rug.bear",
+    "itemID": -1104881824,
+    "description": "A decorative rug that can be placed on walls, floors, and ceilings. Provides comfort when in close proximity.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Rustigé Egg - Blue",
+    "shortName": "rustige_egg_b",
+    "itemID": -173268132,
+    "description": "A beautiful hand crafted white gold and sapphire encrusted egg, with a miniature monument contained inside.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Rustigé Egg - Cerulean",
+    "shortName": "rustige_egg_g",
+    "itemID": -173268127,
+    "description": "A beautiful hand crafted cerulean and gold egg, with a miniature cargo ship scene contained inside.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Rustigé Egg - Green",
+    "shortName": "rustige_egg_e",
+    "itemID": -173268125,
+    "description": "A beautiful hand crafted gold and green egg, with a miniature traincart contained inside.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Rustigé Egg - Ivory",
+    "shortName": "rustige_egg_d",
+    "itemID": -173268126,
+    "description": "A beautiful hand crafted Ivory and gold egg, with a miniature monument contained inside.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Rustigé Egg - Purple",
+    "shortName": "rustige_egg_c",
+    "itemID": -173268131,
+    "description": "A beautiful hand crafted purple egg with gold lace, a miniature offshore monument is contained inside.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Rustigé Egg - Red",
+    "shortName": "rustige_egg_a",
+    "itemID": -173268129,
+    "description": "An exquisite hand crafted gold and diamond egg. When opened, a very special melody can be heard as you observe an intricate representation of your favorite monument.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Rustigé Egg - White",
+    "shortName": "rustige_egg_f",
+    "itemID": -173268128,
+    "description": "A beautiful hand crafted gold and white egg, with a miniature underwater lab scene contained inside.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Saddle bag",
+    "shortName": "horse.saddlebag",
+    "itemID": 1400460850,
+    "description": "Equipping this saddle bag will add extra storage space on your horse",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Salmon",
+    "shortName": "fish.salmon",
+    "itemID": -851988960,
+    "description": "A large Salmon, found in fresh and salt water. Eats everything, so you never know what you'll find in it's stomach.",
+    "stackSize": 10
+  },
+  {
+    "displayName": "Salt Water",
+    "shortName": "water.salt",
+    "itemID": -277057363,
+    "description": "Water with a high salt content. Consuming will damage your health.",
+    "stackSize": 2147483647
+  },
+  {
+    "displayName": "Salvaged Axe",
+    "shortName": "axe.salvaged",
+    "itemID": -262590403,
+    "description": "A high-yield resource gathering axe. Slower than the Hatchet.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Salvaged Cleaver",
+    "shortName": "salvaged.cleaver",
+    "itemID": -1978999529,
+    "description": "A powerful 2-handed melee weapon with high damage.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Salvaged Hammer",
+    "shortName": "hammer.salvaged",
+    "itemID": -1506397857,
+    "description": "A Hammer made from a bunch of other crap.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Salvaged Icepick",
+    "shortName": "icepick.salvaged",
+    "itemID": -1780802565,
+    "description": "A high-yield resource gathering Icepick.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Salvaged Shelves",
+    "shortName": "shelves",
+    "itemID": 1950721418,
+    "description": "Shelves for item stacking",
+    "stackSize": 10
+  },
+  {
+    "displayName": "Salvaged Sword",
+    "shortName": "salvaged.sword",
+    "itemID": 1326180354,
+    "description": "A powerful melee weapon made from a filed-down wrench. Great durability, good damage.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "SAM Ammo",
+    "shortName": "ammo.rocket.sam",
+    "itemID": -384243979,
+    "description": "Ammunition for a SAM Site. This missile contains a rudimentary guidance system to help it navigate through strong winds.",
+    "stackSize": 1000
+  },
+  {
+    "displayName": "SAM Site",
+    "shortName": "samsite",
+    "itemID": -1009359066,
+    "description": "A surface to air rocket site. Requires 25 electricity to function.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Sandbag Barricade",
+    "shortName": "barricade.sandbags",
+    "itemID": -559599960,
+    "description": "A protective barricade made out of Sand Bags.",
+    "stackSize": 10
+  },
+  {
+    "displayName": "Santa Beard",
+    "shortName": "santabeard",
+    "itemID": 2126889441,
+    "description": "A santa beard. Ho Ho ho.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Santa Hat",
+    "shortName": "santahat",
+    "itemID": -575483084,
+    "description": "A santa hat. Ho Ho ho.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Sardine",
+    "shortName": "fish.sardine",
+    "itemID": -1654233406,
+    "description": "A small oily fish, commonly found in large schools.",
+    "stackSize": 10
+  },
+  {
+    "displayName": "Satchel Charge",
+    "shortName": "explosive.satchel",
+    "itemID": -1878475007,
+    "description": "Small explosive package constructed of beancan grenades. Useful for destroying wood and sheet metal doors.",
+    "stackSize": 10
+  },
+  {
+    "displayName": "Scarecrow",
+    "shortName": "scarecrow",
+    "itemID": 177226991,
+    "description": "Get into the halloween spirit with this decorative deployable item.",
+    "stackSize": 5
+  },
+  {
+    "displayName": "Scarecrow Suit",
+    "shortName": "scarecrow.suit",
+    "itemID": 273951840,
+    "description": "A spooky scarecrow suit",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Scarecrow Wrap",
+    "shortName": "scarecrowhead",
+    "itemID": 809942731,
+    "description": "A creepy burlap scarecrow hat",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Scatter Dart",
+    "shortName": "dart.scatter",
+    "itemID": 2036395619,
+    "description": "A spread shot dart that fires multiple smaller darts.",
+    "stackSize": 64
+  },
+  {
+    "displayName": "Scattershot",
+    "shortName": "catapult.ammo.boulder",
+    "itemID": 1831249347,
+    "description": "A cluster of heavy rock projectiles for a catapult. Wide spread, pure kinetic damage on impact.",
+    "stackSize": 4
+  },
+  {
+    "displayName": "Scientist Suit",
+    "shortName": "hazmatsuit_scientist",
+    "itemID": -253079493,
+    "description": "A hazmat suit made from radiation resistant rubber.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Scientist Suit",
+    "shortName": "hazmatsuit_scientist_peacekeeper",
+    "itemID": -1958316066,
+    "description": "A hazmat suit made from radiation resistant rubber.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Scrap",
+    "shortName": "scrap",
+    "itemID": -932201673,
+    "description": "Scrap can be used in a Research table and Workbench to unlock and research items. Often used as a currency throughout the world.",
+    "stackSize": 1000
+  },
+  {
+    "displayName": "Scrap Frame large",
+    "shortName": "scrapframe.large",
+    "itemID": -1094453063,
+    "description": "A large scrap frame",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Scrap Frame Medium",
+    "shortName": "scrapframe.medium",
+    "itemID": -1060567807,
+    "description": "A medium scrap frame",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Scrap Frame Small",
+    "shortName": "scrapframe.small",
+    "itemID": -498301781,
+    "description": "A small scrap frame",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Scrap Frame Standing",
+    "shortName": "scrapframe.standing",
+    "itemID": -1774190142,
+    "description": "A standing scrap frame",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Scrap Mirror Large",
+    "shortName": "scrapmirror.large",
+    "itemID": -82758111,
+    "description": "A large scrap mirror",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Scrap Mirror Medium",
+    "shortName": "scrapmirror.medium",
+    "itemID": 839738457,
+    "description": "A medium scrap mirror",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Scrap Mirror Small",
+    "shortName": "scrapmirror.small",
+    "itemID": -1050697733,
+    "description": "A small scrap mirror",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Scrap Mirror Standing",
+    "shortName": "scrapmirror.standing",
+    "itemID": -1380144986,
+    "description": "A standing scrap mirror",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Scrap Transport Helicopter",
+    "shortName": "scraptransportheli.repair",
+    "itemID": -1884328185,
+    "description": "",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Search Light",
+    "shortName": "searchlight",
+    "itemID": 2087678962,
+    "description": "A Large, wide beam, aimable light source.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Secretlab Chair",
+    "shortName": "secretlabchair",
+    "itemID": 567871954,
+    "description": "A luxurious, comfortable chair for long sessions of CCTV watching.",
+    "stackSize": 5
+  },
+  {
+    "displayName": "Seismic Sensor",
+    "shortName": "electric.seismicsensor",
+    "itemID": -948291630,
+    "description": "A small device that detects vibrations within a set range. Will output a different power value depending on the explosive type detected, ideal to know when your time has come.",
+    "stackSize": 10
+  },
+  {
+    "displayName": "Semi Automatic Body",
+    "shortName": "semibody",
+    "itemID": 573926264,
+    "description": "The firing mechanism of a semi automatic weapon.",
+    "stackSize": 10
+  },
+  {
+    "displayName": "Semi-Automatic Pistol",
+    "shortName": "pistol.semiauto",
+    "itemID": 818877484,
+    "description": "A semi-automatic pistol, fires rapidly and with good accuracy.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Semi-Automatic Rifle",
+    "shortName": "rifle.semiauto",
+    "itemID": -904863145,
+    "description": "A Semi Automatic Rifle.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Sewing Kit",
+    "shortName": "sewingkit",
+    "itemID": 1234880403,
+    "description": "A Sewing kit. Used to make advanced clothing.",
+    "stackSize": 20
+  },
+  {
+    "displayName": "Sheet Metal",
+    "shortName": "sheetmetal",
+    "itemID": -1994909036,
+    "description": "Sheet metal scraps.",
+    "stackSize": 20
+  },
+  {
+    "displayName": "Sheet Metal Door",
+    "shortName": "door.hinged.metal",
+    "itemID": -2067472972,
+    "description": "Medium strength door, vulnerable to explosives.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Sheet Metal Double Door",
+    "shortName": "door.double.hinged.metal",
+    "itemID": 1390353317,
+    "description": "Medium strength door, vulnerable to explosives.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Shirt",
+    "shortName": "shirt.collared",
+    "itemID": -2025184684,
+    "description": "A smart casual shirt. Might make you look more trustworthy. Moderate clothing for protection against damage and the elements.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Shockbyte Tool Cupboard",
+    "shortName": "cupboard.tool.shockbyte",
+    "itemID": 1174957864,
+    "description": "Ensure 100% Tool Cupboard uptime with this Tool Cupboard skin.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Shop Front",
+    "shortName": "wall.frame.shopfront",
+    "itemID": -796583652,
+    "description": "A shop front to do commerce.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Short Ice Wall",
+    "shortName": "wall.ice.wall",
+    "itemID": 1327005675,
+    "description": "A short wall made of solid ice.",
+    "stackSize": 10
+  },
+  {
+    "displayName": "Shorts",
+    "shortName": "pants.shorts",
+    "itemID": -1695367501,
+    "description": "Trusty pair of shorts, may provide a breeze in undesired places. Worse than their full length counterparts with only basic protection from damage and the elements.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Shotgun Trap",
+    "shortName": "guntrap",
+    "itemID": 352499047,
+    "description": "A shotgun trap triggered by movement, place near doorways and load with handmade shells.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Shovel",
+    "shortName": "shovel",
+    "itemID": -1536855921,
+    "description": "A shovel for digging up stuff",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Shovel Bass",
+    "shortName": "fun.bass",
+    "itemID": -2107018088,
+    "description": "Use this stringed together shovel to play some deep, deep tunes.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Sickle",
+    "shortName": "sickle",
+    "itemID": -1368584029,
+    "description": "A very sharp curved cutting weapon. While its traditional role was to cut grass, this tool is also extremely versatile at cutting throats, perhaps trees, too.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Siege Tower",
+    "shortName": "siegetower",
+    "itemID": -1290278434,
+    "description": "A rolling siege tower, providing cover and access to enemy bases. Can be locked with your own door. Can be towed by horses.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Silver Egg",
+    "shortName": "easter.silveregg",
+    "itemID": 1757265204,
+    "description": "A Silver Egg. Contains medium level loot, Collect 10 to upgrade to a gold Egg",
+    "stackSize": 10
+  },
+  {
+    "displayName": "Simple Handmade Sight",
+    "shortName": "weapon.mod.simplesight",
+    "itemID": -855748505,
+    "description": "A poorly made sight, slightly better than iron sights.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Simple Light",
+    "shortName": "electric.simplelight",
+    "itemID": -282113991,
+    "description": "A simple debugging light",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Single Horse Saddle",
+    "shortName": "horse.saddle.single",
+    "itemID": 1559915778,
+    "description": "A horse saddle with one seat. Having this item allows you to claim a horse in a stable by holding E and selecting the \"Claim\" option",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Single Plant Pot",
+    "shortName": "plantpot.single",
+    "itemID": -430416124,
+    "description": "A single plant pot.",
+    "stackSize": 5
+  },
+  {
+    "displayName": "Single Shallow Wall Shelves",
+    "shortName": "single.shallow.wall.shelves",
+    "itemID": -193519904,
+    "description": "Single Shallow Wall Shelves",
+    "stackSize": 10
+  },
+  {
+    "displayName": "Single Sign Post",
+    "shortName": "sign.post.single",
+    "itemID": 1542290441,
+    "description": "A single sign post that you can plant into terrain.",
+    "stackSize": 5
+  },
+  {
+    "displayName": "Siren Light",
+    "shortName": "electric.sirenlight",
+    "itemID": 762289806,
+    "description": "A spinning siren light",
+    "stackSize": 5
+  },
+  {
+    "displayName": "Skinning Knife",
+    "shortName": "knife.skinning",
+    "itemID": -2073432256,
+    "description": "A sharp skinning knife. Extremely good at harvesting flesh and can produce trophies that can be mounted on Hunting Trophies.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "SKS",
+    "shortName": "rifle.sks",
+    "itemID": -348232115,
+    "description": "A Military-Grade Semi Automatic Rifle.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Skull",
+    "shortName": "skull",
+    "itemID": 1312843609,
+    "description": "A spooky skull",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Skull Door Knocker",
+    "shortName": "skulldoorknocker",
+    "itemID": -216116642,
+    "description": "A spooky skull door knocker",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Skull Fire Pit",
+    "shortName": "skull_fire_pit",
+    "itemID": 553887414,
+    "description": "Enjoy burning your enemies remnants to ashes with this Halloween exclusive! Provides warmth and light, and you can cook with it.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Skull Spikes",
+    "shortName": "skullspikes.candles",
+    "itemID": -25740268,
+    "description": "A spike of several skulls. Very spooky.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Skull Spikes",
+    "shortName": "skullspikes.pumpkin",
+    "itemID": -1078639462,
+    "description": "A spike of several skulls. Very spooky.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Skull Spikes",
+    "shortName": "skullspikes",
+    "itemID": -1073015016,
+    "description": "A spike of several skulls. Very spooky.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Skull Trophy",
+    "shortName": "skull.trophy",
+    "itemID": -769647921,
+    "description": "A decorative mount that can hold the skull of a friend or foe.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Skull Trophy",
+    "shortName": "skull.trophy.table",
+    "itemID": -156748077,
+    "description": "A decorative mount that can hold the skull of a friend or foe.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Skull Trophy",
+    "shortName": "skull.trophy.jar2",
+    "itemID": -924959988,
+    "description": "A decorative mount that can hold the skull of a friend or foe.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Skull Trophy",
+    "shortName": "skull.trophy.jar",
+    "itemID": 971362526,
+    "description": "A decorative mount that can hold the skull of a friend or foe.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Sky Lantern",
+    "shortName": "skylantern",
+    "itemID": 1819863051,
+    "description": "A beautiful sky lantern. Can be launched in any direction. Has one inventory slot. Can be Ignited with a lit torch.",
+    "stackSize": 20
+  },
+  {
+    "displayName": "Sky Lantern - Green",
+    "shortName": "skylantern.skylantern.green",
+    "itemID": -1770889433,
+    "description": "",
+    "stackSize": 20
+  },
+  {
+    "displayName": "Sky Lantern - Orange",
+    "shortName": "skylantern.skylantern.orange",
+    "itemID": -1824770114,
+    "description": "",
+    "stackSize": 20
+  },
+  {
+    "displayName": "Sky Lantern - Purple",
+    "shortName": "skylantern.skylantern.purple",
+    "itemID": 831955134,
+    "description": "",
+    "stackSize": 20
+  },
+  {
+    "displayName": "Sky Lantern - Red",
+    "shortName": "skylantern.skylantern.red",
+    "itemID": -1433390281,
+    "description": "",
+    "stackSize": 20
+  },
+  {
+    "displayName": "Sled",
+    "shortName": "sled.xmas",
+    "itemID": -135252633,
+    "description": "A wooden sled to quickly travel down snowy hills.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Sled",
+    "shortName": "sled",
+    "itemID": -333406828,
+    "description": "A wooden sled to quickly travel down snowy hills.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Sleeping Bag",
+    "shortName": "sleepingbag",
+    "itemID": -1754948969,
+    "description": "A sleeping bag. Placing this will give you or an assigned player a place to respawn, with a long cooldown.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Small Backpack",
+    "shortName": "smallbackpack",
+    "itemID": 2068884361,
+    "description": "A small, makeshift backpack",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Small Candle Set",
+    "shortName": "smallcandles",
+    "itemID": -2058362263,
+    "description": "Small Candles",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Small Chassis",
+    "shortName": "vehicle.chassis.2mod",
+    "itemID": -44066600,
+    "description": "Two-socket vehicle chassis.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Small Generator",
+    "shortName": "electric.fuelgenerator.small",
+    "itemID": 1849887541,
+    "description": "A small electric generator powered by Low Grade Fuel that outputs 40 power.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Small Hunting Trophy",
+    "shortName": "huntingtrophysmall",
+    "itemID": -869598982,
+    "description": "A trophy stand to mount the head of killed animals or enemies.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Small Loot Bag",
+    "shortName": "halloween.lootbag.small",
+    "itemID": 1319617282,
+    "description": "Open for a surprise, or collect 10 to upgrade to a medium loot bag containing better loot!",
+    "stackSize": 10
+  },
+  {
+    "displayName": "Small Neon Sign",
+    "shortName": "sign.neon.125x125",
+    "itemID": 1305578813,
+    "description": "A small neon sign!",
+    "stackSize": 5
+  },
+  {
+    "displayName": "Small Oil Refinery",
+    "shortName": "small.oil.refinery",
+    "itemID": -1293296287,
+    "description": "A small refinery which can produce Low Grade Fuel from Crude Oil.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Small Planter Box",
+    "shortName": "planter.small",
+    "itemID": 1903654061,
+    "description": "A small planter with enough room to plant 3 seeds.",
+    "stackSize": 10
+  },
+  {
+    "displayName": "Small Present",
+    "shortName": "xmas.present.small",
+    "itemID": -722241321,
+    "description": "A small stocking stuffer present, Collect 10 to upgrade to a larger present.",
+    "stackSize": 10
+  },
+  {
+    "displayName": "Small Rechargeable Battery",
+    "shortName": "electric.battery.rechargable.small",
+    "itemID": -692338819,
+    "description": "A small rechargable battery. Must have a minimum charge of 5 seconds to discharge. Can be wired in series. Charging rate is dependant on power in, with a maximum of 80% efficiency.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Small Shark",
+    "shortName": "fish.smallshark",
+    "itemID": -1768880890,
+    "description": "A small, surprisingly aggressive deep sea predator. Eats everything, so you never know what you'll find in it's stomach.",
+    "stackSize": 5
+  },
+  {
+    "displayName": "Small Stash",
+    "shortName": "stash.small",
+    "itemID": -369760990,
+    "description": "A hidden, burried stash to keep your items safe. After placing, return to the stash and aim at the ground where you hid it and it will reveal itself.",
+    "stackSize": 5
+  },
+  {
+    "displayName": "Small Stocking",
+    "shortName": "stocking.small",
+    "itemID": 1668858301,
+    "description": "A small stocking. Hang it by a fire and you might just get a gift! Collect 6 to upgrade to a SUPER Stocking.",
+    "stackSize": 5
+  },
+  {
+    "displayName": "Small Trout",
+    "shortName": "fish.troutsmall",
+    "itemID": -1878764039,
+    "description": "A Small Trout. Good for a few meals.",
+    "stackSize": 10
+  },
+  {
+    "displayName": "Small Water Bottle",
+    "shortName": "smallwaterbottle",
+    "itemID": -1039528932,
+    "description": "A Small Water Bottle. Left click to drink, right click to fill from water sources, or to pour out.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Small Water Catcher",
+    "shortName": "water.catcher.small",
+    "itemID": -132247350,
+    "description": "Collects drinkable water from the air via rain and dew. Can be connected to other entities to provide water, 20ml a second.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Small Wooden Sign",
+    "shortName": "sign.wooden.small",
+    "itemID": -1138208076,
+    "description": "A 1-meter by 0.5-meter wooden sign that you can write on.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Smart Alarm",
+    "shortName": "smart.alarm",
+    "itemID": -695978112,
+    "description": "Sends a notifications to your phone when powered on.",
+    "stackSize": 5
+  },
+  {
+    "displayName": "Smart Switch",
+    "shortName": "smart.switch",
+    "itemID": 988652725,
+    "description": "A smart electric switch.",
+    "stackSize": 5
+  },
+  {
+    "displayName": "SMG Body",
+    "shortName": "smgbody",
+    "itemID": 1230323789,
+    "description": "The firing mechanism of a submachinegun. Used in construction of a weapon that can fire pistol ammo fully automatic.",
+    "stackSize": 10
+  },
+  {
+    "displayName": "Smoke Grenade",
+    "shortName": "grenade.smoke",
+    "itemID": 1263920163,
+    "description": "Produces a large cloud of opaque greyish white smoke.",
+    "stackSize": 3
+  },
+  {
+    "displayName": "Smoke Rocket WIP!!!!",
+    "shortName": "ammo.rocket.smoke",
+    "itemID": -17123659,
+    "description": "Emits thick, visibility blocking smoke upon impact.",
+    "stackSize": 3
+  },
+  {
+    "displayName": "Snake mask",
+    "shortName": "hat.snakemask",
+    "itemID": -1314079879,
+    "description": "A Beautifully crafted Snake mask to celebrate the 2025 Lunar New Year",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Snake Venom",
+    "shortName": "venom.snake",
+    "itemID": -870140677,
+    "description": "The venom of a snake. Used to create Incapacitate darts.",
+    "stackSize": 10
+  },
+  {
+    "displayName": "Snap Trap",
+    "shortName": "trap.bear",
+    "itemID": -582782051,
+    "description": "A metal trap that can injure or even kill people when stepped on. Can be picked up after been triggered.",
+    "stackSize": 3
+  },
+  {
+    "displayName": "Snowball",
+    "shortName": "snowball",
+    "itemID": -363689972,
+    "description": "A snowball, throw it!",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Snowball Gun",
+    "shortName": "snowballgun",
+    "itemID": 1103488722,
+    "description": "Load snowballs and lay waste to your foes with Christmas cheer.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Snow Jacket",
+    "shortName": "jacket.snow",
+    "itemID": -48090175,
+    "description": "A thick, high visibility Jacket. It will help keep you warm in any climate.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Snow Machine",
+    "shortName": "snowmachine",
+    "itemID": 1358643074,
+    "description": "A machine which will blanket the surrounding terrain in snow.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Snowman",
+    "shortName": "snowman",
+    "itemID": 1629293099,
+    "description": "Get into the holiday spirit with this decorative snowman",
+    "stackSize": 5
+  },
+  {
+    "displayName": "Snowman Helmet",
+    "shortName": "attire.snowman.helmet",
+    "itemID": -842267147,
+    "description": "A snowman helmet which provides ample protection.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Snowmobile",
+    "shortName": "snowmobile",
+    "itemID": -1364246987,
+    "description": "A custom snowmobile, made of various bits and pieces.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Soda Can Silencer",
+    "shortName": "weapon.mod.sodacansilencer",
+    "itemID": -1659598760,
+    "description": "Significantly reduces the sound of gunfire, and completely removes any visible muzzle flash. Crudely made out of a soda can, this will only survive a few shots.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Sofa",
+    "shortName": "sofa",
+    "itemID": -555122905,
+    "description": "A comfortable old sofa. A decorative item which provides comfort and seats two.",
+    "stackSize": 2
+  },
+  {
+    "displayName": "Sofa - Pattern",
+    "shortName": "sofa.pattern",
+    "itemID": 782422285,
+    "description": "A comfortable old sofa with a floral pattern. A decorative item which provides comfort and seats two.",
+    "stackSize": 2
+  },
+  {
+    "displayName": "Solo Submarine",
+    "shortName": "submarinesolo",
+    "itemID": -187031121,
+    "description": "A small one-person submarine.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Sound Light",
+    "shortName": "soundlight",
+    "itemID": -343857907,
+    "description": "A light that will pulse in time to music when connected to a Boom Box.",
+    "stackSize": 5
+  },
+  {
+    "displayName": "Sousaphone",
+    "shortName": "fun.tuba",
+    "itemID": 1784406797,
+    "description": "A collection of used piping that’s been converted into a Tuba. Probably not very hygienic.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Space Suit",
+    "shortName": "hazmatsuit.spacesuit",
+    "itemID": -560304835,
+    "description": "A spacesuit built for harsh conditions.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Spas-12 Shotgun",
+    "shortName": "shotgun.spas12",
+    "itemID": -41440462,
+    "description": "A semi automatic military issue shotgun",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Speargun",
+    "shortName": "speargun",
+    "itemID": -1517740219,
+    "description": "A speargun which can only be fired underwater. Excellent for hunting Sharks.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Speargun Spear",
+    "shortName": "speargun.spear",
+    "itemID": -1800345240,
+    "description": "Ammunition for a speargun.",
+    "stackSize": 64
+  },
+  {
+    "displayName": "Spider Webs",
+    "shortName": "spiderweb",
+    "itemID": 882559853,
+    "description": "Giant Cobwebs which can be hung against both a ceiling and a wall.",
+    "stackSize": 10
+  },
+  {
+    "displayName": "Spinning wheel",
+    "shortName": "spinner.wheel",
+    "itemID": -1100422738,
+    "description": "An interactive spinning wheel.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Splitter",
+    "shortName": "electric.splitter",
+    "itemID": -563624462,
+    "description": "Splits an electrical signal into 3 multiple signals. the amount passed through is equal to the input amount divided by the number of used output slots.",
+    "stackSize": 5
+  },
+  {
+    "displayName": "Spoiled Bear Meat",
+    "shortName": "bearmeat.spoiled",
+    "itemID": 1348294923,
+    "description": "Spoiled Bear Meat. Consuming will damage your health.",
+    "stackSize": 20
+  },
+  {
+    "displayName": "Spoiled Big Cat Meat",
+    "shortName": "bigcatmeat.spoiled",
+    "itemID": 248643189,
+    "description": "Spoiled Big Cat Meat. Consuming will damage your health.",
+    "stackSize": 20
+  },
+  {
+    "displayName": "Spoiled Chicken",
+    "shortName": "chicken.spoiled",
+    "itemID": -751151717,
+    "description": "Spoiled Chicken. Eating it will damage your health.",
+    "stackSize": 20
+  },
+  {
+    "displayName": "Spoiled Crocodile Meat",
+    "shortName": "crocodilemeat.spoiled",
+    "itemID": -1796837031,
+    "description": "Spoiled Crocodile Meat. Consuming will damage your health.",
+    "stackSize": 20
+  },
+  {
+    "displayName": "Spoiled Deer Meat",
+    "shortName": "deermeat.spoiled",
+    "itemID": -2035449523,
+    "description": "Spoiled Deer Meat. Consuming will damage your health.",
+    "stackSize": 20
+  },
+  {
+    "displayName": "Spoiled Fish Meat",
+    "shortName": "fish.spoiled",
+    "itemID": 1130729138,
+    "description": "Spoiled Fish Meat. Consuming will damage your health.",
+    "stackSize": 20
+  },
+  {
+    "displayName": "Spoiled Horse Meat",
+    "shortName": "horsemeat.spoiled",
+    "itemID": -724146494,
+    "description": "Spoiled Horse Meat. Consuming will damage your health.",
+    "stackSize": 20
+  },
+  {
+    "displayName": "Spoiled Human Meat",
+    "shortName": "humanmeat.spoiled",
+    "itemID": 1272768630,
+    "description": "Spoiled Human Meat. Consuming will damage your health.",
+    "stackSize": 20
+  },
+  {
+    "displayName": "Spoiled Pork Meat",
+    "shortName": "porkmeat.spoiled",
+    "itemID": 1925646349,
+    "description": "Spoiled Pork Meat. Consuming will damage your health.",
+    "stackSize": 20
+  },
+  {
+    "displayName": "Spoiled Produce",
+    "shortName": "spoiled.produce",
+    "itemID": 1184215560,
+    "description": "A spoiled fruit or vegetable. It's so far gone it's hard to tell what it originally was.",
+    "stackSize": 10
+  },
+  {
+    "displayName": "Spoiled Snake Meat",
+    "shortName": "snakemeat.spoiled",
+    "itemID": -1616704051,
+    "description": "Spoiled Snake Meat. Consuming will damage your health.",
+    "stackSize": 20
+  },
+  {
+    "displayName": "Spoiled Wolf Meat",
+    "shortName": "wolfmeat.spoiled",
+    "itemID": -1167031859,
+    "description": "Spoiled Wolf Meat. Consuming will damage your health.",
+    "stackSize": 20
+  },
+  {
+    "displayName": "Spooky Speaker",
+    "shortName": "spookyspeaker",
+    "itemID": 1885488976,
+    "description": "Frighten your guests with creepy and spooky halloween sounds!",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Spray Can",
+    "shortName": "spraycan",
+    "itemID": -596876839,
+    "description": "Use the Spray Can to leave Tags or reskin your items. Press [attack] to spray and [attack2] to reskin items.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Spray Can Decal",
+    "shortName": "spraycandecal",
+    "itemID": -1366326648,
+    "description": "",
+    "stackSize": 10
+  },
+  {
+    "displayName": "Sprinkler",
+    "shortName": "electric.sprinkler",
+    "itemID": -781014061,
+    "description": "A small sprinkler that sprays water around it. Requires a hose connection to supply it with water.",
+    "stackSize": 10
+  },
+  {
+    "displayName": "Star Tree Topper",
+    "shortName": "xmas.decoration.star",
+    "itemID": -1331212963,
+    "description": "A golden star to top off your Christmas Tree",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Sticks",
+    "shortName": "sticks",
+    "itemID": 642482233,
+    "description": "Some long, some short.",
+    "stackSize": 100
+  },
+  {
+    "displayName": "Stone Barricade",
+    "shortName": "barricade.stone",
+    "itemID": 15388698,
+    "description": "A protective barricade made out of Stones.",
+    "stackSize": 10
+  },
+  {
+    "displayName": "Stone Fireplace",
+    "shortName": "fireplace.stone",
+    "itemID": -1535621066,
+    "description": "A stone fireplace to heat your home. Must be placed indoors and against a wall.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Stone Hatchet",
+    "shortName": "stonehatchet",
+    "itemID": -1583967946,
+    "description": "Primitive tool used for harvesting wood from trees and logs.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Stone Pickaxe",
+    "shortName": "stone.pickaxe",
+    "itemID": 171931394,
+    "description": "Primitive tool used for harvesting Stone, Metal ore and Sulfur ore.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Stones",
+    "shortName": "stones",
+    "itemID": -2099697608,
+    "description": "Harvested from rocks using tools, basic building material.",
+    "stackSize": 1000
+  },
+  {
+    "displayName": "Stone Spear",
+    "shortName": "spear.stone",
+    "itemID": 1602646136,
+    "description": "A stone-tipped wooden Spear. Slightly longer range.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Storage Adaptor",
+    "shortName": "storageadaptor",
+    "itemID": -1049172752,
+    "description": "Attach to a storage container to allow industrial input/output connections.",
+    "stackSize": 5
+  },
+  {
+    "displayName": "Storage Barrel Horizontal",
+    "shortName": "storage_barrel_c",
+    "itemID": -1421257350,
+    "description": "Keep your things in this wooden barrel. Stores up to 48 items. Cannot be locked.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Storage Barrel Vertical",
+    "shortName": "storage_barrel_b",
+    "itemID": 1307626005,
+    "description": "Keep your things in this wooden barrel. Stores up to 48 items. Cannot be locked.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Storage Monitor",
+    "shortName": "storage.monitor",
+    "itemID": 1149964039,
+    "description": "The Storage Monitor attaches to the Tool Cupboard and Large Storage Box to monitor the container contents. Output sends a pulse when the container is updated.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Storage Vehicle Module",
+    "shortName": "vehicle.1mod.storage",
+    "itemID": 268565518,
+    "description": "Single module storage.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Strengthened Glass Window",
+    "shortName": "wall.window.glass.reinforced",
+    "itemID": -1614955425,
+    "description": "Bulletproof glass insert",
+    "stackSize": 10
+  },
+  {
+    "displayName": "Strobe Light",
+    "shortName": "strobelight",
+    "itemID": 2104517339,
+    "description": "A flashing light, 3 speeds. Causes seizures.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Sulfur",
+    "shortName": "sulfur",
+    "itemID": -1581843485,
+    "description": "Sulfur is commonly used in gunpowder, medicine, and matches. Matches release sulfur dioxide when they burn, giving them their smell. Sulfur is an essential component to living cells. Many proteins contain sulfur. It is also used as a pesticide on organic farms.",
+    "stackSize": 1000
+  },
+  {
+    "displayName": "Sulfur Ore",
+    "shortName": "sulfur.ore",
+    "itemID": -1157596551,
+    "description": "A rock containing sulfur. The sulfur can be extracted using a furnace.",
+    "stackSize": 1000
+  },
+  {
+    "displayName": "Sunflower",
+    "shortName": "sunflower",
+    "itemID": -611118083,
+    "description": "Very tall.",
+    "stackSize": 20
+  },
+  {
+    "displayName": "Sunflower Clone",
+    "shortName": "clone.sunflower",
+    "itemID": 912235912,
+    "description": "A clipping of a sunflower plant.",
+    "stackSize": 50
+  },
+  {
+    "displayName": "Sunflower Seed",
+    "shortName": "seed.sunflower",
+    "itemID": 1412103380,
+    "description": "Sunflower seeds can be found when picking wild Sunflowers.",
+    "stackSize": 50
+  },
+  {
+    "displayName": "Sunglasses",
+    "shortName": "sunglasses02black",
+    "itemID": 1258768145,
+    "description": "A pair of sunglasses. Functional and stylish!",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Sunglasses",
+    "shortName": "sunglasses02camo",
+    "itemID": -2103694546,
+    "description": "A pair of sunglasses. Functional and stylish!",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Sunglasses",
+    "shortName": "sunglasses02red",
+    "itemID": 1557173737,
+    "description": "A pair of sunglasses. Functional and stylish!",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Sunglasses",
+    "shortName": "sunglasses03black",
+    "itemID": -176608084,
+    "description": "A pair of sunglasses. Functional and stylish!",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Sunglasses",
+    "shortName": "sunglasses03chrome",
+    "itemID": -1997698639,
+    "description": "A pair of sunglasses. Functional and stylish!",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Sunglasses",
+    "shortName": "sunglasses03gold",
+    "itemID": -1408336705,
+    "description": "A pair of sunglasses. Functional and stylish!",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Sunglasses",
+    "shortName": "sunglasses",
+    "itemID": 352321488,
+    "description": "A pair of sunglasses. Functional and stylish!",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Sunken Combat Knife",
+    "shortName": "sunken.knife",
+    "itemID": 789333045,
+    "description": "A corroded sunken knife designed for close combat engagements, can attack while sprinting. Best in class at harvesting flesh.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Super Serum",
+    "shortName": "supertea",
+    "itemID": -1003665711,
+    "description": "Super Serum, more ore, more wood, more scrap",
+    "stackSize": 1
+  },
+  {
+    "displayName": "SUPER Stocking",
+    "shortName": "stocking.large",
+    "itemID": -465682601,
+    "description": "A SUPER Stocking. Hang it by a fire and you might just get an awesome gift!",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Supply Signal",
+    "shortName": "supply.signal",
+    "itemID": 1397052267,
+    "description": "Purple signal smoke. Use to mark a location for an airdrop.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Surface torpedo",
+    "shortName": "submarine.torpedo.rising",
+    "itemID": -239306133,
+    "description": "A torpedo for use in a submarine. Fires ahead while rising to the water's surface.",
+    "stackSize": 100
+  },
+  {
+    "displayName": "Surgeon Scrubs",
+    "shortName": "halloween.surgeonsuit",
+    "itemID": -1785231475,
+    "description": "A Surgeon Suit",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Survey Charge",
+    "shortName": "surveycharge",
+    "itemID": 1975934948,
+    "description": "Use this on the terrain to see which resources are available for mining.",
+    "stackSize": 10
+  },
+  {
+    "displayName": "Survival Fish Trap",
+    "shortName": "fishtrap.small",
+    "itemID": 559147458,
+    "description": "Traps fish, place on the shore and load with bait. The more bait loaded the bigger the chance of catching Trout.",
+    "stackSize": 5
+  },
+  {
+    "displayName": "Survivor's Pie",
+    "shortName": "pie.survivors",
+    "itemID": -963820355,
+    "description": "It's people. Survivor's pie is made out of people. Provides a boost to health, hunger and hydration. Increases yield when harvesting corpses for a short time.",
+    "stackSize": 3
+  },
+  {
+    "displayName": "Switch",
+    "shortName": "electric.switch",
+    "itemID": 1951603367,
+    "description": "A simple electric switch.",
+    "stackSize": 5
+  },
+  {
+    "displayName": "Table",
+    "shortName": "table",
+    "itemID": 593465182,
+    "description": "Every home needs a table. A decorative item which provides comfort when in close proximity.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Tactical Gloves",
+    "shortName": "tactical.gloves",
+    "itemID": -1108136649,
+    "description": "Military issue tactical gloves provide protection as well as weapon stabilization leading to higher accuracy when used.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Tall Picture Frame",
+    "shortName": "sign.pictureframe.tall",
+    "itemID": 121049755,
+    "description": "A tall canvas for artists paintings.",
+    "stackSize": 5
+  },
+  {
+    "displayName": "Tall Weapon Rack",
+    "shortName": "gunrack_tall.horizontal",
+    "itemID": 240752557,
+    "description": "Artfully display your arsenal with a handcrafted wall-mounted weapon rack.",
+    "stackSize": 10
+  },
+  {
+    "displayName": "Tank Top",
+    "shortName": "shirt.tanktop",
+    "itemID": 1608640313,
+    "description": "A tank top, comes with free stains. Basic protection, but better than nothing.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Targeting Attachment",
+    "shortName": "weapon.mod.targetingattachment",
+    "itemID": 1719587208,
+    "description": "An internal weapon mod that allows the user to send pings to their team while the weapon is equipped.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Targeting Computer",
+    "shortName": "targeting.computer",
+    "itemID": 1523195708,
+    "description": "A computer loaded with software that can analyze a video and produce rotational deltas to individual objects contained in the feed.",
+    "stackSize": 64
+  },
+  {
+    "displayName": "Tarp",
+    "shortName": "tarp",
+    "itemID": 2019042823,
+    "description": "A waterproof tarp.",
+    "stackSize": 20
+  },
+  {
+    "displayName": "Taxi Vehicle Module",
+    "shortName": "vehicle.1mod.taxi",
+    "itemID": -626174997,
+    "description": "Single module seating for two passengers, with protection at the front.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Teal",
+    "shortName": "rockingchair.rockingchair2",
+    "itemID": 1758333838,
+    "description": "",
+    "stackSize": 5
+  },
+  {
+    "displayName": "Tech Trash",
+    "shortName": "techparts",
+    "itemID": 73681876,
+    "description": "A collection of random tech parts.",
+    "stackSize": 50
+  },
+  {
+    "displayName": "Telephone",
+    "shortName": "telephone",
+    "itemID": 1234878710,
+    "description": "Use the telephone to call other telephones on the island!",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Tesla Coil",
+    "shortName": "electric.teslacoil",
+    "itemID": 1371909803,
+    "description": "An electrical trap that zaps nearby players when powered. More power supplied will result in higher damage. Loses durability with use.",
+    "stackSize": 3
+  },
+  {
+    "displayName": "Test Generator",
+    "shortName": "electric.generator.small",
+    "itemID": -295829489,
+    "description": "A Mailbox that accepts notes. Only you can access the mail due to a one way slit.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Thompson",
+    "shortName": "smg.thompson",
+    "itemID": -1758372725,
+    "description": "A medium damage machine gun.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Tiger Mask",
+    "shortName": "hat.tigermask",
+    "itemID": 709206314,
+    "description": "A special tiger mask to celebrate Chinese New Year",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Timed Explosive Charge",
+    "shortName": "explosive.timed",
+    "itemID": 1248356124,
+    "description": "C4, useful for breaking into bases.",
+    "stackSize": 10
+  },
+  {
+    "displayName": "Timer",
+    "shortName": "electric.timer",
+    "itemID": 665332906,
+    "description": "A Timer switch, will pass power through for duration.",
+    "stackSize": 5
+  },
+  {
+    "displayName": "Tin Can Alarm",
+    "shortName": "tincan.alarm",
+    "itemID": 962186730,
+    "description": "A primitive perimeter alarm made from hanging tin cans. Clatters loudly when disturbed, alerting you to any trespassers. Simple but effective.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Tomaha Snowmobile",
+    "shortName": "snowmobiletomaha",
+    "itemID": 1768112091,
+    "description": "An old snowmobile from around 1980.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Tool Cupboard",
+    "shortName": "cupboard.tool",
+    "itemID": -97956382,
+    "description": "Placing and authorising with the cupboard will make it so only you can build in a 50 meter radius of it. If you want your friends to build, they'll need to auth too. You should protect this.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Torch",
+    "shortName": "torch",
+    "itemID": 795236088,
+    "description": "A Torch. Lights your way at night and can be used as a weapon.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Torch Holder",
+    "shortName": "torchholder",
+    "itemID": 446206234,
+    "description": "A wall mounted holder for torches.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Torpedo",
+    "shortName": "submarine.torpedo.straight",
+    "itemID": -1671551935,
+    "description": "A torpedo for use in a submarine. Fires ahead in a straight line.",
+    "stackSize": 100
+  },
+  {
+    "displayName": "Tree Lights",
+    "shortName": "xmas.decoration.lights",
+    "itemID": 1723747470,
+    "description": "A tree isn't complete without colorful lights!",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Triangle Ladder Hatch",
+    "shortName": "floor.triangle.ladder.hatch",
+    "itemID": 2041899972,
+    "description": "A hatch that opens and changes into a ladder.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Triangle Planter Box",
+    "shortName": "planter.triangle",
+    "itemID": -280812482,
+    "description": "A triangle planter with enough room to plant 4 seeds.",
+    "stackSize": 10
+  },
+  {
+    "displayName": "Triangle Rail Road Planter",
+    "shortName": "triangle.rail.road.planter",
+    "itemID": 647240052,
+    "description": "A triangle planter with enough room to plant 4 seeds.",
+    "stackSize": 10
+  },
+  {
+    "displayName": "Trike",
+    "shortName": "trike",
+    "itemID": 1991794121,
+    "description": "A three-wheeled bicycle.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "T-Shirt",
+    "shortName": "tshirt",
+    "itemID": 223891266,
+    "description": "A tshirt, simple undergarment. Good protection from damage and the elements.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Tugboat",
+    "shortName": "tugboat",
+    "itemID": -561148628,
+    "description": "",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Tuna Can Lamp",
+    "shortName": "tunalight",
+    "itemID": -1478445584,
+    "description": "A makeshift wall light. Still smells faintly of fish.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Twitch Rivals Desk",
+    "shortName": "twitchrivals2023desk",
+    "itemID": -243540612,
+    "description": "Twitch Rivals Desk",
+    "stackSize": 5
+  },
+  {
+    "displayName": "Twitch Rivals Flag",
+    "shortName": "twitchrivalsflag",
+    "itemID": -739993590,
+    "description": "A wearable flag for Twitch Rivals",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Twitch Rivals Hazmat Suit",
+    "shortName": "hazmatsuittwitch",
+    "itemID": 468313189,
+    "description": "A purple hazmat suit made from radiation resistant rubber.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Twitch Rivals Trophy",
+    "shortName": "trophy",
+    "itemID": 975983052,
+    "description": "A trophy dedicated to the survivors of Rust Twitch Rivals",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Twitch Rivals Trophy 2023",
+    "shortName": "trophy2023",
+    "itemID": -901370585,
+    "description": "A trophy dedicated to the survivors of Rust Twitch Rivals 2023",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Two Sided Hanging Sign",
+    "shortName": "sign.hanging",
+    "itemID": 1205607945,
+    "description": "A double sided hanging sign, to attach to buildings.",
+    "stackSize": 5
+  },
+  {
+    "displayName": "Two Sided Ornate Hanging Sign",
+    "shortName": "sign.hanging.ornate",
+    "itemID": -1647846966,
+    "description": "A double sided hanging sign, to attach to buildings.",
+    "stackSize": 5
+  },
+  {
+    "displayName": "Two Sided Town Sign Post",
+    "shortName": "sign.post.town.roof",
+    "itemID": 826309791,
+    "description": "A double sided town sign post, with roof, that you can plant into terrain.",
+    "stackSize": 5
+  },
+  {
+    "displayName": "Two-Way Mirror",
+    "shortName": "twowaymirror.window",
+    "itemID": -1683726934,
+    "description": "A Two-Way mirror",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Unused Storage Barrel Vertical",
+    "shortName": "storage_barrel_a",
+    "itemID": -258457936,
+    "description": "Keep your things in this wooden storage box. Stores up to 48 items.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Vampire Stake",
+    "shortName": "vampire.stake",
+    "itemID": -885833256,
+    "description": "A stake adorned with special properties making it able to release the soul of undead creatures with a single strike, as well as yield extra loot from their remains.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Variable Zoom Scope",
+    "shortName": "weapon.mod.8x.scope",
+    "itemID": 174866732,
+    "description": "A large military-grade scope that can be configured from 4x zoom to 16x zoom.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Vending Machine",
+    "shortName": "vending.machine",
+    "itemID": 198438816,
+    "description": "Trade your goods with other players safely by creating sell and buy orders. If a raider gains access to the rear panel, they will have free reign over all of your goodies. Keep it safe.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Violet Boomer",
+    "shortName": "firework.boomer.violet",
+    "itemID": -280223496,
+    "description": "A very large mortar type firework with a violet starburst",
+    "stackSize": 20
+  },
+  {
+    "displayName": "Violet Roman Candle",
+    "shortName": "firework.romancandle.violet",
+    "itemID": -99886070,
+    "description": "A small repeating firework, shoots a series of Violet balls into the air",
+    "stackSize": 20
+  },
+  {
+    "displayName": "Violet Volcano Firework",
+    "shortName": "firework.volcano.violet",
+    "itemID": -1538109120,
+    "description": "Emits a beautiful shower of Violet sparks",
+    "stackSize": 20
+  },
+  {
+    "displayName": "Vodka Bottle",
+    "shortName": "bottle.vodka",
+    "itemID": 755224797,
+    "description": "A bottle of Russian Vodka.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Wagon",
+    "shortName": "wagon",
+    "itemID": 996757362,
+    "description": "A train car.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Walkie Talkie",
+    "shortName": "walkietalkie",
+    "itemID": -1416322465,
+    "description": "A walkie talkie set to an unknown channel",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Wallpaper",
+    "shortName": "wallpaper",
+    "itemID": -1501434104,
+    "description": "Transform your base from a rusty shack to a cozy hideout with this sleek wallpaper. A nice touch of style - until the next raid, at least.",
+    "stackSize": 10
+  },
+  {
+    "displayName": "Wallpaper Ceiling",
+    "shortName": "wallpaper.ceiling",
+    "itemID": 1730664641,
+    "description": "",
+    "stackSize": 10
+  },
+  {
+    "displayName": "Wallpaper Flooring",
+    "shortName": "wallpaper.flooring",
+    "itemID": -551431036,
+    "description": "",
+    "stackSize": 10
+  },
+  {
+    "displayName": "Wallpaper Tool",
+    "shortName": "wallpaper.tool",
+    "itemID": 1629564540,
+    "description": "Transform your base from a rusty shack to a cozy hideout! This tool lets you apply wallpaper on walls, floors and ceilings. A nice touch of style - until the next raid, at least. Press [+attack2] to select your skin.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Wallpaper Wall",
+    "shortName": "wallpaper.wall",
+    "itemID": 553967074,
+    "description": "",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Wanted Poster",
+    "shortName": "wantedposter",
+    "itemID": -1344017968,
+    "description": "A poster that can display a given player's face as wanted.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Wanted Poster 2",
+    "shortName": "wantedposter.wantedposter2",
+    "itemID": 301063058,
+    "description": "A poster that can display a given player's face as wanted.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Wanted Poster 3",
+    "shortName": "wantedposter.wantedposter3",
+    "itemID": -1265020883,
+    "description": "A poster that can display a given player's face as wanted.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Wanted Poster 4",
+    "shortName": "wantedposter.wantedposter4",
+    "itemID": 1463862472,
+    "description": "A poster that can display a given player's face as wanted.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Watch Tower",
+    "shortName": "watchtower.wood",
+    "itemID": -463122489,
+    "description": "A high wooden watchtower with a ladder",
+    "stackSize": 5
+  },
+  {
+    "displayName": "Water",
+    "shortName": "water",
+    "itemID": -1779180711,
+    "description": "Water. Drinking it will alleviate your thirst.",
+    "stackSize": 2147483647
+  },
+  {
+    "displayName": "Water Barrel",
+    "shortName": "water.barrel",
+    "itemID": -1863559151,
+    "description": "A storage container for water. Can output 10ml of water a second via a hose.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Water Bucket",
+    "shortName": "bucket.water",
+    "itemID": 1424075905,
+    "description": "A bucket for transporting water or other liquids.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Water Gun",
+    "shortName": "gun.water",
+    "itemID": 722955039,
+    "description": "A large water gun with pumpable pressure. Hold reload to pump!",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Water Jug",
+    "shortName": "waterjug",
+    "itemID": -119235651,
+    "description": "A large jerry can for all kinds of water. Holds up to 5000ml. Careful not to throw it all away!",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Waterpipe Shotgun",
+    "shortName": "shotgun.waterpipe",
+    "itemID": -1367281941,
+    "description": "A Shotgun. Fires a single round before reloading.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Water Pistol",
+    "shortName": "pistol.water",
+    "itemID": -1815301988,
+    "description": "A small water gun that doesn't require pumping, but has a lower range and output.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Water Pump",
+    "shortName": "waterpump",
+    "itemID": -1284169891,
+    "description": "Can be placed in a water source to collect that water while powered. Can be connected to other Water entities.",
+    "stackSize": 3
+  },
+  {
+    "displayName": "Water Purifier",
+    "shortName": "water.purifier",
+    "itemID": 2114754781,
+    "description": "A Water Purifier. Place overtop of a campfire. Will provide clean, drinkable water from salty, or stagnant water.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Waterwell NPC Jumpsuit",
+    "shortName": "jumpsuit.waterwellnpc",
+    "itemID": -874908751,
+    "description": "A green jumpsuit and gasmask worn by the waterwell NPC",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Weapon flashlight",
+    "shortName": "weapon.mod.flashlight",
+    "itemID": 952603248,
+    "description": "Attaches to a weapon. Provides user with a beam of light. Pressing F (default) to toggle light.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Weapon Lasersight",
+    "shortName": "weapon.mod.lasersight",
+    "itemID": -132516482,
+    "description": "Attaches to a weapon. Provides user with a guiding laser and reduces weapon sway.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Weapon Rack Double Light",
+    "shortName": "weaponrack.doublelight",
+    "itemID": 1277159544,
+    "description": "A weapon rack light.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Weapon Rack Light",
+    "shortName": "weaponrack.light",
+    "itemID": -1163943815,
+    "description": "A weapon rack light.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Weapon Rack Stand",
+    "shortName": "gunrack_stand",
+    "itemID": 1132603396,
+    "description": "Holds weaponry haphazardly, a charmingly chaotic addition to your virtual armory.",
+    "stackSize": 10
+  },
+  {
+    "displayName": "Wellipets Hat",
+    "shortName": "hat.wellipets",
+    "itemID": -507248640,
+    "description": "A hat made of wellipets boots",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Wetsuit",
+    "shortName": "diving.wetsuit",
+    "itemID": -1101924344,
+    "description": "A Wetsuit providing protection from frigid waters.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Wheat",
+    "shortName": "wheat",
+    "itemID": 1178325727,
+    "description": "A bundle of wheat. Edible, but better off in a cooking recipe.",
+    "stackSize": 20
+  },
+  {
+    "displayName": "Wheat Clone",
+    "shortName": "clone.wheat",
+    "itemID": 924598634,
+    "description": "A Clipping of a Wheat Plant.",
+    "stackSize": 50
+  },
+  {
+    "displayName": "Wheat Seed",
+    "shortName": "seed.wheat",
+    "itemID": -1790885730,
+    "description": "Wheat seeds, found when eating wheat or harvesting wild crops. Plant in the ground or a planter to grow more. Seeds grown in good conditions will have higher yields and grow faster.",
+    "stackSize": 50
+  },
+  {
+    "displayName": "Wheelbarrow Piano",
+    "shortName": "piano",
+    "itemID": 1272430949,
+    "description": "The Piano is a repurposed wheelbarrow that weighs a ton, but makes up for it with a wide range of notes.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "White Berry",
+    "shortName": "white.berry",
+    "itemID": 854447607,
+    "description": "A white berry. Can be eaten or used in mixing table recipes to create teas.",
+    "stackSize": 20
+  },
+  {
+    "displayName": "White Berry Clone",
+    "shortName": "clone.white.berry",
+    "itemID": 1533551194,
+    "description": "A clipping of a White Berry Plant.",
+    "stackSize": 50
+  },
+  {
+    "displayName": "White Berry Seed",
+    "shortName": "seed.white.berry",
+    "itemID": -992286106,
+    "description": "These white berry seeds can be planted in the ground and grown to collect additional food. Planting these seeds in a planter, and then watering them with large quantities of water yields significantly more berries and faster growth.",
+    "stackSize": 50
+  },
+  {
+    "displayName": "White ID Tag",
+    "shortName": "whiteidtag",
+    "itemID": 22947882,
+    "description": "White ID Tag",
+    "stackSize": 5000
+  },
+  {
+    "displayName": "White Volcano Firework",
+    "shortName": "firework.volcano",
+    "itemID": 261913429,
+    "description": "Emits a beautiful shower of white sparks",
+    "stackSize": 20
+  },
+  {
+    "displayName": "Wicker Barrel",
+    "shortName": "wicker.barrel",
+    "itemID": -526026171,
+    "description": "Keep your things in this wicker barrel. Stores up to 48 items. Cannot be locked.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Wide Weapon Rack",
+    "shortName": "gunrack_wide.horizontal",
+    "itemID": -96256997,
+    "description": "Artfully display your arsenal with a handcrafted wall-mounted weapon rack.",
+    "stackSize": 10
+  },
+  {
+    "displayName": "Wind Turbine",
+    "shortName": "generator.wind.scrap",
+    "itemID": -1819763926,
+    "description": "Converts kinetic energy harvested from the wind into electricity. Amount generated will vary depending on wind speed. Higher altitudes will yield stronger winds.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Wire Tool",
+    "shortName": "wiretool",
+    "itemID": -144417939,
+    "description": "A tool used to make connections between electrical objects. Aim at an object and click on an input/output handle, then click on another object's input/output handle to form a connection. Holding right mouse will clear or cancel a connection.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Wolf Headdress",
+    "shortName": "hat.wolf",
+    "itemID": -1478212975,
+    "description": "A headdress made out of the scraped out head of a wolf.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Wolf Skull",
+    "shortName": "skull.wolf",
+    "itemID": 2048317869,
+    "description": "A wolf skull.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Wood",
+    "shortName": "wood",
+    "itemID": -151838493,
+    "description": "Wood. Collected from trees and used in many crafting recipes. It's also needed to cook in camp-fires.",
+    "stackSize": 1000
+  },
+  {
+    "displayName": "Wood Armor Gloves",
+    "shortName": "woodarmor.gloves",
+    "itemID": -459159118,
+    "description": "Gloves made out of wood and leather, offers some protection to the upper body.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Wood Armor Helmet",
+    "shortName": "wood.armor.helmet",
+    "itemID": -2094954543,
+    "description": "A shoddy helmet made from simple materials, provides some basic protection from melee and ranged attacks.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Wood Armor Pants",
+    "shortName": "wood.armor.pants",
+    "itemID": 832133926,
+    "description": "A shoddy piece of leg armor made from simple materials, provides some basic protection from melee and ranged attacks.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Wood Chestplate",
+    "shortName": "wood.armor.jacket",
+    "itemID": 418081930,
+    "description": "A shoddy piece of body armor made from simple materials, provides some basic protection from melee and ranged attacks.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Wood Dart",
+    "shortName": "dart.wood",
+    "itemID": -274709858,
+    "description": "A basic damage dart.",
+    "stackSize": 64
+  },
+  {
+    "displayName": "Wood Double Door",
+    "shortName": "door.double.hinged.wood",
+    "itemID": -1336109173,
+    "description": "A Cheap door to secure your base. Its vulnerability to fire and weak explosive resistance makes the door a temporary solution to securing your base. Due to its flaws you should look at upgrading to a higher tier door such as Sheet Metal. The Wooden Door can take two kinds of locks the basic Key Lock and the Code Lock. To pick up the door, remove any locks and open, hold down the E (USE) key and select 'Pickup'.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Wooden Armor Insert",
+    "shortName": "clothing.mod.armorinsert_wood",
+    "itemID": -593892112,
+    "description": "Wood insert for crafted clothes and armor, provides some extra protection from bullets and melee.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Wooden Arrow",
+    "shortName": "arrow.wooden",
+    "itemID": -1234735557,
+    "description": "An arrow for a Hunting Bow and Crossbow.",
+    "stackSize": 64
+  },
+  {
+    "displayName": "Wooden Barricade",
+    "shortName": "barricade.wood",
+    "itemID": 866889860,
+    "description": "A wooden barricade. Will hurt players and animals that run into it.",
+    "stackSize": 10
+  },
+  {
+    "displayName": "Wooden Barricade Cover",
+    "shortName": "barricade.wood.cover",
+    "itemID": 1373240771,
+    "description": "Perfect for cover when engaging in gun fights. Decays rapidly when placed outside of building privilege.",
+    "stackSize": 5
+  },
+  {
+    "displayName": "Wooden Cross",
+    "shortName": "woodcross",
+    "itemID": 699075597,
+    "description": "A wooden cross marking the remains of an unknown soul",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Wooden Door",
+    "shortName": "door.hinged.wood",
+    "itemID": 1729120840,
+    "description": "A Cheap door to secure your base. Its vulnerability to fire and weak explosive resistance makes the door a temporary solution to securing your base. Due to its flaws you should look at upgrading to a higher tier door such as Sheet Metal. The Wooden Door can take two kinds of locks the basic Key Lock and the Code Lock. To pick up the door, remove any locks and open, hold down the E (USE) key and select 'Pickup'.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Wooden Floor Spikes",
+    "shortName": "spikes.floor",
+    "itemID": -92759291,
+    "description": "A set of spikes that will slow down and hurt anyone that walks over them.",
+    "stackSize": 10
+  },
+  {
+    "displayName": "Wooden Frontier Bar Doors",
+    "shortName": "door.double.hinged.bardoors",
+    "itemID": -1151332840,
+    "description": "Hand-carved, rugged bar doors embody the spirit of the frontier. A must-have for any survivor.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Wooden Horse Armor",
+    "shortName": "horse.armor.wood",
+    "itemID": 1659447559,
+    "description": "A full body armor for a horse made of wood. Provides moderate protection for you and your steed, but with a reduction in movement speed.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Wooden Ladder",
+    "shortName": "ladder.wooden.wall",
+    "itemID": -316250604,
+    "description": "A ladder will help you climb walls in any base.",
+    "stackSize": 5
+  },
+  {
+    "displayName": "Wooden Shield",
+    "shortName": "wooden.shield",
+    "itemID": 1604837581,
+    "description": "A basic wooden shield, won't last very long. Usable with single handed weapons and tools.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Wooden Spear",
+    "shortName": "spear.wooden",
+    "itemID": 1540934679,
+    "description": "Primitive weapon, perfect for hunting your foes. Can be upgraded to Stone Spear.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Wooden Window Bars",
+    "shortName": "wall.window.bars.wood",
+    "itemID": -1183726687,
+    "description": "Window bars made out of wood. They'll stop people climbing through your window, but probably not for very long.",
+    "stackSize": 10
+  },
+  {
+    "displayName": "Wood Frame Large",
+    "shortName": "woodframe.large",
+    "itemID": -635951327,
+    "description": "A large wooden frame",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Wood Frame Medium",
+    "shortName": "woodframe.medium",
+    "itemID": -1541706279,
+    "description": "A medium wooden frame",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Wood Frame Small",
+    "shortName": "woodframe.small",
+    "itemID": -1476278729,
+    "description": "A small wooden frame",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Wood Frame Standing",
+    "shortName": "woodframe.standing",
+    "itemID": 1769475390,
+    "description": "A standing wooden frame",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Wood Mirror Large",
+    "shortName": "woodmirror.large",
+    "itemID": 1312679249,
+    "description": "A large wooden mirror",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Wood Mirror Medium",
+    "shortName": "woodmirror.medium",
+    "itemID": 756125481,
+    "description": "A medium wood mirror",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Wood Mirror Small",
+    "shortName": "woodmirror.small",
+    "itemID": -1497205569,
+    "description": "A small wooden mirror",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Wood Mirror Standing",
+    "shortName": "woodmirror.standing",
+    "itemID": 723407026,
+    "description": "A standing wooden mirror",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Wood Shutters",
+    "shortName": "shutter.wood.a",
+    "itemID": -1023374709,
+    "description": "Wood shutters that you can open and close.",
+    "stackSize": 20
+  },
+  {
+    "displayName": "Wood Storage Box",
+    "shortName": "box.wooden",
+    "itemID": -180129657,
+    "description": "Keep your things in this wooden storage box. Stores up to 18 items.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Workbench Level 1",
+    "shortName": "workbench1",
+    "itemID": 1524187186,
+    "description": "This allows you to craft and unlock items requiring workbench level 1",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Workbench Level 2",
+    "shortName": "workbench2",
+    "itemID": -41896755,
+    "description": "This allows you to craft and unlock items requiring workbench level 2",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Workbench Level 3",
+    "shortName": "workbench3",
+    "itemID": -1607980696,
+    "description": "This allows you to craft and unlock items requiring workbench level 3",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Work Cart",
+    "shortName": "workcart",
+    "itemID": -810326667,
+    "description": "A service train designed to run on an underground rail system.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Worm",
+    "shortName": "worm",
+    "itemID": 1770475779,
+    "description": "A small, writhing worm that can be used for bait. Could also be eaten in desperate situations.",
+    "stackSize": 25
+  },
+  {
+    "displayName": "Wrapped Gift",
+    "shortName": "wrappedgift",
+    "itemID": 204970153,
+    "description": "A lazily wrapped gift.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Wrapping Paper",
+    "shortName": "wrappingpaper",
+    "itemID": 1094293920,
+    "description": "Use this to conceal any item in a lazily wrapped gift",
+    "stackSize": 1
+  },
+  {
+    "displayName": "XL Picture Frame",
+    "shortName": "sign.pictureframe.xl",
+    "itemID": -996185386,
+    "description": "An extra large canvas for artists paintings.",
+    "stackSize": 5
+  },
+  {
+    "displayName": "XOR Switch",
+    "shortName": "electric.xorswitch",
+    "itemID": 1293102274,
+    "description": "An exclusive-or logic gate that allows electrical passthrough if ONLY ONE input receives power, passthrough amount is whichever single input is active. If BOTH inputs recieve power, passthrough will be zero.",
+    "stackSize": 5
+  },
+  {
+    "displayName": "XXL Picture Frame",
+    "shortName": "sign.pictureframe.xxl",
+    "itemID": 98508942,
+    "description": "A double extra large canvas for artists paintings.",
+    "stackSize": 5
+  },
+  {
+    "displayName": "Xylobone",
+    "shortName": "xylophone",
+    "itemID": -211235948,
+    "description": "A selection of bones that were “acquired” for their acoustic attributes. Play a lullaby for your camp with these soothing tones.",
+    "stackSize": 1
+  },
+  {
+    "displayName": "Yellow Berry",
+    "shortName": "yellow.berry",
+    "itemID": 1660145984,
+    "description": "A yellow berry. Can be eaten or used in mixing table recipes to create teas.",
+    "stackSize": 20
+  },
+  {
+    "displayName": "Yellow Berry Clone",
+    "shortName": "clone.yellow.berry",
+    "itemID": 390728933,
+    "description": "A clipping of a Yellow Berry Plant.",
+    "stackSize": 50
+  },
+  {
+    "displayName": "Yellow Berry Seed",
+    "shortName": "seed.yellow.berry",
+    "itemID": -520133715,
+    "description": "These yellow berry seeds can be planted in the ground and grown to collect additional food. Planting these seeds in a planter, and then watering them with large quantities of water yields significantly more berries and faster growth.",
+    "stackSize": 50
+  },
+  {
+    "displayName": "Yellow ID Tag",
+    "shortName": "yellowidtag",
+    "itemID": 81423963,
+    "description": "Yellow ID Tag",
+    "stackSize": 5000
+  },
+  {
+    "displayName": "Yellow Perch",
+    "shortName": "fish.yellowperch",
+    "itemID": 680234026,
+    "description": "A Yellow Perch, commonly found in freshwater rivers.",
+    "stackSize": 10
   }
 ]
