@@ -166,6 +166,27 @@
             color: #e0e0e0;
             font-weight: bold;
         }
+
+        /* Message for loading errors */
+        #loading-error-message {
+            background-color: #383838;
+            color: #c84820;
+            border: 1px solid #a03010;
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 8px;
+            font-size: 1.1em;
+            line-height: 1.5;
+            text-align: left;
+            display: none; /* Hidden by default */
+        }
+        #loading-error-message code {
+            background-color: #1a1a1a;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-family: monospace;
+            color: #ffe0b2;
+        }
     </style>
 </head>
 <body>
@@ -197,15 +218,29 @@
             <p id="final-score-text"></p>
             <button id="restart-btn">Play Again</button>
         </div>
+
+        <!-- Loading Error Message (initially hidden) -->
+        <div id="loading-error-message" class="hidden">
+            <h3>⚠ Error Loading Game Data</h3>
+            <p>Could not load <code>items.json</code>. This usually happens when opening the HTML file directly from your computer (<code>file://</code> protocol).</p>
+            <p><strong>To fix this:</strong></p>
+            <ol>
+                <li><strong>Run a Local Web Server:</strong></li>
+                <li>Navigate to this folder in your terminal/command prompt.</li>
+                <li>Run <code>python -m http.server</code> (if you have Python 3) or <code>npx serve</code> (if you have Node.js and serve installed).</li>
+                <li>Open your browser to the address provided (e.g., <code>http://localhost:8000</code>).</li>
+            </ol>
+            <p>Ensure <code>items.json</code> is in the same directory as this HTML file and is correctly formatted JSON.</p>
+        </div>
     </div>
 
     <script>
-        // script.js content goes here
         document.addEventListener('DOMContentLoaded', () => {
             // DOM Elements
             const menuScreen = document.getElementById('menu-screen');
             const gameScreen = document.getElementById('game-screen');
             const resultsScreen = document.getElementById('results-screen');
+            const loadingErrorMessage = document.getElementById('loading-error-message');
 
             const easyBtn = document.getElementById('easy-btn');
             const mediumBtn = document.getElementById('medium-btn');
@@ -220,139 +255,12 @@
             const finalScoreText = document.getElementById('final-score-text');
 
             // Game Variables
-            let allItems = []; // Stores all items for the game
+            let allItems = []; // Stores all valid items from items.json
             let gameItems = []; // Items for the current game session
             let currentItemIndex = 0;
             let score = 0;
             let totalQuestions = 0;
             let currentDifficulty = '';
-
-            // --- EMBED YOUR ITEMS.JSON DATA HERE ---
-            // IMPORTANT: Replace the content below with your actual items.json data.
-            // It must be a valid JavaScript array of objects.
-            allItems = [
-              {
-                "name": "Stone Hatchet",
-                "info": "A crude hatchet, useful for chopping wood and breaking stones."
-              },
-              {
-                "name": "Torch",
-                "info": "Provides a small amount of light and heat. Can be used as a weapon."
-              },
-              {
-                "name": "Bandage",
-                "info": "Heals a small amount of health over time. Stops bleeding."
-              },
-              {
-                "name": "5.56 Rifle Ammo",
-                "info": "Ammunition for a Rifle. Loses velocity when fired over long distances resulting in slightly decreased damage."
-              },
-              {
-                "name": "Shotgun Shell",
-                "info": "Single large projectile for a Shotgun. Effective at close range."
-              },
-              {
-                "name": "Metal Ore",
-                "info": "Raw metal, can be smelted in a furnace to produce Metal Fragments."
-              },
-              {
-                "name": "Low Grade Fuel",
-                "info": "A basic combustible fuel, used in furnaces, lamps, and various other crafting recipes."
-              },
-              {
-                "name": "Wood",
-                "info": "Basic building material, essential for crafting and construction."
-              },
-              {
-                "name": "Stones",
-                "info": "Common resource, used for crafting tools, foundations, and more."
-              },
-              {
-                "name": "Cloth",
-                "info": "Soft material, used for crafting clothing, bandages, and other items."
-              },
-              {
-                "name": "Road Sign Kilt",
-                "info": "A kilt made from road signs, offers good protection and a unique aesthetic."
-              },
-              {
-                "name": "Large Furnace",
-                "info": "A large version of the furnace, capable of smelting more resources at once."
-              },
-              {
-                "name": "Assault Rifle",
-                "info": "A high-tier, fully automatic rifle, deadly at medium to long ranges."
-              },
-              {
-                "name": "Medical Syringe",
-                "info": "Instantly restores a significant amount of health. Consumable."
-              },
-              {
-                "name": "Explosive 5.56 Rifle Ammo",
-                "info": "Ammunition that explodes on impact, dealing area damage and destroying weaker structures."
-              },
-              {
-                "name": "Water Pipe Shotgun",
-                "info": "A makeshift single-shot shotgun, effective in close quarters."
-              },
-              {
-                "name": "Bear Trap",
-                "info": "A deployable trap that deals damage and immobilizes players or animals."
-              },
-              {
-                "name": "Scrap",
-                "info": "A valuable resource used for crafting, trading at Bandit Camp, and researching blueprints."
-              },
-              {
-                "name": "Auto Turret",
-                "info": "A deployable automated defense system that shoots enemies."
-              },
-              {
-                "name": "M249",
-                "info": "A rare and powerful light machine gun, featuring a large magazine capacity and high rate of fire."
-              },
-              {
-                "name": "C4 (Timed Explosive)",
-                "info": "A powerful explosive used for raiding and destroying strong fortifications."
-              },
-              {
-                "name": "Rocket Launcher",
-                "info": "A heavy weapon that fires rockets, ideal for breaching heavily fortified bases."
-              },
-              {
-                "name": "Research Table",
-                "info": "Used to research new blueprints from items you possess."
-              },
-              {
-                "name": "Work Bench Level 1",
-                "info": "The most basic workbench, allows crafting of simple tools and items."
-              },
-              {
-                "name": "Work Bench Level 2",
-                "info": "An intermediate workbench, unlocks more complex crafting recipes."
-              },
-              {
-                "name": "Work Bench Level 3",
-                "info": "The highest tier workbench, required for crafting the most advanced items in the game."
-              },
-              {
-                "name": "Armored Door",
-                "info": "The strongest door available, resistant to most forms of attack."
-              },
-              {
-                "name": "Large Wood Box",
-                "info": "A basic storage container with a large capacity."
-              },
-              {
-                "name": "Garage Door",
-                "info": "A wide, retractable door often used for vehicle access or main base entrances."
-              },
-              {
-                "name": "Supply Drop",
-                "info": "A crate dropped from an airplane containing valuable loot."
-              }
-            ];
-            // --- END OF EMBEDDED ITEMS.JSON DATA ---
 
             // --- Utility Functions ---
 
@@ -370,25 +278,56 @@
                 menuScreen.classList.add('hidden');
                 gameScreen.classList.add('hidden');
                 resultsScreen.classList.add('hidden');
+                loadingErrorMessage.classList.add('hidden'); // Always hide error message when showing game screens
                 screenToShow.classList.remove('hidden');
             }
 
             // --- Game Logic ---
 
-            // Initializes the game or shows an error if items data is bad
-            function initializeGame() {
-                // Basic validation: ensure allItems is an array and has items
-                if (!Array.isArray(allItems) || allItems.length === 0) {
-                    alert('Error: Item data is empty or not a valid array. Please check the embedded data in the script.');
-                    return; // Stop initialization
+            // Loads item data from items.json and filters them
+            async function loadItemsData() {
+                // Hide all game screens and show a loading indicator or just prepare
+                showScreen(menuScreen); // Default to menu screen
+                loadingErrorMessage.classList.add('hidden'); // Hide any previous error
+
+                try {
+                    const response = await fetch('items.json');
+                    if (!response.ok) {
+                        // Check for common errors like file not found (404)
+                        if (response.status === 404) {
+                            throw new Error('items.json not found.');
+                        }
+                        // Generic error for other HTTP issues (e.g., CORS)
+                        throw new Error(`HTTP error! Status: ${response.status}.`);
+                    }
+                    const rawItems = await response.json();
+
+                    // Filter out items where displayName or description is null/empty/whitespace only
+                    allItems = rawItems.filter(item =>
+                        item.displayName && String(item.displayName).trim() !== '' &&
+                        item.description && String(item.description).trim() !== ''
+                    );
+
+                    // Basic validation: ensure allItems is an array and has items
+                    if (!Array.isArray(allItems) || allItems.length === 0) {
+                        throw new Error('No valid items found in items.json after filtering (missing or empty displayName/description).');
+                    }
+                    console.log('Valid items loaded:', allItems.length);
+                    // Buttons should be enabled by default, but this can ensure if they were disabled before an error
+                    enableDifficultyButtons(true);
+                    showMenu(); // Show menu only after items are successfully loaded
+                } catch (error) {
+                    console.error('Could not load or parse items.json:', error);
+                    showScreen(loadingErrorMessage); // Show the error message
+                    // Disable game start buttons
+                    enableDifficultyButtons(false);
                 }
-                // Further validation: ensure each item has 'name' and 'info'
-                if (!allItems.every(item => item.name && item.info)) {
-                    alert('Error: Some items in the embedded data are missing "name" or "info" properties.');
-                    return; // Stop initialization
-                }
-                console.log('Items loaded:', allItems.length);
-                showMenu();
+            }
+
+            function enableDifficultyButtons(enabled) {
+                easyBtn.disabled = !enabled;
+                mediumBtn.disabled = !enabled;
+                expertBtn.disabled = !enabled;
             }
 
             // Shows the main menu
@@ -419,9 +358,9 @@
                 totalQuestions = gameItems.length;
                 console.log(`Starting ${difficulty} game with ${totalQuestions} items.`);
 
-                // If no items are selected (e.g., embedded data is too small for difficulty), go back to menu
+                // If no items are selected (e.g., filtered data is too small for difficulty), go back to menu
                 if (totalQuestions === 0) {
-                    alert('Not enough items available for this difficulty. Please add more items to the embedded data or choose an easier difficulty.');
+                    alert('Not enough valid items available for this difficulty after filtering. Please check your items.json file or choose an easier difficulty.');
                     showMenu();
                     return;
                 }
@@ -438,7 +377,8 @@
                 }
 
                 const currentItem = gameItems[currentItemIndex];
-                questionText.textContent = `What description belongs to: ${currentItem.name}?`;
+                // Use displayName for the question text
+                questionText.textContent = `What description belongs to: ${currentItem.displayName}?`;
                 scoreText.textContent = `Score: ${score}`;
                 progressText.textContent = `Question: ${currentItemIndex + 1}/${totalQuestions}`;
 
@@ -448,16 +388,19 @@
                 feedbackText.textContent = '';
 
                 // Generate choices
-                const correctDescription = currentItem.info;
+                const correctDescription = currentItem.description;
                 const incorrectDescriptions = new Set(); // Use a Set to ensure uniqueness
 
-                // Filter out the current item and get other descriptions
-                const otherItems = allItems.filter(item => item.name !== currentItem.name && item.info);
+                // Filter out the current item and get other valid descriptions
+                const otherItems = allItems.filter(item =>
+                    item.displayName !== currentItem.displayName &&
+                    item.description && String(item.description).trim() !== ''
+                );
 
-                // Populate incorrect descriptions (max 3)
+                // Populate incorrect descriptions (up to 3 unique ones)
                 const shuffledOtherItems = shuffleArray(otherItems);
                 for (let i = 0; incorrectDescriptions.size < 3 && i < shuffledOtherItems.length; i++) {
-                    incorrectDescriptions.add(shuffledOtherItems[i].info);
+                    incorrectDescriptions.add(shuffledOtherItems[i].description);
                 }
 
                 // Combine correct and unique incorrect descriptions
@@ -469,10 +412,10 @@
                 // Ensure there are always 4 choices if possible. If not enough unique incorrect ones,
                 // the game will proceed with fewer choices. This makes it more robust for small datasets.
                 while (allChoices.length < 4 && allChoices.length < allItems.length) {
-                    // Find a random item not already represented in choices
+                    // Find a random valid item not already represented in choices
                     const randomItem = allItems[Math.floor(Math.random() * allItems.length)];
-                    if (randomItem.info && !allChoices.some(choice => choice.text === randomItem.info)) {
-                        allChoices.push({ text: randomItem.info, isCorrect: false });
+                    if (randomItem.description && String(randomItem.description).trim() !== '' && !allChoices.some(choice => choice.text === randomItem.description)) {
+                        allChoices.push({ text: randomItem.description, isCorrect: false });
                     }
                 }
 
@@ -538,8 +481,8 @@
             expertBtn.addEventListener('click', () => startGame('expert'));
             restartBtn.addEventListener('click', showMenu);
 
-            // Initial game setup
-            initializeGame();
+            // Initial game setup: load items data
+            loadItemsData();
         });
     </script>
 </body>
