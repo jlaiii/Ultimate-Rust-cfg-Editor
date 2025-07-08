@@ -295,6 +295,21 @@
 
             // Game Variables
             let allItems = []; // Stores all items loaded from items.json
+
+            // NEW: Sample data for local testing fallback (Adapted from RIL.html)
+            const sampleItems = [
+                { "name": "Wood", "info": "A basic resource. Used for crafting and building. Can be found everywhere." },
+                { "name": "Stone", "info": "Another fundamental resource. Stronger than wood. Essential for early bases." },
+                { "name": "Metal Ore", "info": "Raw ore, smelt into metal fragments. Found in mountains and rocky areas." },
+                { "name": "Low Grade Fuel", "info": "A combustible liquid used to power various devices and for crafting explosives." },
+                { "name": "Scrap", "info": "Valuable material for crafting advanced items and researching blueprints." },
+                { "name": "Assault Rifle", "info": "A powerful and versatile automatic rifle." },
+                { "name": "Medical Syringe", "info": "Administers a healing dose, restoring health." },
+                { "name": "Large Wood Box", "info": "A spacious wooden container for storing items." },
+                { "name": "Explosive 556 Rifle Ammo", "info": "High-explosive ammunition for rifles, dealing splash damage." },
+                { "name": "Water Bottle", "info": "A reusable container for fresh water." }
+            ];
+
             let gameItems = []; // Items for the current game session
             let currentItemIndex = 0;
             let score = 0;
@@ -305,20 +320,6 @@
             const TIME_PER_QUESTION = 30; // 30 seconds per question
             let countdown = TIME_PER_QUESTION;
             let timerInterval;
-
-            // Sample data for local testing fallback (adapted from RIL.html structure)
-            const sampleItems = [
-                { "name": "Wood", "info": "A basic resource. Used for crafting and building. Can be found everywhere.", "stackSize": 1000, "itemID": -828093181 },
-                { "name": "Stone", "info": "Another fundamental resource. Stronger than wood. Essential for early bases.", "stackSize": 1000, "itemID": 1782298708 },
-                { "name": "Metal Ore", "info": "Raw ore, smelt into metal fragments. Found in mountains and rocky areas.", "stackSize": 1000, "itemID": 792266209 },
-                { "name": "Low Grade Fuel", "info": "A combustible liquid used to power various devices and for crafting explosives.", "stackSize": 1000, "itemID": 428795550 },
-                { "name": "Scrap", "info": "Valuable material for crafting advanced items and researching blueprints.", "stackSize": 1000, "itemID": -93220167 },
-                { "name": "Assault Rifle", "info": "A powerful and versatile automatic rifle.", "stackSize": 1, "itemID": 907026405 },
-                { "name": "Medical Syringe", "info": "Administers a healing dose, restoring health.", "stackSize": 5, "itemID": 2097368936 },
-                { "name": "Large Wood Box", "info": "A spacious wooden container for storing items.", "stackSize": 1, "itemID": 1391910243 },
-                { "name": "Explosive 556 Rifle Ammo", "info": "High-explosive ammunition for rifles, dealing splash damage.", "stackSize": 128, "itemID": -1219315998 },
-                { "name": "Water Bottle", "info": "A reusable container for fresh water.", "stackSize": 1, "itemID": 1494954471 }
-            ];
 
             // --- Utility Functions ---
 
@@ -344,7 +345,7 @@
 
             // --- Game Logic ---
 
-            // Loads item data from items.json, with fallback to sample data
+            // Loads item data from items.json
             async function loadItemsData() {
                 try {
                     errorMessageDiv.classList.add('hidden'); // Ensure previous error is hidden
@@ -352,47 +353,76 @@
 
                     const response = await fetch('items.json');
                     if (!response.ok) {
-                        const errorText = response.status === 404 ? 
-                                          'items.json not found. Make sure it is in the same folder.' : 
+                        const errorText = response.status === 404 ?
+                                          'items.json not found. Make sure it is in the same folder.' :
                                           `HTTP error! status: ${response.status} (Likely a network or CORS issue).`;
                         throw new Error(errorText);
                     }
-                    allItems = await response.json();
+                    let rawItems = await response.json(); // Get raw data
 
-                    // Data validation
+                    // MODIFIED: Data cleaning similar to RIL.html, adapted for 'name' and 'info'
+                    allItems = rawItems.map(item => ({
+                        name: item.name || item.displayName || 'Unnamed Item', // Fallback for name
+                        info: item.info || item.description || 'No description available.' // Fallback for info
+                    }));
+
+                    // Initial data validation (after cleaning, before final filtering)
                     if (!Array.isArray(allItems) || allItems.length === 0) {
-                        throw new Error('items.json is empty or not a valid array.');
-                    }
-                    if (!allItems.every(item => item.name && item.info)) {
-                        throw new Error('Some items in items.json are missing "name" or "info" properties.');
+                        throw new Error('items.json is empty or not a valid array after initial processing.');
                     }
 
                     console.log('Items loaded from items.json:', allItems.length);
                 } catch (error) {
                     console.error('Could not load items.json:', error);
-                    allItems = sampleItems; // Fallback to sample data
+                    // NEW: Fallback to sample items if loading fails
+                    allItems = sampleItems; 
 
-                    // Construct the error message for the user
+                    // MODIFIED: Construct the error message for the user, now indicating sample data
                     let userMessage = `<i class="fas fa-exclamation-triangle"></i> Error loading game data: ${error.message}<br>`;
-                    
+
                     // Add specific advice for file:// protocol errors
                     if (error.message.includes('HTTP error') || error.message.includes('NetworkError') || error.message.includes('failed to fetch')) {
                          userMessage += `
                             Important: If you are running this file directly from your computer (e.g., <span style="font-family: monospace;">file:///</span>), your browser might block loading 'items.json' due to security restrictions. To fix this, please run a local web server.
                         `;
                     }
+                    userMessage += `<br>Falling back to sample data. Game might have fewer items.`; // NEW: Indicate fallback
 
-                    // Inform about fallback to sample data or complete failure
-                    if (allItems.length > 0) {
-                        userMessage += `<br>Showing sample data for local testing.`;
-                    } else {
-                        userMessage += `<br>No sample data available or sample data is invalid. Game cannot proceed.`;
-                    }
-                    
                     errorMessageDiv.innerHTML = userMessage;
                     errorMessageDiv.classList.remove('hidden');
                 } finally {
-                    showMenu(); // Always show the menu after attempting to load items
+                    // Filter allItems to ensure every item has 'name' and 'info' properties,
+                    // in case items.json was partially valid or had malformed entries.
+                    const initialItemCount = allItems.length;
+                    allItems = allItems.filter(item => item && typeof item.name === 'string' && item.name.trim() !== '' && typeof item.info === 'string' && item.info.trim() !== '');
+                    const validItemCount = allItems.length;
+
+                    if (validItemCount === 0 && initialItemCount > 0) { // If all items were filtered out
+                        // If there was no prior error message, show a critical one
+                        if (errorMessageDiv.classList.contains('hidden')) {
+                             errorMessageDiv.innerHTML = `
+                                <i class="fas fa-exclamation-triangle"></i> Critical Error: All items loaded were invalid (missing name/info). Game cannot proceed.
+                            `;
+                        } else { // Append to existing error message
+                             errorMessageDiv.innerHTML += `<br><i class="fas fa-exclamation-triangle"></i> Also, all loaded items were invalid (missing name/info).`;
+                        }
+                        errorMessageDiv.classList.remove('hidden');
+                    } else if (validItemCount < initialItemCount) {
+                        // If some items were filtered out but there are still valid ones
+                        let existingMsg = errorMessageDiv.innerHTML;
+                        if (existingMsg === '') { // If no error message was previously set
+                            errorMessageDiv.innerHTML = `
+                                <i class="fas fa-exclamation-triangle"></i> Warning: ${initialItemCount - validItemCount} item(s) were filtered out due to missing or invalid properties. Using ${validItemCount} valid items.
+                            `;
+                            errorMessageDiv.classList.remove('hidden');
+                        } else { // If an error message was already set (e.g., items.json failed, but still some "items" array was assigned)
+                            errorMessageDiv.innerHTML += `<br><i class="fas fa-info-circle"></i> Note: ${initialItemCount - validItemCount} item(s) were further filtered due to missing or invalid properties. Using ${validItemCount} valid items.`;
+                            errorMessageDiv.classList.remove('hidden'); // Ensure it's visible
+                        }
+                        console.warn(`Filtered out ${initialItemCount - validItemCount} item(s) due to missing "name" or "info" properties.`);
+                    }
+
+                    showMenu(); // Always show the menu after attempting to load and filter items
                 }
             }
 
@@ -414,7 +444,7 @@
                 // Ensure allItems is loaded and not empty before starting a game
                 if (!Array.isArray(allItems) || allItems.length === 0) {
                     errorMessageDiv.innerHTML = `
-                        <i class="fas fa-exclamation-triangle"></i> Cannot start game. Item data is not loaded or is empty. Please check the console for details.
+                        <i class="fas fa-exclamation-triangle"></i> Cannot start game. Item data is not loaded or is empty after filtering. Please ensure 'items.json' is correctly placed and formatted.
                     `;
                     errorMessageDiv.classList.remove('hidden');
                     showMenu(); // Return to menu with error visible
@@ -438,7 +468,7 @@
                 // If no items are selected (e.g., items.json is too small for difficulty, even with fallback), go back to menu
                 if (totalQuestions === 0) {
                     errorMessageDiv.innerHTML = `
-                        <i class="fas fa-exclamation-triangle"></i> Not enough items available for this difficulty (${currentDifficulty}). Please add more items to items.json or choose an easier difficulty.
+                        <i class="fas fa-exclamation-triangle"></i> Not enough valid items available for this difficulty (${currentDifficulty}). Please add more items to 'items.json' or choose an easier difficulty.
                     `;
                     errorMessageDiv.classList.remove('hidden');
                     showMenu();
@@ -480,7 +510,7 @@
                 const correctDescription = currentItem.info;
                 const incorrectDescriptions = new Set(); // Use a Set to ensure uniqueness
 
-                // Filter out the current item and get other descriptions
+                // Filter out the current item and get other descriptions that are valid
                 const otherItems = allItems.filter(item => item.name !== currentItem.name && item.info);
 
                 // Populate incorrect descriptions (max 3)
